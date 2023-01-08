@@ -1,0 +1,438 @@
+@elysium_cost = 500
+@elysium_maintenance = 5
+
+###############################################################################################################
+###############################################################################################################
+#          HABITATION
+###############################################################################################################
+###############################################################################################################
+
+district_giga_elysium_housing = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+	icon = district_hab_housing
+
+	show_on_uncolonized = {
+		uses_district_set = @giga_elysium
+	}
+
+	potential = {
+		uses_district_set = @giga_elysium
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @elysium_cost
+		}
+		upkeep = {
+			energy = @elysium_maintenance
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 8
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_politician
+		trigger = "
+			owner = {
+				tec_has_ruler_civic = no
+			}
+		"
+		display = with_desc
+		count = 1
+		mult = 1
+	}
+
+	
+	# Politician Swaps
+		inline_script = {
+			script = jobs/inline_evolved_politician_civic_swaps
+			trigger = ""
+			display = with_desc
+			count = 1
+			mult = 1
+		}
+	# /
+
+	# Megacorp Ruler Civics
+		inline_script = {
+			script = jobs/inline_evolved_executive_civic_swaps
+			trigger = ""
+			display = with_desc
+			count = 1
+			mult = 1
+		}
+	# /
+
+	#######################################################
+	# Gestalts
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		trigger = ""
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		trigger = "
+			owner = {
+				OR = {
+					tec_has_maintenance_swap_civic_hive = yes	
+					tec_has_ruler_civic_machine = yes
+				}
+				NOT = { has_valid_civic = civic_tec_machine_reimaginators }
+			}
+		"
+		count = -1
+		mult = 1
+		display = no_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_civic_hive_swaps
+		trigger= ""
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_civic_machine_swaps
+		trigger= ""
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          CONTROL
+###############################################################################################################
+###############################################################################################################
+
+district_giga_elysium_control = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = @giga_elysium
+	}
+
+	potential = {
+		uses_district_set = @giga_elysium
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @elysium_cost
+		}
+		upkeep = {
+			energy = @elysium_maintenance
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = { is_gestalt = no }
+		"
+		job = giga_elysium_controller
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = { 
+				is_gestalt = no 
+				tec_has_psionic_ascension_path = yes
+			}
+		"
+		job = telepath
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		trigger = "
+			owner = { 
+				tec_has_psionic_ascension_path = no
+			}
+		"
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = { is_gestalt = yes }
+		"
+		job = giga_elysium_controller_drone
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		trigger = ""
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          ADMIN
+###############################################################################################################
+###############################################################################################################
+
+district_giga_elysium_admin = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	icon = district_arcology_administrative
+
+	show_on_uncolonized = {
+		uses_district_set = @giga_elysium
+	}
+
+	potential = {
+		uses_district_set = @giga_elysium
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @elysium_cost
+		}
+		upkeep = {
+			energy = @elysium_maintenance
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	#######################################################
+	# Normal Empire
+
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				is_spiritualist = no
+				has_make_spiritualist_perk = no
+			}
+		"
+	}
+	inline_script = {
+		script = jobs/inline_evolved_priest
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					is_spiritualist = yes
+					has_make_spiritualist_perk = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_priest
+		count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_is_spiritualist_secondary_cult = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_priest_swaps
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				tec_is_spiritualist_secondary_cult = yes
+			}
+		"
+	}
+
+	#######################################################
+	# Hives
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	#######################################################
+	# Machines (servitors can't build these, so all machines)
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          RESEARCH
+###############################################################################################################
+###############################################################################################################
+
+district_giga_elysium_science = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	icon = district_hab_science
+
+	show_on_uncolonized = {
+		uses_district_set = @giga_elysium
+	}
+
+	potential = {
+		uses_district_set = @giga_elysium
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @elysium_cost
+		}
+		upkeep = {
+			energy = @elysium_maintenance
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = head_researcher
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = { is_regular_empire = yes }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = { is_gestalt = yes }
+		"
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          AMENITIES
+###############################################################################################################
+###############################################################################################################
+
+district_giga_elysium_entertainment = {
+	base_buildtime = 240
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+	icon = district_hab_cultural
+
+	show_on_uncolonized = {
+		uses_district_set = @giga_elysium
+
+		exists = from
+		from = {
+			is_gestalt = no
+		}
+	}
+
+	potential = {
+		uses_district_set = @giga_elysium
+
+		exists = owner
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_elysium_admin
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @elysium_cost
+		}
+		upkeep = {
+			energy = @elysium_maintenance
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = giga_media_coordinator
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_entertainer
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}

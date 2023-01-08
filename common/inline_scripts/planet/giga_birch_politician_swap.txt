@@ -1,0 +1,62 @@
+# planet/giga_birch_politician_swap
+
+# Giga Compatibility
+
+inline_script = {
+	script = jobs/inline_evolved_politician
+	trigger = "
+		owner = {
+			tec_has_ruler_civic = no
+		}
+	"
+	display = with_desc
+	count = 2
+	mult = 1
+}
+
+inline_script = {
+	script = jobs/inline_evolved_politician_civic_swaps
+	trigger = ""
+	display = with_desc
+	count = 2
+	mult = 1
+}
+
+inline_script = {
+	script = jobs/inline_evolved_executive_civic_swaps
+	trigger = ""
+	display = with_desc
+	count = 2
+	mult = 1
+}
+
+inline_script = {
+	script = jobs/inline_evolved_add_ruler_civic_regular
+	trigger = ""
+	display = with_desc
+	count = 1
+	mult = 1
+}
+
+inline_script = {
+	script = jobs/inline_evolved_add_job_civic_regular
+	trigger = ""
+	display = with_desc
+	count = 1
+	mult = 1
+}
+
+inline_script = { # Statecraft - Imperial Admin
+	script = jobs/inline_evolved_job
+	trigger = "
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_active_tradition = tr_tec_statecraft_final_2
+		}
+	"
+	job = tec_imperial_admin
+	display = with_desc
+	count = 1
+	mult = 1
+}

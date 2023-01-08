@@ -1,0 +1,3 @@
+has_stellaris_evolved_giga = {
+	always = yes
+}
