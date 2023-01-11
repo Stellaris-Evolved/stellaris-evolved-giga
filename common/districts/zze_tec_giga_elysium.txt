@@ -241,54 +241,14 @@ district_giga_elysium_admin = {
 	# Normal Empire
 
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/inline_evolved_admin_split
 		count = 3
+		count_half = 1
+		megacorp_count = 2
+		megacorp_count_half = 1
 		mult = 1
 		display = with_desc
-		trigger = "
-			owner = {
-				is_spiritualist = no
-				has_make_spiritualist_perk = no
-			}
-		"
-	}
-	inline_script = {
-		script = jobs/inline_evolved_priest
-		count = 3
-		mult = 1
-		display = with_desc
-		trigger = "
-			owner = {
-				OR = {
-					is_spiritualist = yes
-					has_make_spiritualist_perk = yes
-				}
-			}
-		"
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_priest
-		count = -1
-		mult = 1
-		display = no_desc
-		trigger = "
-			owner = {
-				tec_is_spiritualist_secondary_cult = yes
-			}
-		"
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_priest_swaps
-		count = 1
-		mult = 1
-		display = with_desc
-		trigger = "
-			owner = {
-				tec_is_spiritualist_secondary_cult = yes
-			}
-		"
+		trigger = ""
 	}
 
 	#######################################################

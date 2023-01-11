@@ -1,0 +1,3 @@
+﻿l_english:
+
+giga_biotrophy_scaling_desc:0 "§WThis megastructure allows for much higher densities of £job_bio_trophy£ §Y$job_bio_trophy_plural$§! than normal planets. This effect offsets the extreme stacking of §Y$mod_planet_jobs_complex_drone_produces_mult$§! when they reach high numbers.\n\nAdditional £job_bio_trophy£ §Y$job_bio_trophy_plural$§! are always beneficial, but the efficiency of each new pop decreases beyond §Y100§! to §Y20%§! at §Y300§! pops.\n\n$job_bio_trophy$ Pops: §Y[Root.giga_biotrophy_count]§!\nBase Bonus: §G+[Root.giga_biotrophy_evolved_output]%§!\nAdjusted Bonus: §G+[Root.giga_biotrophy_adjusted]%§!\nEfficiency: §Y[Root.giga_biotrophy_efficiency]%§!§!\n§W--------------§!\n$giga_biotrophy_scaling_fluff$"

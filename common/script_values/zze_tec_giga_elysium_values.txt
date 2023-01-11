@@ -406,56 +406,57 @@ giga_elysium_regular_colony_split = {
 		}
 		weight = value:giga_elysium_regular_city_jobs|$JOB$|yes| 
 	}
-	modifier = { colony_type = col_mining 						weight = value:giga_elysium_regular_mining_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_farming 						weight = value:giga_elysium_regular_farming_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_generator 					weight = value:giga_elysium_regular_generator_jobs|$JOB$|yes| }
+	modifier = { 
+		has_mining_designation = yes				
+		weight = value:giga_elysium_regular_mining_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_farming_designation = yes				
+		weight = value:giga_elysium_regular_farming_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_generator_designation = yes			
+		weight = value:giga_elysium_regular_generator_jobs|$JOB$|yes| 
+	}
 
 	modifier = {
-		or = {
-			colony_type = col_industrial
-			colony_type = col_ecu_industrial
-		}
+		has_industrial_designation = yes
 		weight = value:giga_elysium_regular_industrial_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_foundry
-			colony_type = col_hiv_foundry
-			colony_type = col_mac_foundry
-			colony_type = col_ecu_foundry
-		}
+		has_foundry_designation = yes
 		weight = value:giga_elysium_regular_foundry_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_factory
-			colony_type = col_mac_factory
-			colony_type = col_ecu_factory
-		}
+		has_factory_designation = yes
 		weight = value:giga_elysium_regular_factory_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_research 	
-			colony_type = col_ecu_research				
-		}
+		has_research_designation = yes
 		weight = value:giga_elysium_regular_research_jobs|$JOB$|yes| 
 	}
 
-	modifier = { colony_type = col_refinery 					weight = value:giga_elysium_regular_refinery_jobs|$JOB$|yes| }
-	
-	modifier = { colony_type = col_giga_supertensiles_foundry 	weight = value:giga_elysium_regular_supertensiles_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_fortress 					weight = value:giga_elysium_regular_fortress_jobs|$JOB$|yes| }
 	modifier = { 
-		or = {
-			colony_type = col_bureau 
-			colony_type = col_bureau_spiritualist
-			colony_type = col_bureau_hive
-			colony_type = col_bureau_machine
-		}
+		colony_type = col_refinery 					
+		weight = value:giga_elysium_regular_refinery_jobs|$JOB$|yes| 
+	}
+	
+	modifier = { 
+		colony_type = col_giga_supertensiles_foundry 	
+		weight = value:giga_elysium_regular_supertensiles_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_fortress_designation = yes 					
+		weight = value:giga_elysium_regular_fortress_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_unity_designation = yes
 		weight = value:giga_elysium_regular_bureau_jobs|$JOB$|yes| 
 	}
-	modifier = { colony_type = col_ecu_mix 						weight = value:giga_elysium_regular_ecu_jobs|$JOB$|yes| }
+	modifier = { 
+		colony_type = col_ecu_mix 						
+		weight = value:giga_elysium_regular_ecu_jobs|$JOB$|yes| 
+	}
 }
 
 ######################################################################################################################
@@ -472,56 +473,58 @@ giga_elysium_hive_colony_split = {
 		}
 		weight = value:giga_elysium_hive_city_jobs|$JOB$|yes| 
 	}
-	modifier = { colony_type = col_mining 						weight = value:giga_elysium_hive_mining_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_farming 						weight = value:giga_elysium_hive_farming_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_generator 					weight = value:giga_elysium_hive_generator_jobs|$JOB$|yes| }
+	modifier = { 
+		has_mining_designation = yes 						
+		weight = value:giga_elysium_hive_mining_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_farming_designation = yes						
+		weight = value:giga_elysium_hive_farming_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_generator_designation = yes
+		weight = value:giga_elysium_hive_generator_jobs|$JOB$|yes| 
+	}
 
 	modifier = {
-		or = {
-			colony_type = col_industrial
-			colony_type = col_ecu_industrial
-		}
+		has_industrial_designation = yes
 		weight = value:giga_elysium_hive_industrial_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_foundry
-			colony_type = col_hiv_foundry
-			colony_type = col_mac_foundry
-			colony_type = col_ecu_foundry
-		}
+		has_foundry_designation = yes
 		weight = value:giga_elysium_hive_foundry_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_factory
-			colony_type = col_mac_factory
-			colony_type = col_ecu_factory
-		}
+		has_factory_designation = yes
 		weight = value:giga_elysium_hive_factory_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_research 	
-			colony_type = col_ecu_research				
-		}
+		has_research_designation = yes
 		weight = value:giga_elysium_hive_research_jobs|$JOB$|yes| 
 	}
 
-	modifier = { colony_type = col_refinery 					weight = value:giga_elysium_hive_refinery_jobs|$JOB$|yes| }
-	
-	modifier = { colony_type = col_giga_supertensiles_foundry 	weight = value:giga_elysium_hive_supertensiles_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_fortress 					weight = value:giga_elysium_hive_fortress_jobs|$JOB$|yes| }
 	modifier = { 
-		or = {
-			colony_type = col_bureau 
-			colony_type = col_bureau_spiritualist
-			colony_type = col_bureau_hive
-			colony_type = col_bureau_machine
-		}
+		colony_type = col_refinery 					
+		weight = value:giga_elysium_hive_refinery_jobs|$JOB$|yes| 
+	}
+	
+	modifier = { 
+		colony_type = col_giga_supertensiles_foundry 	
+		weight = value:giga_elysium_hive_supertensiles_jobs|$JOB$|yes| 
+	}
+
+	modifier = { 
+		has_fortress_designation = yes	
+		weight = value:giga_elysium_hive_fortress_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_unity_designation = yes
 		weight = value:giga_elysium_hive_bureau_jobs|$JOB$|yes| 
 	}
-	modifier = { colony_type = col_ecu_mix 						weight = value:giga_elysium_hive_ecu_jobs|$JOB$|yes| }
+	modifier = { 
+		colony_type = col_ecu_mix 						
+		weight = value:giga_elysium_hive_ecu_jobs|$JOB$|yes|
+	}
 }
 
 ######################################################################################################################
@@ -538,58 +541,62 @@ giga_elysium_machine_colony_split = {
 		}
 		weight = value:giga_elysium_machine_city_jobs|$JOB$|yes| 
 	}
-	modifier = { colony_type = col_mining 						weight = value:giga_elysium_machine_mining_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_farming 						weight = value:giga_elysium_machine_farming_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_generator 					weight = value:giga_elysium_machine_generator_jobs|$JOB$|yes| }
+	modifier = { 
+		has_mining_designation = yes
+		weight = value:giga_elysium_machine_mining_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_farming_designation = yes
+		weight = value:giga_elysium_machine_farming_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_generator_designation = yes
+		weight = value:giga_elysium_machine_generator_jobs|$JOB$|yes| 
+	}
 
 	modifier = {
-		or = {
-			colony_type = col_industrial
-			colony_type = col_ecu_industrial
-		}
+		has_industrial_designation = yes
 		weight = value:giga_elysium_machine_industrial_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_foundry
-			colony_type = col_hiv_foundry
-			colony_type = col_mac_foundry
-			colony_type = col_ecu_foundry
-		}
+		has_foundry_designation = yes
 		weight = value:giga_elysium_machine_foundry_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_factory
-			colony_type = col_mac_factory
-			colony_type = col_ecu_factory
-		}
+		has_factory_designation = yes
 		weight = value:giga_elysium_machine_factory_jobs|$JOB$|yes| 
 	}
 	modifier = { 
-		or = {
-			colony_type = col_research 	
-			colony_type = col_ecu_research				
-		}
+		has_research_designation = yes
 		weight = value:giga_elysium_machine_research_jobs|$JOB$|yes| 
 	}
 
-	modifier = { colony_type = col_refinery 					weight = value:giga_elysium_machine_refinery_jobs|$JOB$|yes| }
-	
-	modifier = { colony_type = col_giga_supertensiles_foundry 	weight = value:giga_elysium_machine_supertensiles_jobs|$JOB$|yes| }
-	modifier = { colony_type = col_fortress 					weight = value:giga_elysium_machine_fortress_jobs|$JOB$|yes| }
 	modifier = { 
-		or = {
-			colony_type = col_bureau 
-			colony_type = col_bureau_spiritualist
-			colony_type = col_bureau_hive
-			colony_type = col_bureau_machine
-		}
+		colony_type = col_refinery 					
+		weight = value:giga_elysium_machine_refinery_jobs|$JOB$|yes| 
+	}
+	
+	modifier = { 
+		colony_type = col_giga_supertensiles_foundry 	
+		weight = value:giga_elysium_machine_supertensiles_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_fortress_designation = yes 					
+		weight = value:giga_elysium_machine_fortress_jobs|$JOB$|yes| 
+	}
+	modifier = { 
+		has_unity_designation = yes
 		weight = value:giga_elysium_machine_bureau_jobs|$JOB$|yes| 
 	}
-	modifier = { colony_type = col_ecu_mix 						weight = value:giga_elysium_machine_ecu_jobs|$JOB$|yes| }
+	modifier = { 
+		colony_type = col_ecu_mix 						
+		weight = value:giga_elysium_machine_ecu_jobs|$JOB$|yes| 
+	}
 
-	modifier = { colony_type = col_crucible 					weight = value:giga_elysium_crucible_jobs|$JOB$|yes| }
+	modifier = {
+		colony_type = col_crucible 					
+		weight = value:giga_elysium_crucible_jobs|$JOB$|yes| 
+	}
 }
 
 ######################################################################################################################
@@ -728,11 +735,22 @@ giga_elysium_regular_industrial_jobs = {
 		weight = 10
 		modifier = {
 			exists = owner
-			owner = { is_catalytic_empire = no }
+			owner = { 
+				is_catalytic_empire = no 
+				tec_is_quantum_alloys_empire = no
+			}
 			add = 10
 		}
 	]
-	[[technician]]
+	[[technician]
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes 
+			}
+			weight = 10
+		}
+	]
 	[[soldier]			weight = 10 ]
 
 	[[artisan]			weight = 10 ]
@@ -762,11 +780,29 @@ giga_elysium_regular_foundry_jobs = {
 	[[miner]
 		modifier = {
 			exists = owner
-			owner = { is_catalytic_empire = no }
+			owner = { 
+				is_catalytic_empire = no 
+				tec_is_quantum_alloys_empire = no
+			}
 			weight = 20
 		}
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes
+			}
+			weight = 10
+		}
 	]
-	[[technician]]
+	[[technician]
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes 
+			}
+			weight = 10
+		}
+	]
 	[[soldier]			weight = 10 ]
 
 	[[artisan]]
@@ -1063,11 +1099,29 @@ giga_elysium_hive_industrial_jobs = {
 	[[miner]
 		modifier = {
 			exists = owner
-			owner = { is_catalytic_empire = no }
-			add = 20
+			owner = { 
+				is_catalytic_empire = no 
+				tec_is_quantum_alloys_empire = no
+			}
+			weight = 20
+		}
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes
+			}
+			weight = 10
 		}
 	]
-	[[technician]]
+	[[technician]
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes 
+			}
+			weight = 10
+		}
+	]
 	[[soldier]			weight = 10 ]
 
 	[[artisan]]
@@ -1097,11 +1151,29 @@ giga_elysium_hive_foundry_jobs = {
 	[[miner]
 		modifier = {
 			exists = owner
-			owner = { is_catalytic_empire = no }
+			owner = { 
+				is_catalytic_empire = no 
+				tec_is_quantum_alloys_empire = no
+			}
 			weight = 20
 		}
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes
+			}
+			weight = 10
+		}
 	]
-	[[technician]]
+	[[technician]
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes 
+			}
+			weight = 10
+		}
+	]
 	[[soldier]			weight = 10 ]
 
 	[[artisan]]
@@ -1442,6 +1514,7 @@ giga_elysium_machine_industrial_jobs = {
 			owner = {
 				or = {
 					is_catalytic_empire = no
+					tec_is_quantum_alloys_empire = no
 					has_valid_civic = civic_machine_servitor
 				}
 			}
@@ -1449,11 +1522,23 @@ giga_elysium_machine_industrial_jobs = {
 		}
 		modifier = {
 			exists = owner
-			owner = { is_catalytic_empire = no }
+			owner = { 
+				is_catalytic_empire = no 
+				tec_is_quantum_alloys_empire = no
+			}
 			add = 10
 		}
 	]
-	[[technician]]
+	
+	[[technician]
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes 
+			}
+			weight = 10
+		}
+	]
 	[[soldier]			weight = 10 ]
 
 	[[artisan]
@@ -1504,7 +1589,33 @@ giga_elysium_machine_foundry_jobs = {
 			weight = 20
 		}
 	]
-	[[technician]]
+	[[miner]
+		modifier = {
+			exists = owner
+			owner = {
+				is_catalytic_empire = no
+				tec_is_quantum_alloys_empire = no
+			}
+			weight = 20
+		}
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes
+			}
+			weight = 10
+		}
+	]
+	
+	[[technician]
+		modifier = {
+			exists = owner
+			owner = { 
+				tec_is_quantum_alloys_empire = yes 
+			}
+			weight = 10
+		}
+	]
 	[[soldier]			weight = 10 ]
 
 	[[artisan]]

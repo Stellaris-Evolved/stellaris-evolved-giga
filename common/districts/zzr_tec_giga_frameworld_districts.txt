@@ -1,0 +1,2744 @@
+@base_cost = 300
+@city_cost = 500
+@advanced_cost = 1000
+@advanced_rare_cost = 50
+@advanced_double_cost = 2000
+@advanced_double_rare_cost = 100
+@mega_cost = 2000
+@mega_alloy_cost = 500
+@mega_rare_cost = 250
+@base_upkeep = 1
+@city_upkeep = 2
+@advanced_upkeep = 5
+@advanced_rare_upkeep = 1
+@advanced_double_upkeep = 10
+@advanced_double_rare_upkeep = 2
+@mega_upkeep = 20
+@mega_alloy_upkeep = 5
+@mega_rare_upkeep = 5
+@base_time = 240
+@city_time = 480
+@advanced_time = 720
+@mega_time = 960
+###############################################################################################################
+###############################################################################################################
+#          HABITATION
+###############################################################################################################
+###############################################################################################################
+district_giga_frameworld_city = {
+	base_buildtime = @city_time
+	icon = district_city
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_regular_empire = yes
+		}
+		OR = {
+			uses_district_set = giga_frameworld
+		}
+		not = {
+			has_deposit = d_frameworld_advanced_city
+		}
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_city
+		}
+	}
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_frameworld_nexus
+		district_giga_frameworld_hive
+		district_giga_frameworld_city_advanced
+		district_giga_frameworld_nexus_advanced
+		district_giga_frameworld_hive_advanced
+	}
+	resources = {
+		category = planet_districts_cities
+		cost = {
+			minerals = @city_cost
+		}
+		upkeep = {
+			energy = @city_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_max_buildings_add = 1
+	}
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 1
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+
+	# Civics
+		triggered_planet_modifier = {	# Idyll
+			potential = {
+				exists = owner
+				owner = {
+					tec_is_agrarian_idyll_empire = yes
+				}
+			}
+			modifier = {
+				planet_housing_add = -2
+			}
+		}
+		triggered_planet_modifier = {	# Keepers
+			potential = {
+				exists = owner
+				owner = {
+					OR = { has_civic = civic_tec_eco_keepers }
+				}
+			}
+			modifier = {
+				planet_housing_add = -1
+			}
+		}
+		triggered_planet_modifier = {	# Tribalism
+			potential = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_tec_tribalism
+				}
+			}
+			modifier = {
+				planet_housing_add = -2
+			}
+		}
+		triggered_planet_modifier = {	# Social prosperity
+			potential = {
+				exists = owner
+				owner = {
+					OR = { has_valid_civic = civic_tec_social_prosperity }
+				}
+			}
+			modifier = {
+				planet_housing_add = 1
+			}
+		}
+		triggered_planet_modifier = {	# Consumerism
+			potential = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_tec_consumerism
+				}
+			}
+			modifier = {
+				trade_value_add = 2
+			}
+		}
+	# /
+	# Jobs
+		# Base
+			inline_script = {
+				script = jobs/inline_evolved_clerk
+				count = 1
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+
+			# Traditions
+				inline_script = {
+					script = jobs/inline_evolved_clerk
+					count = 1
+					mult = 1
+					display = no_desc
+					trigger = "
+						owner = { has_active_tradition = tr_mercantile_trickle_up_economics }
+					"
+				}
+			# /
+		# /
+		# Socialguards
+		# /
+	# /
+}
+
+###############################################################################################################
+district_giga_frameworld_city_advanced = {
+	base_buildtime = @advanced_time
+	icon = district_city
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_regular_empire = yes
+		}
+		OR = {
+			uses_district_set = giga_frameworld
+		}
+		has_deposit = d_frameworld_advanced_city
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_city
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_nexus
+		district_giga_frameworld_hive
+		district_giga_frameworld_city
+		district_giga_frameworld_nexus_advanced
+		district_giga_frameworld_hive_advanced
+	}
+	resources = {
+		category = planet_districts_cities
+		cost = {
+			minerals = @advanced_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_max_buildings_add = 2
+	}
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 2
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+
+	# Civics
+		triggered_planet_modifier = {	# Idyll
+			potential = {
+				exists = owner
+				owner = {
+					tec_is_agrarian_idyll_empire = yes
+				}
+			}
+			modifier = {
+				planet_housing_add = -2
+			}
+		}
+		triggered_planet_modifier = {	# Keepers
+			potential = {
+				exists = owner
+				owner = {
+					OR = { has_civic = civic_tec_eco_keepers }
+				}
+			}
+			modifier = {
+				planet_housing_add = -1
+			}
+		}
+		triggered_planet_modifier = {	# Tribalism
+			potential = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_tec_tribalism
+				}
+			}
+			modifier = {
+				planet_housing_add = -2
+			}
+		}
+		triggered_planet_modifier = {	# Social prosperity
+			potential = {
+				exists = owner
+				owner = {
+					OR = { has_valid_civic = civic_tec_social_prosperity }
+				}
+			}
+			modifier = {
+				planet_housing_add = 1
+			}
+		}
+		triggered_planet_modifier = {	# Consumerism
+			potential = {
+				exists = owner
+				owner = {
+					has_valid_civic = civic_tec_consumerism
+				}
+			}
+			modifier = {
+				trade_value_add = 2
+			}
+		}
+	# /
+	# Jobs
+		# Base
+			inline_script = {
+				script = jobs/inline_evolved_clerk
+				count = 2
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+
+			# Traditions
+				inline_script = {
+					script = jobs/inline_evolved_clerk
+					count = 2
+					mult = 1
+					display = no_desc
+					trigger = "
+						owner = { has_active_tradition = tr_mercantile_trickle_up_economics }
+					"
+				}
+			# /
+		# /
+		# Socialguards
+		# /
+	# /
+}
+
+###############################################################################################################
+district_giga_frameworld_hive = {
+	base_buildtime = @city_time
+	icon = district_hive
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		from = {
+			is_hive_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_city
+		}
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_city
+		}
+	}
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_frameworld_nexus
+		district_giga_frameworld_city
+		district_giga_frameworld_city_advanced
+		district_giga_frameworld_nexus_advanced
+		district_giga_frameworld_hive_advanced
+	}
+	resources = {
+		category = planet_districts_cities
+		cost = {
+			minerals = @city_cost
+		}
+		upkeep = {
+			energy = @city_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 6
+		planet_max_buildings_add = 1
+	}
+	# Traditions/tech modifiers
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 1
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 3
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 1
+			mult = 1
+			display = no_desc
+			trigger = "
+				owner = { has_technology = tech_housing_2 }
+			"
+		}
+		# Bio/Lithospheric harmony
+			inline_script = {
+				script = jobs/inline_evolved_farmer
+				regular_count = 0
+				regular_aquatic_count = 0
+				hive_count = 1
+				hive_aquatic_count = 1
+				machine_count = 0
+				mult = 1
+				display = with_desc
+				trigger = "
+					owner = {
+						is_lithoid_empire = no
+						has_valid_civic = civic_tec_hive_menial
+					}
+				"
+			}
+
+			inline_script = {
+				script = jobs/inline_evolved_miner
+				regular_count = 0
+				regular_aquatic_count = 0
+				hive_count = 1
+				hive_aquatic_count = 1
+				machine_count = 0
+				mult = 1
+				display = with_desc
+				trigger = "
+					owner = {
+						is_lithoid_empire = yes
+						has_valid_civic = civic_tec_hive_menial
+					}
+				"
+			}
+		# /
+	# /
+}
+
+###############################################################################################################
+district_giga_frameworld_hive_advanced = {
+	base_buildtime = @advanced_time
+	icon = district_hive
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		from = {
+			is_hive_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_city
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_city
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_nexus
+		district_giga_frameworld_city
+		district_giga_frameworld_city_advanced
+		district_giga_frameworld_nexus_advanced
+		district_giga_frameworld_hive
+	}
+	resources = {
+		category = planet_districts_cities
+		cost = {
+			minerals = @advanced_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 12
+		planet_max_buildings_add = 2
+	}
+	# Traditions/tech modifiers
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 2
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 6
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 2
+			mult = 1
+			display = no_desc
+			trigger = "
+				owner = { has_technology = tech_housing_2 }
+			"
+		}
+		# Bio/Lithospheric harmony
+			inline_script = {
+				script = jobs/inline_evolved_farmer
+				regular_count = 0
+				regular_aquatic_count = 0
+				hive_count = 1
+				hive_aquatic_count = 1
+				machine_count = 0
+				mult = 1
+				display = with_desc
+				trigger = "
+					owner = {
+						is_lithoid_empire = no
+						has_valid_civic = civic_tec_hive_menial
+					}
+				"
+			}
+
+			inline_script = {
+				script = jobs/inline_evolved_miner
+				regular_count = 0
+				regular_aquatic_count = 0
+				hive_count = 1
+				hive_aquatic_count = 1
+				machine_count = 0
+				mult = 1
+				display = with_desc
+				trigger = "
+					owner = {
+						is_lithoid_empire = yes
+						has_valid_civic = civic_tec_hive_menial
+					}
+				"
+			}
+		# /
+	# /
+}
+
+###############################################################################################################
+district_giga_frameworld_nexus = {
+	base_buildtime = @city_time
+	icon = district_nexus
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		from = {
+			is_machine_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_city
+		}
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_city
+		}
+	}
+	allow = {
+		#hidden_trigger = {
+		exists = owner
+		or = {
+			owner = {
+				is_ai = no
+			}
+			# we need more housing
+			free_housing < 10
+			# we might still need to unlock buildings
+			num_districts = {
+				type = district_giga_frameworld_nexus
+				value < 10
+			}
+			# if we need more maintenance drones
+			frameworld_needs_more_maintenance_drones = yes
+		}
+		#}
+	}
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_frameworld_city
+		district_giga_frameworld_hive
+		district_giga_frameworld_city_advanced
+		district_giga_frameworld_nexus_advanced
+		district_giga_frameworld_hive_advanced
+	}
+	resources = {
+		category = planet_districts_cities
+		cost = {
+			minerals = @city_cost
+		}
+		upkeep = {
+			energy = @city_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_max_buildings_add = 1
+	}
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 1
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+	
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 3
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 1
+			mult = 1
+			display = no_desc
+			trigger = "
+				owner = { has_technology = tech_housing_2 }
+			"
+		}
+		# Civics
+			inline_script = {
+				script = jobs/inline_evolved_technician
+				regular_count = 0
+				hive_count = 0
+				machine_count = 1
+				machine_aquatic_count = 1
+				mult = 1
+				display = with_desc
+				trigger = "
+					owner = {
+						has_valid_civic = civic_tec_machine_menial
+					}
+				"
+			}
+		# /
+	# /
+}
+
+###############################################################################################################
+district_giga_frameworld_nexus_advanced = {
+	base_buildtime = @advanced_time
+	icon = district_nexus
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		from = {
+			is_machine_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_city
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+		}
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_city
+	}
+	allow = {
+		#hidden_trigger = {
+		exists = owner
+		or = {
+			owner = {
+				is_ai = no
+			}
+			# we need more housing
+			free_housing < 10
+			# we might still need to unlock buildings
+			num_districts = {
+				type = district_giga_frameworld_nexus_advanced
+				value < 5
+			}
+			# if we need more maintenance drones
+			frameworld_needs_more_maintenance_drones = yes
+		}
+		#}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_city
+		district_giga_frameworld_hive
+		district_giga_frameworld_city_advanced
+		district_giga_frameworld_nexus
+		district_giga_frameworld_hive_advanced
+	}
+	resources = {
+		category = planet_districts_cities
+		cost = {
+			minerals = @advanced_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_max_buildings_add = 2
+	}
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 2
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+	
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 6
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 2
+			mult = 1
+			display = no_desc
+			trigger = "
+				owner = { has_technology = tech_housing_2 }
+			"
+		}
+		# Civics
+			inline_script = {
+				script = jobs/inline_evolved_technician
+				regular_count = 0
+				hive_count = 0
+				machine_count = 1
+				machine_aquatic_count = 1
+				mult = 1
+				display = with_desc
+				trigger = "
+					owner = {
+						has_valid_civic = civic_tec_machine_menial
+					}
+				"
+			}
+		# /
+	# /
+}
+
+###############################################################################################################
+###############################################################################################################
+#          INDUSTRY
+###############################################################################################################
+###############################################################################################################
+district_giga_frameworld_industrial = {
+	base_buildtime = @city_time
+	icon = district_arcology_arms_industry
+	is_capped_by_modifier = no
+	prerequisites = {
+		tech_basic_industry
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	show_on_uncolonized = {
+		exists = from
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_industrial
+		}
+	}
+	potential = {
+		exists = owner
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_advanced_industrial
+		}
+	}
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_frameworld_industrial_advanced
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = @city_cost
+		}
+		upkeep = {
+			energy = @city_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
+		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	# Traditions
+	inline_script = districts/effects/inline_evolved_tec_artifice_final_1
+	# /
+	# Civics
+		inline_script = districts/effects/inline_evolved_tec_unleashed_industrialization
+	# /
+	# Edicts
+		inline_script = districts/effects/inline_evolved_industrial_maintenance
+	# /
+
+	inline_script = {
+		script = districts/inline_evolved_industrial_split_jobs
+		count = 1
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}
+
+###############################################################################################################
+district_giga_frameworld_industrial_advanced = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_arms_industry
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_industrial
+	}
+	potential = {
+		exists = owner
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_advanced_industrial
+	}
+	conversion_ratio = 2
+	convert_to = {
+		district_giga_frameworld_industrial
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = @advanced_cost
+			volatile_motes = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			volatile_motes = @advanced_rare_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
+		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	# Traditions
+	inline_script = districts/effects/inline_evolved_tec_artifice_final_1
+	# /
+	# Civics
+		inline_script = districts/effects/inline_evolved_tec_unleashed_industrialization
+	# /
+	# Edicts
+		inline_script = districts/effects/inline_evolved_industrial_maintenance
+	# /
+
+	inline_script = {
+		script = districts/inline_evolved_industrial_split_jobs
+		count = 2
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          RAW MATERIALS
+###############################################################################################################
+###############################################################################################################
+district_giga_frameworld_generator = {
+	base_buildtime = @base_time
+	icon = district_hab_energy
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_penrose
+		}
+	}
+	potential = {
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_penrose
+		}
+	}
+	prerequisites = {
+		tech_power_plant_1
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	conversion_ratio = 0.25
+	convert_to = {
+		district_giga_frameworld_penrose
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @base_cost
+		}
+		upkeep = {
+			energy = @base_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_syndical
+		# Automated production
+			inline_script = {
+				script = districts/resources/inline_evolved_tec_automation_energy
+				base = 6
+			}
+		# /
+		inline_script = {
+			script = districts/resources/inline_evolved_tec_generate_basic_resources
+			resource = energy
+		}
+	}
+	# Overlord production for automated empires
+	# overlord_resources = {
+	# 	category = planet_requisitioned_energy
+	# 	produces = {
+	# 		trigger = {
+	# 			planet = {
+	# 				exist = owner
+	# 				owner = {
+	# 					tec_is_automated_empire = yes
+	# 				}
+	# 				has_planet_flag = has_energy_requisitorium
+	# 				tec_planet_allows_automation = yes
+	# 			}
+	# 		}
+	# 		energy = @requisitorium_energy_overlord
+	# 	}
+	# }
+	inline_script = districts/inline_evolved_rural_district_modifiers
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 2
+		hive_count = 3
+		machine_count = 2
+		machine_aquatic_count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician_swaps
+		machine_count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			NAND = {
+				owner = {
+					tec_is_automated_empire = yes
+				}
+				planet = {
+					tec_planet_allows_automation = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = -1
+		hive_count = -1
+		machine_count = -1
+		machine_aquatic_count = 0
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_is_automated_empire = yes
+			}
+			planet = {
+				tec_planet_allows_automation = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 1
+		hive_count = 1
+		machine_count = 1
+		machine_aquatic_count = 0
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_has_extra_menial_district_job = yes
+			}
+		"
+	}
+}
+
+###############################################################################################################
+district_giga_frameworld_penrose = {
+	base_buildtime = @mega_time
+	#icon = district_hab_energy
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_penrose
+	}
+	potential = {
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_penrose
+	}
+	conversion_ratio = 4
+	convert_to = {
+		district_giga_frameworld_generator
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @mega_cost
+			alloys = @mega_alloy_cost
+		}
+		upkeep = {
+			energy = @mega_upkeep
+			alloys = @mega_alloy_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_syndical
+		# Automated production
+		inline_script = {
+				script = districts/resources/inline_evolved_tec_automation_energy
+				base = 6
+			}
+		# /
+		inline_script = {
+			script = districts/resources/inline_evolved_tec_generate_basic_resources
+			resource = energy
+		}
+	}
+	# Overlord production for automated empires
+	# overlord_resources = {
+	# 	category = planet_requisitioned_energy
+	# 	produces = {
+	# 		trigger = {
+	# 			planet = {
+	# 				exist = owner
+	# 				owner = {
+	# 					tec_is_automated_empire = yes
+	# 				}
+	# 				has_planet_flag = has_energy_requisitorium
+	# 				tec_planet_allows_automation = yes
+	# 			}
+	# 		}
+	# 		energy = @requisitorium_energy_overlord
+	# 	}
+	# }
+	inline_script = districts/inline_evolved_rural_district_modifiers
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 8
+		hive_count = 12
+		machine_count = 8
+		machine_aquatic_count = 6
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician_swaps
+		machine_count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = -1
+		hive_count = -1
+		machine_count = -1
+		machine_aquatic_count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_is_automated_empire = yes
+			}
+			planet = {
+				tec_planet_allows_automation = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 1
+		hive_count = 1
+		machine_count = 1
+		machine_aquatic_count = 0
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_has_extra_menial_district_job = yes
+			}
+		"
+	}
+}
+
+###############################################################################################################
+district_giga_frameworld_mining = {
+	base_buildtime = @base_time
+	icon = district_hab_mining
+	show_on_uncolonized = {
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_decompressor
+		}
+	}
+	potential = {
+		uses_district_set = giga_frameworld
+		not = {
+			has_deposit = d_frameworld_decompressor
+		}
+	}
+	prerequisites = {
+		tech_mechanized_mining
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	conversion_ratio = 0.25
+	convert_to = {
+		district_giga_frameworld_decompressor
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @base_cost
+		}
+		upkeep = {
+			energy = @base_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_syndical
+		inline_script = districts/resources/inline_evolved_mining_guilds
+		# Automated production
+			inline_script = {
+				script = districts/resources/inline_evolved_tec_automation_minerals
+				base = 4
+			}
+			inline_script = districts/resources/inline_evolved_tec_automated_upkeep
+		# /	
+		inline_script = {
+			script = districts/resources/inline_evolved_tec_generate_basic_resources
+			resource = minerals
+		}
+	}
+
+	# Overlord production for automated empires
+	# overlord_resources = {
+	# 	category = planet_requisitioned_minerals
+	# 	produces = {
+	# 		trigger = {
+	# 			planet = {
+	# 				exist = owner
+	# 				owner = { tec_is_automated_empire = yes }
+	# 				has_planet_flag = has_material_requisitorium
+	# 				tec_planet_allows_automation = yes
+	# 			}
+	# 		}
+	# 		minerals = @requisitorium_minerals_overlord
+	# 	}
+	# }
+
+	inline_script = districts/inline_evolved_rural_district_modifiers
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 2
+		regular_aquatic_count = 1
+		hive_count = 3
+		hive_aquatic_count = 2
+		machine_count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner_swaps
+		regular_count = 1
+		hive_count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			NAND = {
+				owner = {
+					tec_is_automated_empire = yes
+				}
+				planet = {
+					tec_planet_allows_automation = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = -1
+		regular_aquatic_count = 0
+		hive_count = -1
+		hive_aquatic_count = 0
+		machine_count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_is_automated_empire = yes
+			}
+			planet = {
+				tec_planet_allows_automation = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 1
+		regular_aquatic_count = 1
+		hive_count = 1
+		hive_aquatic_count = 1
+		machine_count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_has_extra_menial_district_job = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = districts/effects/inline_evolved_agrarian_idyll_specific
+		trigger = "
+			owner = {
+				is_lithoid_empire = yes
+			}
+		"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_tec_eco_keepers
+			}
+		}
+		modifier = {
+			planet_amenities_add = -1
+		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 1
+		regular_aquatic_count = 1
+		hive_count = 0
+		hive_aquatic_count = 0
+		machine_count = 0
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				has_valid_civic = civic_mining_guilds
+			}
+		"
+	}
+}
+
+###############################################################################################################
+district_giga_frameworld_decompressor = {
+	base_buildtime = @mega_time
+	#icon = district_hab_mining
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_decompressor
+	}
+	potential = {
+		uses_district_set = giga_frameworld
+		has_deposit = d_frameworld_decompressor
+	}
+	conversion_ratio = 4
+	convert_to = {
+		district_giga_frameworld_mining
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @mega_cost
+			alloys = @mega_alloy_cost
+		}
+		upkeep = {
+			energy = @mega_upkeep
+			alloys = @mega_alloy_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_syndical
+		inline_script = districts/resources/inline_evolved_mining_guilds
+		# Automated production
+			inline_script = {
+				script = districts/resources/inline_evolved_tec_automation_minerals
+				base = 4
+			}
+			inline_script = districts/resources/inline_evolved_tec_automated_upkeep
+		# /	
+		inline_script = {
+			script = districts/resources/inline_evolved_tec_generate_basic_resources
+			resource = minerals
+		}
+	}
+
+	# Overlord production for automated empires
+	# overlord_resources = {
+	# 	category = planet_requisitioned_minerals
+	# 	produces = {
+	# 		trigger = {
+	# 			planet = {
+	# 				exist = owner
+	# 				owner = { tec_is_automated_empire = yes }
+	# 				has_planet_flag = has_material_requisitorium
+	# 				tec_planet_allows_automation = yes
+	# 			}
+	# 		}
+	# 		minerals = @requisitorium_minerals_overlord
+	# 	}
+	# }
+
+	inline_script = districts/inline_evolved_rural_district_modifiers
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 8
+		regular_aquatic_count = 6
+		hive_count = 12
+		hive_aquatic_count = 9
+		machine_count = 8
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	
+	inline_script = {
+		script = jobs/inline_evolved_miner_swaps
+		regular_count = 2
+		hive_count = 3
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = -1
+		regular_aquatic_count = -1
+		hive_count = -1
+		hive_aquatic_count = -1
+		machine_count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_is_automated_empire = yes
+			}
+			planet = {
+				tec_planet_allows_automation = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 1
+		regular_aquatic_count = 1
+		hive_count = 1
+		hive_aquatic_count = 1
+		machine_count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_has_extra_menial_district_job = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = districts/effects/inline_evolved_agrarian_idyll_specific
+		trigger = "
+			owner = {
+				is_lithoid_empire = yes
+			}
+		"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_tec_eco_keepers
+			}
+		}
+		modifier = {
+			planet_amenities_add = -1
+		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 1
+		regular_aquatic_count = 1
+		hive_count = 0
+		hive_aquatic_count = 0
+		machine_count = 0
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				has_valid_civic = civic_mining_guilds
+			}
+		"
+	}
+}
+
+###############################################################################################################
+district_giga_frameworld_farming = {
+	base_buildtime = @base_time
+	icon = district_farming
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_industrial_farming
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @base_cost
+		}
+		upkeep = {
+			energy = @base_upkeep
+		}
+		inline_script = districts/resources/inline_evolved_tec_syndical
+		# Automated production
+			inline_script = {
+				script = districts/resources/inline_evolved_tec_automation_food
+				base = 6
+			}
+			inline_script = districts/resources/inline_evolved_tec_automated_upkeep
+		# /
+		inline_script = {
+			script = districts/resources/inline_evolved_tec_generate_basic_resources
+			resource = food
+		}
+	}
+
+	# Overlord production for automated empires
+	# overlord_resources = {
+	# 	category = planet_requisitioned_food
+	# 	produces = {
+	# 		trigger = {
+	# 			planet = {
+	# 				exist = owner
+	# 				owner = { tec_is_automated_empire = yes }
+	# 				has_planet_flag = has_produce_requisitorium
+	# 				tec_planet_allows_automation = yes
+	# 			}
+	# 		}
+	# 		food = @requisitorium_food_overlord
+	# 	}
+	# }
+
+	inline_script = districts/inline_evolved_rural_district_modifiers
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 2
+		regular_aquatic_count = 1
+		hive_count = 3
+		hive_aquatic_count = 1
+		machine_count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer_swaps
+		regular_count = 1
+		hive_count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			NAND = {
+				owner = {
+					tec_is_automated_empire = yes
+				}
+				planet = {
+					tec_planet_allows_automation = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = -1
+		regular_aquatic_count = 0
+		hive_count = -1
+		hive_aquatic_count = 0
+		machine_count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_is_automated_empire = yes
+			}
+			planet = {
+				tec_planet_allows_automation = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 1
+		regular_aquatic_count = 1
+		hive_count = 1
+		hive_aquatic_count = 1
+		machine_count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_has_extra_menial_district_job = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = districts/effects/inline_evolved_agrarian_idyll_specific
+		trigger = "
+			owner = {
+				is_lithoid_empire = no
+			}
+		"
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          UNITY
+###############################################################################################################
+###############################################################################################################
+# normal empire unity
+district_giga_frameworld_administrative = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_regular_empire = yes
+			is_spiritualist = no
+			has_make_spiritualist_perk = no
+			has_technology = "tech_colonial_bureaucracy"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_spiritualist = no
+			has_make_spiritualist_perk = no
+			has_technology = "tech_colonial_bureaucracy"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_colonial_bureaucracy
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+		is_regular_empire = yes
+		# is_spiritualist = no # From evolved
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_temple
+		district_giga_frameworld_simulation
+		district_giga_frameworld_synapse
+		district_giga_frameworld_sanctuary
+	}
+	resources = {
+		category = planet_districts_hab_research
+		cost = {
+			minerals = @advanced_cost
+			rare_crystals = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			rare_crystals = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = 4
+		count_half = 2
+		megacorp_count = 2
+		megacorp_count_half = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+###############################################################################################################
+# spiritualist unity
+district_giga_frameworld_temple = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_regular_empire = yes
+			OR = {
+				is_spiritualist = yes
+				has_make_spiritualist_perk = yes
+			}
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			OR = {
+				is_spiritualist = yes
+				has_make_spiritualist_perk = yes
+			}
+			has_technology = "tech_holographic_rituals"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		"tech_holographic_rituals"
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+		is_regular_empire = yes
+		is_spiritualist = yes
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_administrative
+		district_giga_frameworld_simulation
+		district_giga_frameworld_synapse
+		district_giga_frameworld_sanctuary
+	}
+	resources = {
+		category = planet_districts_hab_research
+		cost = {
+			minerals = @advanced_cost
+			rare_crystals = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			rare_crystals = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = 4
+		count_half = 2
+		megacorp_count = 2
+		megacorp_count_half = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = 1
+		mult = 1
+		trigger = "
+			exists = owner
+			owner = { 
+				is_death_cult_empire = yes
+			}
+		"
+	}
+}
+
+###############################################################################################################
+# hive unity
+district_giga_frameworld_synapse = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_hive_empire = yes
+			has_technology = "tech_hive_cluster"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_hive_empire = yes
+			has_technology = "tech_hive_cluster"
+		}
+		uses_district_set = giga_frameworld
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_simulation
+		district_giga_frameworld_administrative
+		district_giga_frameworld_temple
+		district_giga_frameworld_sanctuary
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @advanced_cost
+			exotic_gases = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			exotic_gases = @advanced_rare_upkeep
+		}
+		inline_script = buildings/resources/inline_evolved_synaptic_reinforcement_upkeep
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = buildings/effects/inline_evolved_synaptic_extensions
+	inline_script = buildings/effects/inline_evolved_synaptic_reinforcement
+	inline_script = buildings/effects/inline_evolved_tec_introspective
+	inline_script = {
+		script = buildings/effects/inline_evolved_gestalt_introspective
+		tier = 1
+	}
+	
+}
+
+###############################################################################################################
+# machine unity
+district_giga_frameworld_simulation = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_machine_empire = yes
+			NOT = {
+				has_valid_civic = civic_machine_servitor
+			}
+			has_technology = "tech_colonial_bureaucracy"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			NOT = {
+				has_valid_civic = civic_machine_servitor
+			}
+			has_technology = "tech_colonial_bureaucracy"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_colonial_bureaucracy
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+		not = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_administrative
+		district_giga_frameworld_temple
+		district_giga_frameworld_synapse
+		district_giga_frameworld_sanctuary
+	}
+	resources = {
+		category = planet_districts_hab_research
+		cost = {
+			minerals = @advanced_cost
+			rare_crystals = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			rare_crystals = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = buildings/effects/inline_evolved_gestalt_introspective
+		tier = 1
+	}
+	
+}
+
+###############################################################################################################
+# servitor unity
+district_giga_frameworld_sanctuary = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+			has_technology = "tech_paradise_dome"
+		}
+		not = {
+			has_deposit = d_frameworld_advanced_sanctuary
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+			has_technology = "tech_paradise_dome"
+		}
+		not = {
+			has_deposit = d_frameworld_advanced_sanctuary
+		}
+		uses_district_set = giga_frameworld
+	}
+	allow = {
+		exists = owner
+		owner = {
+			is_ai = no
+		}
+	}
+	prerequisites = {
+		tech_paradise_dome
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+		has_valid_civic = civic_machine_servitor
+	}
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_frameworld_simulation
+		district_giga_frameworld_synapse
+		district_giga_frameworld_administrative
+		district_giga_frameworld_temple
+		district_giga_frameworld_sanctuary_advanced
+	}
+	resources = {
+		category = planet_districts_hab_research
+		cost = {
+			minerals = @advanced_cost
+			exotic_gases = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			exotic_gases = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bio_trophy
+		count = 20
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_valid_civic = civic_machine_servitor
+			}
+		"
+	}
+	
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	
+	inline_script = {
+		script = buildings/effects/inline_evolved_gestalt_introspective
+		tier = 1
+	}
+}
+
+###############################################################################################################
+# servitor unity advanced
+district_giga_frameworld_sanctuary_advanced = {
+	base_buildtime = @mega_time
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+			has_technology = "tech_paradise_dome"
+		}
+		has_deposit = d_frameworld_advanced_sanctuary
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_machine_empire = yes
+			has_valid_civic = civic_machine_servitor
+			has_technology = "tech_paradise_dome"
+		}
+		has_deposit = d_frameworld_advanced_sanctuary
+		uses_district_set = giga_frameworld
+	}
+	allow = {
+		exists = owner
+		owner = {
+			is_ai = no
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_simulation
+		district_giga_frameworld_synapse
+		district_giga_frameworld_administrative
+		district_giga_frameworld_temple
+		district_giga_frameworld_sanctuary
+	}
+	resources = {
+		category = planet_districts_hab_research
+		cost = {
+			minerals = @advanced_double_cost
+			exotic_gases = @advanced_double_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_double_upkeep
+			exotic_gases = @advanced_double_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 4
+	}
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bio_trophy
+		count = 40
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_valid_civic = civic_machine_servitor
+			}
+		"
+	}
+	
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = buildings/effects/inline_evolved_gestalt_introspective
+		tier = 2
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          SPECIALIST
+###############################################################################################################
+###############################################################################################################
+district_giga_frameworld_science = {
+	base_buildtime = @advanced_time
+	icon = district_hab_science
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			has_technology = "tech_basic_science_lab_2"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			has_technology = "tech_basic_science_lab_2"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_basic_science_lab_2
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	resources = {
+		category = planet_districts_hab_research
+		cost = {
+			minerals = @advanced_cost
+			exotic_gases = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			exotic_gases = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = 4
+		count_half = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = buildings/effects/inline_evolved_gestalt_extrospective
+		tier = 1
+	}
+}
+
+###############################################################################################################
+# anti-crime
+district_giga_frameworld_anticrime = {
+	base_buildtime = @advanced_time
+	#icon = district_penrose_generator
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			has_technology = "tech_colonial_centralization"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			has_technology = "tech_colonial_centralization"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_colonial_centralization
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @advanced_cost
+			volatile_motes = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			volatile_motes = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = buildings/effects/inline_evolved_tec_cyber_dictatorship
+}
+
+###############################################################################################################
+# amenities
+district_giga_frameworld_amenities = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_leisure
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_regular_empire = yes
+			has_technology = "tech_hyper_entertainment_forum"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_technology = "tech_hyper_entertainment_forum"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_hyper_entertainment_forum
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_amenities_gestalt
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @advanced_cost
+			rare_crystals = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			rare_crystals = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_entertainer
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+###############################################################################################################
+# gestalt amenities
+district_giga_frameworld_amenities_gestalt = {
+	base_buildtime = @advanced_time
+	icon = district_arcology_leisure
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_gestalt = yes
+			has_technology = "tech_unity_of_purpose"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			is_gestalt = yes
+			has_technology = "tech_unity_of_purpose"
+		}
+		uses_district_set = giga_frameworld
+	}
+	allow = {
+		#hidden_trigger = {
+		exists = owner
+		or = {
+			owner = {
+				is_ai = no
+			}
+			frameworld_needs_more_maintenance_drones = yes
+		}
+		#}
+	}
+	prerequisites = {
+		tech_unity_of_purpose
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_frameworld_amenities
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @advanced_cost
+			rare_crystals = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			rare_crystals = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 8
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				has_technology = tech_housing_2
+			}
+		"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_deposit = d_frameworld_advanced_city
+		}
+		modifier = {
+			job_frame_maintenance_overseer_add = 2
+			job_maintenance_drone_add = -2
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			has_deposit = d_frameworld_advanced_city
+		}
+		text = job_frame_maintenance_overseer_effect_desc
+	}
+}
+
+###############################################################################################################
+###############################################################################################################
+#          REFINERY
+###############################################################################################################
+###############################################################################################################
+district_giga_frameworld_refinery = {
+	base_buildtime = @advanced_time
+	icon = district_virtual_strat_res
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			OR = {
+				has_technology = "tech_volatile_motes"
+				has_technology = "tech_exotic_gases"
+				has_technology = "tech_rare_crystals"
+			}
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			OR = {
+				has_technology = "tech_volatile_motes"
+				has_technology = "tech_exotic_gases"
+				has_technology = "tech_rare_crystals"
+			}
+		}
+		uses_district_set = giga_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @advanced_cost
+		}
+		upkeep = {
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_technology = "tech_volatile_motes"
+				}
+			}
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_technology = "tech_exotic_gases"
+				}
+			}
+			energy = 3
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_technology = "tech_rare_crystals"
+				}
+			}
+			energy = 3
+		}
+	}
+	planet_modifier = {
+	}
+	########## ADDITIONAL JOB DESCS
+	# line above the descriptions if we are triggering any of them
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NAND = {
+					has_technology = "tech_volatile_motes"
+					has_technology = "tech_exotic_gases"
+					has_technology = "tech_rare_crystals"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_unlocks
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				not = {
+					has_technology = "tech_volatile_motes"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_motes_unlock
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				not = {
+					has_technology = "tech_volatile_motes"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_motes_unlock_gestalt
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				not = {
+					has_technology = "tech_exotic_gases"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_gases_unlock
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				not = {
+					has_technology = "tech_exotic_gases"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_gases_unlock_gestalt
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				not = {
+					has_technology = "tech_rare_crystals"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_crystals_unlock
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				not = {
+					has_technology = "tech_rare_crystals"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_crystals_unlock_gestalt
+	}
+	# blank line under unlocks if we have any
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NAND = {
+					has_technology = "tech_volatile_motes"
+					has_technology = "tech_exotic_gases"
+					has_technology = "tech_rare_crystals"
+				}
+			}
+		}
+		text = district_giga_frameworld_refinery_empty
+	}
+	########## MOTES
+	inline_script = {
+		script = jobs/inline_evolved_chemist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = { has_technology = tech_volatile_motes }
+		"
+	}
+	
+	########## GASES
+
+	inline_script = {
+		script = jobs/inline_evolved_gas_refiner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = { has_technology = tech_exotic_gases }
+		"
+	}
+	########## CRYSTALS
+	inline_script = {
+		script = jobs/inline_evolved_translucer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = { has_technology = tech_rare_crystals }
+		"
+	}	
+}
+
+###############################################################################################################
+###############################################################################################################
+#          MILITARY
+###############################################################################################################
+###############################################################################################################
+# fortress
+district_giga_frameworld_fortress = {
+	base_buildtime = @advanced_time
+	icon = district_maginot_world_bunkers
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			has_technology = "tech_global_defense_grid"
+		}
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		exists = owner
+		owner = {
+			has_technology = "tech_global_defense_grid"
+		}
+		uses_district_set = giga_frameworld
+	}
+	prerequisites = {
+		tech_global_defense_grid
+	}
+	show_tech_unlock_if = {
+		has_origin = origin_frameworld
+	}
+	resources = {
+		category = planet_districts
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_active_tradition = tr_unyielding_resistance_is_frugal
+				}
+			}
+			unity = 3
+		}
+		cost = {
+			minerals = @advanced_cost
+			volatile_motes = @advanced_rare_cost
+		}
+		upkeep = {
+			energy = @advanced_upkeep
+			volatile_motes = @advanced_rare_upkeep
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_soldier
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_warrior_drone
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			is_giga_maginot_frameworld = yes
+		}
+		text = job_maginot_planetary_bunker_effect_desc
+	}
+}
+
+###############################################################################################################
+# maginot shield district
+district_giga_frameworld_maginot_shield_generators = {
+	base_buildtime = @mega_time
+	icon = district_maginot_world_shield_generators
+	show_on_uncolonized = {
+		has_deposit = d_frameworld_maginot
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		has_deposit = d_frameworld_maginot
+		uses_district_set = giga_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @maginot_district_cost_minerals
+			alloys = @maginot_district_cost_alloys_medium
+			exotic_gases = @maginot_district_cost_sr
+		}
+		upkeep = {
+			energy = @maginot_district_upkeep_energy_shields
+			exotic_gases = @maginot_district_upkeep_sr
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_maginot_shield_generator_operator_add = @maginot_special_jobs_add
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maginot_shield_generator_operator_gestalt_add = @maginot_special_jobs_add
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_maginot_shield_generator_operator_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_maginot_shield_generator_operator_gestalt_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_maginot_planetary_shield_effect_desc
+	}
+	planet_modifier = {
+		planet_orbital_bombardment_damage = -0.2		# yes these are spammable to 100% and beyond, intentional
+		# stuff on the planet is protected by shields from damage
+		army_collateral_damage_mult = -1
+	}
+	triggered_desc = {
+		text = district_giga_frameworld_maginot_shield_generators_cap
+	}
+	on_queued = {
+		giga_frameworld_start_maginot_shield = yes
+	}
+	on_unqueued = {
+		giga_frameworld_stop_maginot_shield = yes
+	}
+	on_built = {
+		giga_frameworld_stop_maginot_shield = yes
+	}
+	on_destroy = {
+		giga_frameworld_update_maginot_deposits = yes
+	}
+}
+
+###############################################################################################################
+# maginot gun district
+district_giga_frameworld_maginot_planetary_cannons = {
+	base_buildtime = @mega_time
+	icon = district_maginot_world_planetary_cannons
+	show_on_uncolonized = {
+		has_deposit = d_frameworld_maginot
+		uses_district_set = giga_frameworld
+	}
+	potential = {
+		has_deposit = d_frameworld_maginot
+		uses_district_set = giga_frameworld
+	}
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @maginot_district_cost_minerals
+			alloys = @maginot_district_cost_alloys_expensive
+		}
+		upkeep = {
+			energy = @maginot_district_upkeep_energy_medium
+			alloys = @maginot_district_upkeep_alloys
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_maginot_planetary_cannon_operator_add = @maginot_special_jobs_add
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maginot_planetary_cannon_operator_gestalt_add = @maginot_special_jobs_add
+		}
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		}
+		text = job_maginot_planetary_cannon_operator_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_maginot_planetary_cannon_operator_gestalt_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+		}
+		text = job_maginot_planetary_artillery_effect_desc
+	}
+	triggered_desc = {
+		text = district_giga_frameworld_maginot_planetary_cannons_cap
+	}
+	on_queued = {
+		giga_frameworld_start_maginot_gun = yes
+	}
+	on_unqueued = {
+		giga_frameworld_stop_maginot_gun = yes
+	}
+	on_built = {
+		giga_frameworld_stop_maginot_gun = yes
+	}
+	on_destroy = {
+		giga_frameworld_update_maginot_deposits = yes
+	}
+}

@@ -189,163 +189,105 @@ building_giga_elysium_host_jobs = {
 
 	# bureaucrats / priests / death priests / managers
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/inline_evolved_admin_split
 		count = 1
+		count_half = 0.5
+		megacorp_count = 0.5
+		megacorp_count_half = 0.25
 		mult = value:giga_elysium_regular_job_mult|JOB|bureaucrat|
 		display = per_pop
-		trigger = "
-			owner = {
-				is_spiritualist = no
-				has_make_spiritualist_perk = no
-			}
-		"
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { 
-				is_megacorp = no 
-				giga_country_uses_priests = no
-			}
-		}
-		job_bureaucrat_per_pop = 1 	
-		multiplier = value:giga_elysium_regular_job_mult|JOB|bureaucrat| 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { 
-				is_megacorp = yes 
-				giga_country_uses_priests = no
-			}
-		}
-		job_manager_per_pop = 1 	
-		multiplier = value:giga_elysium_regular_job_mult|JOB|bureaucrat| 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { 
-				is_megacorp = no 
-				giga_country_uses_priests = yes
-				is_death_cult_empire = no
-			}
-		}
-		job_priest_per_pop = 1 	
-		multiplier = value:giga_elysium_regular_job_mult|JOB|bureaucrat| 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { 
-				is_megacorp = yes 
-				giga_country_uses_priests = yes
-				is_death_cult_empire = no
-			}
-		}
-		job_priest_per_pop = 0.5
-		job_manager_per_pop = 0.5	
-		multiplier = value:giga_elysium_regular_job_mult|JOB|bureaucrat| 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { 
-				is_megacorp = no 
-				giga_country_uses_priests = yes
-				is_death_cult_empire = yes
-			}
-		}
-		job_death_priest_per_pop = 1 	
-		multiplier = value:giga_elysium_regular_job_mult|JOB|bureaucrat| 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { 
-				is_megacorp = yes 
-				giga_country_uses_priests = yes
-				is_death_cult_empire = yes
-			}
-		}
-		job_death_priest_per_pop = 0.5
-		job_manager_per_pop = 0.5	
-		multiplier = value:giga_elysium_regular_job_mult|JOB|bureaucrat| 
+		trigger = ""
 	}
 
 	# Researchers
-	triggered_planet_modifier = { 
-		job_researcher_per_pop = 1
-		multiplier = value:giga_elysium_regular_job_mult|JOB|researcher| 
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = 1
+		count_half = 0.5
+		mult = value:giga_elysium_regular_job_mult|JOB|researcher|
+		display = per_pop
+		trigger = ""
 	}
-
-	# Researchers
-	triggered_planet_modifier = { job_researcher_per_pop = 1 multiplier = value:giga_elysium_regular_job_mult|JOB|researcher| }
 
 	# Chemists
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_chemist
+		count = 1
+		mult = value:giga_elysium_regular_job_mult|JOB|chemist|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_volatile_motes
 			}
-		}
-		job_chemist_per_pop = 1 
-		multiplier = value:giga_elysium_regular_job_mult|JOB|chemist| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 1
+		mult = value:giga_elysium_regular_job_mult|JOB|chemist|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
-				not = { has_technology = tech_volatile_motes }
+				NOT = { has_technology = tech_volatile_motes }
 			}
-		}
-		job_clerk_per_pop = 1 
-		multiplier = value:giga_elysium_regular_job_mult|JOB|chemist| 
+		"
 	}
 
 	# Translucers
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_translucer
+		count = 1
+		mult = value:giga_elysium_regular_job_mult|JOB|translucer|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_rare_crystals
 			}
-		}
-		job_translucer_per_pop = 1 
-		multiplier = value:giga_elysium_regular_job_mult|JOB|translucer| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 1
+		mult = value:giga_elysium_regular_job_mult|JOB|translucer|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
-				not = { has_technology = tech_rare_crystals }
+				NOT = { has_technology = tech_rare_crystals }
 			}
-		}
-		job_clerk_per_pop = 1 
-		multiplier = value:giga_elysium_regular_job_mult|JOB|translucer| 
+		"
 	}
 
 	# Gas refiners
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_gas_refiner
+		count = 1
+		mult = value:giga_elysium_regular_job_mult|JOB|gas_refiner|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_exotic_gases
 			}
-		}
-		job_gas_refiner_per_pop = 1 
-		multiplier = value:giga_elysium_regular_job_mult|JOB|gas_refiner| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 1
+		mult = value:giga_elysium_regular_job_mult|JOB|gas_refiner|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
-				not = { has_technology = tech_exotic_gases }
+				NOT = { has_technology = tech_exotic_gases }
 			}
-		}
-		job_clerk_per_pop = 1 
-		multiplier = value:giga_elysium_regular_job_mult|JOB|gas_refiner| 
+		"
 	}
 
 	# Supertensiles techs
@@ -398,125 +340,249 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	# Maintenance Drones
-	triggered_planet_modifier = { job_maintenance_drone_per_pop = 1 		multiplier = value:giga_elysium_hive_job_mult|JOB|clerk| }
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|clerk|
+		display = per_pop
+		trigger = ""
+	}
 
 	# Agri-Drones
-	triggered_planet_modifier = { job_agri_drone_per_pop = 1 				multiplier = value:giga_elysium_hive_job_mult|JOB|farmer| }
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 0
+		regular_aquatic_count = 0
+		hive_count = 1
+		hive_aquatic_count = 0.66
+		machine_count = 0
+		mult = value:giga_elysium_hive_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
+			giga_planet_no_farming = no
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer_swaps
+		regular_count = 0
+		hive_count = 0.33
+		mult = value:giga_elysium_hive_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
+			giga_planet_no_farming = no
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 0
+		hive_count = 0.5
+		machine_count = 0
+		machine_aquatic_count = 0 
+		mult = value:giga_elysium_hive_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
+			giga_planet_no_farming = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 0
+		regular_aquatic_count = 0
+		hive_count = 0.5
+		hive_aquatic_count = 0.5
+		machine_count = 0
+		mult = value:giga_elysium_hive_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
+			giga_planet_no_farming = yes
+		"
+	}
 
 	# Mining Drones
-	triggered_planet_modifier = { 
-		potential = { 
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 0
+		regular_aquatic_count = 0
+		hive_count = 1
+		hive_aquatic_count = 0.66
+		machine_count = 0
+		mult = value:giga_elysium_hive_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
 			giga_planet_is_ecumenopolis = no
-		}
-		job_mining_drone_per_pop = 1 	
-		multiplier = value:giga_elysium_hive_job_mult|JOB|miner| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = { 
+	inline_script = {
+		script = jobs/inline_evolved_miner_swaps
+		regular_count = 0
+		hive_count = 0.33
+		mult = value:giga_elysium_hive_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
+			giga_planet_is_ecumenopolis = no
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 0.5
+		mult = value:giga_elysium_hive_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
 			giga_planet_is_ecumenopolis = yes
-		}
-		job_maintenance_drone_per_pop = 0.5
-		job_scrap_miner_drone_per_pop = 0.5
-		multiplier = value:giga_elysium_hive_job_mult|JOB|miner| 
+		"
+	}
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = scrap_miner
+		count = 0.5
+		mult = value:giga_elysium_hive_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
+			giga_planet_is_ecumenopolis = yes
+		"
 	}
 
 	# Tech Drones
-	triggered_planet_modifier = { job_technician_drone_per_pop = 1 			multiplier = value:giga_elysium_hive_job_mult|JOB|technician| }
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 0
+		hive_count = 1
+		machine_count = 0
+		machine_aquatic_count = 0 
+		mult = value:giga_elysium_hive_job_mult|JOB|technician|
+		display = per_pop
+		trigger = ""
+	}
 
 	# Warrior Drones
-	triggered_planet_modifier = { job_warrior_drone_per_pop = 1 			multiplier = value:giga_elysium_hive_job_mult|JOB|soldier| }
-
+	inline_script = {
+		script = jobs/inline_evolved_warrior_drone
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|soldier|
+		display = per_pop
+		trigger = ""
+	}
+	
 	# Artisan Drones, for whatever reason?
-	triggered_planet_modifier = { job_artisan_drone_per_pop = 1 			multiplier = value:giga_elysium_hive_job_mult|JOB|artisan| }
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|artisan|
+		display = per_pop
+		trigger = ""
+	}
 
 	# Foundry Drones / catalytic drones
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { is_catalytic_empire = no }
-		}
-		job_alloy_drone_per_pop = 1 	
-		multiplier = value:giga_elysium_hive_job_mult|JOB|metallurgist| 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { is_catalytic_empire = yes }
-		}
-		job_catalytic_drone_per_pop = 1
-		multiplier = value:giga_elysium_hive_job_mult|JOB|metallurgist| 
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|metallurgist|
+		display = per_pop
+		trigger = ""
 	}
 
 	# Synapse Drones
-	triggered_planet_modifier = { job_synapse_drone_per_pop = 1 			multiplier = value:giga_elysium_hive_job_mult|JOB|bureaucrat| }
-
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|bureaucrat|
+		display = per_pop
+		trigger = ""
+	}
+	
 	# Brain Drones
-	triggered_planet_modifier = { job_brain_drone_per_pop = 1 				multiplier = value:giga_elysium_hive_job_mult|JOB|researcher| }
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = 1
+		count_half = 0.5
+		mult = value:giga_elysium_hive_job_mult|JOB|researcher|
+		display = per_pop
+		trigger = ""
+	}
 
-	# Chemist Drones
-	triggered_planet_modifier = { 
-		potential = {
+	# Chemists
+	inline_script = {
+		script = jobs/inline_evolved_chemist
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|chemist|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_volatile_motes
 			}
-		}
-		job_chemist_drone_per_pop = 1 
-		multiplier = value:giga_elysium_hive_job_mult|JOB|chemist| 
-	}
-	triggered_planet_modifier = { 
-		potential = {
-			exists = owner
-			owner = {
-				not = { has_technology = tech_volatile_motes }
-			}
-		}
-		job_maintenance_drone_per_pop = 1 
-		multiplier = value:giga_elysium_hive_job_mult|JOB|chemist| 
+		"
 	}
 
-	# Translucer Drones
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|chemist|
+		display = per_pop
+		trigger = "
+			exists = owner
+			owner = {
+				NOT = { has_technology = tech_volatile_motes }
+			}
+		"
+	}
+
+	# Translucers
+	inline_script = {
+		script = jobs/inline_evolved_translucer
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|translucer|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_rare_crystals
 			}
-		}
-		job_translucer_drone_per_pop = 1 
-		multiplier = value:giga_elysium_hive_job_mult|JOB|translucer| 
-	}
-	triggered_planet_modifier = { 
-		potential = {
-			exists = owner
-			owner = {
-				not = { has_technology = tech_rare_crystals }
-			}
-		}
-		job_maintenance_drone_per_pop = 1 
-		multiplier = value:giga_elysium_hive_job_mult|JOB|translucer| 
+		"
 	}
 
-	# Refinery Drones
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|translucer|
+		display = per_pop
+		trigger = "
+			exists = owner
+			owner = {
+				NOT = { has_technology = tech_rare_crystals }
+			}
+		"
+	}
+
+	# Gas refiners
+	inline_script = {
+		script = jobs/inline_evolved_gas_refiner
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|gas_refiner|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_exotic_gases
 			}
-		}
-		job_gas_refiner_drone_per_pop = 1 
-		multiplier = value:giga_elysium_hive_job_mult|JOB|gas_refiner| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_hive_job_mult|JOB|gas_refiner|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
-				not = { has_technology = tech_exotic_gases }
+				NOT = { has_technology = tech_exotic_gases }
 			}
-		}
-		job_maintenance_drone_per_pop = 1 
-		multiplier = value:giga_elysium_hive_job_mult|JOB|gas_refiner| 
+		"
 	}
 
 	# Supertensiles Drones
@@ -562,139 +628,236 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	# Maintenance Drones
-	triggered_planet_modifier = { job_maintenance_drone_per_pop = 1 		multiplier = value:giga_elysium_machine_job_mult|JOB|clerk| }
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|clerk|
+		display = per_pop
+		trigger = ""
+	}
 
 	# Agri-Drones
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 0
+		regular_aquatic_count = 0
+		hive_count = 0
+		hive_aquatic_count = 0
+		machine_count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
 			giga_planet_no_farming = no
-		}
-		job_agri_drone_per_pop = 1 				
-		multiplier = value:giga_elysium_machine_job_mult|JOB|farmer| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 0
+		regular_aquatic_count = 0
+		hive_count = 0
+		hive_aquatic_count = 0
+		machine_count = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
 			giga_planet_no_farming = yes
-		}
-		job_mining_drone_per_pop = 0.5				
-		job_technician_drone_per_pop = 0.5				
-		multiplier = value:giga_elysium_machine_job_mult|JOB|farmer| 
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 0
+		hive_count = 0
+		machine_count = 0.5
+		machine_aquatic_count = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|farmer|
+		display = per_pop
+		trigger = "
+			giga_planet_no_farming = yes
+		"
 	}
 
 	# Mining Drones
-	triggered_planet_modifier = { 
-		potential = { 
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 0
+		regular_aquatic_count = 0
+		hive_count = 0
+		hive_aquatic_count = 0
+		machine_count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
 			giga_planet_is_ecumenopolis = no
-		}
-		job_mining_drone_per_pop = 1 	
-		multiplier = value:giga_elysium_machine_job_mult|JOB|miner| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = { 
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
 			giga_planet_is_ecumenopolis = yes
-		}
-		job_maintenance_drone_per_pop = 0.5
-		job_scrap_miner_drone_per_pop = 0.5
-		multiplier = value:giga_elysium_machine_job_mult|JOB|miner| 
+		"
+	}
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = scrap_miner
+		count = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|miner|
+		display = per_pop
+		trigger = "
+			giga_planet_is_ecumenopolis = yes
+		"
+	}
+	
+	# Tech Drones
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 0
+		hive_count = 0
+		machine_count = 1
+		machine_aquatic_count = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|technician|
+		display = per_pop
+		trigger = ""
 	}
 
-	# Tech Drones
-	triggered_planet_modifier = { job_technician_drone_per_pop = 1 			multiplier = value:giga_elysium_machine_job_mult|JOB|technician| }
+	inline_script = {
+		script = jobs/inline_evolved_technician_swaps
+		machine_aquatic_count = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|technician|
+		display = per_pop
+		trigger = ""
+	}
 
 	# Warrior Drones
-	triggered_planet_modifier = { job_warrior_drone_per_pop = 1 			multiplier = value:giga_elysium_machine_job_mult|JOB|soldier| }
-
-	# Artisan Drones
-	triggered_planet_modifier = { job_artisan_drone_per_pop = 1 			multiplier = value:giga_elysium_machine_job_mult|JOB|artisan| }
-
-	# Fabricators / Catalytic Drones
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { is_catalytic_empire = no }
-		}
-		job_fabricator_per_pop = 1 	
-		multiplier = value:giga_elysium_machine_job_mult|JOB|metallurgist| 
+	inline_script = {
+		script = jobs/inline_evolved_warrior_drone
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|soldier|
+		display = per_pop
+		trigger = ""
 	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner
-			owner = { is_catalytic_empire = yes }
-		}
-		job_catalytic_drone_per_pop = 1
-		multiplier = value:giga_elysium_machine_job_mult|JOB|metallurgist| 
+	
+	# Artisan Drones, for whatever reason?
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|artisan|
+		display = per_pop
+		trigger = ""
+	}
+
+	# Foundry Drones / catalytic drones
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|metallurgist|
+		display = per_pop
+		trigger = ""
 	}
 
 	# Coordinators
-	triggered_planet_modifier = { job_coordinator_per_pop = 1 				multiplier = value:giga_elysium_machine_job_mult|JOB|bureaucrat| }
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|bureaucrat|
+		display = per_pop
+		trigger = ""
+	}
 
 	# Calculators
-	triggered_planet_modifier = { job_calculator_per_pop = 1 				multiplier = value:giga_elysium_machine_job_mult|JOB|researcher| }
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = 1
+		count_half = 0.5
+		mult = value:giga_elysium_machine_job_mult|JOB|researcher|
+		display = per_pop
+		trigger = ""
+	}
 
-	# Chemist Drones
-	triggered_planet_modifier = { 
-		potential = {
+	# Chemists
+	inline_script = {
+		script = jobs/inline_evolved_chemist
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|chemist|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_volatile_motes
 			}
-		}
-		job_chemist_drone_per_pop = 1 
-		multiplier = value:giga_elysium_machine_job_mult|JOB|chemist| 
-	}
-	triggered_planet_modifier = { 
-		potential = {
-			exists = owner
-			owner = {
-				not = { has_technology = tech_volatile_motes }
-			}
-		}
-		job_maintenance_drone_per_pop = 1 
-		multiplier = value:giga_elysium_machine_job_mult|JOB|chemist| 
+		"
 	}
 
-	# Translucer Drones
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|chemist|
+		display = per_pop
+		trigger = "
+			exists = owner
+			owner = {
+				NOT = { has_technology = tech_volatile_motes }
+			}
+		"
+	}
+
+	# Translucers
+	inline_script = {
+		script = jobs/inline_evolved_translucer
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|translucer|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_rare_crystals
 			}
-		}
-		job_translucer_drone_per_pop = 1 
-		multiplier = value:giga_elysium_machine_job_mult|JOB|translucer| 
-	}
-	triggered_planet_modifier = { 
-		potential = {
-			exists = owner
-			owner = {
-				not = { has_technology = tech_rare_crystals }
-			}
-		}
-		job_maintenance_drone_per_pop = 1 
-		multiplier = value:giga_elysium_machine_job_mult|JOB|translucer| 
+		"
 	}
 
-	# Refinery Drones
-	triggered_planet_modifier = { 
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|translucer|
+		display = per_pop
+		trigger = "
+			exists = owner
+			owner = {
+				NOT = { has_technology = tech_rare_crystals }
+			}
+		"
+	}
+
+	# Gas refiners
+	inline_script = {
+		script = jobs/inline_evolved_gas_refiner
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|gas_refiner|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
 				has_technology = tech_exotic_gases
 			}
-		}
-		job_gas_refiner_drone_per_pop = 1 
-		multiplier = value:giga_elysium_machine_job_mult|JOB|gas_refiner| 
+		"
 	}
-	triggered_planet_modifier = { 
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = value:giga_elysium_machine_job_mult|JOB|gas_refiner|
+		display = per_pop
+		trigger = "
 			exists = owner
 			owner = {
-				not = { has_technology = tech_exotic_gases }
+				NOT = { has_technology = tech_exotic_gases }
 			}
-		}
-		job_maintenance_drone_per_pop = 1 
-		multiplier = value:giga_elysium_machine_job_mult|JOB|gas_refiner| 
+		"
 	}
 
 	# Supertensiles Drones
@@ -821,9 +984,8 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_food_processing_1
 			}
 			or = {
-				colony_type = col_farming
-				colony_type = col_rural
-				colony_type = col_rural_gestalt
+				has_farming_designation = yes
+				has_rural_designation = yes
 				colony_type = col_hive
 				colony_type = col_hiv
 
@@ -851,7 +1013,21 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_food_processing_2
 			}
 			or = {
-				colony_type = col_farming
+				has_farming_designation = yes
+			}
+		}
+
+		planet_farmers_food_produces_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_tec_food_processing_3
+			}
+			or = {
+				has_farming_designation = yes
 			}
 		}
 
@@ -866,9 +1042,8 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_mineral_purification_1
 			}
 			or = {
-				colony_type = col_mining
-				colony_type = col_rural
-				colony_type = col_rural_gestalt
+				has_mining_designation = yes
+				has_rural_designation = yes
 				colony_type = col_mac
 				colony_type = col_hiv
 
@@ -896,7 +1071,21 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_mineral_purification_2
 			}
 			or = {
-				colony_type = col_mining
+				has_mining_designation = yes
+			}
+		}
+
+		planet_miners_minerals_produces_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_tec_mineral_purification_3
+			}
+			or = {
+				has_mining_designation = yes
 			}
 		}
 
@@ -911,9 +1100,8 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_power_hub_1
 			}
 			or = {
-				colony_type = col_generator
-				colony_type = col_rural
-				colony_type = col_rural_gestalt
+				has_generator_designation = yes
+				has_rural_designation = yes
 				colony_type = col_mac
 				colony_type = col_hiv
 
@@ -943,7 +1131,21 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_power_hub_2
 			}
 			or = {
-				colony_type = col_generator
+				has_generator_designation = yes
+			}
+		}
+
+		planet_technician_energy_produces_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_tec_power_hub_3
+			}
+			or = {
+				has_generator_designation = yes
 			}
 		}
 
@@ -958,11 +1160,9 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_luxuries_1
 			}
 			or = {
-				colony_type = col_industrial
+				has_industrial_designation = yes
+				has_factory_designation = yes
 				colony_type = col_ecu_mix
-				colony_type = col_factory
-				colony_type = col_ecu_factory
-				colony_type = col_mac_factory
 
 				# secondary types
 				colony_type = col_trophy_machine
@@ -989,9 +1189,7 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_luxuries_2
 			}
 			or = {
-				colony_type = col_factory
-				colony_type = col_ecu_factory
-				colony_type = col_mac_factory
+				has_factory_designation = yes
 			}
 		}
 
@@ -1008,12 +1206,9 @@ building_giga_elysium_host_booster = {
 				is_catalytic_empire = no
 			}
 			or = {
-				colony_type = col_industrial
+				has_industrial_designation = yes
+				has_foundry_designation = yes
 				colony_type = col_ecu_mix
-				colony_type = col_foundry
-				colony_type = col_ecu_foundry
-				colony_type = col_hiv_foundry
-				colony_type = col_mac_foundry
 
 				# secondary types
 				colony_type = col_giga_supertensiles_foundry
@@ -1031,10 +1226,7 @@ building_giga_elysium_host_booster = {
 				is_catalytic_empire = no
 			}
 			or = {
-				colony_type = col_foundry
-				colony_type = col_ecu_foundry
-				colony_type = col_hiv_foundry
-				colony_type = col_mac_foundry
+				has_foundry_designation = yes
 			}
 		}
 
@@ -1051,12 +1243,9 @@ building_giga_elysium_host_booster = {
 				is_catalytic_empire = yes
 			}
 			or = {
-				colony_type = col_industrial
+				has_industrial_designation = yes
+				has_factory_designation = yes
 				colony_type = col_ecu_mix
-				colony_type = col_foundry
-				colony_type = col_ecu_foundry
-				colony_type = col_hiv_foundry
-				colony_type = col_mac_foundry
 
 				# secondary types
 				colony_type = col_giga_supertensiles_foundry
@@ -1074,10 +1263,7 @@ building_giga_elysium_host_booster = {
 				is_catalytic_empire = yes
 			}
 			or = {
-				colony_type = col_foundry
-				colony_type = col_ecu_foundry
-				colony_type = col_hiv_foundry
-				colony_type = col_mac_foundry
+				has_foundry_designation = yes
 			}
 		}
 
@@ -1092,7 +1278,7 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_centralized_command
 			}
 			or = {
-				colony_type = col_fortress
+				has_fortress_designation = yes
 				colony_type = col_mw_maginot
 			}
 		}
@@ -1106,7 +1292,7 @@ building_giga_elysium_host_booster = {
 				has_technology = tech_planetary_shield_generator
 			}
 			or = {
-				colony_type = col_fortress
+				has_fortress_designation = yes
 				colony_type = col_mw_maginot
 			}
 		}
@@ -1124,44 +1310,78 @@ building_giga_elysium_host_booster = {
 		job_crucible_drone_per_pop = 0.01
 	}
 
+	# deposit general
+
+	inline_script = {
+		script = jobs/inline_evolved_gas_extractor
+		count = 1
+		mult = modifier:building_gas_extractors_max
+		display = with_desc
+		trigger = "
+			owner = { has_technology = tech_mine_exotic_gases }
+		"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_mine_exotic_gases }
+			check_modifier_value = {
+				modifier = building_gas_extractors_max
+				value > 0
+			}
+		}
+		planet_refiners_exotic_gases_produces_add = 1
+	}
+
+	
+	inline_script = {
+		script = jobs/inline_evolved_crystal_miner
+		count = 1
+		mult = modifier:building_crystal_mines_max
+		display = with_desc
+		trigger = "
+			owner = { has_technology = tech_mine_rare_crystals }
+		"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_mine_rare_crystals }
+			check_modifier_value = {
+				modifier = building_crystal_mines_max
+				value > 0
+			}
+		}
+		planet_translucers_rare_crystals_produces_add = 1
+	}
+
+
+	inline_script = {
+		script = jobs/inline_evolved_motes_harvester
+		count = 1
+		mult = modifier:building_mote_harvesters_max
+		display = with_desc
+		trigger = "
+			owner = { has_technology = tech_mine_volatile_motes }
+		"
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_mine_volatile_motes }
+			check_modifier_value = {
+				modifier = building_mote_harvesters_max
+				value > 0
+			}
+		}
+		planet_chemists_volatile_motes_produces_add = 1
+	}
+
 	###############################################################
 	# deposits, non-gestalt
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				has_technology = tech_mine_exotic_gases
-			}
-		}
-		job_gas_extractor_add = 1
-		multiplier = modifier:building_gas_extractors_max
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				has_technology = tech_mine_volatile_motes
-			}
-		}
-		job_mote_harvester_add = 1
-		multiplier = modifier:building_mote_harvesters_max
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				has_technology = tech_mine_rare_crystals
-			}
-		}
-		job_crystal_miner_add = 1
-		multiplier = modifier:building_crystal_mines_max
-	}
 
 	triggered_planet_modifier = {
 		potential = {
@@ -1189,42 +1409,6 @@ building_giga_elysium_host_booster = {
 
 	###############################################################
 	# deposits, gestalt
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-				has_technology = tech_mine_exotic_gases
-			}
-		}
-		job_gas_extraction_drone_add = 1
-		multiplier = modifier:building_gas_extractors_max
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-				has_technology = tech_mine_volatile_motes
-			}
-		}
-		job_mote_harvesting_drone_add = 1
-		multiplier = modifier:building_mote_harvesters_max
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-				has_technology = tech_mine_rare_crystals
-			}
-		}
-		job_crystal_mining_drone_add = 1
-		multiplier = modifier:building_crystal_mines_max
-	}
 
 	triggered_planet_modifier = {
 		potential = {
