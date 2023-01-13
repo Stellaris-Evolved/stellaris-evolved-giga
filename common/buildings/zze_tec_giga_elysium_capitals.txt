@@ -41,27 +41,7 @@ building_giga_elysium_host_capital = {
 			energy = 2
 		}
 
-		# Cloning upkeep
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = no
-				}
-			}
-			food = 30
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = yes
-				}
-			}
-			minerals = 30
-		}
+		inline_script = capitals/resources/inline_evolved_synth_assembly_upkeep
 	}
 
 	######################################################
@@ -70,89 +50,127 @@ building_giga_elysium_host_capital = {
 	planet_modifier = {
 		planet_housing_add = 5
 		planet_amenities_add = @basic_amenities
-		job_enforcer_add = 2
-		job_clerk_add = 2
 
 		planet_max_branch_office_buildings_add = 1
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				NOT = { has_tradition = tr_psionics_psi_corps }
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = telepath
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
 				has_tradition = tr_psionics_psi_corps
 			}
-		}
-		modifier = {
-			job_enforcer_add = -1
-			job_telepath_add = 1
-		}
+		"
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_synthetics_finish
+	# Modifiers
+		inline_script = buildings/effects/inline_evolved_imperious_architecture
+
+		# Synth finish
+			inline_script = {
+				script = modifiers/inline_evolved_assembly_robotic
+				mult = 2
+				trigger = "
+					owner = { has_active_tradition = tr_synthetics_finish }
+				"
 			}
-		}
-		modifier = {
-			job_clerk_add = -1
-			job_roboticist_add = 1
-		}
-	}
+		# /
 
-	triggered_desc = {
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_tradition = tr_psionics_psi_corps
-			}
-		}
-		text = job_telepath_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				or = {
-					has_active_tradition = tr_synthetics_finish
-					and = {
-						not = { has_tradition = tr_genetics_adopt }
-						has_technology = tech_robotic_workers
-						has_policy_flag = robots_allowed
+		# Versatility housing
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_versatility_spatial_optimization
 					}
 				}
+				planet_housing_mult = 0.05
+				mult = @tec_capital_hosuing_t2
 			}
+		# /
+
+		# Outreach t3
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_tec_outreach_3
+					}
+				}
+				planet_structures_cost_mult = -0.05
+				planet_structures_upkeep_mult = -0.05
+			}
+		# /
+	# / 
+
+	# Other extra add / 1 per tier - 1
+		inline_script = {
+			script = jobs/inline_evolved_add_job_civic_regular
+			trigger = ""
+			display = with_desc
+			count = @tec_capital_add_normal_jobs_t2
+			mult = 1
 		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_clerk_effect_desc
-	}
-
+	# /
+	
 	######################################################
 	# Necrophage
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = { 
 				has_origin = origin_necrophage 
 				is_homicidal = no
 				is_mechanical_empire = no
 			}
-		}
-		job_necro_apprentice_add = 1
+		"
 	}
-	triggered_planet_modifier = {
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
 			exists = owner
 			owner = { 
 				has_origin = origin_necrophage 
@@ -160,11 +178,16 @@ building_giga_elysium_host_capital = {
 				is_mechanical_empire = no
 			}
 			num_organic_pops_per_year >= 0.2
-		}
-		job_necro_apprentice_add = 1
+		"
 	}
-	triggered_planet_modifier = {
-		potential = {
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
 			exists = owner
 			owner = { 
 				has_origin = origin_necrophage 
@@ -172,127 +195,234 @@ building_giga_elysium_host_capital = {
 				is_mechanical_empire = no
 			}
 			num_organic_pops_per_year >= 0.3
-		}
-		job_necro_apprentice_add = 1
-	}
-
-	triggered_desc = {
-		text = job_necro_apprentice_effect_desc
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_necrophage 
-				is_homicidal = no
-				is_lithoid_empire = no
-				is_mechanical_empire = no
-			}
-		}
-	}
-	triggered_desc = {
-		text = job_necro_apprentice_effect_lithoid_desc
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_necrophage 
-				is_homicidal = no
-				is_lithoid_empire = yes
-				is_mechanical_empire = no
-			}
-		}
+		"
 	}
 
 	######################################################
-	# Robot plant
+	# Assembly
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				nor = { 
-					has_tradition = tr_genetics_adopt
-					has_valid_civic = civic_permanent_employment
-				}
 				has_technology = tech_robotic_workers
-				has_policy_flag = robots_allowed
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
 			}
-		}
-		job_roboticist_add = 1
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				owner = {
+					has_country_flag = tec_desires_to_build_robots
+				}
+			}
+			else = { # player
+				OR = {
+					NOT = { exists = assembling_species }
+					AND = {
+						exists = assembling_species
+						assembling_species = {
+							is_robotic = yes
+						}
+					}
+					owner = { tec_allows_machine_assembly_for_cyborg = yes }
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = yes
+		"
+	}
+
+	inline_script = {
+		script = buildings/effects/inline_evolved_corporate_robocorp
+		tier = 1
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				owner = {
+					has_country_flag = tec_desires_to_build_bio
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					tec_is_bioservant = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_bioengineer = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+					has_technology = tech_tec_gene_1
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				owner = {
+					OR = {
+						has_country_flag = tec_desires_to_build_clones
+						has_country_flag = tec_desires_to_build_zombies
+						has_country_flag = tec_desires_to_be_pure
+					}
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					is_robotic = no
+					tec_is_bioservant = no
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+				}
+			}
+			tec_has_master_cloner = yes
+		"
 	}
 
 	######################################################
 	# Mortal Initiates
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = 1
+		mult = giga_elysium_admin
+		display = with_desc
+		trigger = "
 			is_variable_set = giga_elysium_admin
 			exists = owner
 			owner = {
 				is_death_cult_empire = yes
 			}
-		}
-		modifier = {
-			job_mortal_initiate_add = 1
-		}
-		multiplier = giga_elysium_admin
-	}
-
-	triggered_desc = {
-		trigger = {
-			is_variable_set = giga_elysium_admin
-			exists = owner
-			owner = {
-				is_death_cult_empire = yes
-			}
-		}
-		text = job_mortal_initiate_effect_desc
-	}
-
-	######################################################
-	# Cloning
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_adopt
-			}
-		}
-		planet_pop_assembly_organic_add = 3
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_efficient_cloning
-			}
-		}
-		planet_pop_assembly_organic_add = 1.5
+		"
 	}
 
 	######################################################
 	# Permanent Employment
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = reassigner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
 				has_valid_civic = civic_permanent_employment
 			}
-		}
-		job_reassigner_add = 1
+		"
 	}
 
 	######################################################
 	# Toxic Spas
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bath_attendant
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
-				has_valid_civic = civic_toxic_baths
+				tec_has_toxic_baths = yes
 			}
-		}
-		job_bath_attendant_add = 2
+		"
 	}
 
 	######################################################
@@ -320,15 +450,9 @@ building_giga_elysium_host_capital = {
 	######################################################
 	# Productivity
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
+	inline_script = {
+		script = capitals/inline_evolved_productivity
+		tier = 2
 	}
 
 	######################################################
@@ -422,27 +546,7 @@ building_giga_elysium_host_major_capital = {
 			energy = 4
 		}
 
-		# Cloning upkeep
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = no
-				}
-			}
-			food = 30
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = yes
-				}
-			}
-			minerals = 30
-		}
+		inline_script = capitals/resources/inline_evolved_synth_assembly_upkeep
 	}
 
 	######################################################
@@ -451,76 +555,300 @@ building_giga_elysium_host_major_capital = {
 	planet_modifier = {
 		planet_housing_add = 10
 		planet_amenities_add = @advanced_amenities
-		job_enforcer_add = 4
-		job_clerk_add = 4
 
 		planet_max_branch_office_buildings_add = 2
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				NOT = { has_tradition = tr_psionics_psi_corps }
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = telepath
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
 				has_tradition = tr_psionics_psi_corps
 			}
-		}
-		modifier = {
-			job_enforcer_add = -2
-			job_telepath_add = 2
-		}
+		"
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_synthetics_finish
+	# Modifiers
+		inline_script = buildings/effects/inline_evolved_imperious_architecture
+
+		# Synth finish
+			inline_script = {
+				script = modifiers/inline_evolved_assembly_robotic
+				mult = 2
+				trigger = "
+					owner = { has_active_tradition = tr_synthetics_finish }
+				"
 			}
-		}
-		modifier = {
-			job_clerk_add = -1
-			job_roboticist_add = 1
-		}
-	}
+		# /
 
-	triggered_desc = {
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_tradition = tr_psionics_psi_corps
-			}
-		}
-		text = job_telepath_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				or = {
-					has_active_tradition = tr_synthetics_finish
-					and = {
-						not = { has_tradition = tr_genetics_adopt }
-						has_technology = tech_robotic_workers
-						has_policy_flag = robots_allowed
+		# Versatility housing
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_versatility_spatial_optimization
 					}
 				}
+				planet_housing_mult = 0.05
+				mult = @tec_capital_hosuing_t3
 			}
-		}
-		text = job_roboticist_effect_desc
-	}
+		# /
 
-	triggered_desc = {
-		text = job_clerk_effect_desc
-	}
+		# Outreach t3
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_tec_outreach_3
+					}
+				}
+				planet_structures_cost_mult = -0.05
+				planet_structures_upkeep_mult = -0.05
+			}
+		# /
+	# / 
+
+	# Other extra add / 1 per tier - 1
+		inline_script = {
+			script = jobs/inline_evolved_add_job_civic_regular
+			trigger = ""
+			display = with_desc
+			count = @tec_capital_add_normal_jobs_t3
+			mult = 1
+		}
+	# /
 
 	######################################################
 	# Necrophage
 
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = value:giga_elysium_necrophytes
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = { 
+				has_origin = origin_necrophage 
+				is_homicidal = no
+				is_mechanical_empire = no
+			}
+		"
+	}
+
+	######################################################
+	# Assembly
+
+	inline_script = {
+		script = jobs/inline_evolved_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					has_country_flag = tec_desires_to_build_robots
+				}
+			}
+			else = { # player
+				OR = {
+					NOT = { exists = assembling_species }
+					AND = {
+						exists = assembling_species
+						assembling_species = {
+							is_robotic = yes
+						}
+					}
+					owner = { tec_allows_machine_assembly_for_cyborg = yes }
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = yes
+		"
+	}
+
+	inline_script = {
+		script = buildings/effects/inline_evolved_corporate_robocorp
+		tier = 1
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					has_country_flag = tec_desires_to_build_bio
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					tec_is_bioservant = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_bioengineer = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+					has_technology = tech_tec_gene_1
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					OR = {
+						has_country_flag = tec_desires_to_build_clones
+						has_country_flag = tec_desires_to_build_zombies
+						has_country_flag = tec_desires_to_be_pure
+					}
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					is_robotic = no
+					tec_is_bioservant = no
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+				}
+			}
+			tec_has_master_cloner = yes
+		"
+	}
+	######################################################
+	# Necrophage
+	
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -558,99 +886,58 @@ building_giga_elysium_host_major_capital = {
 			}
 		}
 	}
-
-	######################################################
-	# Robot plant
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				nor = { 
-					has_tradition = tr_genetics_adopt
-					has_valid_civic = civic_permanent_employment
-				}
-				has_technology = tech_robotic_workers
-				has_policy_flag = robots_allowed
-			}
-		}
-		job_roboticist_add = 1
-	}
+		
 
 	######################################################
 	# Mortal Initiates
-
-	triggered_planet_modifier = {
-		potential = {
+	
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = 1
+		mult = giga_elysium_admin
+		display = with_desc
+		trigger = "
 			is_variable_set = giga_elysium_admin
 			exists = owner
 			owner = {
 				is_death_cult_empire = yes
 			}
-		}
-		modifier = {
-			job_mortal_initiate_add = 1
-		}
-		multiplier = giga_elysium_admin
-	}
-
-	triggered_desc = {
-		trigger = {
-			is_variable_set = giga_elysium_admin
-			exists = owner
-			owner = {
-				is_death_cult_empire = yes
-			}
-		}
-		text = job_mortal_initiate_effect_desc
-	}
-
-	######################################################
-	# Cloning
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_adopt
-			}
-		}
-		planet_pop_assembly_organic_add = 3
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_efficient_cloning
-			}
-		}
-		planet_pop_assembly_organic_add = 1.5
+		"
 	}
 
 	######################################################
 	# Permanent Employment
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = reassigner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
 				has_valid_civic = civic_permanent_employment
 			}
-		}
-		job_reassigner_add = 1
+		"
 	}
 
 	######################################################
 	# Toxic Spas
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bath_attendant
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
-				has_valid_civic = civic_toxic_baths
+				tec_has_toxic_baths = yes
 			}
-		}
-		job_bath_attendant_add = 2
+		"
 	}
 
 	######################################################
@@ -678,26 +965,9 @@ building_giga_elysium_host_major_capital = {
 	######################################################
 	# Productivity
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
+	inline_script = {
+		script = capitals/inline_evolved_productivity
+		tier = 3
 	}
 
 	######################################################
@@ -764,28 +1034,6 @@ building_giga_elysium_host_hive_capital = {
 		upkeep = {
 			energy = 2
 		}
-
-		# Cloning upkeep
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = no
-				}
-			}
-			food = 30
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = yes
-				}
-			}
-			minerals = 30
-		}
 	}
 
 	######################################################
@@ -794,132 +1042,395 @@ building_giga_elysium_host_hive_capital = {
 	planet_modifier = {
 		planet_housing_add = 7
 		planet_amenities_add = @basic_amenities
-		job_patrol_drone_add = 2
-		job_maintenance_drone_add = 1
+
+		planet_max_branch_office_buildings_add = 1
 	}
 
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		trigger = ""
+		count = 2
+		mult = 1
+		display = with_desc
 	}
 
-	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+	# Maintainance
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		trigger = "
+			owner = {
+				tec_has_maintenance_swap_civic_hive = no
+			}
+		"
+		count = 1
+		mult = 1
+		display = with_desc
 	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_civic_hive_swaps
+		trigger= ""
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+	# Synapse 
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		trigger = "
+			owner = {
+				tec_has_ruler_civic_hive = no
+			}
+		"
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = { 
+				has_valid_civic = civic_tec_hive_eusocial 
+			}
+		"
+		job = tec_broodqueen_drone
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse_civic_swaps
+		trigger= ""
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	# Job per tier
+		inline_script = {
+			script = jobs/inline_evolved_add_job_civic_hive
+			trigger= ""
+			count = @tec_capital_add_normal_jobs_t2
+			mult = 1
+			display = with_desc
+		}
+	# /
+
+	# Modifiers
+		# Versatility housing
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_versatility_spatial_optimization
+					}
+				}
+				planet_housing_mult = 0.05
+				mult = @tec_capital_hosuing_t2
+			}
+		# /
+
+		# Outreach t3
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_tec_outreach_3
+					}
+				}
+				planet_structures_cost_mult = -0.05
+				planet_structures_upkeep_mult = -0.05
+			}
+		# /
+	# / 
 
 	######################################################
 	# Spawning
-
-	triggered_planet_modifier = {
-		potential = {
+	
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = offspring_drone
+		trigger = "
 			exists = owner
 			owner = {
 				has_origin = origin_progenitor_hive
 			}
-		}
-		job_offspring_drone_add = 1
+		"
+		count = 1
+		mult = 1
+		display = with_desc
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
+
+	######################################################
+	# Assembly
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = spawning_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				not = { has_origin = origin_progenitor_hive }
+				NOR = {
+					has_technology = tech_robotic_workers
+					has_technology = tech_tec_bioservant
+					has_technology = tech_cloning
+					has_technology = tech_tec_gene_1
+				}
 			}
-		}
-		job_spawning_drone_add = 1
+
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+		"
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				has_origin = origin_progenitor_hive
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
 			}
-		}
-		text = job_offspring_drone_effect_desc
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					has_country_flag = tec_desires_to_build_robots
+				}
+			}
+			else = { # player
+				OR = {
+					NOT = { exists = assembling_species }
+					AND = {
+						exists = assembling_species
+						assembling_species = {
+							is_robotic = yes
+						}
+					}
+					owner = { tec_allows_machine_assembly_for_cyborg = yes }
+				}
+			}
+		"
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_master_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				not = { has_origin = origin_progenitor_hive }
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
 			}
-		}
-		text = job_spawning_drone_effect_desc
+			tec_has_master_roboticist = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					has_country_flag = tec_desires_to_build_bio
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					tec_is_bioservant = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_bioengineer = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+					has_technology = tech_tec_gene_1
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					OR = {
+						has_country_flag = tec_desires_to_build_clones
+						has_country_flag = tec_desires_to_build_zombies
+						has_country_flag = tec_desires_to_be_pure
+					}
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					is_robotic = no
+					tec_is_bioservant = no
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+				}
+			}
+			tec_has_master_cloner = yes
+		"
 	}
 
 	######################################################
 	# Necrophage
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = { 
 				has_origin = origin_necrophage 
 				is_homicidal = no
+				is_mechanical_empire = no
 			}
-		}
-		job_necro_apprentice_add = 1
-		multiplier = value:giga_elysium_necrophytes
+		"
 	}
 
-	triggered_desc = {
-		text = job_necro_apprentice_effect_hive_desc
-		trigger = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
 			exists = owner
-			owner = {
+			owner = { 
 				has_origin = origin_necrophage 
 				is_homicidal = no
-				is_lithoid_empire = no
+				is_mechanical_empire = no
 			}
-		}
+			num_organic_pops_per_year >= 0.2
+		"
 	}
-	triggered_desc = {
-		text = job_necro_apprentice_effect_hive_lithoid_desc
-		trigger = {
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
 			exists = owner
-			owner = {
+			owner = { 
 				has_origin = origin_necrophage 
 				is_homicidal = no
-				is_lithoid_empire = yes
+				is_mechanical_empire = no
 			}
-		}
+			num_organic_pops_per_year >= 0.3
+		"
 	}
 
-	######################################################
-	# Cloning
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_adopt
-			}
-		}
-		planet_pop_assembly_organic_add = 3
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_efficient_cloning
-			}
-		}
-		planet_pop_assembly_organic_add = 1.5
-	}
 
 	######################################################
 	# Toxic Spas
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bath_attendant_hive
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
-				has_valid_civic = civic_hive_toxic_baths
+				tec_has_toxic_baths = yes
 			}
-		}
-		job_bath_attendant_hive_add = 2
+		"
 	}
 
 	######################################################
@@ -947,15 +1458,9 @@ building_giga_elysium_host_hive_capital = {
 	######################################################
 	# Productivity
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
+	inline_script = {
+		script = capitals/inline_evolved_productivity
+		tier = 2
 	}
 
 	######################################################
@@ -1046,180 +1551,366 @@ building_giga_elysium_host_hive_major_capital = {
 		upkeep = {
 			energy = 4
 		}
-
-		# Cloning upkeep
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = no
-				}
-			}
-			food = 30
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_tradition = tr_genetics_adopt
-					is_lithoid_empire = yes
-				}
-			}
-			minerals = 30
-		}
 	}
 
 	planet_modifier = {
 		planet_housing_add = 14
 		planet_amenities_add = @advanced_amenities
-		job_patrol_drone_add = 4
-		job_maintenance_drone_add = 3
+
+		planet_max_branch_office_buildings_add = 2
 	}
 
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		trigger = ""
+		count = 4
+		mult = 1
+		display = with_desc
 	}
 
-	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+	# Maintainance
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		trigger = "
+			owner = {
+				tec_has_maintenance_swap_civic_hive = no
+			}
+		"
+		count = 2
+		mult = 1
+		display = with_desc
 	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_civic_hive_swaps
+		trigger= ""
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	# Synapse 
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		trigger = "
+			owner = {
+				tec_has_ruler_civic_hive = no
+			}
+		"
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = { 
+				has_valid_civic = civic_tec_hive_eusocial 
+			}
+		"
+		job = tec_broodqueen_drone
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse_civic_swaps
+		trigger= ""
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	# Job per tier
+		inline_script = {
+			script = jobs/inline_evolved_add_job_civic_hive
+			trigger= ""
+			count = @tec_capital_add_normal_jobs_t3
+			mult = 1
+			display = with_desc
+		}
+	# /
+
+	# Modifiers
+		# Versatility housing
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_versatility_spatial_optimization
+					}
+				}
+				planet_housing_mult = 0.05
+				mult = @tec_capital_hosuing_t3
+			}
+		# /
+
+		# Outreach t3
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_tec_outreach_3
+					}
+				}
+				planet_structures_cost_mult = -0.05
+				planet_structures_upkeep_mult = -0.05
+			}
+		# /
+	# / 
 
 	######################################################
 	# Spawning
-
-	triggered_planet_modifier = {
-		potential = {
+	
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = offspring_drone
+		trigger = "
 			exists = owner
 			owner = {
 				has_origin = origin_progenitor_hive
 			}
-		}
-		job_offspring_drone_add = 1
+		"
+		count = 1
+		mult = 1
+		display = with_desc
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
+
+	######################################################
+	# Assembly
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = spawning_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				not = { has_origin = origin_progenitor_hive }
+				NOR = {
+					has_technology = tech_robotic_workers
+					has_technology = tech_tec_bioservant
+					has_technology = tech_cloning
+					has_technology = tech_tec_gene_1
+				}
 			}
-		}
-		job_spawning_drone_add = 1
+
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+		"
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				has_origin = origin_progenitor_hive
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
 			}
-		}
-		text = job_offspring_drone_effect_desc
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					has_country_flag = tec_desires_to_build_robots
+				}
+			}
+			else = { # player
+				OR = {
+					NOT = { exists = assembling_species }
+					AND = {
+						exists = assembling_species
+						assembling_species = {
+							is_robotic = yes
+						}
+					}
+					owner = { tec_allows_machine_assembly_for_cyborg = yes }
+				}
+			}
+		"
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
+	inline_script = {
+		script = jobs/inline_evolved_master_roboticist
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
 			owner = {
-				not = { has_origin = origin_progenitor_hive }
+				has_technology = tech_robotic_workers
+				NOR = {
+					has_policy_flag = robots_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
 			}
-		}
-		text = job_spawning_drone_effect_desc
+			tec_has_master_roboticist = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					has_country_flag = tec_desires_to_build_bio
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					tec_is_bioservant = yes
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_bioengineer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_technology = tech_tec_bioservant
+				NOR = {
+					has_policy_flag = bioservants_outlawed
+					has_policy_flag = tec_purity_assembly
+				}
+			}
+			tec_has_master_bioengineer = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+					has_technology = tech_tec_gene_1
+				}
+			}
+			tec_has_master_roboticist = no # disable assembly if any master job
+			tec_has_master_bioengineer = no
+			tec_has_master_cloner = no
+
+			# Ai fixes
+			if = {
+				limit = {
+					owner = { is_ai = yes }
+					has_global_flag = tec_desired_assembly_distributed
+				}
+				exists = owner
+				owner = {
+					OR = {
+						has_country_flag = tec_desires_to_build_clones
+						has_country_flag = tec_desires_to_build_zombies
+						has_country_flag = tec_desires_to_be_pure
+					}
+				}
+			}
+			else = { # player
+				exists = assembling_species
+				assembling_species = {
+					is_robotic = no
+					tec_is_bioservant = no
+				}
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_master_cloner
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				OR = {
+					has_technology = tech_cloning
+				}
+			}
+			tec_has_master_cloner = yes
+		"
 	}
 
 	######################################################
 	# Necrophage
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = necro_apprentice
+		count = 1
+		mult = value:giga_elysium_necrophytes
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = { 
 				has_origin = origin_necrophage 
 				is_homicidal = no
+				is_mechanical_empire = no
 			}
-		}
-		job_necro_apprentice_add = 1
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { 
-				has_origin = origin_necrophage 
-				is_homicidal = no
-			}
-			num_organic_pops_per_year >= 0.2
-		}
-		job_necro_apprentice_add = 1
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { 
-				has_origin = origin_necrophage 
-				is_homicidal = no
-			}
-			num_organic_pops_per_year >= 0.3
-		}
-		job_necro_apprentice_add = 1
-	}
-
-	triggered_desc = {
-		text = job_necro_apprentice_effect_hive_desc
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_necrophage 
-				is_homicidal = no
-				is_lithoid_empire = no
-			}
-		}
-	}
-	triggered_desc = {
-		text = job_necro_apprentice_effect_hive_lithoid_desc
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_necrophage 
-				is_homicidal = no
-				is_lithoid_empire = yes
-			}
-		}
-	}
-
-	######################################################
-	# Cloning
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_adopt
-			}
-		}
-		planet_pop_assembly_organic_add = 3
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_tradition = tr_genetics_efficient_cloning
-			}
-		}
-		planet_pop_assembly_organic_add = 1.5
+		"
 	}
 
 	######################################################
 	# Toxic Spas
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bath_attendant_hive
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
-				has_valid_civic = civic_hive_toxic_baths
+				tec_has_toxic_baths = yes
 			}
-		}
-		job_bath_attendant_hive_add = 2
+		"
 	}
 
 	######################################################
@@ -1247,27 +1938,11 @@ building_giga_elysium_host_hive_major_capital = {
 	######################################################
 	# Productivity
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
+	inline_script = {
+		script = capitals/inline_evolved_productivity
+		tier = 3
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
 
 	######################################################
 	# Necrophage extra info
@@ -1339,100 +2014,171 @@ building_giga_elysium_host_machine_capital = {
 	planet_modifier = {
 		planet_housing_add = 5
 		planet_amenities_add = @basic_amenities
-		job_patrol_drone_add = 2
-		job_replicator_add = 1
-		job_maintenance_drone_add = 1
+
+		planet_max_branch_office_buildings_add = 1
 	}
-	triggered_planet_modifier = {
-		potential = {
-			num_pops >= 10
+
+	inline_script = {
+		script = capitals/inline_evolved_machine_assembly	
+		tier = 2
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		trigger = ""
+		count = 2
+		mult = 1
+		display = with_desc
+	}
+
+	# maintenance 
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		trigger = "
+			owner = {
+				tec_has_ruler_civic_machine = no
+			}
+		"
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_civic_machine_swaps
+		trigger= ""
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	# You are a rare case, sweetie
+	inline_script = { # Reimaginartor
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = {
+				has_valid_civic = civic_tec_machine_reimaginators
+			}
+		"
+		job = tec_reimaginator_drone
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	# Modifiers
+		# Versatility housing
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_versatility_spatial_optimization
+					}
+				}
+				planet_housing_mult = 0.05
+				mult = @tec_capital_hosuing_t2
+			}
+		# /
+
+		# Outreach t3
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_tec_outreach_3
+					}
+				}
+				planet_structures_cost_mult = -0.05
+				planet_structures_upkeep_mult = -0.05
+			}
+		# /
+	# / 
+
+	# Job per tier
+		inline_script = {
+			script = jobs/inline_evolved_add_job_civic_machine
+			trigger= ""
+			count = @tec_capital_add_normal_jobs_t2
+			mult = 1
+			display = with_desc
 		}
-		modifier = {
-			job_replicator_add = 1
-		}
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
-	}
+	# /
 
 	######################################################
 	# Crucible world
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = { # Crucible Drones
+		script = jobs/inline_evolved_job
+		trigger = "
 			has_designation = col_crucible
-		}
-		job_replicator_add = -1
-		job_crucible_drone_add = 2
-	}
-	triggered_desc = {
-		trigger = {
-			has_designation = col_crucible
-		}
-		text = job_crucible_drone_effect_desc
+		"
+		job = crucible_drone
+		count = 2
+		mult = 1
+		display = with_desc
 	}
 
 	######################################################
-	# Upgraded assembly plant tech
+	# Assembly
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_tec_machine_reimaginators }
+			}
+		"
+		job = replicator
+		count = 1
+		mult = 1
+		display = with_desc
+		
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
 			not = { has_designation = col_crucible }
 			exists = owner
 			owner = {
 				has_technology = tech_mega_assembly
+				NOT = { has_valid_civic = civic_tec_machine_reimaginators }
 			}
-		}
-		job_replicator_add = 1
+			
+		"
+		job = replicator
+		count = 1
+		mult = 1
+		display = no_desc
 	}
 
 	######################################################
 	# Synth finisher
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_synthetics_finish_machine
-			}
-		}
-		job_replicator_add = 1
-	}
-
-	######################################################
-	# Assimilator
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_machine_assimilator }
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
-		}
+	inline_script = {
+		script = modifiers/inline_evolved_assembly_robotic
+		mult = 1
+		trigger = "
+			owner = { has_active_tradition = tr_synthetics_finish_machine }
+		"
 	}
 
 	######################################################
 	# Toxic Spas
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bath_attendant_machine
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
-				has_valid_civic = civic_machine_toxic_baths
+				tec_has_toxic_baths = yes
 			}
-		}
-		job_bath_attendant_machine_add = 2
+		"
 	}
 
 	######################################################
@@ -1460,15 +2206,9 @@ building_giga_elysium_host_machine_capital = {
 	######################################################
 	# Productivity
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
+	inline_script = {
+		script = capitals/inline_evolved_productivity
+		tier = 2
 	}
 
 	upgrades = {
@@ -1541,108 +2281,172 @@ building_giga_elysium_host_machine_major_capital = {
 	planet_modifier = {
 		planet_housing_add = 10
 		planet_amenities_add = @advanced_amenities
-		job_patrol_drone_add = 4
-		job_replicator_add = 2
+
+		planet_max_branch_office_buildings_add = 2
 		job_maintenance_drone_add = 2
 	}
-	triggered_planet_modifier = {
-		potential = {
-			num_pops >= 10
-		}
-		modifier = {
-			job_replicator_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			num_pops >= 40
-		}
-		modifier = {
-			job_replicator_add = 1
-		}
+
+	inline_script = {
+		script = capitals/inline_evolved_machine_assembly	
+		tier = 3
 	}
 
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		trigger = ""
+		count = 4
+		mult = 1
+		display = with_desc
 	}
 
-	triggered_desc = {
-		text = job_replicator_effect_desc
+	# maintenance 
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		trigger = "
+			owner = {
+				tec_has_ruler_civic_machine = no
+			}
+		"
+		count = 2
+		mult = 1
+		display = with_desc
 	}
 
-	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_civic_machine_swaps
+		trigger= ""
+		count = 2
+		mult = 1
+		display = with_desc
 	}
+
+	# You are a rare case, sweetie
+	inline_script = { # Reimaginartor
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = {
+				has_valid_civic = civic_tec_machine_reimaginators
+			}
+		"
+		job = tec_reimaginator_drone
+		count = 1
+		mult = 1
+		display = with_desc
+	}
+
+	# Modifiers
+		# Versatility housing
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_versatility_spatial_optimization
+					}
+				}
+				planet_housing_mult = 0.05
+				mult = @tec_capital_hosuing_t3
+			}
+		# /
+
+		# Outreach t3
+			triggered_planet_modifier = {
+				potential = {
+					exists = owner
+					owner = { 
+						has_active_tradition = tr_tec_outreach_3
+					}
+				}
+				planet_structures_cost_mult = -0.05
+				planet_structures_upkeep_mult = -0.05
+			}
+		# /
+	# / 
+
+	# Job per tier
+		inline_script = {
+			script = jobs/inline_evolved_add_job_civic_machine
+			trigger= ""
+			count = @tec_capital_add_normal_jobs_t3
+			mult = 1
+			display = with_desc
+		}
+	# /
 
 	######################################################
 	# Crucible world
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = { # Crucible Drones
+		script = jobs/inline_evolved_job
+		trigger = "
 			has_designation = col_crucible
-		}
-		job_replicator_add = -1
-		job_crucible_drone_add = 2
-	}
-	triggered_desc = {
-		trigger = {
-			has_designation = col_crucible
-		}
-		text = job_crucible_drone_effect_desc
+		"
+		job = crucible_drone
+		count = 2
+		mult = 1
+		display = with_desc
 	}
 
 	######################################################
-	# Upgraded assembly plant tech
+	# Assembly
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_tec_machine_reimaginators }
+			}
+		"
+		job = replicator
+		count = 1
+		mult = 1
+		display = with_desc
+		
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		trigger = "
 			not = { has_designation = col_crucible }
 			exists = owner
 			owner = {
 				has_technology = tech_mega_assembly
+				NOT = { has_valid_civic = civic_tec_machine_reimaginators }
 			}
-		}
-		job_replicator_add = 1
+			
+		"
+		job = replicator
+		count = 1
+		mult = 1
+		display = no_desc
 	}
 
 	######################################################
 	# Synth finisher
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_synthetics_finish_machine
-			}
-		}
-		job_replicator_add = 1
-	}
-
-	######################################################
-	# Assimilator
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_machine_assimilator }
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
-		}
+	inline_script = {
+		script = modifiers/inline_evolved_assembly_robotic
+		mult = 1
+		trigger = "
+			owner = { has_active_tradition = tr_synthetics_finish_machine }
+		"
 	}
 
 	######################################################
 	# Toxic Spas
 
-	triggered_planet_modifier = {
-		potential = {
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bath_attendant_machine
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
 			exists = owner
 			owner = {
-				has_valid_civic = civic_machine_toxic_baths
+				tec_has_toxic_baths = yes
 			}
-		}
-		job_bath_attendant_machine_add = 2
+		"
 	}
 
 	######################################################
@@ -1670,26 +2474,9 @@ building_giga_elysium_host_machine_major_capital = {
 	######################################################
 	# Productivity
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
+	inline_script = {
+		script = capitals/inline_evolved_productivity
+		tier = 3
 	}
 }
 
