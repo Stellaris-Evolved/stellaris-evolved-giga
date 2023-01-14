@@ -288,7 +288,7 @@ giga_virtual_livestock = {
 			trigger = {
 				exists = owner
 				owner = {
-					is_cooperis_socialismative = yes
+					is_socialism = yes
 				}
 			}
 			society_research = @livestock_society

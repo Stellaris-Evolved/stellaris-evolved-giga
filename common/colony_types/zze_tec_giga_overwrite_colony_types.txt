@@ -1,0 +1,40 @@
+# Paradox didnt actually fix this for habitats btw, they cant have the capital designation if you make one your capital
+# AFAIK have to copy the designations just for the gas giant habitat so your origin is accounted for
+# Capital Planet
+col_giga_gas_giant_habitat_capital = {
+	inline_script = colony_types/inline_evolved_disabled
+}
+
+
+# Habitat Energy
+col_giga_gas_giant_habitat_energy = {
+	icon = GFX_colony_type_habitat_energy
+
+	potential = {
+		uses_district_set = giga_gas_giant_habitat
+	}
+	planet_modifier = {
+	    planet_districts_hab_energy_cost_mult = -0.1
+		planet_technician_produces_mult = 0.1
+	}
+
+	# Evolved
+		inline_script = colony_types/effects/inline_evolved_tec_land_of_plenty_generator
+		inline_script = colony_types/effects/inline_evolved_tec_planets_t2a_generator
+	# /
+	weight_modifier = {
+		base = 200
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = energy value < 0 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_giga_gas_giant_habitat_energy
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = district_giga_gas_giant_habitat_wind value >= 3 }
+		}
+	}
+}

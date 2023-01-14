@@ -1690,6 +1690,7 @@ district_giga_frameworld_temple = {
 				is_death_cult_empire = yes
 			}
 		"
+		display = with_desc
 	}
 }
 
@@ -1746,7 +1747,6 @@ district_giga_frameworld_synapse = {
 	}
 	inline_script = buildings/effects/inline_evolved_synaptic_extensions
 	inline_script = buildings/effects/inline_evolved_synaptic_reinforcement
-	inline_script = buildings/effects/inline_evolved_tec_introspective
 	inline_script = {
 		script = buildings/effects/inline_evolved_gestalt_introspective
 		tier = 1
@@ -2637,7 +2637,7 @@ district_giga_frameworld_maginot_shield_generators = {
 	planet_modifier = {
 		planet_orbital_bombardment_damage = -0.2		# yes these are spammable to 100% and beyond, intentional
 		# stuff on the planet is protected by shields from damage
-		army_collateral_damage_mult = -1
+		# army_collateral_damage_mult = -1
 	}
 	triggered_desc = {
 		text = district_giga_frameworld_maginot_shield_generators_cap

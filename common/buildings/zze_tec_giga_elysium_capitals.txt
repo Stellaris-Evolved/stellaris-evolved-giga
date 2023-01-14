@@ -2098,7 +2098,7 @@ building_giga_elysium_host_machine_capital = {
 	# Job per tier
 		inline_script = {
 			script = jobs/inline_evolved_add_job_civic_machine
-			trigger= ""
+			trigger = ""
 			count = @tec_capital_add_normal_jobs_t2
 			mult = 1
 			display = with_desc
