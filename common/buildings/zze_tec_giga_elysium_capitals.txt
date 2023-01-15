@@ -2134,7 +2134,7 @@ building_giga_elysium_host_machine_capital = {
 		count = 1
 		mult = 1
 		display = with_desc
-		
+	}
 
 	inline_script = {
 		script = jobs/inline_evolved_job
@@ -2402,8 +2402,8 @@ building_giga_elysium_host_machine_major_capital = {
 		count = 1
 		mult = 1
 		display = with_desc
-		
-
+	}
+	
 	inline_script = {
 		script = jobs/inline_evolved_job
 		trigger = "

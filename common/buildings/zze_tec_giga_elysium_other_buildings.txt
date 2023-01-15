@@ -1359,7 +1359,7 @@ building_giga_elysium_host_booster = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_motes_harvester
+		script = jobs/inline_evolved_mote_harvester
 		count = 1
 		mult = modifier:building_mote_harvesters_max
 		display = with_desc
