@@ -288,7 +288,7 @@ giga_virtual_livestock = {
 			trigger = {
 				exists = owner
 				owner = {
-					is_socialism = yes
+					is_cooperative = yes
 				}
 			}
 			society_research = @livestock_society
@@ -461,7 +461,7 @@ giga_virtual_livestock = {
 		potential = {
 			exists = owner
 			owner = {
-				is_capitalism = yes
+				is_competitive = yes
 			}
 		}
 		trade_value_add = @livestock_trade
@@ -753,7 +753,7 @@ giga_virtual_hell_inmate = {
 		potential = {
 			exists = owner
 			owner = {
-				is_socialism = yes
+				is_cooperative = yes
 			}
 		}
 		planet_crime_add = @hell_minus_crime
@@ -791,7 +791,7 @@ giga_virtual_hell_inmate = {
 		potential = {
 			exists = owner
 			owner = {
-				is_capitalism = yes
+				is_competitive = yes
 			}
 		}
 		planet_crime_add = @hell_plus_crime
@@ -800,7 +800,7 @@ giga_virtual_hell_inmate = {
 		potential = {
 			exists = owner
 			owner = {
-				is_capitalism = yes
+				is_competitive = yes
 			}
 		}
 		planet_crime_add = @hell_plus_crime
@@ -809,7 +809,7 @@ giga_virtual_hell_inmate = {
 		potential = {
 			exists = owner
 			owner = {
-				is_capitalism = yes
+				is_competitive = yes
 			}
 		}
 		trade_value_add = @hell_trade
@@ -1118,7 +1118,7 @@ giga_virtual_diplomat = {
 		potential = {
 			exists = owner
 			owner = {
-				is_socialism = yes
+				is_cooperative = yes
 			}
 		}
 		diplo_weight_mult = 0.0025
@@ -1140,7 +1140,7 @@ giga_virtual_diplomat = {
 		potential = {
 			exists = owner
 			owner = {
-				is_capitalism = yes
+				is_competitive = yes
 			}
 		}
 		country_trade_attractiveness = 0.01

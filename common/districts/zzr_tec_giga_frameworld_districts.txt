@@ -148,13 +148,9 @@ district_giga_frameworld_city = {
 
 			# Traditions
 				inline_script = {
-					script = jobs/inline_evolved_clerk
+					script = districts/effects/inline_evolved_mercantile_trickle_up_economics
 					count = 1
-					mult = 1
-					display = no_desc
-					trigger = "
-						owner = { has_active_tradition = tr_mercantile_trickle_up_economics }
-					"
+					trigger = ""
 				}
 			# /
 		# /
@@ -360,48 +356,12 @@ district_giga_frameworld_hive = {
 		}
 
 		inline_script = {
-			script = jobs/inline_evolved_maintenance_drone
+			script = districts/effects/inline_evolved_tech_housing_2_gestalt
 			count = 1
-			mult = 1
-			display = no_desc
-			trigger = "
-				owner = { has_technology = tech_housing_2 }
-			"
+			trigger = ""
 		}
 		# Bio/Lithospheric harmony
-			inline_script = {
-				script = jobs/inline_evolved_farmer
-				regular_count = 0
-				regular_aquatic_count = 0
-				hive_count = 1
-				hive_aquatic_count = 1
-				machine_count = 0
-				mult = 1
-				display = with_desc
-				trigger = "
-					owner = {
-						is_lithoid_empire = no
-						has_valid_civic = civic_tec_hive_menial
-					}
-				"
-			}
-
-			inline_script = {
-				script = jobs/inline_evolved_miner
-				regular_count = 0
-				regular_aquatic_count = 0
-				hive_count = 1
-				hive_aquatic_count = 1
-				machine_count = 0
-				mult = 1
-				display = with_desc
-				trigger = "
-					owner = {
-						is_lithoid_empire = yes
-						has_valid_civic = civic_tec_hive_menial
-					}
-				"
-			}
+			inline_script = districts/effects/inline_evolved_tec_hive_menial
 		# /
 	# /
 }
@@ -473,39 +433,7 @@ district_giga_frameworld_hive_advanced = {
 			"
 		}
 		# Bio/Lithospheric harmony
-			inline_script = {
-				script = jobs/inline_evolved_farmer
-				regular_count = 0
-				regular_aquatic_count = 0
-				hive_count = 1
-				hive_aquatic_count = 1
-				machine_count = 0
-				mult = 1
-				display = with_desc
-				trigger = "
-					owner = {
-						is_lithoid_empire = no
-						has_valid_civic = civic_tec_hive_menial
-					}
-				"
-			}
-
-			inline_script = {
-				script = jobs/inline_evolved_miner
-				regular_count = 0
-				regular_aquatic_count = 0
-				hive_count = 1
-				hive_aquatic_count = 1
-				machine_count = 0
-				mult = 1
-				display = with_desc
-				trigger = "
-					owner = {
-						is_lithoid_empire = yes
-						has_valid_civic = civic_tec_hive_menial
-					}
-				"
-			}
+			inline_script = districts/effects/inline_evolved_tec_hive_menial
 		# /
 	# /
 }
@@ -590,29 +518,12 @@ district_giga_frameworld_nexus = {
 			trigger = ""
 		}
 		inline_script = {
-			script = jobs/inline_evolved_maintenance_drone
+			script = districts/effects/inline_evolved_tech_housing_2_gestalt
 			count = 1
-			mult = 1
-			display = no_desc
-			trigger = "
-				owner = { has_technology = tech_housing_2 }
-			"
+			trigger = ""
 		}
 		# Civics
-			inline_script = {
-				script = jobs/inline_evolved_technician
-				regular_count = 0
-				hive_count = 0
-				machine_count = 1
-				machine_aquatic_count = 1
-				mult = 1
-				display = with_desc
-				trigger = "
-					owner = {
-						has_valid_civic = civic_tec_machine_menial
-					}
-				"
-			}
+			inline_script = districts/effects/inline_evolved_tec_machine_menial
 		# /
 	# /
 }
@@ -702,20 +613,7 @@ district_giga_frameworld_nexus_advanced = {
 			"
 		}
 		# Civics
-			inline_script = {
-				script = jobs/inline_evolved_technician
-				regular_count = 0
-				hive_count = 0
-				machine_count = 1
-				machine_aquatic_count = 1
-				mult = 1
-				display = with_desc
-				trigger = "
-					owner = {
-						has_valid_civic = civic_tec_machine_menial
-					}
-				"
-			}
+			inline_script = districts/effects/inline_evolved_tec_machine_menial
 		# /
 	# /
 }
@@ -883,6 +781,13 @@ district_giga_frameworld_generator = {
 		# Automated production
 			inline_script = {
 				script = districts/resources/inline_evolved_tec_automation_energy
+				trigger = "
+					exists = owner
+					owner = { tec_is_automated_empire = yes }
+					planet = {
+						tec_planet_allows_automation = yes
+					}
+				"
 				base = 6
 			}
 		# /
@@ -1003,6 +908,13 @@ district_giga_frameworld_penrose = {
 		# Automated production
 		inline_script = {
 				script = districts/resources/inline_evolved_tec_automation_energy
+				trigger = "
+					exists = owner
+					owner = { tec_is_automated_empire = yes }
+					planet = {
+						tec_planet_allows_automation = yes
+					}
+				"
 				base = 6
 			}
 		# /
@@ -1122,6 +1034,13 @@ district_giga_frameworld_mining = {
 		# Automated production
 			inline_script = {
 				script = districts/resources/inline_evolved_tec_automation_minerals
+				trigger = "
+					exists = owner
+					owner = { tec_is_automated_empire = yes }
+					planet = {
+						tec_planet_allows_automation = yes
+					}
+				"
 				base = 4
 			}
 			inline_script = districts/resources/inline_evolved_tec_automated_upkeep
@@ -1224,17 +1143,7 @@ district_giga_frameworld_mining = {
 		"
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_tec_eco_keepers
-			}
-		}
-		modifier = {
-			planet_amenities_add = -1
-		}
-	}
+	inline_script = districts/effects/inline_evolved_tec_eco_keepers_mining
 
 	inline_script = {
 		script = jobs/inline_evolved_miner
@@ -1285,6 +1194,13 @@ district_giga_frameworld_decompressor = {
 		# Automated production
 			inline_script = {
 				script = districts/resources/inline_evolved_tec_automation_minerals
+				trigger = "
+					exists = owner
+					owner = { tec_is_automated_empire = yes }
+					planet = {
+						tec_planet_allows_automation = yes
+					}
+				"
 				base = 4
 			}
 			inline_script = districts/resources/inline_evolved_tec_automated_upkeep
@@ -1378,17 +1294,7 @@ district_giga_frameworld_decompressor = {
 		"
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_valid_civic = civic_tec_eco_keepers
-			}
-		}
-		modifier = {
-			planet_amenities_add = -1
-		}
-	}
+	inline_script = districts/effects/inline_evolved_tec_eco_keepers_mining
 
 	inline_script = {
 		script = jobs/inline_evolved_miner
@@ -1436,6 +1342,13 @@ district_giga_frameworld_farming = {
 		# Automated production
 			inline_script = {
 				script = districts/resources/inline_evolved_tec_automation_food
+				trigger = "
+					exists = owner
+					owner = { tec_is_automated_empire = yes }
+					planet = {
+						tec_planet_allows_automation = yes
+					}
+				"
 				base = 6
 			}
 			inline_script = districts/resources/inline_evolved_tec_automated_upkeep

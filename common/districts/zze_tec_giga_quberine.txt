@@ -58,11 +58,21 @@ district_rw_quberine = {
 			giga_sr_amb_megaconstruction = 2.5
 		}
 	}
+	triggered_desc = {
+		trigger = {
+			planet = {
+				has_deposit = d_arcane_generator
+				NOT = { has_district = district_rw_quberine }
+			}
+		}
+		text = arcane_generator_upkeep_desc
+	}
 	triggered_planet_modifier = {
 		modifier = {
 			planet_housing_add = 10
 		}
 	}
+	inline_script = districts/effects/inline_evolved_tec_ringworld_damaged_section
 	
 	inline_script = {
 		script = jobs/inline_evolved_researcher_split
@@ -71,6 +81,27 @@ district_rw_quberine = {
 		mult = 1
 		display = with_desc
 		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = -2
+		count_half = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			has_deposit = d_tec_rw_minor_structural_damage
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = -2
+		count_half = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			has_deposit = d_tec_rw_major_structural_damage
+		"
 	}
 	triggered_planet_modifier = {
 		potential = {
