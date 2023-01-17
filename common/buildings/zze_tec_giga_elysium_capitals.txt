@@ -228,18 +228,6 @@ building_giga_elysium_host_capital = {
 					has_country_flag = tec_desires_to_build_robots
 				}
 			}
-			else = { # player
-				OR = {
-					NOT = { exists = assembling_species }
-					AND = {
-						exists = assembling_species
-						assembling_species = {
-							is_robotic = yes
-						}
-					}
-					owner = { tec_allows_machine_assembly_for_cyborg = yes }
-				}
-			}
 		"
 	}
 
@@ -292,12 +280,6 @@ building_giga_elysium_host_capital = {
 					has_country_flag = tec_desires_to_build_bio
 				}
 			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					tec_is_bioservant = yes
-				}
-			}
 		"
 	}
 
@@ -346,13 +328,6 @@ building_giga_elysium_host_capital = {
 						has_country_flag = tec_desires_to_build_zombies
 						has_country_flag = tec_desires_to_be_pure
 					}
-				}
-			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					is_robotic = no
-					tec_is_bioservant = no
 				}
 			}
 		"
@@ -700,18 +675,6 @@ building_giga_elysium_host_major_capital = {
 					has_country_flag = tec_desires_to_build_robots
 				}
 			}
-			else = { # player
-				OR = {
-					NOT = { exists = assembling_species }
-					AND = {
-						exists = assembling_species
-						assembling_species = {
-							is_robotic = yes
-						}
-					}
-					owner = { tec_allows_machine_assembly_for_cyborg = yes }
-				}
-			}
 		"
 	}
 
@@ -765,12 +728,6 @@ building_giga_elysium_host_major_capital = {
 					has_country_flag = tec_desires_to_build_bio
 				}
 			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					tec_is_bioservant = yes
-				}
-			}
 		"
 	}
 
@@ -820,13 +777,6 @@ building_giga_elysium_host_major_capital = {
 						has_country_flag = tec_desires_to_build_zombies
 						has_country_flag = tec_desires_to_be_pure
 					}
-				}
-			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					is_robotic = no
-					tec_is_bioservant = no
 				}
 			}
 		"
@@ -1220,18 +1170,6 @@ building_giga_elysium_host_hive_capital = {
 					has_country_flag = tec_desires_to_build_robots
 				}
 			}
-			else = { # player
-				OR = {
-					NOT = { exists = assembling_species }
-					AND = {
-						exists = assembling_species
-						assembling_species = {
-							is_robotic = yes
-						}
-					}
-					owner = { tec_allows_machine_assembly_for_cyborg = yes }
-				}
-			}
 		"
 	}
 
@@ -1278,12 +1216,6 @@ building_giga_elysium_host_hive_capital = {
 				exists = owner
 				owner = {
 					has_country_flag = tec_desires_to_build_bio
-				}
-			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					tec_is_bioservant = yes
 				}
 			}
 		"
@@ -1335,13 +1267,6 @@ building_giga_elysium_host_hive_capital = {
 						has_country_flag = tec_desires_to_build_zombies
 						has_country_flag = tec_desires_to_be_pure
 					}
-				}
-			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					is_robotic = no
-					tec_is_bioservant = no
 				}
 			}
 		"
@@ -1735,18 +1660,6 @@ building_giga_elysium_host_hive_major_capital = {
 					has_country_flag = tec_desires_to_build_robots
 				}
 			}
-			else = { # player
-				OR = {
-					NOT = { exists = assembling_species }
-					AND = {
-						exists = assembling_species
-						assembling_species = {
-							is_robotic = yes
-						}
-					}
-					owner = { tec_allows_machine_assembly_for_cyborg = yes }
-				}
-			}
 		"
 	}
 
@@ -1793,12 +1706,6 @@ building_giga_elysium_host_hive_major_capital = {
 				exists = owner
 				owner = {
 					has_country_flag = tec_desires_to_build_bio
-				}
-			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					tec_is_bioservant = yes
 				}
 			}
 		"
@@ -1850,13 +1757,6 @@ building_giga_elysium_host_hive_major_capital = {
 						has_country_flag = tec_desires_to_build_zombies
 						has_country_flag = tec_desires_to_be_pure
 					}
-				}
-			}
-			else = { # player
-				exists = assembling_species
-				assembling_species = {
-					is_robotic = no
-					tec_is_bioservant = no
 				}
 			}
 		"
