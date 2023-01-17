@@ -1,0 +1,202 @@
+# for city districts, see 000_giga_city_districts.txt
+
+##################################
+### Geothermal Generator #########
+##################################
+# district_giga_planet_geothermal
+
+##################################
+### Alloys #######################
+##################################
+district_giga_planet_alloys = {
+	base_buildtime = @giga_planet_urban_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = giga_equatorial_shipyard
+	}
+
+	potential = {
+		uses_district_set = giga_equatorial_shipyard
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_planet_urban_cost }
+		upkeep = { energy = @giga_planet_urban_maintenance }
+	}
+
+	# base stats
+	planet_modifier = { planet_housing_add = 3 }
+
+	# job
+
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = -1
+		mult = value:district_giga_planet_alloys_artisan_replacement
+		display = no_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 1
+		mult = value:district_giga_planet_alloys_artisan_replacement
+		display = with_desc
+		trigger = ""
+	}
+}
+
+##################################
+### Admin ########################
+##################################
+district_giga_planet_admin = {
+	base_buildtime = @giga_planet_district_buildtime
+	icon = district_arcology_administrative
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		giga_uses_admin_district = yes
+		from = {
+			nor = {
+				giga_country_uses_priests = yes
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+	}
+
+	potential = {
+		giga_uses_admin_district = yes
+		exists = owner
+		owner = {
+			nor = {
+				giga_country_uses_priests = yes
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_planet_cost }
+		upkeep = { energy = @giga_planet_maintenance }
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_planet_admin_religious
+		district_giga_planet_sanctuary
+		district_giga_orbital_sanctuary
+
+		# legacy district conversion
+		district_giga_pcc_admin
+	}
+
+	# base stats
+	planet_modifier = { planet_housing_add = 2 }
+	
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+### Spiritualist swap ###
+district_giga_planet_admin_religious = {
+	base_buildtime = @giga_planet_district_buildtime
+	icon = district_arcology_religious
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		giga_uses_admin_district = yes
+		from = { 
+			giga_country_uses_priests = yes 
+		}
+	}
+
+	potential = {
+		giga_uses_admin_district = yes
+		exists = owner
+		owner = {
+			giga_country_uses_priests = yes
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_planet_cost }
+		upkeep = { energy = @giga_planet_maintenance }
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_planet_admin
+		district_giga_planet_sanctuary
+		district_giga_orbital_sanctuary
+
+		# legacy district conversion
+		district_giga_pcc_admin_religious 
+	}
+
+	# base stats
+	planet_modifier = { planet_housing_add = 2 }
+
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = 2
+		count_half = 1
+		megacorp_count = 1
+		megacorp_count_half = 0
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				tec_is_death_cult = yes
+			}
+		"
+	}
+}
+
+# district_giga_planet_sanctuary
+
+##################################
+### Supertensiles ################
+##################################
+
+# district_giga_supertensiles 

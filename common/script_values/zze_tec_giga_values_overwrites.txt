@@ -1,0 +1,12 @@
+
+giga_system_bio_trophy_bonus_calc = {
+	weight = modifier:giga_system_bio_trophy_propagation
+	complex_trigger_modifier = {
+		trigger = num_assigned_jobs
+		parameters = {
+			job = bio_trophy
+		}
+		mode = mult
+		mult = 0.005 # 1% bonus per job
+	}
+}

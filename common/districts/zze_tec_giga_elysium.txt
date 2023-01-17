@@ -385,7 +385,10 @@ district_giga_elysium_entertainment = {
 		count = 1
 		mult = 1
 		display = with_desc
-		trigger = ""
+		trigger = "
+			exisst = owner
+			owner = { is_regular_empire = yes }
+		"
 	}
 
 	inline_script = {

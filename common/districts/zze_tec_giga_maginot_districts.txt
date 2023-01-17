@@ -1,0 +1,328 @@
+#####################
+### MAGINOT WORLD ###
+#####################
+
+# Variables for this file can be found in scripted_variables/giga_maginot_variables.txt
+
+### NORMAL PLANET DISTRICTS ###
+# housing and amenities for soldiers
+district_maginot_world_barracks = {
+	base_buildtime = @maginot_district_buildtime
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+
+	show_on_uncolonized = {
+		uses_district_set = maginot_world_districts
+	}
+
+	potential = {
+		uses_district_set = maginot_world_districts
+	}
+
+	allow = {
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @maginot_district_cost_minerals
+			alloys = @maginot_district_cost_alloys_cheap
+			rare_crystals = @maginot_district_cost_sr
+		}
+		upkeep = {
+			energy = @maginot_district_upkeep_energy_barracks
+			rare_crystals = @maginot_district_upkeep_sr
+		}
+	}
+
+	# base jobs 
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = merchant
+		count = @maginot_merchant_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_entertainer
+		count = @maginot_entertainer_filler_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = @maginot_entertainer_filler_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = maginot_military_police
+		count = @maginot_barracks_police_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = @maginot_entertainer_filler_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = @maginot_entertainer_filler_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = @maginot_entertainer_filler_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = @maginot_barracks_police_jobs_add
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+
+	# extra jobs from tradition/tech
+
+	inline_script = {
+		script = districts/effects/inline_evolved_mercantile_trickle_up_economics
+		count = @maginot_entertainer_filler_jobs_buff
+		trigger = ""
+	}
+	inline_script = {
+		script = districts/effects/inline_evolved_tech_housing_2_gestalt
+		count = 1
+		trigger = ""
+	}
+	# Civics
+		inline_script = districts/effects/inline_evolved_tec_hive_menial
+		inline_script = districts/effects/inline_evolved_tec_machine_menial
+	# /
+
+	# planet housing and additions
+
+	planet_modifier = {
+		planet_housing_add = @maginot_district_housing_barracks
+		planet_amenities_add = @maginot_district_amenities_barracks
+	}
+
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count =  @maginot_district_housing_buffs
+		trigger = ""
+	}
+	# AI weight
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 500
+			free_housing < 5
+		}
+		modifier = {
+			weight = 500
+			free_amenities < 5
+		}
+	}
+}
+
+# heavy duty shield generators
+# district_maginot_world_shield_generators
+
+# district_maginot_world_planetary_cannons 
+
+# district_maginot_world_bunkers 
+
+### RINGWORLD DISTRICTS ###
+# housing and amenities for soldiers
+district_maginot_ringworld_barracks = {
+	base_buildtime = @maginot_district_buildtime_ringworld
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+
+	show_on_uncolonized = {
+		uses_district_set = maginot_ringworld_districts
+	}
+
+	potential = {
+		uses_district_set = maginot_ringworld_districts
+	}
+
+	allow = {
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @maginot_district_cost_minerals_ringworld
+			alloys = @maginot_district_cost_alloys_cheap_ringworld
+			rare_crystals = @maginot_district_cost_sr_ringworld
+		}
+		upkeep = {
+			energy = @maginot_district_upkeep_energy_barracks_ringworld
+			rare_crystals = @maginot_district_upkeep_sr_ringworld
+		}
+	}
+
+	# base jobs 
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = merchant
+		count = @maginot_merchant_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_entertainer
+		count = @maginot_entertainer_filler_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = @maginot_entertainer_filler_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = maginot_military_police
+		count = @maginot_barracks_police_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = @maginot_entertainer_filler_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = @maginot_entertainer_filler_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = @maginot_entertainer_filler_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = @maginot_barracks_police_jobs_add_ringworld
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	# extra jobs from tradition/tech
+
+	inline_script = {
+		script = districts/effects/inline_evolved_mercantile_trickle_up_economics
+		count = @maginot_entertainer_filler_jobs_buff
+		trigger = ""
+	}
+	inline_script = {
+		script = districts/effects/inline_evolved_tech_housing_2_gestalt
+		count = 1
+		trigger = ""
+	}
+	# Civics
+		inline_script = districts/effects/inline_evolved_tec_hive_menial
+		inline_script = districts/effects/inline_evolved_tec_machine_menial
+	# /
+
+	# planet housing and additions
+
+	planet_modifier = {
+		planet_housing_add = @maginot_district_housing_barracks_ringworld
+		planet_amenities_add = @maginot_district_amenities_barracks_ringworld
+	}
+
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count =  @maginot_district_housing_buffs
+		trigger = ""
+	}
+
+	# AI weight
+
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 500
+			free_housing < 5
+		}
+		modifier = {
+			weight = 500
+			free_amenities < 5
+		}
+	}
+}
+
+# district_maginot_ringworld_shield_generators 
+
+# district_maginot_ringworld_planetary_cannons 
+
+# district_maginot_ringworld_bunkers 

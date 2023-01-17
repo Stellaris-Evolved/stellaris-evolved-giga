@@ -1,0 +1,397 @@
+#Housing: Amenities
+district_flusion_city = {
+	base_buildtime = 480
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+	show_on_uncolonized = {
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	potential = {
+		exists = owner
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_city_katzen
+		district_city
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = 720
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	planet_modifier = {
+		planet_housing_add = 24
+		planet_orbital_bombardment_damage = -0.05
+	}
+	inline_script = {
+		script = modifiers/inline_evolved_amenities
+		count = 28
+	}
+	inline_script = {
+		script = districts/inline_evolved_habitation_housing_modifiers
+		count = 3
+		trigger = ""
+	}
+	inline_script = districts/effects/inline_evolved_tec_artifice_2
+
+	
+	inline_script = {
+		script = districts/effects/inline_evolved_tech_housing_2_gestalt
+		count = 3
+		trigger = ""
+	}
+
+	inline_script = {
+		script = districts/effects/inline_evolved_mercantile_trickle_up_economics
+		count = 3
+		trigger = ""
+	}
+
+	# Jobs
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_soldier
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_warrior_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+}
+
+#Heavy Industry: Alloys & EC
+district_flusion_heavy_industry = {
+	base_buildtime = 480
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	potential = {
+		exists = owner
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_industrial
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = 720
+		}
+		upkeep = {
+			energy = 2
+		}
+		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
+	}
+	planet_modifier = {
+		pop_environment_tolerance = -0.025
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = 4
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 4
+		hive_count = 4
+		machine_count = 4
+		machine_aquatic_count = 4
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+
+	inline_script = districts/effects/inline_evolved_industrial_maintenance
+}
+
+#Science + Rare resources
+district_flusion_science = {
+	base_buildtime = 480
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_planet_class = pc_flusion_gaia_ecu
+			uses_district_set = flusion_gaia_ecu
+		}
+	}
+	potential = {
+		exists = owner
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_mining
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = 720
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = 7
+		count_half = 3
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = -1
+		count_half = 0
+		mult = 1
+		trigger = "
+			owner = { is_gestalt = no }
+		"
+		display = no_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = head_researcher
+		count = 1
+		mult = 1
+		trigger = "
+			exists = owner
+			owner = { is_gestalt = no }
+		"
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_chemist
+		count = 1
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}
+
+#Mining: Minerals, Crystals & Gasses
+district_flusion_mining = {
+	base_buildtime = 480
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	potential = {
+		exists = owner
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_mining
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = 720
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	planet_modifier = {
+		planet_jobs_energy_produces_mult = 0.05
+		pop_environment_tolerance = -0.025
+	}
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 6
+		regular_aquatic_count = 6
+		hive_count = 6
+		hive_aquatic_count = 6
+		machine_count = 6
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_crystal_miner
+		count = 1
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+	inline_script = {
+		script = jobs/inline_evolved_gas_extractor
+		count = 1
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}
+
+#Farming + Unity
+district_flusion_farming = {
+	base_buildtime = 480
+	is_capped_by_modifier = no
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			is_planet_class = pc_flusion_gaia_ecu
+			uses_district_set = flusion_gaia_ecu
+		}
+	}
+	potential = {
+		exists = owner
+		is_planet_class = pc_flusion_gaia_ecu
+		uses_district_set = flusion_gaia_ecu
+	}
+	allow = {
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_farming
+	}
+	resources = {
+		category = planet_districts_industrial
+		cost = {
+			minerals = 720
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	planet_modifier = {
+		pop_environment_tolerance = 0.075
+	}
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 6
+		regular_aquatic_count = 6
+		hive_count = 6
+		hive_aquatic_count = 6
+		machine_count = 6
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = 2
+		count_half = 1
+		megacorp_count = 1
+		megacorp_count_half = 0
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				NOT = {
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+		"
+	}
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bio_trophy
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				has_valid_civic = civic_machine_servitor
+			}
+		"
+	}
+}

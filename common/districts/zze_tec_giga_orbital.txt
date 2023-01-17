@@ -1,0 +1,219 @@
+###############################################################################################################
+# Farming
+###############################################################################################################
+
+district_giga_orbital_farming = {
+	base_buildtime = @giga_planet_district_buildtime
+	icon = district_farming
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		or = {
+			uses_district_set = giga_orbital
+			uses_district_set = giga_ancient_elysium # legacy
+		}
+	}
+	
+	potential = {
+		or = {
+			uses_district_set = giga_orbital
+			uses_district_set = giga_ancient_elysium # legacy
+		}
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_planet_cost
+		}
+		cost = {
+			trigger = {
+				AND = {
+					exists = owner
+					owner = { is_anglers_empire = yes }
+					planet = { has_modifier = flooded_habitat }
+				}
+			}
+			minerals = -50
+		}
+		upkeep = {
+			energy = @giga_planet_maintenance
+		}
+	}
+
+	inline_script = districts/inline_evolved_rural_district_modifiers
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 2
+		regular_aquatic_count = 1
+		hive_count = 3
+		hive_aquatic_count = 1
+		machine_count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer_swaps
+		regular_count = 1
+		hive_count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = 1
+		regular_aquatic_count = 1
+		hive_count = 1
+		hive_aquatic_count = 1
+		machine_count = 1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				tec_has_extra_menial_district_job = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = districts/effects/inline_evolved_agrarian_idyll_specific
+		trigger = "
+			owner = {
+				is_lithoid_empire = no
+			}
+		"
+	}
+	prerequisites = {
+		tech_industrial_farming
+	}
+
+	destroy_trigger = {
+		exists = owner
+		AND = {
+			owner = { is_ai = yes }
+			owner = { country_uses_food = no }
+		}
+	}
+}
+
+###############################################################################################################
+# Special Sanctuary (bigger than standard sanctuary, matches building)
+###############################################################################################################
+
+# district_giga_orbital_sanctuary 
+
+###############################################################################################################
+# Nature Preserve
+###############################################################################################################
+
+# district_giga_orbital_preserve 
+
+###############################################################################################################
+# Transit Hub
+###############################################################################################################
+
+district_giga_orbital_logistics = {
+	base_buildtime = @giga_planet_urban_district_buildtime
+	is_capped_by_modifier = yes
+	
+	show_on_uncolonized = {
+		uses_district_set = giga_orbital
+	}
+	
+	potential = {
+		uses_district_set = giga_orbital
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_planet_urban_cost
+		}
+		upkeep = {
+			energy = 5
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { has_valid_civic = civic_machine_servitor }
+			}
+			energy = 5
+		}
+	}
+
+	planet_modifier = {
+		giga_system_resettlement_unemployed_mult = 0.1
+		planet_max_buildings_add = 0.5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				not = { has_valid_civic = civic_machine_servitor }
+			}
+		}
+		giga_system_resettlement_unemployed_mult = 0.1
+		planet_jobs_productive_produces_mult = 0.05
+		planet_jobs_productive_upkeep_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+		giga_system_bio_trophy_propagation = 0.1
+		planet_bio_trophies_consumer_goods_upkeep_add = 0.25
+		planet_bio_trophies_energy_upkeep_add = 1
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_enforcer
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+#####################################
+### Deprecated Elysium Solar Farm ###
+#####################################
+# district_giga_planet_solar
+
+##################################
+### Deprecated Elysium Culture ###
+##################################
+# district_giga_planet_leisure 

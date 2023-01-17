@@ -1,0 +1,1436 @@
+##################################
+### Housing ######################
+##################################
+district_virtual_city = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+
+	show_on_uncolonized = {
+		exists = from
+		from = { is_gestalt = no }
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		exists = owner
+		owner = { is_gestalt = no }
+		uses_district_set = virtual_ring
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_virtual_nexus
+		district_virtual_hive
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_rw_cost }
+		upkeep = { energy = @giga_rw_maintenance }
+	}
+
+	# Modifiers
+		# Standard
+			planet_modifier = {
+				planet_housing_add = 25
+			}
+	
+		# /
+		inline_script = {
+			script = districts/inline_evolved_habitation_housing_modifiers
+			count = 5
+			trigger = ""
+		}
+		inline_script = districts/effects/inline_evolved_tec_artifice_2
+		# Civics
+			inline_script = districts/effects/inline_evolved_agrarian_idyll_city
+			inline_script = districts/effects/inline_evolved_tec_eco_keepers_city
+			inline_script = districts/effects/inline_evolved_tec_tribalism_city
+			inline_script = districts/effects/inline_evolved_tec_social_prosperity
+			inline_script = districts/effects/inline_evolved_tec_consumerism
+		# /
+	# /
+
+	# JOBS
+
+	# Jobs
+		# Base
+			inline_script = {
+				script = jobs/inline_evolved_clerk
+				count = 3
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+			# Traditions
+				inline_script = {
+					script = districts/effects/inline_evolved_mercantile_trickle_up_economics
+					count = 3
+					trigger = ""
+				}
+			# /
+			inline_script = {
+				script = jobs/inline_evolved_enforcer
+				count = 2
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+		# /
+		# Socialguards
+		# /
+	# /	
+}
+
+district_virtual_hive = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+
+	show_on_uncolonized = {
+		exists = from
+		from = { is_hive_empire = yes }
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		exists = owner
+		owner = { is_hive_empire = yes }
+		uses_district_set = virtual_ring
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_virtual_nexus
+		district_virtual_city
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_rw_cost }
+		upkeep = { energy = @giga_rw_maintenance }
+	}
+
+	
+	# Modifiers
+		# Standard
+			planet_modifier = {
+				planet_housing_add = 30
+			}
+		# /
+		inline_script = {
+			script = districts/inline_evolved_habitation_housing_modifiers
+			count = 5
+			trigger = ""
+		}
+		inline_script = districts/effects/inline_evolved_tec_artifice_2
+	# /
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 15
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+		inline_script = {
+			script = districts/effects/inline_evolved_tech_housing_2_gestalt
+			count = 5
+			trigger = ""
+		}
+		inline_script = {
+			script = jobs/inline_evolved_synapse
+			count = 2
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+		# Bio/Lithospheric harmony
+			inline_script = districts/effects/inline_evolved_tec_hive_menial
+		# /
+	# /
+}
+
+district_virtual_nexus = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
+
+	show_on_uncolonized = {
+		exists = from
+		from = { is_machine_empire = yes }
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		exists = owner
+		owner = { is_machine_empire = yes }
+		uses_district_set = virtual_ring
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_virtual_hive
+		district_virtual_city
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_rw_cost }
+		upkeep = { energy = @giga_rw_maintenance }
+	}
+
+	# Modifiers
+		# Standard
+			planet_modifier = {
+				planet_housing_add = 25
+				job_maintenance_drone_add = 10
+				job_technician_drone_add = 2
+			}
+			inline_script = {
+				script = districts/inline_evolved_habitation_housing_modifiers
+				count = 5
+				trigger = ""
+			}
+			inline_script = districts/effects/inline_evolved_tec_artifice_2
+		# /
+	# /
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_maintenance_drone
+			count = 10
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+		inline_script = {
+			script = districts/effects/inline_evolved_tech_housing_2_gestalt
+			count = 5
+			trigger = ""
+		}
+		inline_script = {
+			script = jobs/inline_evolved_technician
+			regular_count = 2
+			hive_count = 2
+			machine_count = 2
+			machine_aquatic_count = 2
+			mult = 1
+			display = with_desc
+			trigger = ""
+		}
+		# Civics
+			inline_script = districts/effects/inline_evolved_tec_machine_menial
+		# /
+	# /
+}
+
+###Normal VR districts
+
+##################################
+### Science ######################
+##################################
+district_virtual_science = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			exotic_gases = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			exotic_gases = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+	}
+
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher_split
+		count = 10
+		count_half = 5
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	# need to have this modifier triggered if we want them in this order, apparently?
+	triggered_planet_modifier = {
+		potential = { always = yes }
+		planet_researchers_society_research_produces_add = 0.5
+		planet_researchers_physics_research_produces_add = 0.5
+		planet_researchers_engineering_research_produces_add = 0.5
+		planet_researchers_energy_upkeep_add = 1
+	}
+}
+
+##################################
+### Amenities ####################
+##################################
+
+# normal empires and servitors
+district_virtual_leisure = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_leisure
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		exists = from
+		from = { 
+			or = {
+				is_gestalt = no
+				and = {
+					is_machine_empire = yes
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		exists = owner
+		owner = { 
+			or = {
+				is_gestalt = no
+				and = {
+					is_machine_empire = yes
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_maintenance
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = giga_media_coordinator
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = "
+			exisst = owner
+			owner = { is_regular_empire = yes }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_entertainer
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	# servitors
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = giga_media_coordinator_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			exisst = owner
+			owner = { is_gestalt = yes }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = tec_spareparts_drone
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+# hives and non-servitor machines
+district_virtual_maintenance = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_leisure
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		exists = from
+		from = { 
+			or = {
+				is_hive_empire = yes 
+				and = {
+					is_machine_empire = yes
+					not = { has_valid_civic = civic_machine_servitor }
+				}
+			}
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		exists = owner
+		owner = { 
+			or = {
+				is_hive_empire = yes 
+				and = {
+					is_machine_empire = yes
+					not = { has_valid_civic = civic_machine_servitor }
+				}
+			}
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_leisure
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_amenities_mult = 0.05
+		planet_stability_add = 5
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = tec_spareparts_drone
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 2
+		hive_count = 2
+		machine_count = 2
+		machine_aquatic_count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
+
+##################################
+### Unity ########################
+##################################
+
+# district_virtual_admin_cap 
+
+# normal empires
+district_virtual_administrative = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_administrative
+
+	show_on_uncolonized = {
+		from = {
+			is_gestalt = no
+			giga_country_uses_priests = no
+		}
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			giga_country_uses_priests = no
+		}
+		uses_district_set = virtual_ring
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_religious
+		district_virtual_relay
+		district_virtual_organic_housing
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = 10
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	######################################################
+	# not spiritualist, not megacorp/ai auth mega
+
+	triggered_planet_modifier = { 
+		potential = { 
+			exists = owner 
+			owner = { 
+				OR = {
+					is_megacorp = no
+					tec_is_aiauth_empire = yes
+				}
+				
+			} 
+		}				
+		planet_administrators_unity_produces_add = 1
+		planet_administrators_energy_upkeep_add = 1
+	}
+
+	######################################################
+	# not spiritualist, megacorp/non ai auth mega
+
+	triggered_planet_modifier = { 
+		potential = { 
+			exists = owner 
+			owner = { 
+				is_megacorp = yes 
+				tec_is_aiauth_empire = no
+			} 
+		}
+		planet_managers_unity_produces_add = 1
+		planet_managers_energy_upkeep_add = 1
+	}
+}
+
+# spiritualists
+district_virtual_religious = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_administrative
+
+	show_on_uncolonized = {
+		from = {
+			is_gestalt = no
+			giga_country_uses_priests = yes
+		}
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			is_gestalt = no
+			giga_country_uses_priests = yes
+		}
+		uses_district_set = virtual_ring
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_administrative
+		district_virtual_relay
+		district_virtual_organic_housing
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = 10
+		count_half = 5
+		megacorp_count = 5
+		megacorp_count_half = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = -3
+		count_half = -2
+		megacorp_count = -2
+		megacorp_count_half = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = { tec_is_death_cult = yes }
+		"
+	}
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = 3
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				tec_is_death_cult = yes
+			}
+		"
+	}
+
+	triggered_planet_modifier = { 
+		planet_priests_unity_produces_add = 1
+		planet_priests_energy_upkeep_add = 1
+	}
+
+	######################################################
+	# not megacorp/ai auth mega
+
+	triggered_planet_modifier = { 
+		potential = { 
+			exists = owner 
+			owner = { 
+				OR = {
+					is_megacorp = no
+					tec_is_aiauth_empire = yes
+				}
+				
+			} 
+		}				
+		planet_administrators_unity_produces_add = 1
+		planet_administrators_energy_upkeep_add = 1
+	}
+
+	######################################################
+	# megacorp/non ai auth mega
+
+	triggered_planet_modifier = { 
+		potential = { 
+			exists = owner 
+			owner = { 
+				is_megacorp = yes 
+				tec_is_aiauth_empire = no
+			} 
+		}
+		planet_managers_unity_produces_add = 1
+		planet_managers_energy_upkeep_add = 1
+	}
+}
+
+# hive and non-servitor machine
+district_virtual_relay = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_administrative
+
+	show_on_uncolonized = {
+		from = {
+			or = {
+				is_hive_empire = yes
+				and = {
+					is_machine_empire = yes
+					not = { has_valid_civic = civic_machine_servitor }
+				}
+			}
+		}
+		uses_district_set = virtual_ring
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			or = {
+				is_hive_empire = yes
+				and = {
+					is_machine_empire = yes
+					not = { has_valid_civic = civic_machine_servitor }
+				}
+			}
+		}
+		uses_district_set = virtual_ring
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_administrative
+		district_virtual_religious
+		district_virtual_organic_housing
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = 10
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = 10
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	triggered_planet_modifier = { 
+		planet_administrators_unity_produces_add = 1
+		planet_administrators_energy_upkeep_add = 1
+	}
+}
+
+# district_virtual_organic_housing 
+
+##################################
+### District Five (Ethics) #######
+##################################
+
+# district_virtual_amalgamation
+
+# district_virtual_livestock 
+
+# district_virtual_hell
+
+# district_virtual_diplomatic 
+
+# district_virtual_diplomatic_hive
+
+# district_virtual_diplomatic_machine
+
+district_virtual_training = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			is_gestalt = no
+			giga_vr_training_trigger = yes
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			is_gestalt = no
+			giga_vr_training_trigger = yes
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_hell
+		district_virtual_amalgamation
+		district_virtual_diplomatic
+		district_virtual_diplomatic_hive
+		district_virtual_diplomatic_machine
+		district_virtual_training_gestalt
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			exotic_gases = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			exotic_gases = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		job_giga_virtual_training_coordinator_add = 5
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	triggered_desc = { text = job_giga_virtual_training_coordinator_effect_desc }
+
+	triggered_desc = { 
+		trigger = { exists = owner owner = { giga_vr_training_military = yes } } 
+		text = job_giga_virtual_training_coordinator_effect_military 
+	}
+	triggered_desc = { 
+		trigger = { exists = owner owner = { giga_vr_training_government = yes } } 
+		text = job_giga_virtual_training_coordinator_effect_government 
+	}
+	triggered_desc = { 
+		trigger = { exists = owner owner = { giga_vr_training_science = yes } } 
+		text = job_giga_virtual_training_coordinator_effect_science 
+	}
+	triggered_desc = { 
+		trigger = { exists = owner owner = { giga_vr_training_leaders = yes } } 
+		text = job_giga_virtual_training_coordinator_effect_leaders 
+	}
+
+	# military
+
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_soldier
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = yes
+				giga_vr_training_government = no
+				giga_vr_training_science = no
+				giga_vr_training_leaders = no
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_soldier
+		count = 2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = yes
+				giga_vr_training_government = no
+				giga_vr_training_science = no
+				giga_vr_training_leaders = no
+			}
+		"
+	}
+
+
+	# government
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_government = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				giga_vr_training_government = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = no
+				giga_vr_training_government = yes
+				giga_vr_training_science = no
+				giga_vr_training_leaders = no
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = 2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = no
+				giga_vr_training_government = yes
+				giga_vr_training_science = no
+				giga_vr_training_leaders = no
+			}
+		"
+	}
+
+	# science
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_science = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = head_researcher
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				giga_vr_training_science = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = no
+				giga_vr_training_government = no
+				giga_vr_training_science = yes
+				giga_vr_training_leaders = no
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = head_researcher
+		count = 2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = no
+				giga_vr_training_government = no
+				giga_vr_training_science = yes
+				giga_vr_training_leaders = no
+			}
+		"
+	}
+
+	# leaders
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_leaders = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_politician
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				giga_vr_training_leaders = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		count = -2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = no
+				giga_vr_training_government = no
+				giga_vr_training_science = no
+				giga_vr_training_leaders = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_politician
+		count = 2
+		mult = 1
+		display = no_desc
+		trigger = "
+			owner = {
+				giga_vr_training_military = no
+				giga_vr_training_government = no
+				giga_vr_training_science = no
+				giga_vr_training_leaders = yes
+			}
+		"
+	}
+	triggered_planet_modifier = {
+		planet_giga_virtual_trainers_energy_upkeep_add = 1
+	}
+}
+
+district_virtual_training_gestalt = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_virtual_training
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			is_gestalt = yes
+			giga_vr_training_trigger = yes
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			is_gestalt = yes
+			giga_vr_training_trigger = yes
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_hell
+		district_virtual_amalgamation
+		district_virtual_diplomatic
+		district_virtual_diplomatic_hive
+		district_virtual_diplomatic_machine
+		district_virtual_training
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			exotic_gases = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			exotic_gases = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		job_giga_virtual_training_coordination_drone_add = 5
+	}
+	inline_script = {
+		script = jobs/inline_evolved_patrol_drone
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_warrior_drone
+		count = 4
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	triggered_planet_modifier = {
+		planet_giga_virtual_trainers_energy_upkeep_add = 1
+	}
+
+
+	triggered_desc = { 
+		trigger = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		text = job_giga_virtual_training_coordination_drone_effect_desc 
+	}
+	triggered_desc = { 
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		text = job_giga_virtual_training_coordination_drone_effect_machine_desc 
+	}
+}
+
+###Industry Districts
+
+##################################
+### Industry #####################
+##################################
+district_virtual_alloys = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring_industry
+	}
+
+	potential = {
+		uses_district_set = virtual_ring_industry
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_city
+		district_virtual_hive
+		district_virtual_nexus
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			volatile_motes = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			volatile_motes = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 5
+	}
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_machine_empire = yes is_catalytic_empire = no } }	modifier = { job_fabricator_add = 5 } }
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_hive_empire = yes is_catalytic_empire = no } }		modifier = { job_alloy_drone_add = 5 } }
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = yes is_catalytic_empire = yes } }			modifier = { job_catalytic_drone_add = 5 } }
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = no is_catalytic_empire = no } }	modifier = { job_foundry_add = 3 } }
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = no is_catalytic_empire = yes } }	modifier = { job_catalytic_technician_add = 3 } }
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = no is_crafter_empire = no } }		modifier = { job_artisan_add = 2 } }
+	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = no is_crafter_empire = yes } }	modifier = { job_artificer_add = 2 } }
+
+	inline_script = {
+		script = districts/inline_evolved_industrial_split_jobs
+		count = 2
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = 1
+		mult = 1
+		trigger = ""
+		display = no_desc
+	}
+
+	triggered_planet_modifier = {
+		planet_metallurgists_alloys_produces_add = 1
+		planet_metallurgists_energy_upkeep_add = 1
+		planet_artisans_consumer_goods_produces_add = 1
+		planet_artisans_energy_upkeep_add = 0.5
+	}
+}
+
+##################################
+### Energy #######################
+##################################
+district_virtual_generator = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring_industry
+	}
+
+	potential = {
+		uses_district_set = virtual_ring_industry
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 5
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = 5
+		hive_count = 5
+		machine_count = 5
+		machine_aquatic_count = 0
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	triggered_planet_modifier = {
+		planet_technician_energy_produces_add = 1
+	}
+}
+
+##################################
+### Minerals #####################
+##################################
+district_virtual_mining = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring_industry
+	}
+
+	potential = {
+		uses_district_set = virtual_ring_industry
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_city
+		district_virtual_hive
+		district_virtual_nexus
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = @giga_rw_cost
+			volatile_motes = @giga_rw_cost_sr
+		}
+		upkeep = {
+			energy = @giga_rw_maintenance
+			volatile_motes = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 5
+	}
+	
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = 5
+		regular_aquatic_count = 0
+		hive_count = 5
+		hive_aquatic_count = 0
+		machine_count = 5
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	triggered_planet_modifier = {
+		planet_miners_minerals_produces_add = 1
+		planet_miners_energy_upkeep_add = 0.5
+	}
+}
+
+##################################
+### Strategic Resources ##########
+##################################
+# district_virtual_strat_res 
+
+### Unused, but don't want to delete
+
+##################################
+### Consumer Goods ###############
+##################################
+# district_virtual_consumer 
+
+##################################
+### Shipyard #####################
+##################################
+district_virtual_shipyard = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = yes
+
+	show_on_uncolonized = {
+		always = no
+		uses_district_set = virtual_ring
+		has_planet_flag = giga_virtual_stellar_industry
+	}
+
+	potential = {
+		always = no
+		uses_district_set = virtual_ring
+		has_planet_flag = giga_virtual_stellar_industry
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_city
+		district_virtual_hive
+		district_virtual_nexus
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_rw_cost }
+		upkeep = {
+			energy = @giga_rw_maintenance
+			alloys = @giga_rw_maintenance
+			exotic_gases = @giga_rw_maintenance_sr
+			volatile_motes = @giga_rw_maintenance_sr
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_foundry
+		count = 10
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	triggered_planet_modifier = {
+		planet_metallurgists_alloys_produces_add = 1
+		planet_metallurgists_energy_upkeep_add = 1
+	}
+}
+
+##################################
+### Commercial ###################
+##################################
+# district_virtual_commercial 
