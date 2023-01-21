@@ -1,0 +1,11 @@
+tec_giga_frameworld_outpost_trigger_jobs = {
+	base = 0
+
+	modifier = {
+		planet = { $TRIGGER$ = yes }
+
+		weight = value:giga_frameworld_outpost_planet_jobs_$USE$|$RESOURCE$|yes|SCALE|$SCALE$|RESOURCE|$RESOURCE$|
+	}
+
+	[[MULT] mult = $MULT$ ]
+}

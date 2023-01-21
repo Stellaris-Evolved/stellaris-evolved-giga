@@ -1,0 +1,663 @@
+
+# commonly used preconditions, if country uses food, if country uses CGs yes/no
+
+
+########################################################################
+# ENERGY
+
+giga_frameworld_outpost_energy_jobs = {
+	base = 0
+
+	# normal planet districts
+	complex_trigger_modifier = {
+		trigger = check_modifier_value
+		trigger_scope = planet
+		parameters = {
+			modifier = district_generator_max
+		}
+		mode = add
+	}
+
+	# betharian power plant
+	modifier = {
+		exists = owner
+		owner = { has_technology = tech_mine_betharian }
+		add = value:giga_frameworld_outpost_energy_jobs_betharian
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_ring_2 } }
+		mode = add
+		mult = 2
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_elysium_infrastructure_1 } }
+		mode = add
+		mult = 1
+	}
+}
+
+########################################################################
+# MINERALS
+
+giga_frameworld_outpost_minerals_jobs = {
+	base = 0
+
+	# normal planet districts
+	complex_trigger_modifier = {
+		trigger = check_modifier_value
+		trigger_scope = planet
+		parameters = {
+			modifier = district_mining_max
+		}
+		mode = add
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_sinkhole } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_mining } }
+		mode = add
+		mult = 1
+	}
+}
+
+########################################################################
+# FOOD
+
+
+giga_frameworld_outpost_food_districts = {
+	complex_trigger_modifier = {
+		trigger = check_modifier_value
+		trigger_scope = planet
+		parameters = {
+			modifier = district_farming_max
+		}
+		mode = add
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_jungle } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_ecology } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_flora } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_elysium_infrastructure_3 } }
+		mode = add
+		mult = 1
+	}
+}
+
+##############################################################################################################
+# ADVANCED RESOURCES
+
+########################################################################
+# ALLOYS
+
+giga_frameworld_outpost_alloys_jobs = {
+	base = 0
+
+	# one job based on modifiers
+	modifier = {
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = metallurgists
+			RESOURCE = alloys
+		}
+		add = 1
+	}
+
+	# odd factory
+	modifier = {
+		planet = { has_deposit = d_odd_factory }
+		add = 2
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_volcano } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_volcano } }
+		mode = add
+		mult = 1
+	}
+	
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_engineered_eco_ring_1 } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_manufactory } }
+		mode = add
+		mult = 2
+	}
+}
+
+########################################################################
+# CONSUMER GOODS
+
+giga_frameworld_outpost_consumer_goods_jobs = {
+	base = 0
+
+	# one job based on modifiers
+	modifier = {
+		exists = owner
+		owner = { country_uses_consumer_goods = yes }
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = artisans
+			RESOURCE = consumer_goods
+		}
+		add = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_engineered_eco_ring_1 } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_manufactory } }
+		mode = add
+		mult = 2
+	}
+}
+
+##############################################################################################################
+# SCIENCE AND UNITY
+
+########################################################################
+# PHYSICS
+
+giga_frameworld_outpost_physics_research_jobs = {
+	base = 0
+
+	# one job based on modifiers
+	modifier = {
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = researchers
+			RESOURCE = physics_research
+		}
+		add = 1
+	}
+
+	# space-time anomaly
+	modifier = {
+		planet = { has_deposit = d_space_time_anomaly }
+		add = 2
+	}
+
+	# portal research area
+	modifier = {
+		planet = { 
+			or = {
+				has_deposit = d_portal_research_zone 
+				has_deposit = d_portal_research_zone_gestalt
+			}
+		}
+		add = 2
+	}
+
+	# evolved
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_glacier } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_flora } }
+		mode = add
+		mult = 1
+	}
+}
+
+########################################################################
+# SOCIETY
+
+giga_frameworld_outpost_society_research_jobs = {
+	base = 0
+
+	# one job based on modifiers
+	modifier = {
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = researchers
+			RESOURCE = society_research
+		}
+		add = 1
+	}
+
+	# isolated valley
+	modifier = {
+		exists = owner
+		owner = { has_technology = tech_alien_life_studies }
+		add = value:giga_frameworld_outpost_jobs_isolated_valley
+	}
+
+	# radiotrophic preserve
+	modifier = {
+		planet = { has_deposit = d_radiotrophic_preserve }
+		add = 1
+	}
+
+	# evolved
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_wildlife_blocker } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_kelp } }
+		mode = add
+		mult = 1
+	}
+	
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_life } }
+		mode = add
+		mult = 2
+	}
+}
+
+########################################################################
+# ENGINEERING
+
+giga_frameworld_outpost_engineering_research_jobs = {
+	base = 0
+
+	# one job based on modifiers
+	modifier = {
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = researchers
+			RESOURCE = engineering_research
+		}
+		add = 1
+	}
+
+	# flat number on relic worlds, for the spire
+	modifier = {
+		planet = { is_planet_class = pc_relic }
+		add = 8
+	}
+
+	# evolved
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_terraformed_ring } }
+		mode = add
+		mult = 4
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_volcano } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_engineered_eco_ring_3 } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_elysium_infrastructure_2 } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = gpm_d_floating_islands } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = gpm_d_ruined_arcology } }
+		mode = add
+		mult = 1
+	}
+}
+
+########################################################################
+# UNITY
+
+giga_frameworld_outpost_unity_jobs = {
+	base = 0
+
+	# one job based on modifiers
+	modifier = {
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = administrators
+			RESOURCE = unity
+		}
+		add = 1
+	}
+
+	modifier = {
+		frameworld_outpost_planet_has_multiplier = {
+			CATEGORY = specialist
+			JOB = priests
+			RESOURCE = unity
+		}
+		add = 1
+	}
+
+	# isolated valley
+	modifier = {
+		exists = owner
+		owner = { has_technology = tech_alien_life_studies }
+		add = value:giga_frameworld_outpost_jobs_isolated_valley|MULT|2|
+	}
+
+	# radiotrophic preserve
+	modifier = {
+		planet = { has_deposit = d_radiotrophic_preserve }
+		add = 3
+	}
+
+	# evolved
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_sanctified_eco_grounds } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_other } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_sanctified_eco_grounds_ring } }
+		mode = add
+		mult = 2
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_ring } }
+		mode = add
+		mult = 2
+	}
+}
+
+##############################################################################################################
+# STRATEGICS
+
+########################################################################
+# GASES
+
+giga_frameworld_outpost_exotic_gases_jobs = {
+	base = 0
+
+	modifier = {
+		exists = owner
+		owner = { has_technology = tech_mine_exotic_gases }
+		add = value:giga_frameworld_outpost_exotic_gases_mines
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_swamp } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
+		mode = add
+		mult = 1
+	}
+}
+
+########################################################################
+# MOTES
+
+giga_frameworld_outpost_volatile_motes_jobs = {
+	base = 0
+
+	modifier = {
+		exists = owner
+		owner = { has_technology = tech_mine_volatile_motes }
+		add = value:giga_frameworld_outpost_volatile_motes_mines
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_basin } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
+		mode = add
+		mult = 1
+	}
+}
+
+
+########################################################################
+# CRYSTALS
+
+giga_frameworld_outpost_rare_crystals_jobs = {
+	base = 0
+
+	modifier = {
+		exists = owner
+		owner = { has_technology = tech_mine_rare_crystals }
+		add = value:giga_frameworld_outpost_rare_crystals_mines
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_eco_mountains_range } }
+		mode = add
+		mult = 1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
+		mode = add
+		mult = 1
+	}
+}
+
+########################################################################
+# DARK MATTER
+
+########################################################################
+# ZRO
+
+giga_frameworld_outpost_sr_zro_jobs = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = d_tec_psionic_ascension_zone_1  }
+		}
+		mode = add
+		mult = 0.25
+	} 
+}
+
+########################################################################
+# LIVING METAL
+
+########################################################################
+# NANITES
+
+
+########################################################################
+# RELICS
+
+giga_frameworld_outpost_minor_artifacts_jobs = {
+	base = 0
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = gpm_d_precursor_planetary_shield  }
+		}
+		mode = add
+		mult = 0.1
+	} 
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = gpm_d_precursor_capital_complex  }
+		}
+		mode = add
+		mult = 0.1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = gpm_d_precursor_ruins_3   }
+		}
+		mode = add
+		mult = 0.1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = gpm_d_precursor_ruins_4    }
+		}
+		mode = add
+		mult = 0.1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = gpm_d_precursor_ruins_6    }
+		}
+		mode = add
+		mult = 0.1
+	}
+
+	complex_trigger_modifier = {
+		trigger = count_deposit
+		trigger_scope = planet
+		parameters = {
+			limit = { is_deposit_type = gpm_d_precursor_ruins_7     }
+		}
+		mode = add
+		mult = 0.1
+	}
+}
