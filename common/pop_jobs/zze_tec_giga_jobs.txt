@@ -680,7 +680,7 @@ giga_elysium_controller = {
 	possible_precalc = can_fill_ruler_job
 
 	resources = {
-		category = planet_jobs
+		category = planet_politicians
 		upkeep = {
 			consumer_goods = 2
 		}
@@ -700,6 +700,9 @@ giga_elysium_controller = {
 		giga_elysium_host_jobs_produces_mult = 0.05
 	}
 
+	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/type/inline_evolved_administrator_effect
+	
 	weight = {
 		weight = value:giga_ruler_no_resource_weight|JOB|giga_elysium_controller|
 		mult = 3 # important job
@@ -725,7 +728,7 @@ giga_elysium_controller_drone = {
 	possible = { can_think = yes }
 
 	resources = {
-		category = planet_jobs
+		category = planet_administrators
 		upkeep = {
 			energy = 4
 		}

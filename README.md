@@ -2,28 +2,20 @@
 
 ## Changes and Additions
 
-- Adjusted all giastructures districts to provide support for evolved mechanics
+- Adjusted all gigastructures districts to provide support for evolved mechanics, civics, traditions and what not.
 - Support for evolved deposits and new planet types for frameworld outposts.
-- Support for evolved civics and ethics in frameworld districts
-
-
-## Motivation
-Frameworld origin is amazing and making it work even more with Evolved is something i wanted in my games.
+- Elysium host capitals and buildings have support for evolved civics and ethics, for new assembly types and ascension paths. All assembly types will be provided on the host planet when unlocked, so disable the assmebly jobs that are not used.
+- Birch world origin should have some support for evolved civics and ethics, feedback is needed.
 
 ## Mod Load Order
 
 - Gigastructures Engineering & More
 - Stellaris Evolved - Alpha
-- Stellaris Evolved + Gigastructures Frameworld 
+- Stellaris Evolved - Gigastructures Patch
 
 
 ## Contacts And Links
 
 - Discord: MrRoAdd#4232
-- Github: https://github.com/adriangaro/evolved-frameworld
+- Github: https://github.com/Stellaris-Evolved/stellaris-evolved-giga/
 - Contributions, bug reports and fixes are appreciated!
-
-
-## Thanks
-- **Giga Team** - For the amazing mod and especially TTFTCUTS for insights into the innner working of Frameworlds.
-- **Rodahtnov** - For the insights and help he has given me to balance this around Stellaris Evolved. A great overhaul without which I can't play.

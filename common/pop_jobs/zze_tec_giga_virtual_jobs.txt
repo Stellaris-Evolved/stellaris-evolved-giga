@@ -86,6 +86,7 @@ giga_media_coordinator = {
 	}
 
 	inline_script = jobs/effects/inline_evolved_pleasure_seeker_entertainer
+	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
 
 	weight = {
 		weight = value:giga_ruler_weight|JOB|giga_media_coordinator|RESOURCE|unity|FACTOR|0.2|AMENITIES|yes|TRADE|yes|

@@ -1,0 +1,286 @@
+########################
+####### Variables ######
+########################
+@insula_structure_manager_weight = 10
+@insula_structure_engineer_weight = 5
+
+@insula_manager_weight = 2
+@insula_worker_weight = 0.5
+
+
+########################
+### Non-Gestalt Jobs ###
+########################
+
+##################################################################################################
+# Structure operations
+
+giga_birch_structure_manager = {
+	category = ruler
+	condition_string = RULER_JOB_TRIGGER
+	building_icon = building_colony_shelter
+	clothes_texture_index = 2
+	
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_ruler_job
+
+	possible = {
+		owner = { is_fallen_empire = no }
+	}
+
+	planet_modifier = {
+		job_giga_birch_structure_engineer_add = 10
+		giga_planet_unemployment_coverage = 85
+	}
+
+	resources = {
+		category = planet_giga_birch_structure_managers
+		produces = {
+			unity = 3
+			engineering_research = 5
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			alloys = 5
+			consumer_goods = 5
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+	}
+
+	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+
+	weight = {
+		weight = value:giga_ruler_weight|JOB|giga_birch_structure_manager|RESOURCE|unity|WEIGHT|0.35|RESOURCE2|engineering_research|WEIGHT2|0.65|
+		mult = @insula_structure_manager_weight
+	}
+}
+
+##################################################################################################
+# orykta
+
+giga_birch_orykta_manager = {
+	category = ruler
+	condition_string = RULER_JOB_TRIGGER
+	building_icon = building_class_4_singularity
+	clothes_texture_index = 2
+	
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = {
+		owner = { is_fallen_empire = no }
+	}
+
+	possible_precalc = can_fill_ruler_job
+
+	triggered_planet_modifier = { 
+		potential = { always = yes }
+
+		planet_miners_minerals_produces_add = 1
+		planet_technician_energy_produces_add = 1
+
+		multiplier = planet.value:giga_job_scaling_plus_base
+	}
+
+	resources = {
+		category = planet_giga_birch_insula_managers
+		produces = { 
+			physics_research = 5
+			engineering_research = 5 
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			consumer_goods = 2
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+	}
+
+	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+
+	weight = {
+		weight = value:giga_ruler_weight|JOB|giga_birch_orykta_manager|RESOURCE|physics_research|WEIGHT|0.5|RESOURCE2|engineering_research|WEIGHT2|0.5|
+		mult = @insula_manager_weight
+	}
+}
+
+
+##################################################################################################
+# Ktisma
+
+giga_birch_ktisma_manager = {
+	category = ruler
+	condition_string = RULER_JOB_TRIGGER
+	building_icon = building_nano_forge
+	clothes_texture_index = 2
+	
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = {
+		owner = { is_fallen_empire = no }
+	}
+
+	possible_precalc = can_fill_ruler_job
+
+	planet_modifier = {
+		planet_building_build_speed_mult = 0.20
+	}
+
+	inline_script = {
+		script = modifiers/inline_evolved_foundry_efficiency
+		mult = planet.value:giga_job_scaling_plus_base
+		trigger = ""
+	}
+
+	inline_script = {
+		script = modifiers/inline_evolved_artisan_efficiency
+		mult = planet.value:giga_job_scaling_plus_base
+		trigger = ""
+	}
+
+	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+
+	resources = {
+		category = planet_giga_birch_insula_managers
+		produces = { 
+			engineering_research = 5
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			consumer_goods = 2
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+	}
+
+	weight = {
+		weight = value:giga_ruler_weight|JOB|giga_birch_ktisma_manager|RESOURCE|physics_research|WEIGHT|0.5|RESOURCE2|engineering_research|WEIGHT2|0.5|
+		mult = @insula_manager_weight
+	}
+}
+
+##################################################################################################
+# Physma
+
+giga_birch_physma_manager = {
+	category = ruler
+	condition_string = RULER_JOB_TRIGGER
+	building_icon = building_institute
+	clothes_texture_index = 2
+	
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = {
+		owner = { is_fallen_empire = no }
+	}
+
+	possible_precalc = can_fill_ruler_job
+
+	triggered_planet_modifier = { 
+		potential = { always = yes }
+
+		planet_farmers_food_produces_add = 1.5
+		planet_researchers_physics_research_produces_add = 1
+		planet_researchers_society_research_produces_add = 1
+		planet_researchers_engineering_research_produces_add = 1
+		planet_researchers_consumer_goods_upkeep_add = 0.5
+
+		multiplier = planet.value:giga_job_scaling_plus_base
+	}
+	triggered_planet_modifier = { 
+		planet_administrators_unity_produces_add = 1
+		planet_administrators_consumer_goods_upkeep_add = 0.5
+
+		multiplier = planet.value:giga_job_scaling_plus_base
+	}
+	triggered_planet_modifier = { 
+		potential = { exists = owner owner = { is_megacorp = yes is_spiritualist = no } }
+
+		planet_managers_unity_produces_add = 1
+		planet_managers_consumer_goods_upkeep_add = 0.5
+
+		multiplier = planet.value:giga_job_scaling_plus_base
+	}
+	triggered_planet_modifier = { 
+		potential = { exists = owner owner = { is_spiritualist = yes } }
+
+		planet_priests_unity_produces_add = 1
+		planet_priests_consumer_goods_upkeep_add = 0.5
+
+		multiplier = planet.value:giga_job_scaling_plus_base
+	}
+
+	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+
+	resources = {
+		category = planet_giga_birch_insula_managers
+		produces = { 
+			unity = 5
+			society_research = 5
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			consumer_goods = 3
+
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+	}
+
+	weight = {
+		weight = value:giga_ruler_weight|JOB|giga_birch_physma_manager|RESOURCE|unity|WEIGHT|0.5|RESOURCE2|society_research|WEIGHT2|0.5|
+		mult = @insula_manager_weight
+	}
+}
+
+##################################################################################################
+# Other
+
+########################
+### Gestalt Jobs #######
+########################
+
+##################################################################################################
+# Structure operations
+
+
+##################################################################################################
+# orykta
+
+##################################################################################################
+# Ktisma
+
+##################################################################################################
+# Physma
+
+
+##################################################################################################
+# Other
