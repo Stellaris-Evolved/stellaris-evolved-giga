@@ -344,7 +344,7 @@ district_virtual_leisure = {
 		mult = 1
 		display = with_desc
 		trigger = "
-			exisst = owner
+			exists = owner
 			owner = { is_regular_empire = yes }
 		"
 	}
@@ -365,7 +365,7 @@ district_virtual_leisure = {
 		mult = 1
 		display = with_desc
 		trigger = "
-			exisst = owner
+			exists = owner
 			owner = { is_gestalt = yes }
 		"
 	}

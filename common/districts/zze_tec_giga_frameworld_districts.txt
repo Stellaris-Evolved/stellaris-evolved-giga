@@ -704,7 +704,7 @@ district_giga_frameworld_generator = {
 	# 	produces = {
 	# 		trigger = {
 	# 			planet = {
-	# 				exist = owner
+	# 				exists = owner
 	# 				owner = {
 	# 					tec_is_automated_empire = yes
 	# 				}
@@ -831,7 +831,7 @@ district_giga_frameworld_penrose = {
 	# 	produces = {
 	# 		trigger = {
 	# 			planet = {
-	# 				exist = owner
+	# 				exists = owner
 	# 				owner = {
 	# 					tec_is_automated_empire = yes
 	# 				}
@@ -959,7 +959,7 @@ district_giga_frameworld_mining = {
 	# 	produces = {
 	# 		trigger = {
 	# 			planet = {
-	# 				exist = owner
+	# 				exists = owner
 	# 				owner = { tec_is_automated_empire = yes }
 	# 				has_planet_flag = has_material_requisitorium
 	# 				tec_planet_allows_automation = yes
@@ -1119,7 +1119,7 @@ district_giga_frameworld_decompressor = {
 	# 	produces = {
 	# 		trigger = {
 	# 			planet = {
-	# 				exist = owner
+	# 				exists = owner
 	# 				owner = { tec_is_automated_empire = yes }
 	# 				has_planet_flag = has_material_requisitorium
 	# 				tec_planet_allows_automation = yes
@@ -1267,7 +1267,7 @@ district_giga_frameworld_farming = {
 	# 	produces = {
 	# 		trigger = {
 	# 			planet = {
-	# 				exist = owner
+	# 				exists = owner
 	# 				owner = { tec_is_automated_empire = yes }
 	# 				has_planet_flag = has_produce_requisitorium
 	# 				tec_planet_allows_automation = yes
