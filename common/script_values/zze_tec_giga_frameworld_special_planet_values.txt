@@ -55,10 +55,10 @@ tec_giga_frameworld_outpost_modded = {
 # ecumenopolis
 	giga_frameworld_outpost_planet_jobs_city_world = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecialized_ecu|USE|city_world_unspecialized|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_military_ecu|USE|city_world_military|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_research_ecu|USE|city_world_research|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_admin_ecu|USE|city_world_admin|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_city_planet|USE|city_world_unspecialized|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_military_city_planet|USE|city_world_military|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_city_planet|USE|city_world_research|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_admin_city_planet|USE|city_world_admin|
 
 		[[energy]]
 		[[minerals]]
@@ -207,9 +207,9 @@ tec_giga_frameworld_outpost_modded = {
 # ring world
 	giga_frameworld_outpost_planet_jobs_pc_ringworld_habitable = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_menial_rw|USE|pc_ringworld_habitable_menial|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_rw|USE|pc_ringworld_habitable_science|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_rw|USE|pc_ringworld_habitable_industry|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
 		
 		[[energy]]
 		[[minerals]]
@@ -329,9 +329,9 @@ tec_giga_frameworld_outpost_modded = {
 # interstellar ring
 	giga_frameworld_outpost_planet_jobs_pc_interstellar_ringworld_habitable = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_menial_rw|USE|pc_ringworld_habitable_menial|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_rw|USE|pc_ringworld_habitable_science|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_rw|USE|pc_ringworld_habitable_industry|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
 
 		[[energy] 				weight = 0 ]
 		[[minerals] 			weight = value:giga_frameworld_outpost_size_fraction|FRACTION|25| ]
@@ -361,9 +361,9 @@ tec_giga_frameworld_outpost_modded = {
 # square world
 	giga_frameworld_outpost_planet_jobs_pc_squareworld_habitable = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_menial_rw|USE|pc_ringworld_habitable_menial|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_rw|USE|pc_ringworld_habitable_science|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_rw|USE|pc_ringworld_habitable_industry|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
 
 
 		[[energy] 				weight = 0 ]
@@ -395,7 +395,7 @@ tec_giga_frameworld_outpost_modded = {
 
 	giga_frameworld_outpost_planet_jobs_pc_tec_elysium = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_menial_elysium|USE|pc_tec_elysium_menial|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_elysium|USE|pc_tec_elysium_menial|
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_civilian_elysium|USE|pc_tec_elysium_civilian|
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_military_elysium|USE|pc_tec_elysium_military|
 
