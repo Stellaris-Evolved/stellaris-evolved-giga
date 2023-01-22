@@ -41,6 +41,7 @@ district_flusion_city = {
 	inline_script = {
 		script = modifiers/inline_evolved_amenities
 		count = 28
+		trigger = ""
 	}
 	inline_script = {
 		script = districts/inline_evolved_habitation_housing_modifiers
