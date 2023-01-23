@@ -58,8 +58,7 @@ tec_giga_frameworld_outpost_modded = {
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_city_planet|USE|city_world_unspecialized|
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_military_city_planet|USE|city_world_military|
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_city_planet|USE|city_world_research|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_admin_city_planet|USE|city_world_admin|
-
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_admin_city_planet|USE|city_world_admin| 
 		[[energy]]
 		[[minerals]]
 		[[food]]
