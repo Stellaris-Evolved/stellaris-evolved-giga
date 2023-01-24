@@ -527,7 +527,7 @@ building_giga_gas_giant_habitation_module = {
 		display = with_desc
 		trigger = "
 			owner = { is_lithoid_empire = no }
-			onwer = {
+			owner = {
 				OR = {
 					is_machine_empire = no
 					has_valid_civic = civic_machine_assimilator

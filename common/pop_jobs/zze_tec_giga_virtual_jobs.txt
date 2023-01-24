@@ -374,7 +374,7 @@ giga_virtual_livestock = {
 			trigger = {
 				exists = owner
 				owner = {
-					has_ethic = ethic_fanatic_ecologist
+					has_ethic = ethic_fanatic_green
 				}
 				is_organic_species = yes
 				is_lithoid = no
@@ -385,7 +385,7 @@ giga_virtual_livestock = {
 			trigger = {
 				exists = owner
 				owner = {
-					has_ethic = ethic_fanatic_ecologist
+					has_ethic = ethic_fanatic_green
 				}
 				is_lithoid = yes
 			}
@@ -1107,7 +1107,7 @@ giga_virtual_diplomat = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ethic = ethic_fanatic_ecologist
+				has_ethic = ethic_fanatic_green
 			}
 		}
 		diplo_weight_economy_mult = 0.01
