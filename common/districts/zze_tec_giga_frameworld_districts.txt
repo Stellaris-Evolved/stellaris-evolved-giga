@@ -2074,11 +2074,21 @@ district_giga_frameworld_amenities_gestalt = {
 	}
 	inline_script = {
 		script = jobs/inline_evolved_maintenance_drone
-		count = 8
+		count = 6
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = tec_spareparts_drone
+		count = 2
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
 	inline_script = {
 		script = jobs/inline_evolved_maintenance_drone
 		count = 2

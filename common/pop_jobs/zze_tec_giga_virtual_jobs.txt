@@ -342,7 +342,7 @@ giga_virtual_livestock = {
 			trigger = {
 				exists = owner
 				owner = {
-					has_ethic = ethic_fanatic_industrialist
+					has_ethic = ethic_fanatic_industrial
 				}
 			}
 			energy = @livestock_energy
@@ -633,7 +633,7 @@ giga_virtual_hell_inmate = {
 			trigger = {	
 				exists = owner
 				owner = {
-					has_ethic = ethic_fanatic_industrialist
+					has_ethic = ethic_fanatic_industrial
 				}
 			}
 			society_research = @hell_engineering
@@ -1085,7 +1085,7 @@ giga_virtual_diplomat = {
 		potential = {
 			exists = owner
 			owner = {
-				has_ethic = ethic_fanatic_industrialist
+				has_ethic = ethic_fanatic_industrial
 			}
 		}
 		diplo_weight_economy_mult = 0.01

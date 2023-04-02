@@ -42,14 +42,7 @@ district_giga_planet_generator = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_generator
-		district_generator_uncapped
-		district_tec_eco_generator
-		district_tec_eco_aqua_generator
-		district_tec_aqua_generator
-		district_tec_decadent_generator
-	}
+	inline_script = districts/convert_to/inline_evolved_generator_districts
 
 	resources = {
 		category = planet_districts
@@ -125,6 +118,12 @@ district_giga_planet_generator = {
 			}
 		"
 	}
+
+	# Starnet
+	inline_script = {
+		script = districts/compat/inline_evolved_starnet_generator_district
+		count = 1
+	}
 }
 
 ###########################################################################################################################################
@@ -170,13 +169,7 @@ district_giga_planet_mining = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_planet_mining_uncapped
-		district_tec_eco_mining
-		district_tec_eco_aqua_mining
-		district_tec_aqua_mining
-		district_tec_decadent_mining
-	}
+	inline_script = districts/convert_to/inline_evolved_mining_districts
 
 	resources = {
 		category = planet_districts
@@ -269,6 +262,12 @@ district_giga_planet_mining = {
 	inline_script = districts/effects/inline_evolved_tec_eco_keepers_mining
 
 	inline_script = districts/effects/inline_evolved_mining_guilds
+
+	# Starnet
+	inline_script = {
+		script = districts/compat/inline_evolved_starnet_mining_district
+		count = 1
+	}
 }
 
 ###########################################################################################################################################
@@ -278,15 +277,7 @@ district_giga_planet_mining_uncapped = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_mining
-		district_mining_uncapped
-		district_giga_planet_mining
-		district_tec_eco_mining
-		district_tec_eco_aqua_mining
-		district_tec_aqua_mining
-		district_tec_decadent_mining
-	}
+	inline_script = districts/convert_to/inline_evolved_mining_districts
 }
 
 ###########################################################################################################################################
@@ -333,13 +324,7 @@ district_giga_planet_farming = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_planet_farming_uncapped
-		district_tec_eco_farming
-		district_tec_eco_aqua_farming
-		district_tec_aqua_farming
-		district_tec_decadent_farming
-	}
+	inline_script = districts/convert_to/inline_evolved_farming_districts
 
 	resources = {
 		category = planet_districts
@@ -426,6 +411,12 @@ district_giga_planet_farming = {
 			}
 		"
 	}
+
+	# Starnet
+	inline_script = {
+		script = districts/compat/inline_evolved_starnet_farming_district
+		count = 1
+	}
 }
 
 ###########################################################################################################################################
@@ -435,14 +426,5 @@ district_giga_planet_farming_uncapped = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_planet_farming
-		district_farming
-		district_farming_uncapped
-		district_tec_eco_farming
-		district_tec_eco_aqua_farming
-		district_rw_farming
-		district_tec_aqua_farming
-		district_tec_decadent_farming
-	}
+	inline_script = districts/convert_to/inline_evolved_farming_districts
 }

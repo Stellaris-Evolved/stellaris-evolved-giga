@@ -7,13 +7,25 @@ district_giga_alderson_city = {
 	show_on_uncolonized = {
 		exists = from
 		from = { is_gestalt = no }
-		uses_district_set = giga_alderson
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
 	}
 
 	potential = {
 		exists = owner
 		owner = { is_gestalt = no }
-		uses_district_set = giga_alderson
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
 	}
 
 	conversion_ratio = 0.5
@@ -64,15 +76,13 @@ district_giga_alderson_city = {
 	inline_script = districts/effects/inline_evolved_tec_artifice_2
 
 
-	inline_script = {
-		script = jobs/inline_evolved_clerk
-		count = @alderson_auto_jobs_split
-		mult = 1
-		display = with_desc
-		trigger = "
-			owner = { has_active_tradition = tr_mercantile_trickle_up_economics }
-		"
-	}
+	# Traditions
+		inline_script = {
+			script = districts/effects/inline_evolved_mercantile_trickle_up_economics
+			count = 1
+			trigger = ""
+		}
+	# /
 }
 
 # hives
@@ -84,13 +94,25 @@ district_giga_alderson_hive = {
 	show_on_uncolonized = {
 		exists = from
 		from = { is_hive_empire = yes }
-		uses_district_set = giga_alderson
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
 	}
 
 	potential = {
 		exists = owner
 		owner = { is_hive_empire = yes }
-		uses_district_set = giga_alderson
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
 	}
 
 	conversion_ratio = 0.5
@@ -157,6 +179,10 @@ district_giga_alderson_hive = {
 			has_planet_flag = giga_alderson_hive
 		"
 	}
+
+	# Bio/Lithospheric harmony
+		inline_script = districts/effects/inline_evolved_tec_hive_menial
+	# /
 }
 
 # machines
@@ -168,13 +194,25 @@ district_giga_alderson_nexus = {
 	show_on_uncolonized = {
 		exists = from
 		from = { is_machine_empire = yes }
-		uses_district_set = giga_alderson
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
 	}
 
 	potential = {
 		exists = owner
 		owner = { is_machine_empire = yes }
-		uses_district_set = giga_alderson
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
 	}
 
 	conversion_ratio = 0.5
@@ -211,72 +249,9 @@ district_giga_alderson_nexus = {
 		trigger = ""
 	}
 
-}
-
-# PCC
-district_giga_alderson_admin = {
-	base_buildtime = @giga_alderson_district_buildtime
-	is_capped_by_modifier = no
-
-	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		has_planet_flag = giga_alderson_pc
-	}
-
-	potential = {
-		uses_district_set = giga_alderson
-		has_planet_flag = giga_alderson_pc
-	}
-
-	resources = {
-		category = planet_districts
-		cost = { minerals = @giga_alderson_cost }
-		upkeep = { energy = @giga_alderson_maintenance }
-	}
-
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
-	}
-
-	triggered_planet_modifier = { 
-		modifier = { 
-			planet_housing_add = @alderson_auto_housing 
-		} 
-	}
-
-	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = no } }	modifier = { job_bureaucrat_add = @alderson_auto_jobs } }
-	
-	inline_script = {
-		script = jobs/inline_evolved_admin_split
-		count = @alderson_auto_jobs
-		count_half = @alderson_auto_jobs_split
-		megacorp_count = @alderson_auto_jobs_split
-		megacorp_count_half = @alderson_auto_jobs_ecu_split_3
-		mult = 1
-		display = with_desc
-		trigger = ""
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_synapse
-		count = @alderson_auto_jobs
-		mult = 1
-		display = with_desc
-		trigger = ""
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_coordinator
-		count = @alderson_auto_jobs
-		mult = 1
-		display = with_desc
-		trigger = ""
-	}
-
-	
+	# Civics
+		inline_script = districts/effects/inline_evolved_tec_machine_menial
+	# /
 }
 
 # GAIA
@@ -285,21 +260,19 @@ district_giga_alderson_commercial = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
+		uses_district_set = giga_alderson_gaia
 		exists = from
 		from = {
-			is_gestalt = no
+			tec_uses_trade_value = yes
 		}
-		has_planet_flag = giga_alderson_gaia
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
 		exists = owner
 		owner = {
-			is_gestalt = no
-		}
-		has_planet_flag = giga_alderson_gaia
+			tec_uses_trade_value = yes
+		}		
+		uses_district_set = giga_alderson_gaia
 	}
 
 	conversion_ratio = 1
@@ -318,15 +291,36 @@ district_giga_alderson_commercial = {
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 	}
-	
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_merchant_add = @alderson_auto_jobs
-		}
+
+	planet_modifier = {
+		planet_housing_add = @alderson_auto_housing
 	}
 
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = merchant
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = { is_gestalt = no }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = tec_trade_drone
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				tec_is_trade_gestalt = yes
+			}
+		"
+	}
 }
 # GAIA
 district_giga_alderson_industrial = {
@@ -334,22 +328,16 @@ district_giga_alderson_industrial = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		exists = from
-		has_planet_flag = giga_alderson_gaia
+		uses_district_set = giga_alderson_gaia
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		exists = owner
-		has_planet_flag = giga_alderson_gaia
+		uses_district_set = giga_alderson_gaia
 	}
 
-	conversion_ratio = 1
+	conversion_ratio = 0.5
 	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
+		district_giga_alderson_alloys
 	}
 
 	resources = {
@@ -364,65 +352,16 @@ district_giga_alderson_industrial = {
 		}
 	}
 	
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-		}
+	planet_modifier = {
+		planet_housing_add = @alderson_auto_housing
 	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no is_crafter_empire = no } }
-		modifier = {
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_split
-			job_ald_hyperfactorio_add = @alderson_auto_jobs_split
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { has_designation = col_foundry exists = owner owner = { is_gestalt = no is_crafter_empire = no } }
-		modifier = {
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_split
-			job_ald_hyperfactorio_add = @alderson_auto_jobs_split_neg
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { has_designation = col_factory exists = owner owner = { is_gestalt = no is_crafter_empire = no } }
-		modifier = {
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_split_neg
-			job_ald_hyperfactorio_add = @alderson_auto_jobs_split
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no is_crafter_empire = yes } }
-		modifier = {
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_split
-			job_ald_hyperartificer_add = @alderson_auto_jobs_split
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { has_designation = col_foundry exists = owner owner = { is_gestalt = no is_crafter_empire = yes } }
-		modifier = {
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_split
-			job_ald_hyperartificer_add = @alderson_auto_jobs_split_neg
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { has_designation = col_factory exists = owner owner = { is_gestalt = no is_crafter_empire = yes } }
-		modifier = {
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_split_neg
-			job_ald_hyperartificer_add = @alderson_auto_jobs_split
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = yes } }
-		modifier = {
-			job_ald_hyperfoundry_drone_add = @alderson_auto_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { has_designation = col_factory exists = owner owner = { is_gestalt = yes } }
-		modifier = {
-			job_ald_hyperfoundry_drone_add = @alderson_auto_jobs_split_neg
-			job_ald_hyperfactorio_drone_add = @alderson_auto_jobs_split
-		}
+
+	inline_script = {
+		script = districts/inline_evolved_industrial_split_jobs
+		count = @alderson_auto_jobs_split
+		mult = 1
+		trigger = ""
+		display = with_desc
 	}
 }
 
@@ -432,20 +371,16 @@ district_giga_alderson_consumer = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		has_planet_flag = giga_alderson_ecu
+		uses_district_set = giga_alderson_ecu
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		has_planet_flag = giga_alderson_ecu
+		uses_district_set = giga_alderson_ecu
 	}
 
-	conversion_ratio = 1
+	conversion_ratio = 0.5
 	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
+		district_giga_alderson_industrial
 	}
 
 	resources = {
@@ -459,31 +394,18 @@ district_giga_alderson_consumer = {
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 	}
-	
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = @alderson_auto_housing_ecu
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_crafter_empire = no is_gestalt = no } }
-		modifier = {
-			job_ald_hyperfactorio_add = @alderson_auto_jobs_ecu
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_crafter_empire = yes } }
-		modifier = {
-			job_ald_hyperartificer_add = @alderson_auto_jobs_ecu
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = yes } }
-		modifier = {
-			job_ald_hyperfactorio_drone_add = @alderson_auto_jobs_ecu
-		}
+
+	planet_modifier = {
+		planet_housing_add = @alderson_auto_housing_ecu
 	}
 
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
 }
 
 # ECU, HIVE, MACHINE
@@ -492,28 +414,24 @@ district_giga_alderson_alloys = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		OR = {
-			has_planet_flag = giga_alderson_ecu
-			has_planet_flag = giga_alderson_hive
-			has_planet_flag = giga_alderson_machine
+		or = {
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
 		}
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		OR = {
-			has_planet_flag = giga_alderson_ecu
-			has_planet_flag = giga_alderson_hive
-			has_planet_flag = giga_alderson_machine
+		or = {
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
 		}
 	}
 
-	conversion_ratio = 1
+	conversion_ratio = 0.5
 	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
+		district_giga_alderson_industrial
 	}
 
 	resources = {
@@ -527,29 +445,39 @@ district_giga_alderson_alloys = {
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
 	}
-	
+
 	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing_ecu
-			job_ald_hyperfoundry_add = @alderson_auto_jobs_ecu
+		potential = {
+			uses_district_set = giga_alderson_ecu
 		}
+		planet_housing_add = @alderson_auto_housing_ecu
 	}
 	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = yes } NOT = { has_planet_flag = giga_alderson_ecu } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_hyperfoundry_drone_add = @alderson_auto_jobs
+		potential = {
+			not = { uses_district_set = giga_alderson_ecu }
 		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = yes } has_planet_flag = giga_alderson_ecu }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing_ecu
-			job_ald_hyperfoundry_drone_add = @alderson_auto_jobs_ecu
-		}
+		planet_housing_add = @alderson_auto_housing
 	}
 
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = "
+			NOT = { uses_district_set = giga_alderson_ecu }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = @alderson_auto_jobs_ecu
+		mult = 1
+		display = with_desc
+		trigger = "
+			uses_district_set = giga_alderson_ecu
+		"
+	}
 }
 
 # ECU, HIVE, MACHINE
@@ -558,20 +486,18 @@ district_giga_alderson_refineries = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		OR = {
-			has_planet_flag = giga_alderson_ecu
-			has_planet_flag = giga_alderson_hive
-			has_planet_flag = giga_alderson_machine
+		or = {
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
 		}
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		OR = {
-			has_planet_flag = giga_alderson_ecu
-			has_planet_flag = giga_alderson_hive
-			has_planet_flag = giga_alderson_machine
+		or = {
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
+			uses_district_set = giga_alderson_ecu
 		}
 	}
 
@@ -591,34 +517,35 @@ district_giga_alderson_refineries = {
 			energy = @giga_alderson_maintenance
 		}
 	}
+
+	planet_modifier = {
+		planet_housing_add = @alderson_auto_housing_ecu
+	}
+
 	
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing_ecu
-			job_ald_gases_add = @alderson_auto_jobs_refiners
-			job_ald_motes_add = @alderson_auto_jobs_refiners
-			job_ald_crystals_add = @alderson_auto_jobs_refiners
+	# Jobs
+		inline_script = {
+			script = jobs/inline_evolved_chemist
+			count =  @alderson_auto_jobs_refiners
+			mult = 1
+			display = with_desc
+			trigger = ""
 		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_hive_empire = yes } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing_ecu
-			job_ald_gases_drone_add = @alderson_auto_jobs_refiners
-			job_ald_motes_drone_add = @alderson_auto_jobs_refiners
-			job_ald_crystals_drone_add = @alderson_auto_jobs_refiners
+		inline_script = {
+			script = jobs/inline_evolved_gas_refiner
+			count =  @alderson_auto_jobs_refiners
+			mult = 1
+			display = with_desc
+			trigger = ""
 		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_machine_empire = yes } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing_ecu
-			job_ald_gases_drone_add = @alderson_auto_jobs_refiners
-			job_ald_motes_drone_add = @alderson_auto_jobs_refiners
-			job_ald_crystals_drone_add = @alderson_auto_jobs_refiners
+		inline_script = {
+			script = jobs/inline_evolved_translucer
+			count =  @alderson_auto_jobs_refiners
+			mult = 1
+			display = with_desc
+			trigger = ""
 		}
-	}
+	# /
 }
 # GAIA (only???)
 district_giga_alderson_generator = {
@@ -626,21 +553,19 @@ district_giga_alderson_generator = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
+		uses_district_set = giga_alderson_gaia
 		exists = from
 		from = {
 			is_gestalt = yes
 		}
-		has_planet_flag = giga_alderson_gaia
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		exists = owner
-		owner = {
+		uses_district_set = giga_alderson_gaia
+		exists = from
+		from = {
 			is_gestalt = yes
 		}
-		has_planet_flag = giga_alderson_gaia
 	}
 
 	conversion_ratio = 1
@@ -659,30 +584,39 @@ district_giga_alderson_generator = {
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 	}
-	
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_supergenerator_add = @alderson_auto_jobs
-		}
-	}
+
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_hive_empire = yes } }
 		modifier = {
 			planet_housing_add = @alderson_auto_housing
-			job_ald_supergenerator_drone_add = @alderson_auto_jobs_hive
 		}
 	}
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_machine_empire = yes } }
 		modifier = {
 			planet_housing_add = @alderson_auto_housing_mach
-			job_ald_supergenerator_drone_add = @alderson_auto_jobs
 		}
 	}
-	# This is a rural type. The job amount does not change.
+	
+	inline_script = {
+		script = jobs/inline_evolved_technician
+		regular_count = @alderson_auto_jobs
+		hive_count =  @alderson_auto_jobs_hive
+		machine_count = @alderson_auto_jobs
+		machine_aquatic_count = @[ alderson_auto_jobs * 2 / 3 ]
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
 
+	inline_script = {
+		script = jobs/inline_evolved_technician_swaps
+		machine_aquatic_count = @[ alderson_auto_jobs * 1 / 3 ]
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+	# This is a rural type. The job amount does not change.
 }
 
 # GAIA, HIVE, MACHINE
@@ -691,28 +625,19 @@ district_giga_alderson_mining = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		OR = {
-			has_planet_flag = giga_alderson_gaia
-			has_planet_flag = giga_alderson_hive
-			has_planet_flag = giga_alderson_machine
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
 		}
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		OR = {
-			has_planet_flag = giga_alderson_gaia
-			has_planet_flag = giga_alderson_hive
-			has_planet_flag = giga_alderson_machine
+		or = {
+			uses_district_set = giga_alderson_gaia
+			uses_district_set = giga_alderson_hive
+			uses_district_set = giga_alderson_machine
 		}
-	}
-
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
 	}
 
 	resources = {
@@ -726,27 +651,40 @@ district_giga_alderson_mining = {
 			exotic_gases = @giga_alderson_maintenance_sr
 		}
 	}
-	
+
 	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
+		potential = { exists = owner owner = { is_machine_empire = no } }
 		modifier = {
 			planet_housing_add = @alderson_auto_housing
-			job_ald_matter_synthesizer_add = @alderson_auto_jobs
 		}
 	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_hive_empire = yes } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_matter_synthesizer_drone_add = @alderson_auto_jobs_hive
-		}
-	}
+
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_machine_empire = yes } }
 		modifier = {
 			planet_housing_add = @alderson_auto_housing_mach
-			job_ald_matter_synthesizer_drone_add = @alderson_auto_jobs
 		}
+	}
+	
+	inline_script = {
+		script = jobs/inline_evolved_miner
+		regular_count = @alderson_auto_jobs
+		regular_aquatic_count = @[ alderson_auto_jobs * 2 / 3 ]
+		hive_count = @alderson_auto_jobs_hive
+		hive_aquatic_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
+		machine_count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_miner_swaps
+		regular_count = @[ alderson_auto_jobs * 1 / 3 ]
+		hive_count = @[ alderson_auto_jobs_hive * 1 / 3 ]
+		mult = 1
+		display = with_desc
+		trigger = ""
 	}
 	# This is a rural type. The job amount does not change.
 
@@ -758,27 +696,11 @@ district_giga_alderson_farming = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		exists = from
-		from = {
-			OR = {
-				country_uses_food = yes
-				is_lithoid_empire = yes
-			}
-		}
-		has_planet_flag = giga_alderson_gaia
+		uses_district_set = giga_alderson_gaia
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		exists = owner
-		owner = {
-			OR = {
-				country_uses_food = yes
-				is_lithoid_empire = yes
-			}
-		}
-		has_planet_flag = giga_alderson_gaia
+		uses_district_set = giga_alderson_gaia
 	}
 
 	resources = {
@@ -793,33 +715,39 @@ district_giga_alderson_farming = {
 		}
 	}
 
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
-	}
-	
 	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
+		potential = { exists = owner owner = { is_machine_empire = no } }
 		modifier = {
 			planet_housing_add = @alderson_auto_housing
-			job_ald_superfarmer_add = @alderson_auto_jobs
 		}
 	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_hive_empire = yes } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_superfarmer_drone_add = @alderson_auto_jobs_hive
-		}
-	}
+
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_machine_empire = yes } }
 		modifier = {
 			planet_housing_add = @alderson_auto_housing_mach
-			job_ald_superfarmer_drone_add = @alderson_auto_jobs
 		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer
+		regular_count = @alderson_auto_jobs
+		regular_aquatic_count = @[ alderson_auto_jobs * 2 / 3 ]
+		hive_count = @alderson_auto_jobs_hive
+		hive_aquatic_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
+		machine_count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_farmer_swaps
+		regular_count = @[ alderson_auto_jobs * 1 / 3 ]
+		hive_count = @[ alderson_auto_jobs_hive * 1 / 3 ]
+		mult = 1
+		display = with_desc
+		trigger = ""
 	}
 	# This is a rural type. The job amount does not change.
 
@@ -831,13 +759,11 @@ district_giga_alderson_science = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
-		has_planet_flag = giga_alderson_pc
+		uses_district_set = giga_alderson_pc
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		has_planet_flag = giga_alderson_pc
+		uses_district_set = giga_alderson_pc
 	}
 
 	resources = {
@@ -852,33 +778,16 @@ district_giga_alderson_science = {
 		}
 	}
 
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
+	planet_modifier = {
+		planet_housing_add = @alderson_auto_housing
 	}
 	
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_gestalt = no } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_megascience_add = @alderson_auto_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_hive_empire = yes } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_megascience_mind_add = @alderson_auto_jobs
-		}
-	}
-	triggered_planet_modifier = {
-		potential = { exists = owner owner = { is_machine_empire = yes } }
-		modifier = {
-			planet_housing_add = @alderson_auto_housing
-			job_ald_megascience_robot_add = @alderson_auto_jobs
-		}
+	inline_script = {
+		script = jobs/inline_evolved_researcher
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = ""
 	}
 }
 
@@ -888,17 +797,19 @@ district_giga_alderson_leisure = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
+		uses_district_set = giga_alderson_ecu
 		exists = from
-		from = { OR = { is_gestalt = no has_valid_civic = civic_machine_servitor } }
-		has_planet_flag = giga_alderson_ecu
+		from = { 
+			is_gestalt = no
+		}
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		exists = owner
-		owner = { OR = { is_gestalt = no has_valid_civic = civic_machine_servitor } }
-		has_planet_flag = giga_alderson_ecu
+		uses_district_set = giga_alderson_ecu
+		exists = from
+		from = { 
+			is_gestalt = no
+		}
 	}
 
 	conversion_ratio = 1
@@ -920,163 +831,16 @@ district_giga_alderson_leisure = {
 		}
 	}
 
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				NOT = {
-					has_valid_civic = civic_machine_servitor
-				}
-			} 
-		}
-		modifier = { 
-			planet_housing_add = @alderson_auto_housing_ecu 
-		} 
+	planet_modifier = { 
+		planet_housing_add = @alderson_auto_housing_ecu 
 	}
 
-	# amebnity johbs
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				is_gestalt = no 
-				NOT = { has_valid_civic = civic_warrior_culture } 
-			} 
-		}
-		modifier = { job_entertainer_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				is_gestalt = no 
-				has_valid_civic = civic_warrior_culture 
-			} 
-		}
-		modifier = { job_ald_duelists_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner 
-			owner = { 
-				is_machine_empire = yes 
-				has_valid_civic = civic_machine_servitor 
-			} 
-		}
-		modifier = {
-			job_maintenance_drone_add = @alderson_auto_jobs_split
-			job_bio_trophy_add = @alderson_auto_jobs_ecu
-		}
-	}
-
-	# yoonittee jhohobs
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				is_gestalt = no 
-				giga_country_uses_priests = no
-				is_megacorp = no
-				
-				tec_is_death_cult = no
-				NOT = { has_valid_civic = civic_warrior_culture }
-			} 
-		}
-		modifier = { job_entertainer_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				is_gestalt = no 
-				giga_country_uses_priests = no
-				is_megacorp = no
-				
-				tec_is_death_cult = no
-				has_valid_civic = civic_warrior_culture
-			} 
-		}
-		modifier = { job_ald_duelists_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				giga_country_uses_priests = yes
-				OR = {
-					is_megacorp = no
-					has_valid_civic = civic_gospel_of_the_masses
-					# Replace managers with priests if gospel of the masses
-				}
-				tec_is_memorialist_empire = no
-				tec_is_death_cult = no
-			} 
-		}
-		modifier = { job_ald_priest_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				is_megacorp = yes
-				tec_is_death_cult = no
-				NOR = { 
-					has_valid_civic = civic_gospel_of_the_masses
-				}
-			} 
-		}
-		modifier = { job_ald_corpmanager_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				is_gestalt = no 
-				tec_is_memorialist_empire = yes
-				tec_is_death_cult = no
-			} 
-		}
-		modifier = { job_ald_memorialist_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				tec_is_memorialist_empire = no
-				tec_is_death_cult = yes
-			} 
-		}
-		modifier = { job_ald_deathpriest_add = @alderson_auto_jobs_ecu_split } 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				NOT = { has_valid_civic = civic_warrior_culture }
-				tec_is_memorialist_empire = yes
-				tec_is_death_cult = yes
-			} 
-		}
-		modifier = { 
-			job_ald_memorialist_add = @alderson_auto_jobs_ecu_split_3 
-			job_ald_deathpriest_add = @alderson_auto_jobs_ecu_split_3 
-			job_entertainer_add = @alderson_auto_jobs_ecu_split_3_neg
-		} 
-	}
-	triggered_planet_modifier = { 
-		potential = { 
-			exists = owner 
-			owner = { 
-				has_valid_civic = civic_warrior_culture
-				tec_is_memorialist_empire = yes
-				tec_is_death_cult = yes
-			} 
-		}
-		modifier = { 
-			job_ald_memorialist_add = @alderson_auto_jobs_ecu_split_3 
-			job_ald_deathpriest_add = @alderson_auto_jobs_ecu_split_3 
-			job_ald_duelists_add = @alderson_auto_jobs_ecu_split_3_neg
-		} 
+	inline_script = {
+		script = jobs/inline_evolved_entertainer
+		count = @alderson_auto_jobs_ecu
+		mult = 1
+		display = with_desc
+		trigger = ""
 	}
 }
 
@@ -1086,24 +850,20 @@ district_giga_alderson_pop_assembly = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
 		exists = from
 		from = { is_machine_empire = yes }
-		has_planet_flag = giga_alderson_machine
+		uses_district_set = giga_alderson_machine
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		exists = owner
-		owner = { is_machine_empire = yes }
-		has_planet_flag = giga_alderson_machine
+		exists = from
+		from = { is_machine_empire = yes }
+		uses_district_set = giga_alderson_machine
 	}
 
 	conversion_ratio = 1
 	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
+		district_giga_alderson_pop_growth
 	}
 
 	resources = {
@@ -1111,10 +871,12 @@ district_giga_alderson_pop_assembly = {
 		cost = {
 			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
+			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
 			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
+			volatile_motes = @giga_alderson_maintenance_sr
 		}
 	}
 
@@ -1135,24 +897,20 @@ district_giga_alderson_pop_growth = {
 	is_capped_by_modifier = no
 
 	show_on_uncolonized = {
-		uses_district_set = giga_alderson
 		exists = from
 		from = { is_hive_empire = yes }
-		has_planet_flag = giga_alderson_hive
+		uses_district_set = giga_alderson_hive
 	}
 
 	potential = {
-		uses_district_set = giga_alderson
-		exists = owner
-		owner = { is_hive_empire = yes }
-		has_planet_flag = giga_alderson_hive
+		exists = from
+		from = { is_hive_empire = yes }
+		uses_district_set = giga_alderson_hive
 	}
 
 	conversion_ratio = 1
 	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
+		district_giga_alderson_pop_assembly
 	}
 
 	resources = {
@@ -1160,10 +918,12 @@ district_giga_alderson_pop_growth = {
 		cost = {
 			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
+			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
 			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
+			volatile_motes = @giga_alderson_maintenance_sr
 		}
 	}
 
@@ -1175,4 +935,355 @@ district_giga_alderson_pop_growth = {
 		display = with_desc
 		trigger = ""
 	}
+}
+
+
+# PCC
+district_giga_alderson_admin = {
+	base_buildtime = @giga_alderson_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		or = {
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
+		exists = from
+		from = {
+			nor = {
+				giga_country_uses_priests = yes
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+	}
+
+	potential = {
+		or = {
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
+		exists = owner
+		owner = {
+			nor = {
+				giga_country_uses_priests = yes
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { minerals = @giga_alderson_cost }
+		upkeep = { energy = @giga_alderson_maintenance }
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_alderson_admin_spiritualist
+		district_giga_alderson_sanctuary
+	}
+
+	triggered_planet_modifier = { 
+		potential = { 
+			not = { uses_district_set = giga_alderson_ecu }
+		}
+		planet_housing_add = @alderson_auto_housing 
+	}
+	triggered_planet_modifier = { 
+		potential = { 
+			uses_district_set = giga_alderson_ecu
+		}
+		planet_housing_add = @alderson_auto_housing_ecu
+	}
+	
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = "
+		not = { uses_district_set = giga_alderson_ecu }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = "
+		not = { uses_district_set = giga_alderson_ecu }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = @alderson_auto_jobs
+		mult = 1
+		display = with_desc
+		trigger = "
+		not = { uses_district_set = giga_alderson_ecu }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_bureaucrat
+		count = @alderson_auto_jobs_ecu
+		mult = 1
+		display = with_desc
+		trigger = "
+		uses_district_set = giga_alderson_ecu
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_synapse
+		count = @alderson_auto_jobs_ecu
+		mult = 1
+		display = with_desc
+		trigger = "
+		uses_district_set = giga_alderson_ecu
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_coordinator
+		count = @alderson_auto_jobs_ecu
+		mult = 1
+		display = with_desc
+		trigger = "
+		uses_district_set = giga_alderson_ecu
+		"
+	}
+}
+
+
+district_giga_alderson_admin_spiritualist = {
+	base_buildtime = @giga_alderson_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_administrative
+
+	show_on_uncolonized = {
+		or = {
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
+		exists = from
+		from = {
+			giga_country_uses_priests = yes
+		}
+	}
+
+	potential = {
+		or = {
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
+		exists = owner
+		owner = {
+			giga_country_uses_priests = yes
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { 
+			minerals = @giga_alderson_cost 
+			rare_crystals = @giga_alderson_cost_sr
+		}
+		upkeep = { 
+			energy = @giga_alderson_maintenance 
+			rare_crystals = @giga_alderson_maintenance_sr
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_alderson_admin
+		district_giga_alderson_sanctuary
+	}
+
+	triggered_planet_modifier = { 
+		potential = { 
+			not = { uses_district_set = giga_alderson_ecu }
+		}
+		planet_housing_add = @alderson_auto_housing 
+	}
+	triggered_planet_modifier = { 
+		potential = { 
+			uses_district_set = giga_alderson_ecu
+		}
+		planet_housing_add = @alderson_auto_housing_ecu
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = @alderson_auto_jobs
+		count_half = @alderson_auto_jobs_split
+		megacorp_count = @alderson_auto_jobs_split
+		megacorp_count_half = @[ alderson_auto_jobs_split / 2 ]
+		mult = 1
+		display = with_desc
+		trigger = "
+			not = { uses_district_set = giga_alderson_ecu }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = @[ alderson_auto_jobs_split / 2 ]
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				tec_is_death_cult = yes
+			}
+			not = { uses_district_set = giga_alderson_ecu }
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_admin_split
+		count = @alderson_auto_jobs_ecu
+		count_half = @alderson_auto_jobs_ecu_split
+		megacorp_count = @alderson_auto_jobs_ecu_split
+		megacorp_count_half = @[ alderson_auto_jobs_split / 2 ]
+		mult = 1
+		display = with_desc
+		trigger = "
+			uses_district_set = giga_alderson_ecu
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = mortal_initiate
+		count = @alderson_auto_jobs_ecu_split_3
+		mult = 1
+		display = with_desc
+		trigger = "
+			exists = owner
+			owner = {
+				tec_is_death_cult = yes
+			}
+			uses_district_set = giga_alderson_ecu
+		"
+	}
+}
+
+district_giga_alderson_sanctuary = {
+	base_buildtime = @giga_alderson_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_arcology_administrative
+
+	show_on_uncolonized = {
+		or = {
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
+		exists = from
+		from = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	potential = {
+		or = {
+			uses_district_set = giga_alderson_ecu
+			uses_district_set = giga_alderson_pc
+		}
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		cost = { 
+			minerals = @giga_alderson_cost 
+			exotic_gases = @giga_alderson_cost_sr
+		}
+		upkeep = { 
+			energy = @giga_alderson_maintenance 
+			exotic_gases = @giga_alderson_maintenance_sr
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_alderson_admin_spiritualist
+		district_giga_alderson_admin
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			not = { uses_district_set = giga_alderson_ecu }
+		}
+		job_bio_trophy_add = @alderson_auto_jobs_sanctuary
+		planet_carry_cap_add = @alderson_auto_jobs_sanctuary
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			uses_district_set = giga_alderson_ecu
+		}
+		job_bio_trophy_add = @alderson_auto_jobs_ecu_sanctuary
+		planet_carry_cap_add = @alderson_auto_jobs_ecu_sanctuary
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = @alderson_auto_jobs_split
+		mult = 1
+		display = with_desc
+		trigger = "
+			NOT = { 
+				uses_district_set = giga_alderson_ecu 
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bio_trophy
+		count = @alderson_auto_jobs_sanctuary
+		mult = 1
+		display = with_desc
+		trigger = "
+			NOT = { 
+				uses_district_set = giga_alderson_ecu 
+			}
+		"
+	}
+	inline_script = {
+		script = jobs/inline_evolved_maintenance_drone
+		count = @alderson_auto_jobs_ecu_split
+		mult = 1
+		display = with_desc
+		trigger = "
+			uses_district_set = giga_alderson_ecu 
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = bio_trophy
+		count = @alderson_auto_jobs_ecu_sanctuary
+		mult = 1
+		display = with_desc
+		trigger = "
+			uses_district_set = giga_alderson_ecu 
+		"
+	}	
 }

@@ -74,41 +74,23 @@ district_giga_elysium_housing = {
 	inline_script = {
 		script = jobs/inline_evolved_maintenance_drone
 		trigger = ""
-		count = 2
+		count = 1
 		mult = 1
 		display = with_desc
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/inline_evolved_job
+		job = tec_spareparts_drone
+		count = 1
+		mult = 1
+		display = with_desc
 		trigger = "
-			owner = {
-				OR = {
-					tec_has_maintenance_swap_civic_hive = yes	
-					tec_has_ruler_civic_machine = yes
-				}
-				NOT = { has_valid_civic = civic_tec_machine_reimaginators }
-			}
+		exists = owner
+		owner = { 
+			is_gestalt = yes
+		}
 		"
-		count = -1
-		mult = 1
-		display = no_desc
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_maintenance_civic_hive_swaps
-		trigger= ""
-		count = 1
-		mult = 1
-		display = with_desc
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_maintenance_civic_machine_swaps
-		trigger= ""
-		count = 1
-		mult = 1
-		display = with_desc
 	}
 }
 
@@ -162,7 +144,7 @@ district_giga_elysium_control = {
 			exists = owner
 			owner = { 
 				is_gestalt = no 
-				tec_has_psionic_ascension_path = yes
+				tec_has_psi_corps = yes
 			}
 		"
 		job = telepath
@@ -175,7 +157,7 @@ district_giga_elysium_control = {
 		script = jobs/inline_evolved_enforcer
 		trigger = "
 			owner = { 
-				tec_has_psionic_ascension_path = no
+				tec_has_psi_corps = no
 			}
 		"
 		count = 1

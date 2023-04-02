@@ -12,11 +12,13 @@ district_giga_origin_birch_lab = {
 	is_capped_by_modifier = yes
 
 	show_on_uncolonized = {
-		uses_district_set = @giga_origin_birch
+		uses_district_set = standard
+		is_planet_class = pc_origin_birch
 	}
 
 	potential = {
-		uses_district_set = @giga_origin_birch
+		uses_district_set = standard
+		is_planet_class = pc_origin_birch
 	}
 
 	resources = {
