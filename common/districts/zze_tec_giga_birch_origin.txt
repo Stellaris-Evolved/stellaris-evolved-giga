@@ -106,6 +106,26 @@ district_giga_origin_birch_lab = {
 		trigger = ""
 	}
 
+	inline_script = {
+		script = jobs/inline_evolved_archaeoengineers
+		count = 1
+		mult = 1
+		display = with_desc
+		trigger = "
+			has_ancrel = yes
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_researcher
+		count = -1
+		mult = 1
+		display = no_desc
+		trigger = "
+			has_ancrel = yes
+		"
+	}
+
 	# expedition 7 trade
 	triggered_planet_modifier = {
 		potential = {

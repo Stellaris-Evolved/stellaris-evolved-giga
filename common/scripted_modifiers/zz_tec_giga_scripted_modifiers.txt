@@ -1,0 +1,4 @@
+building_giga_supertensiles_mines_max = {
+	good = yes
+	category = planet
+}

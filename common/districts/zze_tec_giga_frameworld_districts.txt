@@ -55,6 +55,7 @@ district_giga_frameworld_city = {
 	convert_to = {
 		district_giga_frameworld_nexus
 		district_giga_frameworld_hive
+
 		district_giga_frameworld_city_advanced
 		district_giga_frameworld_nexus_advanced
 		district_giga_frameworld_hive_advanced
@@ -353,6 +354,7 @@ district_giga_frameworld_nexus = {
 		not = {
 			has_deposit = d_frameworld_advanced_city
 		}
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -363,6 +365,7 @@ district_giga_frameworld_nexus = {
 		not = {
 			has_deposit = d_frameworld_advanced_city
 		}
+		is_voidframe_upgraded = no
 	}
 	allow = {
 		#hidden_trigger = {
@@ -391,6 +394,14 @@ district_giga_frameworld_nexus = {
 		district_giga_frameworld_nexus_advanced
 		district_giga_frameworld_hive_advanced
 	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_voidframe_nexus_dm
+		district_giga_voidframe_nexus_de
+		district_giga_voidframe_nexus_se
+	}
+
 	resources = {
 		category = planet_districts_cities
 		cost = {
@@ -441,6 +452,7 @@ district_giga_frameworld_nexus_advanced = {
 		}
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_advanced_city
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -449,6 +461,7 @@ district_giga_frameworld_nexus_advanced = {
 		}
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_advanced_city
+		is_voidframe_upgraded = no
 	}
 	allow = {
 		#hidden_trigger = {
@@ -476,6 +489,13 @@ district_giga_frameworld_nexus_advanced = {
 		district_giga_frameworld_city_advanced
 		district_giga_frameworld_nexus
 		district_giga_frameworld_hive_advanced
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_voidframe_nexus_dm
+		district_giga_voidframe_nexus_de
+		district_giga_voidframe_nexus_se
 	}
 	resources = {
 		category = planet_districts_cities
@@ -541,6 +561,8 @@ district_giga_frameworld_industrial = {
 		not = {
 			has_deposit = d_frameworld_advanced_industrial
 		}
+		
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -548,10 +570,16 @@ district_giga_frameworld_industrial = {
 		not = {
 			has_deposit = d_frameworld_advanced_industrial
 		}
+		
+		is_voidframe_upgraded = no
 	}
 	conversion_ratio = 0.5
 	convert_to = {
 		district_giga_frameworld_industrial_advanced
+		district_giga_voidframe_industrial_dm
+		district_giga_voidframe_industrial_de
+		district_giga_voidframe_industrial_se
+		district_giga_voidframe_industrial_pe
 	}
 	resources = {
 		category = planet_districts_industrial
@@ -595,15 +623,27 @@ district_giga_frameworld_industrial_advanced = {
 		exists = from
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_advanced_industrial
+		
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_advanced_industrial
+		
+		is_voidframe_upgraded = no
 	}
 	conversion_ratio = 2
 	convert_to = {
 		district_giga_frameworld_industrial
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_voidframe_industrial_dm
+		district_giga_voidframe_industrial_de
+		district_giga_voidframe_industrial_se
+		district_giga_voidframe_industrial_pe
 	}
 	resources = {
 		category = planet_districts_industrial
@@ -622,7 +662,7 @@ district_giga_frameworld_industrial_advanced = {
 		planet_housing_add = 2
 	}
 	# Traditions
-	inline_script = districts/effects/inline_evolved_tec_artifice_final_1
+		inline_script = districts/effects/inline_evolved_tec_artifice_final_1
 	# /
 	# Civics
 		inline_script = districts/effects/inline_evolved_tec_unleashed_industrialization
@@ -654,12 +694,14 @@ district_giga_frameworld_generator = {
 		not = {
 			has_deposit = d_frameworld_penrose
 		}
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		uses_district_set = giga_frameworld
 		not = {
 			has_deposit = d_frameworld_penrose
 		}
+		is_voidframe_upgraded = no
 	}
 	prerequisites = {
 		tech_power_plant_1
@@ -670,6 +712,11 @@ district_giga_frameworld_generator = {
 	conversion_ratio = 0.25
 	convert_to = {
 		district_giga_frameworld_penrose
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_voidframe_generator_dm
 	}
 	resources = {
 		category = planet_districts
@@ -787,14 +834,23 @@ district_giga_frameworld_penrose = {
 	show_on_uncolonized = {
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_penrose
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_penrose
+		is_voidframe_upgraded = no
 	}
 	conversion_ratio = 4
 	convert_to = {
 		district_giga_frameworld_generator
+	}
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_voidframe_penrose_dm
+		district_giga_voidframe_penrose_de
+		district_giga_voidframe_penrose_pe
+		district_giga_voidframe_penrose_se
 	}
 	resources = {
 		category = planet_districts
@@ -906,12 +962,14 @@ district_giga_frameworld_mining = {
 		not = {
 			has_deposit = d_frameworld_decompressor
 		}
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		uses_district_set = giga_frameworld
 		not = {
 			has_deposit = d_frameworld_decompressor
 		}
+		is_voidframe_upgraded = no
 	}
 	prerequisites = {
 		tech_mechanized_mining
@@ -919,9 +977,15 @@ district_giga_frameworld_mining = {
 	show_tech_unlock_if = {
 		has_origin = origin_frameworld
 	}
+	
 	conversion_ratio = 0.25
 	convert_to = {
 		district_giga_frameworld_decompressor
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_voidframe_mining_dm
 	}
 	resources = {
 		category = planet_districts
@@ -1072,14 +1136,21 @@ district_giga_frameworld_decompressor = {
 	show_on_uncolonized = {
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_decompressor
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		uses_district_set = giga_frameworld
 		has_deposit = d_frameworld_decompressor
+		is_voidframe_upgraded = no
 	}
 	conversion_ratio = 4
 	convert_to = {
 		district_giga_frameworld_mining
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_voidframe_decompressor_dm
 	}
 	resources = {
 		category = planet_districts
@@ -1222,15 +1293,22 @@ district_giga_frameworld_farming = {
 	is_capped_by_modifier = no
 	show_on_uncolonized = {
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	prerequisites = {
 		tech_industrial_farming
 	}
 	show_tech_unlock_if = {
 		has_origin = origin_frameworld
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_voidframe_farming_dm
 	}
 	resources = {
 		category = planet_districts
@@ -1597,6 +1675,7 @@ district_giga_frameworld_simulation = {
 			has_technology = "tech_colonial_bureaucracy"
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -1608,6 +1687,7 @@ district_giga_frameworld_simulation = {
 			has_technology = "tech_colonial_bureaucracy"
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	prerequisites = {
 		tech_colonial_bureaucracy
@@ -1624,6 +1704,11 @@ district_giga_frameworld_simulation = {
 		district_giga_frameworld_temple
 		district_giga_frameworld_synapse
 		district_giga_frameworld_sanctuary
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_voidframe_simulation_dm
 	}
 	resources = {
 		category = planet_districts_hab_research
@@ -1858,6 +1943,7 @@ district_giga_frameworld_science = {
 			has_technology = "tech_basic_science_lab_2"
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -1865,12 +1951,17 @@ district_giga_frameworld_science = {
 			has_technology = "tech_basic_science_lab_2"
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	prerequisites = {
 		tech_basic_science_lab_2
 	}
 	show_tech_unlock_if = {
 		has_origin = origin_frameworld
+	}
+	conversion_ratio = 2
+	convert_to = {
+		district_giga_voidframe_science_dm
 	}
 	resources = {
 		category = planet_districts_hab_research
@@ -2028,6 +2119,7 @@ district_giga_frameworld_amenities_gestalt = {
 			has_technology = "tech_unity_of_purpose"
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -2036,6 +2128,7 @@ district_giga_frameworld_amenities_gestalt = {
 			has_technology = "tech_unity_of_purpose"
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	allow = {
 		#hidden_trigger = {
@@ -2051,9 +2144,14 @@ district_giga_frameworld_amenities_gestalt = {
 	prerequisites = {
 		tech_unity_of_purpose
 	}
-	conversion_ratio = 1
+	conversion_ratio = 1.0
 	convert_to = {
 		district_giga_frameworld_amenities
+	}
+
+	conversion_ratio = 1.0
+	convert_to = {
+		district_giga_frameworld_amenities_dm
 	}
 	show_tech_unlock_if = {
 		has_origin = origin_frameworld
@@ -2138,6 +2236,7 @@ district_giga_frameworld_refinery = {
 			}
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
 	}
 	potential = {
 		exists = owner
@@ -2149,6 +2248,11 @@ district_giga_frameworld_refinery = {
 			}
 		}
 		uses_district_set = giga_frameworld
+		is_voidframe_upgraded = no
+	}
+	conversion_ratio = 0.66
+	convert_to = {
+		district_giga_voidframe_refinery_dm
 	}
 	resources = {
 		category = planet_districts

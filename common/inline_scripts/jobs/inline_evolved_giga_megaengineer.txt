@@ -1,0 +1,53 @@
+# jobs/inline_evolved_giga_megaengineer
+
+inline_script = { # regular
+	script = jobs/inline_evolved_job
+	trigger = "
+		exists = owner
+
+		$trigger$
+		
+		owner = {
+			tec_uses_regular_empire_jobs = yes
+			is_fallen_empire_spiritualist = no
+		}
+	"
+	job = giga_megaengineer
+	count = $count$
+	mult = $mult$
+	display = $display$
+}
+
+inline_script = { # regular
+	script = jobs/inline_evolved_job
+	trigger = "
+		exists = owner
+
+		$trigger$
+		
+		owner = {
+			is_fallen_empire_spiritualist = yes
+		}
+	"
+	job = giga_amb_fe_acolyte_foundry
+	count = $count$
+	mult = $mult$
+	display = $display$
+}
+
+inline_script = { # gestalt
+	script = jobs/inline_evolved_job
+	trigger = "
+		exists = owner
+
+		$trigger$
+		
+		owner = {
+			is_gestalt = yes
+		}
+	"
+	job = giga_megaengineer_drone
+	count = $count$
+	mult = $mult$
+	display = $display$
+}

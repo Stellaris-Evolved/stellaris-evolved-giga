@@ -1,0 +1,330 @@
+building_giga_megaworkshop = {
+	base_buildtime = @b2_time
+	category = manufacturing
+
+	resources = {
+		category = planet_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 2
+		}
+	}
+
+	prerequisites = {
+		giga_tech_amb_supertensiles
+	}
+
+	potential = {
+		nor = { 
+			has_modifier = resort_colony
+			has_modifier = slave_colony 
+			has_modifier = crucible_colony
+		}
+		has_global_flag = @giga_amb_flag
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony 
+			has_modifier = crucible_colony
+			NOT = { has_global_flag = @giga_amb_flag }
+		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_giga_megaengineer
+		count = 2
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}
+
+building_giga_megaworkshop_hub = {
+	base_buildtime = @b4_time
+	category = manufacturing
+
+	empire_limit = {
+		base = 0
+		modifier = {
+			is_variable_set = giga_amb_cap
+			add = giga_amb_cap
+		}
+	}
+
+	resources = {
+		category = planet_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 4
+		}
+	}
+
+	prerequisites = {
+		giga_tech_amb_supertensiles
+	}
+
+	potential = {
+		exists = owner
+		nor = { 
+			has_modifier = resort_colony
+			has_modifier = slave_colony 
+			has_modifier = crucible_colony
+		}
+		has_global_flag = @giga_amb_flag
+	}
+
+	allow = {
+		has_upgraded_capital = yes
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = crucible_colony
+			NOT = { has_global_flag = @giga_amb_flag }
+		}
+	}
+
+	triggered_country_modifier = {
+		country_resource_max_giga_sr_amb_megaconstruction_add = 2000
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_giga_megaengineer_overseer
+		count = 2
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}
+
+# increased cost due to saving space and smol boost they give
+building_giga_supertensiles_mines = {
+	base_buildtime = @b3_time
+
+	base_cap_amount = 1
+
+	category = resource
+
+	potential = {
+		NOT = { has_modifier = resort_colony }
+		check_modifier_value = {
+			modifier = building_giga_supertensiles_mines_max
+			value >= 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		planet_giga_megaengineers_job_giga_sr_amb_megaconstruction_produces_add = 0.25
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { NOT = { has_edict = giga_amb_sentient_metal_supertensiles } }
+		}
+		planet_giga_megaengineers_job_alloys_upkeep_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_edict = giga_amb_sentient_metal_supertensiles }
+		}
+		planet_giga_megaengineers_job_alloys_upkeep_add = 0.5
+		planet_giga_megaengineers_job_ehof_sr_sentient_metal_upkeep_add = 0.5
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_giga_supertensiles_extractor
+		count = 1
+		mult = modifier:building_giga_supertensiles_mines_max
+		trigger = ""
+		display = with_desc
+	}
+
+	resources = {
+		category = planet_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 4
+		}
+		upkeep = {
+			energy = 5
+			mult = modifier:building_giga_supertensiles_mines_max
+		}
+		inline_script = {
+			script = buildings/resources/inline_evolved_aibait
+			trigger = ""
+			building = building_giga_supertensiles_mines
+		}
+	}
+
+	show_tech_unlock_if = {
+		always = no # maybe revise later, but there's already a lot showing in the tech
+	}
+
+	prerequisites = {
+		giga_tech_amb_supertensiles
+	}
+}
+
+building_giga_living_metal_infusion_plant = {
+	base_buildtime = @b3_time
+	base_cap_amount = 1
+
+	category = manufacturing
+
+	potential = {
+		nor = { 
+			has_modifier = resort_colony
+			has_modifier = slave_colony 
+			has_modifier = crucible_colony
+		}
+	}
+
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = slave_colony
+			has_modifier = crucible_colony
+		
+			giga_buildings_no_living_metal = yes
+			AND = {
+				owner = {
+					is_ai = yes
+				}	
+				giga_has_any_supertensiles_district_or_building = no
+			}
+		}
+	}
+
+	allow = {
+		has_major_upgraded_capital = yes
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_giga_megaengineer
+		count = 1
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+
+	planet_modifier = {
+		planet_giga_megaengineers_produces_mult = 0.20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_ringworld_output_boost = yes
+		}
+		planet_giga_megaengineers_job_giga_sr_amb_megaconstruction_produces_add = 0.25
+
+		multiplier = value:giga_job_scaling_plus_base
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_ringworld_output_boost = yes
+			exists = owner
+			owner = { NOT = { has_edict = giga_amb_sentient_metal_supertensiles } }
+		}
+		planet_giga_megaengineers_job_alloys_upkeep_add = 1
+
+		multiplier = value:giga_job_scaling_plus_base
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_ringworld_output_boost = yes
+			exists = owner
+			owner = { has_edict = giga_amb_sentient_metal_supertensiles }
+		}
+		planet_giga_megaengineers_job_alloys_upkeep_add = 0.5
+		planet_giga_megaengineers_job_ehof_sr_sentient_metal_upkeep_add = 0.5
+
+		multiplier = value:giga_job_scaling_plus_base
+	}
+
+	resources = {
+		category = planet_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 3
+		}
+		inline_script = {
+			script = buildings/resources/inline_evolved_rare_resource_cost
+			tier = 2
+			rare = sr_living_metal
+		}
+		inline_script = {
+			script = buildings/resources/inline_evolved_ring_production_cost
+			rare = sr_living_metal
+			type = menial
+		}
+	}
+
+	prerequisites = {
+		giga_tech_amb_living_metal_infusion
+	}
+
+	ai_resource_production = {
+		giga_sr_amb_megaconstruction = 5
+		trigger = {
+			planet_resource_compare = {
+				resource = giga_sr_amb_megaconstruction
+				value >= 25
+				type = produces
+			}
+		}
+	}
+}
+
+# building_giga_fe_megaworkshop
+
+holding_giga_megaworkshop = {
+	base_buildtime = @b2_time
+	owner_type = subject_holding
+	empire_limit = 1
+
+	potential = {
+		has_overlord_dlc = yes
+		has_global_flag = @giga_amb_flag
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = ove_requires_giga_tech_amb_supertensiles
+			owner.overlord = {
+				has_technology = giga_tech_amb_supertensiles
+			}
+		}
+	}
+
+	planet_modifier = {
+		monthly_loyalty = -1.5
+	}
+
+	resources = {
+		category = planet_holdings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 2
+		}
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_giga_megaengineer
+		count = 2
+		mult = 1
+		trigger = ""
+		display = with_desc
+	}
+}

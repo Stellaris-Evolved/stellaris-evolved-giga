@@ -1504,18 +1504,4 @@ district_giga_birch_physma_relay = {
 ##############################################################################################################################
 
 # defunct swaps
-district_giga_birch_extraction = {
-	base_buildtime = 0
-
-	show_on_uncolonized = { always = no }
-	potential = { always = no }
-
-	resources = {
-		category = planet_districts
-	}
-
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_birch_orykta
-	}
-}
+# district_giga_birch_extraction 

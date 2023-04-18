@@ -1,0 +1,35 @@
+# jobs/inline_evolved_giga_supertensiles_extractor
+
+inline_script = { # regular
+	script = jobs/inline_evolved_job
+	trigger = "
+		exists = owner
+
+		$trigger$
+		
+		owner = {
+			tec_uses_regular_empire_jobs = yes
+		}
+	"
+	job = giga_supertensiles_extractor
+	count = $count$
+	mult = $mult$
+	display = $display$
+}
+
+inline_script = { # gestalt
+	script = jobs/inline_evolved_job
+	trigger = "
+		exists = owner
+
+		$trigger$
+		
+		owner = {
+			is_gestalt = yes
+		}
+	"
+	job = giga_supertensiles_extractor_drone
+	count = $count$
+	mult = $mult$
+	display = $display$
+}
