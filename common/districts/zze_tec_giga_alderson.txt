@@ -542,7 +542,7 @@ district_giga_alderson_alloys = {
 	# /
 
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/inline_evolved_foundry
 		count = @alderson_auto_jobs
 		mult = 1
 		display = with_desc
@@ -552,7 +552,7 @@ district_giga_alderson_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/inline_evolved_foundry
 		count = @alderson_auto_jobs_ecu
 		mult = 1
 		display = with_desc
