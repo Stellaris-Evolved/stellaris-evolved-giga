@@ -395,7 +395,7 @@ district_giga_frameworld_nexus = {
 		district_giga_frameworld_hive_advanced
 	}
 
-	conversion_ratio = 0.5
+	conversion_ratio = 1
 	convert_to = {
 		district_giga_voidframe_nexus_dm
 		district_giga_voidframe_nexus_de
