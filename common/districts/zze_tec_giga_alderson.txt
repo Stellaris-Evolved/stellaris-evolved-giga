@@ -28,11 +28,19 @@ district_giga_alderson_city = {
 		}
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_alderson_nexus
-		district_giga_alderson_hive
+	allow = {
+		tec_disallow_urban_districts = no
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = no"
+			use_for_jobs = "
+				tec_has_clerk_jobs_available = no
+			"
+		}
 	}
+
+	conversion_ratio = 0.5
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 
 	resources = {
 		category = planet_districts
@@ -42,15 +50,37 @@ district_giga_alderson_city = {
 	
 	triggered_planet_modifier = {
 		modifier = {
-			planet_housing_add = 48
+			planet_housing_add = 32
 		}
 	}
+
+	# Effect Types
+	inline_script = {
+		script = districts/type/inline_evolved_housing_generic
+		scale = 8
+		trigger = ""
+	}
+	inline_script = {
+		script = districts/type/inline_evolved_housing_city
+		scale = 8
+		trigger = ""
+	}
+
+	# /
 
 	inline_script = {
 		script = jobs/inline_evolved_enforcer
 		trigger = ""
 		display = with_desc
 		count = 2
+		mult = 1
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		trigger = ""
+		display = with_desc
+		count = 6
 		mult = 1
 	}
 
@@ -73,16 +103,15 @@ district_giga_alderson_city = {
 		mult = 1
 	}
 
-	inline_script = districts/effects/inline_evolved_tec_artifice_2
-
-
-	# Traditions
-		inline_script = {
-			script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-			count = 1
-			trigger = ""
-		}
-	# /
+	inline_script = {
+		script = jobs/inline_evolved_clerk
+		trigger = "
+			has_planet_flag = giga_alderson_ecu
+		"
+		display = with_desc
+		count = 6
+		mult = 1
+	}
 }
 
 # hives
@@ -115,11 +144,19 @@ district_giga_alderson_hive = {
 		}
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_alderson_nexus
-		district_giga_alderson_city
+	allow = {
+		tec_disallow_urban_districts = no
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = no"
+			use_for_jobs = "
+				tec_has_maintenance_drone_jobs_available = no
+			"
+		}
 	}
+
+	conversion_ratio = 0.5
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 
 	resources = {
 		category = planet_districts
@@ -131,9 +168,23 @@ district_giga_alderson_hive = {
 
 	triggered_planet_modifier = {
 		modifier = {
-			planet_housing_add = 60
+			planet_housing_add = 44
 		}
 	}
+
+	# Effect Types
+	inline_script = {
+		script = districts/type/inline_evolved_housing_generic
+		scale = 8
+		trigger = ""
+	}
+	inline_script = {
+		script = districts/type/inline_evolved_housing_hive
+		scale = 8
+		trigger = ""
+	}
+
+	# /
 
 	inline_script = {
 		script = jobs/inline_evolved_maintenance_drone
@@ -179,10 +230,6 @@ district_giga_alderson_hive = {
 			has_planet_flag = giga_alderson_hive
 		"
 	}
-
-	# Bio/Lithospheric harmony
-		inline_script = districts/effects/inline_evolved_tec_hive_menial
-	# /
 }
 
 # machines
@@ -215,11 +262,19 @@ district_giga_alderson_nexus = {
 		}
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_alderson_hive
-		district_giga_alderson_city
+	allow = {
+		tec_disallow_urban_districts = no
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = no"
+			use_for_jobs = "
+				tec_has_maintenance_drone_jobs_available = no
+			"
+		}
 	}
+
+	conversion_ratio = 0.5
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 
 	resources = {
 		category = planet_districts
@@ -232,6 +287,20 @@ district_giga_alderson_nexus = {
 			planet_housing_add = 60
 		}
 	}
+
+	# Effect Types
+	inline_script = {
+		script = districts/type/inline_evolved_housing_generic
+		scale = 8
+		trigger = ""
+	}
+	inline_script = {
+		script = districts/type/inline_evolved_housing_nexus
+		scale = 8
+		trigger = ""
+	}
+
+	# /
 
 	inline_script = {
 		script = jobs/inline_evolved_maintenance_drone
@@ -248,10 +317,6 @@ district_giga_alderson_nexus = {
 		display = with_desc
 		trigger = ""
 	}
-
-	# Civics
-		inline_script = districts/effects/inline_evolved_tec_machine_menial
-	# /
 }
 
 # GAIA
@@ -276,9 +341,8 @@ district_giga_alderson_commercial = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_generator
-	}
+	inline_script = districts/convert_to/inline_evolved_trade_districts
+	inline_script = districts/convert_to/inline_evolved_generator_districts
 
 	resources = {
 		category = planet_districts
@@ -296,16 +360,22 @@ district_giga_alderson_commercial = {
 		planet_housing_add = @alderson_auto_housing
 	}
 
+	# Effect Type
 	inline_script = {
-		script = jobs/inline_evolved_job
-		job = merchant
+		script = districts/type/inline_evolved_trade
+		scale = 4
+		trader_scale = 4
+		trigger = ""
+		trader_trigger = ""
+	}
+	# /
+
+	inline_script = {
+		script = jobs/inline_evolved_trader
 		count = @alderson_auto_jobs
 		mult = 1
 		display = with_desc
-		trigger = "
-			exists = owner
-			owner = { is_gestalt = no }
-		"
+		trigger = ""
 	}
 
 	inline_script = {
@@ -336,12 +406,11 @@ district_giga_alderson_industrial = {
 	}
 
 	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_alderson_alloys
-	}
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
+
 
 	resources = {
-		category = planet_districts
+		category = planet_districts_industrial
 		cost = {
 			minerals = @giga_alderson_cost
 			volatile_motes = @giga_alderson_cost_sr
@@ -350,11 +419,18 @@ district_giga_alderson_industrial = {
 			energy = @giga_alderson_maintenance
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
+
+		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
 	}
 	
 	planet_modifier = {
 		planet_housing_add = @alderson_auto_housing
 	}
+
+	# /
+	# Edicts
+	inline_script = districts/effects/inline_evolved_industrial_maintenance
+	# /
 
 	inline_script = {
 		script = districts/inline_evolved_industrial_split_jobs
@@ -384,7 +460,7 @@ district_giga_alderson_consumer = {
 	}
 
 	resources = {
-		category = planet_districts
+		category = planet_districts_industrial
 		cost = {
 			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
@@ -393,11 +469,16 @@ district_giga_alderson_consumer = {
 			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
+		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
 	}
 
 	planet_modifier = {
 		planet_housing_add = @alderson_auto_housing_ecu
 	}
+
+	# Edicts
+	inline_script = districts/effects/inline_evolved_industrial_maintenance
+	# /
 
 	inline_script = {
 		script = jobs/inline_evolved_artisan
@@ -430,12 +511,10 @@ district_giga_alderson_alloys = {
 	}
 
 	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_alderson_industrial
-	}
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
 
 	resources = {
-		category = planet_districts
+		category = planet_districts_industrial
 		cost = {
 			minerals = @giga_alderson_cost
 			volatile_motes = @giga_alderson_cost_sr
@@ -444,6 +523,7 @@ district_giga_alderson_alloys = {
 			energy = @giga_alderson_maintenance
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
+		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
 	}
 
 	triggered_planet_modifier = {
@@ -458,6 +538,10 @@ district_giga_alderson_alloys = {
 		}
 		planet_housing_add = @alderson_auto_housing
 	}
+
+	# Edicts
+	inline_script = districts/effects/inline_evolved_industrial_maintenance
+	# /
 
 	inline_script = {
 		script = jobs/inline_evolved_artisan
@@ -502,11 +586,7 @@ district_giga_alderson_refineries = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 
 	resources = {
 		category = planet_districts
@@ -556,7 +636,7 @@ district_giga_alderson_generator = {
 		uses_district_set = giga_alderson_gaia
 		exists = from
 		from = {
-			is_gestalt = yes
+			tec_uses_trade_value = no
 		}
 	}
 
@@ -564,17 +644,17 @@ district_giga_alderson_generator = {
 		uses_district_set = giga_alderson_gaia
 		exists = from
 		from = {
-			is_gestalt = yes
+			tec_uses_trade_value = no
 		}
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_commercial
-	}
+	inline_script = districts/convert_to/inline_evolved_trade_districts
+	inline_script = districts/convert_to/inline_evolved_generator_districts
+
 
 	resources = {
-		category = planet_districts
+		category = planet_districts_rw_generator
 		cost = {
 			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
@@ -583,6 +663,7 @@ district_giga_alderson_generator = {
 			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
+		inline_script = districts/resources/inline_evolved_improved_technician_empire_upkeep
 	}
 
 	triggered_planet_modifier = {
@@ -597,6 +678,8 @@ district_giga_alderson_generator = {
 			planet_housing_add = @alderson_auto_housing_mach
 		}
 	}
+	# Improved Technician Empire Modifier
+	inline_script = districts/effects/inline_evolved_improved_technician_empire_bonus
 	
 	inline_script = {
 		script = jobs/inline_evolved_technician
@@ -616,7 +699,6 @@ district_giga_alderson_generator = {
 		display = with_desc
 		trigger = ""
 	}
-	# This is a rural type. The job amount does not change.
 }
 
 # GAIA, HIVE, MACHINE
@@ -640,8 +722,11 @@ district_giga_alderson_mining = {
 		}
 	}
 
+	conversion_ratio = 1
+	inline_script = districts/convert_to/inline_evolved_mining_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_rw_replicator
 		cost = {
 			minerals = @giga_alderson_cost
 			exotic_gases = @giga_alderson_cost_sr
@@ -650,6 +735,7 @@ district_giga_alderson_mining = {
 			energy = @giga_alderson_maintenance
 			exotic_gases = @giga_alderson_maintenance_sr
 		}
+		inline_script = districts/resources/inline_evolved_improved_mining_empire_upkeep
 	}
 
 	triggered_planet_modifier = {
@@ -665,6 +751,9 @@ district_giga_alderson_mining = {
 			planet_housing_add = @alderson_auto_housing_mach
 		}
 	}
+
+	# Improved Mining Empire Modifier
+	inline_script = districts/effects/inline_evolved_improved_mining_empire_bonus
 	
 	inline_script = {
 		script = jobs/inline_evolved_miner
@@ -703,8 +792,10 @@ district_giga_alderson_farming = {
 		uses_district_set = giga_alderson_gaia
 	}
 
+	inline_script = districts/convert_to/inline_evolved_farming_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_rw_farming
 		cost = {
 			minerals = @giga_alderson_cost
 			volatile_motes = @giga_alderson_cost_sr
@@ -713,6 +804,8 @@ district_giga_alderson_farming = {
 			energy = @giga_alderson_maintenance
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
+		# Improved Farming Empire Upkeep
+		inline_script = districts/resources/inline_evolved_improved_farming_empire_upkeep
 	}
 
 	triggered_planet_modifier = {
@@ -728,6 +821,9 @@ district_giga_alderson_farming = {
 			planet_housing_add = @alderson_auto_housing_mach
 		}
 	}
+
+	# Improved Farming Empire Modifier
+	inline_script = districts/effects/inline_evolved_improved_farming_empire_bonus
 
 	inline_script = {
 		script = jobs/inline_evolved_farmer
@@ -783,8 +879,9 @@ district_giga_alderson_science = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_researcher
+		script = jobs/inline_evolved_researcher_split
 		count = @alderson_auto_jobs
+		count_half = 6
 		mult = 1
 		display = with_desc
 		trigger = ""
@@ -813,11 +910,7 @@ district_giga_alderson_leisure = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_alderson_city
-		district_giga_alderson_hive
-		district_giga_alderson_nexus
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 
 	resources = {
 		category = planet_districts
@@ -933,7 +1026,24 @@ district_giga_alderson_pop_growth = {
 		count = 5
 		mult = 1
 		display = with_desc
-		trigger = ""
+		trigger = "
+			owner = {
+				tec_hive_can_have_spawningpools = yes
+			}
+		"
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_job
+		job = cloner
+		count = 5
+		mult = 1
+		display = with_desc
+		trigger = "
+			owner = {
+				tec_hive_can_have_spawningpools = no
+			}
+		"
 	}
 }
 
@@ -1222,7 +1332,6 @@ district_giga_alderson_sanctuary = {
 		potential = {
 			not = { uses_district_set = giga_alderson_ecu }
 		}
-		job_bio_trophy_add = @alderson_auto_jobs_sanctuary
 		planet_carry_cap_add = @alderson_auto_jobs_sanctuary
 	}
 
@@ -1230,7 +1339,6 @@ district_giga_alderson_sanctuary = {
 		potential = {
 			uses_district_set = giga_alderson_ecu
 		}
-		job_bio_trophy_add = @alderson_auto_jobs_ecu_sanctuary
 		planet_carry_cap_add = @alderson_auto_jobs_ecu_sanctuary
 	}
 

@@ -38,17 +38,11 @@ district_maginot_world_barracks = {
 	# base jobs 
 
 	inline_script = {
-		script = jobs/inline_evolved_job
-		job = merchant
+		script = jobs/inline_evolved_trader
 		count = @maginot_merchant_jobs_add
 		mult = 1
 		display = with_desc
-		trigger = "
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
-		"
+		trigger = ""
 	}
 
 	inline_script = {
@@ -116,19 +110,12 @@ district_maginot_world_barracks = {
 
 
 	# extra jobs from tradition/tech
-
-	inline_script = {
-		script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-		count = @maginot_entertainer_filler_jobs_buff
-		trigger = ""
-	}
 	inline_script = {
 		script = districts/effects/inline_evolved_tech_housing_2_gestalt
 		count = 1
 		trigger = ""
 	}
 	# Civics
-		inline_script = districts/effects/inline_evolved_tec_hive_menial
 		inline_script = districts/effects/inline_evolved_tec_machine_menial
 	# /
 
@@ -200,17 +187,11 @@ district_maginot_ringworld_barracks = {
 	# base jobs 
 
 	inline_script = {
-		script = jobs/inline_evolved_job
-		job = merchant
+		script = jobs/inline_evolved_trader
 		count = @maginot_merchant_jobs_add_ringworld
 		mult = 1
 		display = with_desc
-		trigger = "
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-			}
-		"
+		trigger = ""
 	}
 
 	inline_script = {
@@ -277,19 +258,12 @@ district_maginot_ringworld_barracks = {
 	}
 
 	# extra jobs from tradition/tech
-
-	inline_script = {
-		script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-		count = @maginot_entertainer_filler_jobs_buff
-		trigger = ""
-	}
 	inline_script = {
 		script = districts/effects/inline_evolved_tech_housing_2_gestalt
 		count = 1
 		trigger = ""
 	}
 	# Civics
-		inline_script = districts/effects/inline_evolved_tec_hive_menial
 		inline_script = districts/effects/inline_evolved_tec_machine_menial
 	# /
 

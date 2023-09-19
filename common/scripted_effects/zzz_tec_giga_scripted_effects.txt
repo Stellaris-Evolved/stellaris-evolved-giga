@@ -1,0 +1,11 @@
+
+tec_cache_building_triggers_modded = {
+    tec_cache = {
+        scope = planet
+        trigger = tec_giga_has_overall_organic_assembly
+    }
+    tec_cache = {
+        scope = planet
+        trigger = tec_giga_has_overall_machine_assembly
+    }
+}

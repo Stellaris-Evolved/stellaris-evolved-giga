@@ -20,12 +20,10 @@ district_giga_hab_city = {
 		uses_district_set = giga_habitat
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_hab_nexus
-		district_giga_hab_hive
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = {
 			minerals = @giga_hab_cost
 		}
@@ -39,18 +37,17 @@ district_giga_hab_city = {
 				planet_housing_add = 8
 			}
 		# /
-		inline_script = {
-			script = districts/inline_evolved_habitation_housing_modifiers
-			count = 1
-			trigger = ""
-		}
-		inline_script = districts/effects/inline_evolved_tec_artifice_2
-		# Civics
-			inline_script = districts/effects/inline_evolved_agrarian_idyll_city
-			inline_script = districts/effects/inline_evolved_tec_eco_keepers_city
-			inline_script = districts/effects/inline_evolved_tec_tribalism_city
-			inline_script = districts/effects/inline_evolved_tec_social_prosperity
-			inline_script = districts/effects/inline_evolved_tec_consumerism
+		# Effect Types
+			inline_script = {
+				script = districts/type/inline_evolved_housing_generic
+				scale = 1
+				trigger = ""
+			}
+			inline_script = {
+				script = districts/type/inline_evolved_housing_city
+				scale = 1
+				trigger = ""
+			}
 		# /
 	# /
 	# Jobs
@@ -62,17 +59,16 @@ district_giga_hab_city = {
 				display = with_desc
 				trigger = ""
 			}
-			# Traditions
-				inline_script = {
-					script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-					count = 1
-					trigger = ""
-				}
-			# /
 		# /
 		# Socialguards
 		# /
-	# /																																		text = "job_clerk_effect_desc" }
+	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = no
+		"
+	}
 }
 
 district_giga_hab_hive = {
@@ -94,12 +90,10 @@ district_giga_hab_hive = {
 		uses_district_set = giga_habitat
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_hab_nexus
-		district_giga_hab_city
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = {
 			minerals = @giga_hab_cost
 		}
@@ -114,11 +108,15 @@ district_giga_hab_hive = {
 			}
 		# /
 		inline_script = {
-			script = districts/inline_evolved_habitation_housing_modifiers
-			count = 1
+			script = districts/type/inline_evolved_housing_generic
+			scale = 1
 			trigger = ""
 		}
-		inline_script = districts/effects/inline_evolved_tec_artifice_2
+		inline_script = {
+			script = districts/type/inline_evolved_housing_hive
+			scale = 1
+			trigger = ""
+		}
 	# /
 	# Jobs
 		inline_script = {
@@ -128,15 +126,13 @@ district_giga_hab_hive = {
 			display = with_desc
 			trigger = ""
 		}
-		inline_script = {
-			script = districts/effects/inline_evolved_tech_housing_2_gestalt
-			count = 1
-			trigger = ""
-		}
-		# Bio/Lithospheric harmony
-			inline_script = districts/effects/inline_evolved_tec_hive_menial
-		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = no
+		"
+	}
 }
 
 district_giga_hab_nexus = {
@@ -158,12 +154,11 @@ district_giga_hab_nexus = {
 		uses_district_set = giga_habitat
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_hab_hive
-		district_giga_hab_city
-	}
+
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = {
 			minerals = @giga_hab_cost
 		}
@@ -176,12 +171,18 @@ district_giga_hab_nexus = {
 			planet_modifier = {
 				planet_housing_add = 8
 			}
-			inline_script = {
-				script = districts/inline_evolved_habitation_housing_modifiers
-				count = 1
-				trigger = ""
-			}
-			inline_script = districts/effects/inline_evolved_tec_artifice_2
+			# Effect Types
+				inline_script = {
+					script = districts/type/inline_evolved_housing_generic
+					scale = 1
+					trigger = ""
+				}
+				inline_script = {
+					script = districts/type/inline_evolved_housing_nexus
+					scale = 1
+					trigger = ""
+				}
+			# /
 		# /
 	# /
 	# Jobs
@@ -192,15 +193,13 @@ district_giga_hab_nexus = {
 			display = with_desc
 			trigger = ""
 		}
-		inline_script = {
-			script = districts/effects/inline_evolved_tech_housing_2_gestalt
-			count = 1
-			trigger = ""
-		}
-		# Civics
-			inline_script = districts/effects/inline_evolved_tec_machine_menial
-		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = no
+		"
+	}
 }
 
 ##################################
@@ -227,11 +226,8 @@ district_giga_hab_science = {
 		}
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_hab_city
-		district_giga_hab_hive
-		district_giga_hab_nexus
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	triggered_planet_modifier = {
 		modifier = {
 			planet_housing_add = 4
@@ -254,7 +250,7 @@ district_giga_hab_science = {
 	inline_script = {
 		script = jobs/inline_evolved_job
 		job = giga_interstellar_researcher_drone
-		count = 10
+		count = 4
 		mult = 1
 		display = with_desc
 		trigger = "
@@ -287,11 +283,7 @@ district_giga_hab_scavenger = {
 		}
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_hab_city
-		district_giga_hab_hive
-		district_giga_hab_nexus
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 	triggered_planet_modifier = {
 		modifier = {
 			planet_housing_add = 2

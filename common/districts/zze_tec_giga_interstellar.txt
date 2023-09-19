@@ -11,36 +11,23 @@ district_interstellar_city = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_city
-		district_rw_nexus
-		district_rw_hive
-		district_tec_rw_trade
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 }
 
 district_interstellar_hive = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_city
-		district_rw_nexus
-		district_rw_hive
-		district_tec_rw_trade
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 }
 
 district_interstellar_nexus = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_city
-		district_rw_nexus
-		district_rw_hive
-		district_tec_rw_trade
-	}
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 }
 
 ##################################
@@ -50,11 +37,9 @@ district_interstellar_generator = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_generator
-		district_tec_rw_research
-		district_tec_rw_forge
-	}
+	inline_script = districts/convert_to/inline_evolved_rw_generator_district_swaps
+	inline_script = districts/convert_to/inline_evolved_generator_districts
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
 }
 
 ##################################
@@ -64,12 +49,9 @@ district_interstellar_commercial = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_city
-		district_rw_nexus
-		district_rw_hive
-		district_tec_rw_trade
-	}
+	inline_script = districts/convert_to/inline_evolved_trade_districts
+	inline_script = districts/convert_to/inline_evolved_generator_districts
+	inline_script = districts/convert_to/inline_evolved_housing_districts
 }
 
 ##################################
@@ -85,6 +67,8 @@ district_interstellar_science = {
 	potential = {
 		uses_district_set = @interstellar_ring
 		has_planet_flag = giga_interstellar_ring
+	}
+	allow = {
 		NOT = {
 			has_deposit = d_tec_rw_minor_structural_damage
 		}
@@ -220,11 +204,7 @@ district_interstellar_industrial = {
 	inline_script = districts/inline_evolved_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_industrial
-		district_tec_rw_research
-		district_tec_rw_forge
-	}
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
 }
 
 ##################################
@@ -240,6 +220,8 @@ district_interstellar_alloys = {
 	potential = {
 		uses_district_set = @interstellar_ring
 		has_planet_flag = giga_interstellar_ring
+	}
+	allow = {
 		NOT = {
 			has_deposit = d_tec_rw_minor_structural_damage
 		}

@@ -47,6 +47,7 @@ tec_giga_frameworld_outpost_modded = {
 	# elysium
 	add = value:giga_frameworld_outpost_planet_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|PLANET|pc_tec_elysium|
 	add = value:giga_frameworld_outpost_planet_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|PLANET|pc_tec_protoworld|
+	add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_ecoworld|USE|tec_ecoworld|
 }
 
 ##############################################################################################################
@@ -80,6 +81,24 @@ tec_giga_frameworld_outpost_modded = {
 		[[sr_zro]]
 		[[sr_living_metal]]
 		[[nanites]]
+
+		[[minor_artifacts]
+			modifier = {
+				exists = owner
+				owner = {
+					exists = capital_scope
+					capital_scope = {
+						has_building = building_archaeostudies_faculty
+					}
+				}
+				exists = orbit
+				orbit = {
+					tec_planet_generates_relics_for_jobs = yes
+				}
+				add = 0.25
+			}
+		]
+		[[giga_sr_amb_megaconstruction]]
 	}
 
 	giga_frameworld_outpost_planet_jobs_city_world_unspecialized = {
@@ -90,15 +109,15 @@ tec_giga_frameworld_outpost_modded = {
 		[[minerals] 			weight = 0 ]
 		[[food] 				weight = 0 ]
 
-		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|50|
-								add = value:giga_frameworld_outpost_size_fraction_if_no_cg|FRACTION|25|	]
-		[[consumer_goods] 		weight = value:giga_frameworld_outpost_size_fraction_if_cg|FRACTION|25| ]
+		[[alloys] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1|
+								add = value:giga_frameworld_outpost_size_fraction_if_no_cg|FRACTION|0.1|	]
+		[[consumer_goods] 		weight = value:giga_frameworld_outpost_size_fraction_if_cg|FRACTION|0.1| ]
 
 		[[physics_research] 	weight = 0 ]
 		[[society_research] 	weight = 0 ]
 		[[engineering_research] weight = 0 ]
 
-		[[unity] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|25| ]
+		[[unity] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.25| ]
 
 		[[exotic_gases] 		weight = 0 ]
 		[[volatile_motes] 		weight = 0 ]
@@ -110,6 +129,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 	# ecumenopolis
@@ -121,7 +141,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[minerals] 			weight = 0 ]
 		[[food] 				weight = 0 ]
 
-		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|100| ]
+		[[alloys] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.5| ]
 		[[consumer_goods] 		weight = 0 ]
 
 		[[physics_research] 	weight = 0 ]
@@ -140,6 +160,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_city_world_research = {
@@ -153,9 +174,9 @@ tec_giga_frameworld_outpost_modded = {
 		[[alloys] 				weight = 0 ]
 		[[consumer_goods] 		weight = 0 ]
 
-		[[physics_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|100| ]
-		[[society_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|100| ]
-		[[engineering_research] weight = value:giga_frameworld_outpost_size_fraction|FRACTION|100| ]
+		[[physics_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|1| ]
+		[[society_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|1| ]
+		[[engineering_research] weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|1| ]
 
 		[[unity] 				weight = 0 ]
 
@@ -169,6 +190,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 		
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_city_world_admin = {
@@ -186,7 +208,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[society_research] 	weight = 0 ]
 		[[engineering_research] weight = 0 ]
 
-		[[unity] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|100| ]
+		[[unity] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|1| ]
 
 		[[exotic_gases] 		weight = 0 ]
 		[[volatile_motes] 		weight = 0 ]
@@ -198,6 +220,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 		
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 
@@ -232,18 +255,21 @@ tec_giga_frameworld_outpost_modded = {
 		[[sr_living_metal]]
 		[[nanites]]
 
-		mult = 2.0
+		[[minor_artifacts]]
+		[[giga_sr_amb_megaconstruction]]
+
+		multiply = 2.0
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_ringworld_habitable_menial = {
 		base = $SCALE$ [[RESOURCE]]
 		weight = 0
 
-		[[energy] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| 
-								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|17| ]
-		[[minerals] 			weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| 
-								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|17| ]
-		[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|33| ]
+		[[energy] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| 
+								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.17| ]
+		[[minerals] 			weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| 
+								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.17| ]
+		[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|0.33| ]
 
 		[[alloys] 				weight = 0 ]
 		[[consumer_goods] 		weight = 0 ]
@@ -264,6 +290,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_ringworld_habitable_science = {
@@ -277,15 +304,15 @@ tec_giga_frameworld_outpost_modded = {
 		[[alloys] 				weight = 0 ]
 		[[consumer_goods] 		weight = 0 ]
 
-		[[physics_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|40| ]
-		[[society_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|40| ]
-		[[engineering_research] weight = value:giga_frameworld_outpost_size_fraction|FRACTION|40| ]
+		[[physics_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.40| ]
+		[[society_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.40| ]
+		[[engineering_research] weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.40| ]
 
-		[[unity] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|40| ]
+		[[unity] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.40| ]
 
-		[[exotic_gases] 		weight = value:giga_frameworld_outpost_size_fraction|FRACTION|4| ] # balanced down cause broken otherwise
-		[[volatile_motes] 		weight = value:giga_frameworld_outpost_size_fraction|FRACTION|4| ]
-		[[rare_crystals] 		weight = value:giga_frameworld_outpost_size_fraction|FRACTION|4| ]
+		[[exotic_gases] 		weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.4| ] # balanced down cause broken otherwise
+		[[volatile_motes] 		weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.4| ]
+		[[rare_crystals] 		weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.4| ]
 
 		[[sr_dark_matter] 		weight = 0 ]
 		[[sr_zro] 				weight = 0 ]
@@ -293,6 +320,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_ringworld_habitable_industry = {
@@ -303,9 +331,9 @@ tec_giga_frameworld_outpost_modded = {
 		[[minerals] 			weight = 0 ]
 		[[food] 				weight = 0 ]
 
-		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|50|
-								add = value:giga_frameworld_outpost_size_fraction_if_no_cg|FRACTION|50|	]
-		[[consumer_goods] 		weight = value:giga_frameworld_outpost_size_fraction_if_cg|FRACTION|50| ]
+		[[alloys] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.50|
+								add = value:giga_frameworld_outpost_size_fraction_if_no_cg|FRACTION|0.50|	]
+		[[consumer_goods] 		weight = value:giga_frameworld_outpost_size_fraction_if_cg|FRACTION|0.50| ]
 
 		[[physics_research] 	weight = 0 ]
 		[[society_research] 	weight = 0 ]
@@ -323,20 +351,17 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 	}
 
 # interstellar ring
 	giga_frameworld_outpost_planet_jobs_pc_interstellar_ringworld_habitable = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
-
 		[[energy] 				weight = 0 ]
-		[[minerals] 			weight = value:giga_frameworld_outpost_size_fraction|FRACTION|25| ]
+		[[minerals] 			weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.25| ]
 		[[food] 				weight = 0 ]
 
-		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|10| ]
+		[[alloys] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.10| ]
 		[[consumer_goods] 		weight = 0 ]
 
 		[[physics_research] 	weight = 0 ]
@@ -355,15 +380,16 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
+
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
 	}
 
 # square world
 	giga_frameworld_outpost_planet_jobs_pc_squareworld_habitable = {
 		base = 0
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
-		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
-
 
 		[[energy] 				weight = 0 ]
 		[[minerals] 			weight = 0 ]
@@ -372,9 +398,9 @@ tec_giga_frameworld_outpost_modded = {
 		[[alloys] 				weight = 0 ]
 		[[consumer_goods] 		weight = 0 ]
 
-		[[physics_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|50| ]
-		[[society_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|50| ]
-		[[engineering_research] weight = value:giga_frameworld_outpost_size_fraction|FRACTION|50| ]
+		[[physics_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.50| ]
+		[[society_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.50| ]
+		[[engineering_research] weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.50| ]
 
 		[[unity] 				weight = 0 ]
 
@@ -384,10 +410,16 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[sr_dark_matter] 		weight = 0 ]
 		[[sr_zro] 				weight = 0 ]
-		[[sr_living_metal] 		weight = value:giga_frameworld_outpost_size_fraction|FRACTION|5| ]
+		[[sr_living_metal] 		weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.5| ]
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
+
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
+		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_industry_ringworld|USE|pc_ringworld_habitable_industry|
+
 	}
 
 # elysium
@@ -419,17 +451,20 @@ tec_giga_frameworld_outpost_modded = {
 		[[sr_zro]]
 		[[sr_living_metal]]
 		[[nanites]]
+
+		[[minor_artifacts]]
+		[[giga_sr_amb_megaconstruction]]
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_tec_elysium_menial = {
 		base = $SCALE$ [[RESOURCE]]
 		weight = 0
 
-		[[energy] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| 
-								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|17| ]
-		[[minerals] 			weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| 
-								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|17| ]
-		[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|33| ]
+		[[energy] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| 
+								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.17| ]
+		[[minerals] 			weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| 
+								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.17| ]
+		[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|0.33| ]
 
 		[[alloys] 				weight = 0 ]
 		[[consumer_goods] 		weight = 0 ]
@@ -450,8 +485,9 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 
-		mult = value:giga_frameworld_outpost_size_fraction_mult|FRACTION|1|
+		multiply = 1.5
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_tec_elysium_civilian = {
@@ -462,14 +498,14 @@ tec_giga_frameworld_outpost_modded = {
 		[[minerals] 			weight = 0 ]
 		[[food] 				weight = 0 ]
 
-		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction_if_no_cg|FRACTION|33| ]
-		[[consumer_goods] 		weight = value:giga_frameworld_outpost_size_fraction_if_cg|FRACTION|33| ]
+		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction_if_no_cg|FRACTION|0.33| ]
+		[[consumer_goods] 		weight = value:giga_frameworld_outpost_size_fraction_if_cg|FRACTION|0.33| ]
 
-		[[physics_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| ]
-		[[society_research] 	weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| ]
-		[[engineering_research] weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| ]
+		[[physics_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| ]
+		[[society_research] 	weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| ]
+		[[engineering_research] weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| ]
 
-		[[unity] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| ]
+		[[unity] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.33| ]
 
 		[[exotic_gases] 		weight = 0 ]
 		[[volatile_motes] 		weight = 0 ]
@@ -481,8 +517,9 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 
-		mult = value:giga_frameworld_outpost_size_fraction_mult|FRACTION|1|
+		multiply = 1.5
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_tec_elysium_military = {
@@ -493,7 +530,7 @@ tec_giga_frameworld_outpost_modded = {
 		[[minerals] 			weight = 0 ]
 		[[food] 				weight = 0 ]
 
-		[[alloys] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|100| ]
+		[[alloys] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|1| ]
 		[[consumer_goods] 		weight = 0 ]
 
 		[[physics_research] 	weight = 0 ]
@@ -512,8 +549,9 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 
-		mult = value:giga_frameworld_outpost_size_fraction_mult|FRACTION|1|
+		multiply = 1.5
 	}
 
 # protoworld
@@ -522,11 +560,10 @@ tec_giga_frameworld_outpost_modded = {
 		base = $SCALE$ [[RESOURCE]]
 		weight = 0
 
-		[[energy] 				weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| 
-								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|17| ]
-		[[minerals] 			weight = value:giga_frameworld_outpost_size_fraction|FRACTION|33| 
-								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|17| ]
-		[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|33| ]
+		[[energy] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.15| ]
+		[[minerals] 			weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.25|
+								add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.10| ]
+		[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|0.25| ]
 
 		[[alloys] 				weight = 0 ]
 		[[consumer_goods] 		weight = 0 ]
@@ -547,6 +584,83 @@ tec_giga_frameworld_outpost_modded = {
 		[[nanites] 				weight = 0 ]
 
 		[[minor_artifacts] 		weight = 0 ]
+		[[giga_sr_amb_megaconstruction] weight = 0 ]
 
-		mult = 1
+		mult = 0.5
 	}
+
+giga_frameworld_outpost_planet_jobs_tec_ecoworld = {
+	base = $SCALE$ [[RESOURCE]]
+	weight = 0
+
+	[[energy] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.2|
+							add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.10|]
+	[[minerals] 			weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.2|
+							add = value:giga_frameworld_outpost_size_fraction_if_no_food|FRACTION|0.10| ]
+	[[food] 				weight = value:giga_frameworld_outpost_size_fraction_if_food|FRACTION|0.2| ]
+
+	[[alloys]
+		modifier = {
+			exists = orbit
+			orbit = {
+				has_planet_flag = tec_eco_alloys_on
+			}
+			add = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1|
+		}
+	]
+	[[consumer_goods]
+		modifier = {
+			exists = orbit
+			orbit = {
+				has_planet_flag = tec_eco_cg_on
+			}
+			exists = owner
+			owner = {
+				country_uses_consumer_goods = yes
+			}
+			add = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1|
+		}
+	]
+
+	[[physics_research]
+		modifier = {
+			exists = orbit
+			orbit = {
+				has_planet_flag = tec_eco_res_on
+			}
+			add = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1|
+		}
+	]
+	[[society_research]
+		modifier = {
+			exists = orbit
+			orbit = {
+				has_planet_flag = tec_eco_res_on
+			}
+			add = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1|
+		}
+	]
+	[[engineering_research]
+		modifier = {
+			exists = orbit
+			orbit = {
+				has_planet_flag = tec_eco_res_on
+			}
+			add = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1|
+		}
+	]
+
+	[[unity] 				weight = value:giga_frameworld_outpost_planet_size_fraction|FRACTION|0.1| ]
+
+	[[exotic_gases] 		weight = 0 ]
+	[[volatile_motes] 		weight = 0 ]
+	[[rare_crystals] 		weight = 0 ]
+
+	[[sr_dark_matter] 		weight = 0 ]
+	[[sr_zro] 				weight = 0 ]
+	[[sr_living_metal] 		weight = 0 ]
+	[[nanites] 				weight = 0 ]
+
+	[[minor_artifacts] 		weight = 0 ]
+	[[giga_sr_amb_megaconstruction] weight = 0 ]
+}

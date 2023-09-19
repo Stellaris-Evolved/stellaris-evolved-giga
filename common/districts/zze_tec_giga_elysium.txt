@@ -22,7 +22,7 @@ district_giga_elysium_housing = {
 	}
 
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = {
 			minerals = @elysium_cost
 		}
@@ -275,6 +275,8 @@ district_giga_elysium_science = {
 		uses_district_set = @giga_elysium
 	}
 
+	prerequisites = { tech_basic_science_lab_1 }
+
 	resources = {
 		category = planet_districts
 		cost = {
@@ -290,25 +292,11 @@ district_giga_elysium_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
-		job = head_researcher
-		count = 2
-		mult = 1
-		display = with_desc
-		trigger = "
-			exists = owner
-			owner = { is_regular_empire = yes }
-		"
-	}
-
-	inline_script = {
 		script = jobs/inline_evolved_researcher
 		count = 3
 		mult = 1
 		display = with_desc
-		trigger = "
-			owner = { is_gestalt = yes }
-		"
+		trigger = ""
 	}
 }
 
@@ -330,6 +318,7 @@ district_giga_elysium_entertainment = {
 		exists = from
 		from = {
 			is_gestalt = no
+			tec_is_dystopian_empire = no
 		}
 	}
 
@@ -339,6 +328,7 @@ district_giga_elysium_entertainment = {
 		exists = owner
 		owner = {
 			is_gestalt = no
+			tec_is_dystopian_empire = no
 		}
 	}
 

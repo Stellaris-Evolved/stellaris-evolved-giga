@@ -50,8 +50,15 @@ maginot_central_command = {
 	possible_precalc = can_fill_ruler_job
 	
 	country_modifier = {
-		country_naval_cap_add = @maginot_central_command_naval_cap
 		country_power_projection_influence_produces_add = @maginot_central_command_power_projection
+	}
+
+	triggered_country_modifier = {	# Navalcap rework
+		potential = {
+			always = yes
+		}
+		country_naval_cap_add = @maginot_central_command_naval_cap
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_naval_mult|
 	}
 
 	pop_modifier = {
@@ -90,7 +97,7 @@ maginot_central_command = {
 	}
 
 	inline_script = jobs/effects/type/inline_evolved_soldier_effect
-	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
 	
 	resources = {
 		category = planet_soldiers
@@ -131,26 +138,23 @@ maginot_central_command_gestalt = {
 		
 	}
 	possible = {
-		tec_has_stapled_trait = no
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					NAND = {
-						has_valid_civic = civic_tec_se_elders
-						has_ethic = ethic_gestalt_empathy
-					}
-				}
-			}
-			drone_individual_pop_check_trigger = no	#prevents free individuals
-		}
+		NOT = { tec_has_stapled_trait ={ cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
 	}
 	possible_precalc = can_fill_drone_job
 	
 	country_modifier = {
-		country_naval_cap_add = @maginot_central_command_naval_cap
 		country_power_projection_influence_produces_add = @maginot_central_command_power_projection
 	}
+
+	triggered_country_modifier = {	# Navalcap rework
+		potential = {
+			always = yes
+		}
+		country_naval_cap_add = @maginot_central_command_naval_cap
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_naval_mult|
+	}
+
 
 	pop_modifier = {
 		pop_defense_armies_add = @maginot_defence_army_add
@@ -271,19 +275,8 @@ maginot_shield_generator_operator_gestalt = {
 		
 	}
 	possible = {
-		tec_has_stapled_trait = no
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					NAND = {
-						has_valid_civic = civic_tec_se_elders
-						has_ethic = ethic_gestalt_empathy
-					}
-				}
-			}
-			drone_individual_pop_check_trigger = no	#prevents free individuals
-		}
+		NOT = { tec_has_stapled_trait ={ cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
 	}
 	possible_precalc = can_fill_drone_job
 
@@ -371,19 +364,8 @@ maginot_planetary_cannon_operator_gestalt = {
 
 	possible_precalc = can_fill_drone_job
 	possible = {
-		tec_has_stapled_trait = no
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					NAND = {
-						has_valid_civic = civic_tec_se_elders
-						has_ethic = ethic_gestalt_empathy
-					}
-				}
-			}
-			drone_individual_pop_check_trigger = no	#prevents free individuals
-		}
+		NOT = { tec_has_stapled_trait ={ cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
 	}
 	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
 
@@ -424,9 +406,14 @@ maginot_bunker_officer = {
 
 	possible_precalc = can_fill_specialist_job
 
-	country_modifier = {
+	triggered_country_modifier = {	# Navalcap rework
+		potential = {
+			always = yes
+		}
 		country_naval_cap_add = @maginot_specialist_naval_cap
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_naval_mult|
 	}
+
 
 	inline_script = jobs/effects/type/inline_evolved_soldier_effect
 
@@ -469,9 +456,15 @@ maginot_bunker_officer_gestalt = {
 
 	possible_precalc = can_fill_drone_job
 
-	country_modifier = {
+	triggered_country_modifier = {	# Navalcap rework
+		potential = {
+			always = yes
+		}
 		country_naval_cap_add = @maginot_specialist_naval_cap
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_naval_mult|
 	}
+
+
 
 	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
 

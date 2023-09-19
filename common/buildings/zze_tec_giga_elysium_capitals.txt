@@ -109,29 +109,14 @@ building_giga_elysium_host_capital = {
 		# /
 
 		# Versatility housing
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_versatility_spatial_optimization
-					}
-				}
-				planet_housing_mult = 0.05
-				mult = @tec_capital_hosuing_t2
+			inline_script = {
+				script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+				tier = 2
 			}
 		# /
 
 		# Outreach t3
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_tec_outreach_3
-					}
-				}
-				planet_structures_cost_mult = -0.05
-				planet_structures_upkeep_mult = -0.05
-			}
+			inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -144,6 +129,11 @@ building_giga_elysium_host_capital = {
 			mult = 1
 		}
 	# /
+
+	inline_script = {
+		script = capitals/effects/inline_evolved_fed_culture_workers_1
+		tier = 2
+	}
 	
 	######################################################
 	# Necrophage
@@ -426,7 +416,7 @@ building_giga_elysium_host_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/inline_evolved_productivity
+		script = capitals/effects/inline_evolved_productivity
 		tier = 2
 	}
 
@@ -588,32 +578,16 @@ building_giga_elysium_host_major_capital = {
 			}
 		# /
 
-		# Versatility housing
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_versatility_spatial_optimization
-					}
-				}
-				planet_housing_mult = 0.05
-				mult = @tec_capital_hosuing_t3
-			}
-		# /
+	# Versatility housing
+		inline_script = {
+			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			tier = 3
+		}
+	# /
 
-		# Outreach t3
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_tec_outreach_3
-					}
-				}
-				planet_structures_cost_mult = -0.05
-				planet_structures_upkeep_mult = -0.05
-			}
-		# /
-	# / 
+	# Outreach t3
+		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+	# /
 
 	# Other extra add / 1 per tier - 1
 		inline_script = {
@@ -624,6 +598,11 @@ building_giga_elysium_host_major_capital = {
 			mult = 1
 		}
 	# /
+
+	inline_script = {
+		script = capitals/effects/inline_evolved_fed_culture_workers_1
+		tier = 3
+	}
 
 	######################################################
 	# Necrophage
@@ -916,7 +895,7 @@ building_giga_elysium_host_major_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/inline_evolved_productivity
+		script = capitals/effects/inline_evolved_productivity
 		tier = 3
 	}
 
@@ -1073,29 +1052,14 @@ building_giga_elysium_host_hive_capital = {
 
 	# Modifiers
 		# Versatility housing
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_versatility_spatial_optimization
-					}
-				}
-				planet_housing_mult = 0.05
-				mult = @tec_capital_hosuing_t2
+			inline_script = {
+				script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+				tier = 2
 			}
 		# /
 
 		# Outreach t3
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_tec_outreach_3
-					}
-				}
-				planet_structures_cost_mult = -0.05
-				planet_structures_upkeep_mult = -0.05
-			}
+			inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -1384,7 +1348,7 @@ building_giga_elysium_host_hive_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/inline_evolved_productivity
+		script = capitals/effects/inline_evolved_productivity
 		tier = 2
 	}
 
@@ -1563,29 +1527,14 @@ building_giga_elysium_host_hive_major_capital = {
 
 	# Modifiers
 		# Versatility housing
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_versatility_spatial_optimization
-					}
-				}
-				planet_housing_mult = 0.05
-				mult = @tec_capital_hosuing_t3
-			}
+		inline_script = {
+			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			tier = 3
+		}
 		# /
 
 		# Outreach t3
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_tec_outreach_3
-					}
-				}
-				planet_structures_cost_mult = -0.05
-				planet_structures_upkeep_mult = -0.05
-			}
+		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -1839,7 +1788,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/inline_evolved_productivity
+		script = capitals/effects/inline_evolved_productivity
 		tier = 3
 	}
 
@@ -1919,7 +1868,7 @@ building_giga_elysium_host_machine_capital = {
 	}
 
 	inline_script = {
-		script = capitals/inline_evolved_machine_assembly	
+		script = capitals/effects/inline_evolved_machine_assembly	
 		tier = 2
 	}
 
@@ -1954,29 +1903,14 @@ building_giga_elysium_host_machine_capital = {
 
 	# Modifiers
 		# Versatility housing
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_versatility_spatial_optimization
-					}
-				}
-				planet_housing_mult = 0.05
-				mult = @tec_capital_hosuing_t2
-			}
+		inline_script = {
+			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			tier = 2
+		}
 		# /
 
 		# Outreach t3
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_tec_outreach_3
-					}
-				}
-				planet_structures_cost_mult = -0.05
-				planet_structures_upkeep_mult = -0.05
-			}
+		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -2086,7 +2020,7 @@ building_giga_elysium_host_machine_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/inline_evolved_productivity
+		script = capitals/effects/inline_evolved_productivity
 		tier = 2
 	}
 
@@ -2166,7 +2100,7 @@ building_giga_elysium_host_machine_major_capital = {
 	}
 
 	inline_script = {
-		script = capitals/inline_evolved_machine_assembly	
+		script = capitals/effects/inline_evolved_machine_assembly	
 		tier = 3
 	}
 
@@ -2201,29 +2135,14 @@ building_giga_elysium_host_machine_major_capital = {
 
 	# Modifiers
 		# Versatility housing
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_versatility_spatial_optimization
-					}
-				}
-				planet_housing_mult = 0.05
-				mult = @tec_capital_hosuing_t3
-			}
+		inline_script = {
+			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			tier = 3
+		}
 		# /
 
 		# Outreach t3
-			triggered_planet_modifier = {
-				potential = {
-					exists = owner
-					owner = { 
-						has_active_tradition = tr_tec_outreach_3
-					}
-				}
-				planet_structures_cost_mult = -0.05
-				planet_structures_upkeep_mult = -0.05
-			}
+		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -2332,7 +2251,7 @@ building_giga_elysium_host_machine_major_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/inline_evolved_productivity
+		script = capitals/effects/inline_evolved_productivity
 		tier = 3
 	}
 }

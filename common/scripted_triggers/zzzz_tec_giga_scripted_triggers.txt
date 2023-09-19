@@ -1,3 +1,49 @@
 has_stellaris_evolved_giga = {
 	always = yes
 }
+
+
+tec_giga_has_overall_organic_assembly = {
+	[[cached]
+	has_planet_flag = tec_cache_tec_giga_has_overall_organic_assembly
+	]
+	[[!cached]
+	exists = owner
+	OR = {
+		tec_has_cloning_assembly_buildings = yes
+		tec_has_genetic_assembly_buildings = yes
+		tec_has_bioservant_assembly_buildings = yes
+		tec_has_zombie_assembly_buildings = yes
+		tec_has_mixed_assembly_buildings = yes
+		tec_has_clone_origin_buildings = yes
+		tec_has_pd_biosynth_assembly_buildings = yes
+		AND = {
+			tec_has_robotic_assembly_buildings = yes
+			tec_allows_machine_assembly_for_cyborg = yes
+		}
+		owner = {
+			AND = {
+				has_valid_civic = civic_tec_hive_eusocial
+				from = { tec_has_assembly_buildings = no }
+			}
+		}
+	}
+	]
+}
+
+tec_giga_has_overall_machine_assembly = {
+	[[cached]
+		has_planet_flag = tec_cache_tec_giga_has_overall_machine_assembly
+	]
+	[[!cached]
+	exists = owner
+	OR = {
+		tec_has_machine_assembly_buildings = yes
+		tec_has_robotic_assembly_buildings = yes
+		tec_has_mixed_assembly_buildings = yes
+		owner = {
+			has_valid_civic = civic_tec_machine_reimaginator_cluster
+		}
+	}
+	]
+}

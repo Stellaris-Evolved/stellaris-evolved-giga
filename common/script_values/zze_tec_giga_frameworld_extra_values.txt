@@ -2,7 +2,7 @@ tec_giga_frameworld_outpost_trigger_jobs = {
 	base = 0
 
 	modifier = {
-		planet = { $TRIGGER$ = yes }
+		orbit = { has_planet_flag = frameworld_outpost_$TRIGGER$ }
 
 		weight = value:giga_frameworld_outpost_planet_jobs_$USE$|$RESOURCE$|yes|SCALE|$SCALE$|RESOURCE|$RESOURCE$|
 	}

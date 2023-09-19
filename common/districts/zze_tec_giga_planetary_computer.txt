@@ -70,32 +70,8 @@ district_giga_pcc_admin = {
 	convert_to = {
 		district_giga_planet_admin_religious
 	}
-	# base stats
-	planet_modifier = {
-		planet_housing_add = 5
-	}
-	# hive empires
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_hive_empire = yes
-			}
-		}
-		planet_housing_add = 3
-	}
-	# machine empires
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-			}
-		}
-		modifier = {
-			planet_housing_add = -1
-		}
-	}
+
+	planet_modifier = { planet_housing_add = 5 }
 	# Jobs
 		# Regular
 			inline_script = {
@@ -109,7 +85,7 @@ district_giga_pcc_admin = {
 		# Gestalt 
 			inline_script = {
 				script = jobs/inline_evolved_synapse
-				count = 8
+				count = 5
 				mult = 1
 				display = with_desc
 				trigger = ""
@@ -117,7 +93,7 @@ district_giga_pcc_admin = {
 
 			inline_script = {
 				script = jobs/inline_evolved_coordinator
-				count = 4
+				count = 5
 				mult = 1
 				display = with_desc
 				trigger = ""
@@ -198,8 +174,3 @@ district_giga_pcc_admin_religious = {
 		"
 	}
 }
-
-#####################################
-### Old districts ###################
-#####################################
-# district_giga_planet_science 

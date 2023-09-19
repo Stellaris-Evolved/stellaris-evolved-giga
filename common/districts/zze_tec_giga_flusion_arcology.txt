@@ -42,22 +42,13 @@ district_flusion_city = {
 		trigger = ""
 	}
 	inline_script = {
-		script = districts/inline_evolved_habitation_housing_modifiers
-		count = 3
+		script = districts/type/inline_evolved_housing_generic
+		scale = 3
 		trigger = ""
 	}
-	inline_script = districts/effects/inline_evolved_tec_artifice_2
-
-	
 	inline_script = {
-		script = districts/effects/inline_evolved_tech_housing_2_gestalt
-		count = 3
-		trigger = ""
-	}
-
-	inline_script = {
-		script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-		count = 3
+		script = districts/type/inline_evolved_housing_arcology
+		scale = 3
 		trigger = ""
 	}
 
@@ -177,9 +168,8 @@ district_flusion_science = {
 		}
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_mining
-	}
+	inline_script = districts/convert_to/inline_evolved_mining_districts
+
 	resources = {
 		category = planet_districts_industrial
 		cost = {
@@ -254,9 +244,8 @@ district_flusion_mining = {
 		}
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_mining
-	}
+	inline_script = districts/convert_to/inline_evolved_mining_districts
+
 	resources = {
 		category = planet_districts_industrial
 		cost = {
@@ -322,9 +311,7 @@ district_flusion_farming = {
 		}
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_farming
-	}
+	inline_script = districts/convert_to/inline_evolved_farming_districts
 	resources = {
 		category = planet_districts_industrial
 		cost = {

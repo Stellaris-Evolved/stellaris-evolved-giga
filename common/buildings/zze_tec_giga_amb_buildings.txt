@@ -36,6 +36,11 @@ building_giga_megaworkshop = {
 		}
 	}
 
+	# loathsome
+	upgrades = {
+		building_giga_megaworkshop_acot_delta
+	}
+
 	inline_script = {
 		script = jobs/inline_evolved_giga_megaengineer
 		count = 2
@@ -67,6 +72,11 @@ building_giga_megaworkshop_hub = {
 
 	prerequisites = {
 		giga_tech_amb_supertensiles
+	}
+
+	# loathsome
+	upgrades = {
+		building_giga_megaworkshop_hub_acot_delta
 	}
 
 	potential = {
@@ -122,6 +132,18 @@ building_giga_supertensiles_mines = {
 		}
 	}
 
+	resources = {
+		category = planet_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 4
+		}
+		upkeep = {
+			energy = 5
+			mult = modifier:building_giga_supertensiles_mines_max
+		}
+	}
+
 	triggered_planet_modifier = {
 		planet_giga_megaengineers_job_giga_sr_amb_megaconstruction_produces_add = 0.25
 	}
@@ -150,22 +172,6 @@ building_giga_supertensiles_mines = {
 		display = with_desc
 	}
 
-	resources = {
-		category = planet_buildings
-		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
-			tier = 4
-		}
-		upkeep = {
-			energy = 5
-			mult = modifier:building_giga_supertensiles_mines_max
-		}
-		inline_script = {
-			script = buildings/resources/inline_evolved_aibait
-			trigger = ""
-			building = building_giga_supertensiles_mines
-		}
-	}
 
 	show_tech_unlock_if = {
 		always = no # maybe revise later, but there's already a lot showing in the tech
@@ -174,6 +180,11 @@ building_giga_supertensiles_mines = {
 	prerequisites = {
 		giga_tech_amb_supertensiles
 	}
+
+	inline_script = {
+		script = buildings/inline_evolved_aibait
+		trigger = ""
+	}
 }
 
 building_giga_living_metal_infusion_plant = {
@@ -181,6 +192,10 @@ building_giga_living_metal_infusion_plant = {
 	base_cap_amount = 1
 
 	category = manufacturing
+
+	prerequisites = {
+		giga_tech_amb_living_metal_infusion
+	}
 
 	potential = {
 		nor = { 
@@ -211,12 +226,22 @@ building_giga_living_metal_infusion_plant = {
 		has_major_upgraded_capital = yes
 	}
 
-	inline_script = {
-		script = jobs/inline_evolved_giga_megaengineer
-		count = 1
-		mult = 1
-		trigger = ""
-		display = with_desc
+	resources = {
+		category = planet_buildings
+		inline_script = {
+			script = buildings/resources/inline_evolved_resource_cost
+			tier = 3
+		}
+		inline_script = {
+			script = buildings/resources/inline_evolved_rare_resource_cost
+			tier = 2
+			rare = sr_living_metal
+		}
+		inline_script = {
+			script = buildings/resources/inline_evolved_ring_production_cost
+			rare = sr_living_metal
+			type = menial
+		}
 	}
 
 	planet_modifier = {
@@ -253,27 +278,14 @@ building_giga_living_metal_infusion_plant = {
 		multiplier = value:giga_job_scaling_plus_base
 	}
 
-	resources = {
-		category = planet_buildings
-		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
-			tier = 3
-		}
-		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
-			tier = 2
-			rare = sr_living_metal
-		}
-		inline_script = {
-			script = buildings/resources/inline_evolved_ring_production_cost
-			rare = sr_living_metal
-			type = menial
-		}
+	inline_script = {
+		script = jobs/inline_evolved_giga_megaengineer
+		count = 1
+		mult = 1
+		trigger = ""
+		display = with_desc
 	}
 
-	prerequisites = {
-		giga_tech_amb_living_metal_infusion
-	}
 
 	ai_resource_production = {
 		giga_sr_amb_megaconstruction = 5
@@ -316,13 +328,13 @@ holding_giga_megaworkshop = {
 		category = planet_holdings
 		inline_script = {
 			script = buildings/resources/inline_evolved_resource_cost
-			tier = 2
+			tier = 1
 		}
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_giga_megaengineer
-		count = 2
+		script = jobs/inline_evolved_giga_megaengineer_overseer
+		count = 1
 		mult = 1
 		trigger = ""
 		display = with_desc

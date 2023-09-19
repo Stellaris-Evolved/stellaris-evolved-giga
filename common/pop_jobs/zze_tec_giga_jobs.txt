@@ -4,12 +4,14 @@ giga_interstellar_researcher = {
 	building_icon = building_research_lab_3
 	clothes_texture_index = 3
 
+	possible_precalc = can_fill_specialist_job
+
 	resources = {
 		category = planet_researchers
 		produces = { physics_research = 5 }
 		produces = { society_research = 3 }
 		produces = { engineering_research = 5 }
-		upkeep = { consumer_goods = 2 }
+		upkeep = { consumer_goods = 3 }
 
 		inline_script = {
 			script = jobs/resources/inline_evolved_science_requisition_resources
@@ -30,7 +32,6 @@ giga_interstellar_researcher = {
 
 	inline_script = jobs/effects/type/inline_evolved_researcher_effect
 
-	possible_precalc = can_fill_specialist_job
 
 	weight = {
 		weight = value:giga_researcher_weight|JOB|giga_interstellar_researcher|
@@ -42,6 +43,14 @@ giga_interstellar_researcher_drone = {
 	condition_string = DRONE_JOB_TRIGGER
 	building_icon = building_research_lab_3
 	clothes_texture_index = 3
+
+
+	possible_precalc = can_fill_drone_job
+
+	possible = {
+		NOT = { tec_has_stapled_trait ={ cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
+	}
 
 	resources = {
 		category = planet_researchers
@@ -55,7 +64,7 @@ giga_interstellar_researcher_drone = {
 		inline_script = {
 			script = jobs/resources/inline_evolved_science_requisition_resources
 			consumer_goods = 0
-			energy = 2
+			energy = 3
 			mult = 1
 		}
 	}
@@ -70,25 +79,7 @@ giga_interstellar_researcher_drone = {
 	}
 
 	inline_script = jobs/effects/type/inline_evolved_brain_drone_effect
-
-
-	possible_precalc = can_fill_drone_job
-
-	possible = {
-		tec_has_stapled_trait = no
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					NAND = {
-						has_valid_civic = civic_tec_se_elders
-						has_ethic = ethic_gestalt_empathy
-					}
-				}
-			}
-			drone_individual_pop_check_trigger = no	#prevents free individuals
-		}
-	}
+	inline_script = jobs/effects/type/inline_evolved_calculator_effect
 
 	weight = {
 		weight = value:giga_researcher_drone_weight|JOB|giga_interstellar_researcher_drone|
@@ -146,19 +137,8 @@ giga_interstellar_scavenger_drone = {
 	possible_precalc = can_fill_drone_job
 
 	possible = {
-		tec_has_stapled_trait = no
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					NAND = {
-						has_valid_civic = civic_tec_se_elders
-						has_ethic = ethic_gestalt_empathy
-					}
-				}
-			}
-			drone_individual_pop_check_trigger = no	#prevents free individuals
-		}
+		NOT = { tec_has_stapled_trait = { cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
 	}
 
 	resources = {
@@ -194,6 +174,7 @@ giga_interstellar_scavenger_drone = {
 
 	inline_script = jobs/effects/type/inline_evolved_mining_drone_effect
 	inline_script = jobs/effects/type/inline_evolved_brain_drone_effect
+	inline_script = jobs/effects/type/inline_evolved_calculator_effect
 
 	weight = {
 		weight = value:giga_complex_drone_weight|JOB|giga_interstellar_scavenger_drone|RESOURCE|minerals|WEIGHT|0.4|RESOURCE2|engineering_research|WEIGHT2|0.6|
@@ -258,10 +239,13 @@ giga_preserver_drone = {
 	}
 
 	possible_precalc = can_fill_drone_job
-	possible = { can_think = yes }
+	possible = {
+		NOT = { tec_has_stapled_trait ={ cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
+	}
 
 	resources = {
-		category = planet_culture_workers
+		category = planet_evaluators
 		produces = {
 			society_research = 1
 			unity = 1
@@ -352,49 +336,9 @@ giga_gas_harvesting_drone = {
 	}
 }
 
-compound_purge = {
-	icon = purge
-	category = compound_purge
-	purge = purge_normal
-	is_capped_by_modifier = no
-	weight = { weight = 999999 }
+# compound_purge
 
-	possible = {
-		exists = planet
-		planet = {
-			exists = controller
-			controller = { is_country_type = compound_empire }
-		}
-	}
-}
-
-purge_psionic_sublimation = {
-	category = purge
-	purge = purge_normal
-	is_capped_by_modifier = no
-	clothes_texture_index = 2
-	ignores_sapience = yes
-	weight = { weight = 999999 }
-
-	possible_pre_triggers = {
-		is_being_purged = yes
-	}
-
-	possible = {
-		has_purge_type = { type = purge_normal }
-		has_citizenship_type = { type = citizenship_purge country = planet.owner }
-		exists = planet
-		exists = planet.controller
-		planet.controller = {
-			ehof_default_country = yes
-			has_technology = giga_tech_psychic_beacon
-			OR = {
-				has_megastructure = psychic_beacon_3
-				has_megastructure = psychic_beacon_4
-			}
-		}
-	}
-}
+# purge_psionic_sublimation
 
 # Regular
 ehof_cultivator = {
@@ -413,8 +357,15 @@ ehof_cultivator = {
 
 	resources = {
 		category = planet_cultivators
-		produces = { ehof_sr_sentient_metal = 4 }
-		upkeep = { alloys = 4 energy = 4 }
+		produces = {
+			ehof_sr_sentient_metal = 4
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			alloys = 4
+			energy = 4
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
 	}
 
 	weight = {
@@ -439,25 +390,21 @@ ehof_cultivation_drone = {
 	}
 
 	possible = {
-		tec_has_stapled_trait = no
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					NAND = {
-						has_valid_civic = civic_tec_se_elders
-						has_ethic = ethic_gestalt_empathy
-					}
-				}
-			}
-			drone_individual_pop_check_trigger = no	#prevents free individuals
-		}
+		NOT = { tec_has_stapled_trait = { cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
 	}
 
 	resources = {
 		category = planet_cultivators
-		produces = { ehof_sr_sentient_metal = 4 }
-		upkeep = { alloys = 4 energy = 4 }
+		produces = {
+			ehof_sr_sentient_metal = 4
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			alloys = 4
+			energy = 4
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
 	}
 
 	weight = {
@@ -489,8 +436,12 @@ matter_synthesizer = {
 
 	resources = {
 		category = planet_miners
-		produces = {	minerals = 4 }
-		upkeep = {		energy = 2 }
+		produces = {
+			minerals = 4
+		}
+		upkeep = {
+			energy = 2
+		}
 
 		inline_script = {
 			script = jobs/resources/inline_evolved_material_miner_requisition_resources
@@ -524,8 +475,12 @@ matter_synthesizer_drone = {
 
 	resources = {
 		category = planet_miners
-		produces = {	minerals = 4 }
-		upkeep = {		energy = 2 }
+		produces = {
+			minerals = 4
+		}
+		upkeep = {
+			energy = 2
+		}
 		inline_script = {
 			script = jobs/resources/inline_evolved_material_miner_requisition_resources
 			minerals = @requisitorium_minerals_reduction
@@ -565,8 +520,14 @@ ehof_energy_converter = {
 
 	resources = {
 		category = planet_energy_converters
-		produces = { ehof_sr_negative_mass = 2 }
-		upkeep = { energy = 8 }
+		produces = {
+			ehof_sr_negative_mass = 2
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			energy = 8
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
 	}
 
 	weight = {
@@ -591,8 +552,14 @@ ehof_energy_converter_drone = {
 
 	resources = {
 		category = planet_energy_converters
-		produces = { ehof_sr_negative_mass = 2 }
-		upkeep = { energy = 8 }
+		produces = {
+			ehof_sr_negative_mass = 2
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
+		upkeep = {
+			energy = 8
+			multiplier = planet.value:giga_job_scaling_plus_base
+		}
 	}
 
 	weight = {
@@ -700,7 +667,7 @@ giga_elysium_controller = {
 		giga_elysium_host_jobs_produces_mult = 0.05
 	}
 
-	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
 	inline_script = jobs/effects/type/inline_evolved_administrator_effect
 	
 	weight = {
@@ -725,7 +692,10 @@ giga_elysium_controller_drone = {
 
 	possible_precalc = can_fill_drone_job
 
-	possible = { can_think = yes }
+	possible = {
+		NOT = { tec_has_stapled_trait = { cached = yes } }
+		drone_individual_pop_check_trigger = no	#prevents free individuals
+	}
 
 	resources = {
 		category = planet_administrators
@@ -747,6 +717,7 @@ giga_elysium_controller_drone = {
 		}
 		giga_elysium_host_jobs_produces_mult = 0.05
 	}
+
 
 	weight = {
 		weight = value:giga_complex_drone_no_resource_weight|JOB|giga_elysium_controller_drone|

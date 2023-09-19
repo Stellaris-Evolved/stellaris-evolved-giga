@@ -26,22 +26,27 @@ district_giga_gas_giant_habitat_city = {
 		uses_district_set = giga_gas_giant_habitat
 	}
 
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_gas_giant_habitat_hive
-		district_giga_gas_giant_habitat_nexus
+	allow = {
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = yes"
+			use_for_jobs = "
+				tec_has_clerk_jobs_available = no
+			"
+		}
 	}
 
+
+	conversion_ratio = 1
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = { minerals = @giga_gas_giant_habitat_cost }
 		upkeep = {
 			energy = @giga_gas_giant_habitat_upkeep_energy_medium # you need immutable upkeep for triggered upkeeps to apply properly
 		}
 	}
-
-	# base stats
-
 
 	# Modifiers
 		triggered_planet_modifier = {
@@ -50,19 +55,17 @@ district_giga_gas_giant_habitat_city = {
 				planet_max_buildings_add = 1
 			}
 		}
-		inline_script = {
-			script = districts/inline_evolved_habitation_housing_modifiers
-			count = 1
-			trigger = ""
-		}
-		inline_script = districts/effects/inline_evolved_tec_artifice_2
-
-		# Civics
-			inline_script = districts/effects/inline_evolved_agrarian_idyll_city
-			inline_script = districts/effects/inline_evolved_tec_eco_keepers_city
-			inline_script = districts/effects/inline_evolved_tec_tribalism_city
-			inline_script = districts/effects/inline_evolved_tec_social_prosperity
-			inline_script = districts/effects/inline_evolved_tec_consumerism
+		# Effect Types
+			inline_script = {
+				script = districts/type/inline_evolved_housing_generic
+				scale = 1
+				trigger = ""
+			}
+			inline_script = {
+				script = districts/type/inline_evolved_housing_city
+				scale = 1
+				trigger = ""
+			}
 		# /
 	# /
 
@@ -75,18 +78,16 @@ district_giga_gas_giant_habitat_city = {
 				display = with_desc
 				trigger = ""
 			}
-
-			# Traditions
-				inline_script = {
-					script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-					count = 1
-					trigger = ""
-				}
-			# /
 		# /
 		# Socialguards
 		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = yes
+		"
+	}
 }
 
 district_giga_gas_giant_habitat_hive = {
@@ -106,14 +107,22 @@ district_giga_gas_giant_habitat_hive = {
 		uses_district_set = giga_gas_giant_habitat
 	}
 
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_gas_giant_habitat_city
-		district_giga_gas_giant_habitat_nexus
+	allow = {
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = yes"
+			use_for_jobs = "
+				tec_has_maintenance_drone_jobs_available = no
+			"
+		}
 	}
 
+
+	conversion_ratio = 1
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = { minerals = @giga_gas_giant_habitat_cost }
 		upkeep = {
 			energy = @giga_gas_giant_habitat_upkeep_energy_medium # you need immutable upkeep for triggered upkeeps to apply properly
@@ -129,12 +138,18 @@ district_giga_gas_giant_habitat_hive = {
 				}
 			}
 		# /
-		inline_script = {
-			script = districts/inline_evolved_habitation_housing_modifiers
-			count = 1
-			trigger = ""
-		}
-		inline_script = districts/effects/inline_evolved_tec_artifice_2
+		# Effect Types
+			inline_script = {
+				script = districts/type/inline_evolved_housing_generic
+				scale = 1
+				trigger = ""
+			}
+			inline_script = {
+				script = districts/type/inline_evolved_housing_hive
+				scale = 1
+				trigger = ""
+			}
+		# /
 	# /
 	# Jobs
 		inline_script = {
@@ -144,15 +159,13 @@ district_giga_gas_giant_habitat_hive = {
 			display = with_desc
 			trigger = ""
 		}
-		inline_script = {
-			script = districts/effects/inline_evolved_tech_housing_2_gestalt
-			count = 1
-			trigger = ""
-		}
-		# Bio/Lithospheric harmony
-			inline_script = districts/effects/inline_evolved_tec_hive_menial
-		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = yes
+		"
+	}
 }
 
 district_giga_gas_giant_habitat_nexus = {
@@ -172,14 +185,21 @@ district_giga_gas_giant_habitat_nexus = {
 		uses_district_set = giga_gas_giant_habitat
 	}
 
-	conversion_ratio = 1
-	convert_to = {
-		district_giga_gas_giant_habitat_city
-		district_giga_gas_giant_habitat_hive
+	allow = {
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = yes"
+			use_for_jobs = "
+				tec_has_maintenance_drone_jobs_available = no
+			"
+		}
 	}
 
+	conversion_ratio = 1
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = { minerals = @giga_gas_giant_habitat_cost }
 		upkeep = {
 			energy = @giga_gas_giant_habitat_upkeep_energy_medium # you need immutable upkeep for triggered upkeeps to apply properly
@@ -192,16 +212,20 @@ district_giga_gas_giant_habitat_nexus = {
 				planet_housing_add = 8
 				planet_max_buildings_add = 1
 			}
-
-			inline_script = {
-				script = districts/inline_evolved_habitation_housing_modifiers
-				count = 1
-				trigger = ""
-			}
-			inline_script = districts/effects/inline_evolved_tec_artifice_2
 		# /
 	# /
-
+	# Effect Types
+		inline_script = {
+			script = districts/type/inline_evolved_housing_generic
+			scale = 1
+			trigger = ""
+		}
+		inline_script = {
+			script = districts/type/inline_evolved_housing_nexus
+			scale = 1
+			trigger = ""
+		}
+	# /
 	# Jobs
 		inline_script = {
 			script = jobs/inline_evolved_maintenance_drone
@@ -210,15 +234,13 @@ district_giga_gas_giant_habitat_nexus = {
 			display = with_desc
 			trigger = ""
 		}
-		inline_script = {
-			script = districts/effects/inline_evolved_tech_housing_2_gestalt
-			count = 1
-			trigger = ""
-		}
-		# Civics
-			inline_script = districts/effects/inline_evolved_tec_machine_menial
-		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = yes
+		"
+	}
 }
 
 ##################################
@@ -237,11 +259,7 @@ district_giga_gas_giant_habitat_industrial = {
 	}
 
 	conversion_ratio = 1
-	convert_to = {
-		district_giga_gas_giant_habitat_city
-		district_giga_gas_giant_habitat_hive
-		district_giga_gas_giant_habitat_nexus
-	}
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
 
 	resources = {
 		category = planet_districts_hab_industrial
@@ -302,89 +320,15 @@ district_giga_gas_giant_habitat_wind = {
 		uses_district_set = giga_gas_giant_habitat
 	}
 
+	inline_script = districts/convert_to/inline_evolved_generator_districts
+
 	resources = {
 		category = planet_districts_hab_energy
 		cost = { minerals = @giga_gas_giant_habitat_cost }
 		upkeep = { energy = @giga_gas_giant_habitat_upkeep_energy_medium }
-		inline_script = districts/resources/inline_evolved_tec_syndical
-		# Automated production
-			inline_script = {
-				script = districts/resources/inline_evolved_tec_automation_energy
-				trigger = "
-					exists = owner
-					owner = { tec_is_automated_empire = yes }
-					planet = {
-						tec_planet_allows_automation = yes
-					}
-				"
-				base = 6
-			}
-		# /
-		inline_script = {
-			script = districts/resources/inline_evolved_tec_generate_basic_resources
-			resource = energy
-		}
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_gas_giant_habitat_city
-		district_giga_gas_giant_habitat_hive
-		district_giga_gas_giant_habitat_nexus
-	}
-
-	# base stats
-	triggered_planet_modifier = {
-		modifier = {
-			planet_housing_add = 2
-		}
-	}
-
-	inline_script = districts/inline_evolved_rural_district_modifiers
-
-	inline_script = {
-		script = jobs/inline_evolved_technician
-		regular_count = 4
-		hive_count = 5
-		machine_count = 4
-		machine_aquatic_count = 0
-		mult = 1
-		display = with_desc
-		trigger = ""
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_technician
-		regular_count = -1
-		hive_count = -1
-		machine_count = -1
-		machine_aquatic_count = 0
-		mult = 1
-		display = no_desc
-		trigger = "
-			owner = {
-				tec_is_automated_empire = yes
-			}
-			planet = {
-				tec_planet_allows_automation = yes
-			}
-		"
-	}
-
-	inline_script = {
-		script = jobs/inline_evolved_technician
-		regular_count = 1
-		hive_count = 1
-		machine_count = 1
-		machine_aquatic_count = 0
-		mult = 1
-		display = no_desc
-		trigger = "
-			owner = {
-				tec_has_extra_menial_district_job = yes
-			}
-		"
-	}
+	inline_script = districts/type/inline_evolved_rural_generator
 }
 
 ##################################
@@ -402,6 +346,8 @@ district_giga_gas_giant_habitat_science = {
 		uses_district_set = giga_gas_giant_habitat
 	}
 
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
+
 	resources = {
 		category = planet_districts_hab_research
 		cost = {
@@ -411,13 +357,6 @@ district_giga_gas_giant_habitat_science = {
 			energy = @giga_gas_giant_habitat_upkeep_energy_medium
 			exotic_gases = @giga_gas_giant_habitat_upkeep_sr
 		}
-	}
-
-	conversion_ratio = 0.5
-	convert_to = {
-		district_giga_gas_giant_habitat_city
-		district_giga_gas_giant_habitat_hive
-		district_giga_gas_giant_habitat_nexus
 	}
 
 	inline_script = {

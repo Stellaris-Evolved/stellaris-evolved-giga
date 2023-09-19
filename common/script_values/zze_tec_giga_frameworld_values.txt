@@ -286,13 +286,6 @@ giga_frameworld_outpost_society_research_jobs = {
 		add = 1
 	}
 
-	# isolated valley
-	modifier = {
-		exists = owner
-		owner = { has_technology = tech_alien_life_studies }
-		add = value:giga_frameworld_outpost_jobs_isolated_valley
-	}
-
 	# radiotrophic preserve
 	modifier = {
 		planet = { has_deposit = d_radiotrophic_preserve }
@@ -428,13 +421,6 @@ giga_frameworld_outpost_unity_jobs = {
 			RESOURCE = unity
 		}
 		add = 1
-	}
-
-	# isolated valley
-	modifier = {
-		exists = owner
-		owner = { has_technology = tech_alien_life_studies }
-		add = value:giga_frameworld_outpost_jobs_isolated_valley|MULT|2|
 	}
 
 	# radiotrophic preserve

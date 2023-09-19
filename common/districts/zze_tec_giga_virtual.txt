@@ -18,14 +18,20 @@ district_virtual_city = {
 		uses_district_set = virtual_ring
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_virtual_nexus
-		district_virtual_hive
+	allow = {
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = no"
+			use_for_jobs = "
+				tec_has_clerk_jobs_available = no
+			"
+		}
 	}
 
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = { minerals = @giga_rw_cost }
 		upkeep = { energy = @giga_rw_maintenance }
 	}
@@ -37,18 +43,17 @@ district_virtual_city = {
 			}
 	
 		# /
-		inline_script = {
-			script = districts/inline_evolved_habitation_housing_modifiers
-			count = 5
-			trigger = ""
-		}
-		inline_script = districts/effects/inline_evolved_tec_artifice_2
-		# Civics
-			inline_script = districts/effects/inline_evolved_agrarian_idyll_city
-			inline_script = districts/effects/inline_evolved_tec_eco_keepers_city
-			inline_script = districts/effects/inline_evolved_tec_tribalism_city
-			inline_script = districts/effects/inline_evolved_tec_social_prosperity
-			inline_script = districts/effects/inline_evolved_tec_consumerism
+		# Effect Types
+			inline_script = {
+				script = districts/type/inline_evolved_housing_generic
+				scale = 5
+				trigger = ""
+			}
+			inline_script = {
+				script = districts/type/inline_evolved_housing_city
+				scale = 5
+				trigger = ""
+			}
 		# /
 	# /
 
@@ -63,13 +68,6 @@ district_virtual_city = {
 				display = with_desc
 				trigger = ""
 			}
-			# Traditions
-				inline_script = {
-					script = districts/effects/inline_evolved_mercantile_trickle_up_economics
-					count = 3
-					trigger = ""
-				}
-			# /
 			inline_script = {
 				script = jobs/inline_evolved_enforcer
 				count = 2
@@ -80,7 +78,13 @@ district_virtual_city = {
 		# /
 		# Socialguards
 		# /
-	# /	
+	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = no
+		"
+	}
 }
 
 district_virtual_hive = {
@@ -99,15 +103,21 @@ district_virtual_hive = {
 		owner = { is_hive_empire = yes }
 		uses_district_set = virtual_ring
 	}
-
-	conversion_ratio = 0.5
-	convert_to = {
-		district_virtual_nexus
-		district_virtual_city
+	allow = {
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = no"
+			use_for_jobs = "
+				tec_has_maintenance_drone_jobs_available = no
+			"
+		}
 	}
 
+
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = { minerals = @giga_rw_cost }
 		upkeep = { energy = @giga_rw_maintenance }
 	}
@@ -119,12 +129,18 @@ district_virtual_hive = {
 				planet_housing_add = 30
 			}
 		# /
-		inline_script = {
-			script = districts/inline_evolved_habitation_housing_modifiers
-			count = 5
-			trigger = ""
-		}
-		inline_script = districts/effects/inline_evolved_tec_artifice_2
+		# Effect Types
+			inline_script = {
+				script = districts/type/inline_evolved_housing_generic
+				scale = 5
+				trigger = ""
+			}
+			inline_script = {
+				script = districts/type/inline_evolved_housing_hive
+				scale = 5
+				trigger = ""
+			}
+		# /
 	# /
 	# Jobs
 		inline_script = {
@@ -134,11 +150,7 @@ district_virtual_hive = {
 			display = with_desc
 			trigger = ""
 		}
-		inline_script = {
-			script = districts/effects/inline_evolved_tech_housing_2_gestalt
-			count = 5
-			trigger = ""
-		}
+
 		inline_script = {
 			script = jobs/inline_evolved_synapse
 			count = 2
@@ -146,10 +158,13 @@ district_virtual_hive = {
 			display = with_desc
 			trigger = ""
 		}
-		# Bio/Lithospheric harmony
-			inline_script = districts/effects/inline_evolved_tec_hive_menial
-		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = no
+		"
+	}
 }
 
 district_virtual_nexus = {
@@ -169,14 +184,20 @@ district_virtual_nexus = {
 		uses_district_set = virtual_ring
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_virtual_hive
-		district_virtual_city
+	allow = {
+		tec_ai_allow_housing_district = {
+			housing = 2
+			has_building_slots = "always = no"
+			use_for_jobs = "
+				tec_has_maintenance_drone_jobs_available = no
+			"
+		}
 	}
 
+	inline_script = districts/convert_to/inline_evolved_housing_districts
+
 	resources = {
-		category = planet_districts
+		category = planet_districts_cities
 		cost = { minerals = @giga_rw_cost }
 		upkeep = { energy = @giga_rw_maintenance }
 	}
@@ -185,15 +206,19 @@ district_virtual_nexus = {
 		# Standard
 			planet_modifier = {
 				planet_housing_add = 25
-				job_maintenance_drone_add = 10
-				job_technician_drone_add = 2
 			}
-			inline_script = {
-				script = districts/inline_evolved_habitation_housing_modifiers
-				count = 5
-				trigger = ""
-			}
-			inline_script = districts/effects/inline_evolved_tec_artifice_2
+			# Effect Types
+				inline_script = {
+					script = districts/type/inline_evolved_housing_generic
+					scale = 5
+					trigger = ""
+				}
+				inline_script = {
+					script = districts/type/inline_evolved_housing_nexus
+					scale = 5
+					trigger = ""
+				}
+			# /
 		# /
 	# /
 	# Jobs
@@ -202,11 +227,6 @@ district_virtual_nexus = {
 			count = 10
 			mult = 1
 			display = with_desc
-			trigger = ""
-		}
-		inline_script = {
-			script = districts/effects/inline_evolved_tech_housing_2_gestalt
-			count = 5
 			trigger = ""
 		}
 		inline_script = {
@@ -219,10 +239,13 @@ district_virtual_nexus = {
 			display = with_desc
 			trigger = ""
 		}
-		# Civics
-			inline_script = districts/effects/inline_evolved_tec_machine_menial
-		# /
 	# /
+	inline_script = {
+		script = districts/inline_evolved_aibait_housing
+		has_building_slots = "
+			always = no
+		"
+	}
 }
 
 ###Normal VR districts

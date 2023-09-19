@@ -21,6 +21,10 @@ district_giga_origin_birch_lab = {
 		is_planet_class = pc_origin_birch
 	}
 
+	prerequisites = {
+		tech_basic_science_lab_1
+	}
+
 	resources = {
 		category = planet_districts
 

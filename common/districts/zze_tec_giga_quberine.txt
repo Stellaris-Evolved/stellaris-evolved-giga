@@ -18,16 +18,16 @@ district_rw_quberine = {
 		NOT = {
 			has_modifier = @ringworld_upgrade_timer
 		}
+	}
+	allow = {
 		NOT = {
 			has_deposit = d_tec_rw_minor_structural_damage
 		}
 	}
 	conversion_ratio = 1
-	convert_to = {
-		district_rw_city
-		district_rw_hive
-		district_rw_nexus
-	}
+	inline_script = districts/convert_to/inline_evolved_rw_generator_district_swaps
+	inline_script = districts/convert_to/inline_evolved_research_districts
+	inline_script = districts/convert_to/inline_evolved_industrial_districts
 	resources = {
 		category = planet_districts
 		cost = {

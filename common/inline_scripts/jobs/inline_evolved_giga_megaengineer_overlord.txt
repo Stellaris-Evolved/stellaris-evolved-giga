@@ -1,4 +1,4 @@
-# jobs/inline_evolved_giga_megaengineer_overseer
+# jobs/inline_evolved_giga_megaengineer_overlord
 
 inline_script = { # regular
 	script = jobs/inline_evolved_job
@@ -9,31 +9,14 @@ inline_script = { # regular
 		
 		owner = {
 			tec_uses_regular_empire_jobs = { cached = yes }
-			is_fallen_empire_spiritualist = no
 		}
 	"
-	job = giga_megaengineering_overseer
+	job = giga_overlord_megaengineer
 	count = $count$
 	mult = $mult$
 	display = $display$
 }
 
-inline_script = { # regular
-	script = jobs/inline_evolved_job
-	trigger = "
-		exists = owner
-
-		$trigger$
-		
-		owner = {
-			is_fallen_empire_spiritualist = yes
-		}
-	"
-	job = giga_amb_fe_celestial_architect
-	count = $count$
-	mult = $mult$
-	display = $display$
-}
 
 inline_script = { # gestalt
 	script = jobs/inline_evolved_job
@@ -46,7 +29,7 @@ inline_script = { # gestalt
 			is_gestalt = yes
 		}
 	"
-	job = giga_megaengineering_overseer_drone
+	job = giga_overlord_megaengineer_drone
 	count = $count$
 	mult = $mult$
 	display = $display$

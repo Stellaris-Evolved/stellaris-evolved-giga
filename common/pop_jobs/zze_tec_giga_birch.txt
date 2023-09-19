@@ -56,7 +56,7 @@ giga_birch_structure_manager = {
 		}
 	}
 
-	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
 
 	weight = {
 		weight = value:giga_ruler_weight|JOB|giga_birch_structure_manager|RESOURCE|unity|WEIGHT|0.35|RESOURCE2|engineering_research|WEIGHT2|0.65|
@@ -111,7 +111,7 @@ giga_birch_orykta_manager = {
 		}
 	}
 
-	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
 
 	weight = {
 		weight = value:giga_ruler_weight|JOB|giga_birch_orykta_manager|RESOURCE|physics_research|WEIGHT|0.5|RESOURCE2|engineering_research|WEIGHT2|0.5|
@@ -159,7 +159,7 @@ giga_birch_ktisma_manager = {
 		trigger = ""
 	}
 
-	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
 
 	resources = {
 		category = planet_giga_birch_insula_managers
@@ -238,7 +238,7 @@ giga_birch_physma_manager = {
 		multiplier = planet.value:giga_job_scaling_plus_base
 	}
 
-	inline_script = jobs/effects/inline_evolved_tec_social_prosperity
+	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
 
 	resources = {
 		category = planet_giga_birch_insula_managers
