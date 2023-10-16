@@ -3,5 +3,5 @@ tags={
 	"Overhaul"
 }
 name="Stellaris Evolved - Gigastructures Patch"
-supported_version="3.7.4"
+supported_version="3.9.2"
 remote_file_id="2921427584"
