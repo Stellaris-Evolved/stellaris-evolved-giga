@@ -158,7 +158,7 @@ country_event = {
                         limit = {
                             is_planet_class = pc_interstellar_ringworld_habitable
                         }
-                        remove_deposit = d_malfunctioning_reactor
+                        remove_deposit = d_decrepit_tunnels_2
                     }
                     # RP DEPOSITS
                     add_deposit = d_tec_rw_minor_structural_damage
