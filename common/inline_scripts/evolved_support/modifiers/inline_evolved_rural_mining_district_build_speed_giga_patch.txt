@@ -7,7 +7,7 @@ triggered_planet_modifier = {
         giga_uses_mining_district = yes
     }
     modifier = {
-        planet_district_giga_planet_mining_max_build_speed_mult = $value$
+        planet_district_giga_planet_mining_build_speed_mult = $value$
     }
     mult = $mult$
 }

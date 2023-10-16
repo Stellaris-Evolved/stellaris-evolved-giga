@@ -16,6 +16,7 @@ country_event = {
     immediate = {
         capital_scope = {
             clear_deposits = yes
+            remove_all_districts = yes
 
             add_district_and_planet_size_if_needed_effect = {
                 district = district_rw_industrial
