@@ -187,3 +187,48 @@ d_arcane_generator = {
 		}
 	}
 }
+
+d_fluffy_plains = {
+	is_for_colonizable = yes
+	use_for_min_max_adjustments = yes
+	category = deposit_cat_energy
+	potential = { always = no }
+	drop_weight = { weight = 0 }
+	planet_modifier = { district_giga_gas_giant_habitat_exotic_max = 4 }
+	# inherent harvesters
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				has_technology = tech_mine_exotic_gases
+			}
+		}
+		modifier = { job_giga_gas_harvester_per_pop = 0.05 }
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				has_technology = tech_mine_exotic_gases
+			}
+		}
+		modifier = { job_giga_gas_harvesting_drone_per_pop = 0.05 }
+	}
+	# descriptions - triggered desc just doesn't work on deposits
+	# triggered_desc = {
+	# 	trigger = {
+	# 		exists = owner
+	# 		owner = { is_gestalt = no }
+	# 	}
+	# 	text = "job_giga_gas_harvester_effect_desc"
+	# }
+	# triggered_desc = {
+	# 	trigger = {
+	# 		exists = owner
+	# 		owner = { is_gestalt = yes }
+	# 	}
+	# 	text = "job_giga_gas_harvester_drone_effect_desc"
+	# }
+}
