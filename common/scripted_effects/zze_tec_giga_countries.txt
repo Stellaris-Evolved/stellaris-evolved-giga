@@ -1087,16 +1087,17 @@ create_katzen_loris = {
 		name = "Kaiserlicher Ausnahmezustand"
 		authority = auth_imperial
 		ethos = {
-			ethic = ethic_fanatic_authoritarian
+			ethic = ethic_authoritarian
 			ethic = ethic_militarist
 			ethic = ethic_materialist
             ethic = ethic_elitist
+			ethic = ethic_socialism
 		}
 		origin = origin_katzen_civil_war
 		civics = {
 			civic = civic_warrior_culture
 			civic = civic_aristocratic_elite
-            civic = civic_dystopian_society
+			civic = civic_tec_regular_immutable_hierarchy
 		}
 		flag = {
 			icon={
