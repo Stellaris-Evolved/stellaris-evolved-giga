@@ -122,7 +122,7 @@ building_giga_elysium_host_capital = {
 
 	# Other extra add / 1 per tier - 1
 		inline_script = {
-			script = jobs/inline_evolved_add_job_civic_regular
+			script = jobs/capital/inline_evolved_add_job_civic_regular
 			trigger = ""
 			display = with_desc
 			count = @tec_capital_add_normal_jobs_t2
@@ -591,7 +591,7 @@ building_giga_elysium_host_major_capital = {
 
 	# Other extra add / 1 per tier - 1
 		inline_script = {
-			script = jobs/inline_evolved_add_job_civic_regular
+			script = jobs/capital/inline_evolved_add_job_civic_regular
 			trigger = ""
 			display = with_desc
 			count = @tec_capital_add_normal_jobs_t3
@@ -989,7 +989,7 @@ building_giga_elysium_host_hive_capital = {
 		script = jobs/inline_evolved_maintenance_drone
 		trigger = "
 			owner = {
-				tec_has_maintenance_swap_civic_hive = no
+				tec_has_maintenance_drone_swap_civic_hive = no
 			}
 		"
 		count = 1
@@ -1463,7 +1463,7 @@ building_giga_elysium_host_hive_major_capital = {
 		script = jobs/inline_evolved_maintenance_drone
 		trigger = "
 			owner = {
-				tec_has_maintenance_swap_civic_hive = no
+				tec_has_maintenance_drone_swap_civic_hive = no
 			}
 		"
 		count = 2
@@ -1916,7 +1916,7 @@ building_giga_elysium_host_machine_capital = {
 
 	# Job per tier
 		inline_script = {
-			script = jobs/inline_evolved_add_job_civic_machine
+			script = jobs/capital/inline_evolved_add_job_civic_machine
 			trigger = ""
 			count = @tec_capital_add_normal_jobs_t2
 			mult = 1
@@ -2148,7 +2148,7 @@ building_giga_elysium_host_machine_major_capital = {
 
 	# Job per tier
 		inline_script = {
-			script = jobs/inline_evolved_add_job_civic_machine
+			script = jobs/capital/inline_evolved_add_job_civic_machine
 			trigger= ""
 			count = @tec_capital_add_normal_jobs_t3
 			mult = 1

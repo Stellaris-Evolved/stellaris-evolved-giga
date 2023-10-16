@@ -149,12 +149,14 @@ giga_birch_ktisma_manager = {
 
 	inline_script = {
 		script = modifiers/inline_evolved_foundry_efficiency
+		count = 1
 		mult = planet.value:giga_job_scaling_plus_base
 		trigger = ""
 	}
 
 	inline_script = {
 		script = modifiers/inline_evolved_artisan_efficiency
+		count = 1
 		mult = planet.value:giga_job_scaling_plus_base
 		trigger = ""
 	}

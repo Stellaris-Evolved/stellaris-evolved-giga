@@ -1,0 +1,27 @@
+triggered_planet_modifier = {
+    potential = {
+        exists = owner
+
+        $trigger$
+
+        giga_uses_farming_district = yes
+    }
+    modifier = {
+        district_giga_planet_farming_max = $value$
+    }
+    mult = $mult$
+}
+
+triggered_planet_modifier = {
+    potential = {
+        exists = owner
+
+        $trigger$
+
+        uses_district_set = giga_frameworld
+    }
+    modifier = {
+        planet_district_giga_frameworld_farming_build_speed_mult = $value$
+    }
+    mult = $mult$
+}

@@ -166,7 +166,7 @@ district_giga_birch_orykta = {
 		display = with_desc
 	}
 	
-	inline_script = "planet/giga_birch_politician_swap"
+	inline_script = "planet/rulers/giga_birch_politician_swap"
 
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_gestalt = no } }
@@ -291,16 +291,20 @@ district_giga_birch_orykta_energy = {
 	inline_script = {
 		script = jobs/inline_evolved_technician
 		regular_count = @sector_jobs
+		regular_secondary_count = @[ sector_jobs - 2 ]
 		hive_count = @sector_jobs
+		hive_secondary_count = @[ sector_jobs - 2 ]
 		machine_count = @sector_jobs
-		machine_aquatic_count = @[ sector_jobs - 2 ]
+		machine_secondary_count = @[ sector_jobs - 2 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician_swaps
+		script = jobs/inline_evolved_technician_secondary
+		regular_count = 2
+		hive_count = 2
 		machine_count = 2
 		mult = 1
 		display = with_desc
@@ -366,18 +370,20 @@ district_giga_birch_orykta_minerals = {
 	inline_script = {
 		script = jobs/inline_evolved_miner
 		regular_count = @sector_jobs
-		regular_aquatic_count = @[ sector_jobs - 2 ]
+		regular_secondary_count = @[ sector_jobs - 2 ]
 		hive_count = @sector_jobs
-		hive_aquatic_count = @[ sector_jobs - 2 ]
+		hive_secondary_count = @[ sector_jobs - 2 ]
 		machine_count = @sector_jobs
+		machine_secondary_count = @[ sector_jobs - 2 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_miner_swaps
+		script = jobs/inline_evolved_miner_secondary
 		regular_count = 2
 		hive_count = 2
+		machine_count = 2
 		mult = 1
 		display = with_desc
 		trigger = ""
@@ -455,7 +461,7 @@ district_giga_birch_ktisma = {
 		display = with_desc
 	}
 	
-	inline_script = "planet/giga_birch_politician_swap"
+	inline_script = "planet/rulers/giga_birch_politician_swap"
 
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_gestalt = no } }
@@ -869,7 +875,7 @@ district_giga_birch_physma = {
 		display = with_desc
 	}
 	
-	inline_script = "planet/giga_birch_politician_swap"
+	inline_script = "planet/rulers/giga_birch_politician_swap"
 
 	triggered_planet_modifier = {
 		potential = { exists = owner owner = { is_gestalt = no } }
@@ -996,18 +1002,20 @@ district_giga_birch_physma_farm = {
 	inline_script = {
 		script = jobs/inline_evolved_farmer
 		regular_count = @sector_jobs
-		regular_aquatic_count = @[ sector_jobs - 2]
+		regular_secondary_count = @[ sector_jobs - 2]
 		hive_count = @sector_jobs
-		hive_aquatic_count = @[ sector_jobs - 2]
+		hive_secondary_count = @[ sector_jobs - 2]
 		machine_count = @sector_jobs
+		machine_secondary_count = @[ sector_jobs - 2]
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_farmer_swaps
+		script = jobs/inline_evolved_farmer_secondary
 		regular_count = 2
 		hive_count = 2
+		machine_count = 2
 		mult = 1
 		display = with_desc
 		trigger = ""
@@ -1159,8 +1167,7 @@ district_giga_birch_physma_trade = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
-		job = merchant
+		script = jobs/inline_evolved_merchant
 		trigger= " 
 			exists = owner
 			owner = {

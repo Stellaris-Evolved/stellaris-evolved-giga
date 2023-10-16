@@ -363,9 +363,7 @@ district_giga_alderson_commercial = {
 	# Effect Type
 	inline_script = {
 		script = districts/type/inline_evolved_trade
-		scale = 4
 		trader_scale = 4
-		trigger = ""
 		trader_trigger = ""
 	}
 	# /
@@ -684,17 +682,21 @@ district_giga_alderson_generator = {
 	inline_script = {
 		script = jobs/inline_evolved_technician
 		regular_count = @alderson_auto_jobs
+		regular_secondary_count = @[ alderson_auto_jobs * 2 / 3 ]
 		hive_count =  @alderson_auto_jobs_hive
+		hive_secondary_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
 		machine_count = @alderson_auto_jobs
-		machine_aquatic_count = @[ alderson_auto_jobs * 2 / 3 ]
+		machine_secondary_count = @[ alderson_auto_jobs * 2 / 3 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician_swaps
-		machine_aquatic_count = @[ alderson_auto_jobs * 1 / 3 ]
+		script = jobs/inline_evolved_technician_secondary
+		regular_count = @[ alderson_auto_jobs * 1 / 3 ]
+		hive_count = @[ alderson_auto_jobs_hive * 1 / 3 ]
+		machine_count = @[ alderson_auto_jobs * 1 / 3 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
@@ -758,19 +760,21 @@ district_giga_alderson_mining = {
 	inline_script = {
 		script = jobs/inline_evolved_miner
 		regular_count = @alderson_auto_jobs
-		regular_aquatic_count = @[ alderson_auto_jobs * 2 / 3 ]
+		regular_secondary_count = @[ alderson_auto_jobs * 2 / 3 ]
 		hive_count = @alderson_auto_jobs_hive
-		hive_aquatic_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
+		hive_secondary_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
 		machine_count = @alderson_auto_jobs
+		machine_secondary_count = @[ alderson_auto_jobs * 2 / 3 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner_swaps
+		script = jobs/inline_evolved_miner_secondary
 		regular_count = @[ alderson_auto_jobs * 1 / 3 ]
 		hive_count = @[ alderson_auto_jobs_hive * 1 / 3 ]
+		machine_count = @[ alderson_auto_jobs * 1 / 3 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
@@ -828,19 +832,21 @@ district_giga_alderson_farming = {
 	inline_script = {
 		script = jobs/inline_evolved_farmer
 		regular_count = @alderson_auto_jobs
-		regular_aquatic_count = @[ alderson_auto_jobs * 2 / 3 ]
+		regular_secondary_count = @[ alderson_auto_jobs * 2 / 3 ]
 		hive_count = @alderson_auto_jobs_hive
-		hive_aquatic_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
+		hive_secondary_count = @[ alderson_auto_jobs_hive * 2 / 3 ]
 		machine_count = @alderson_auto_jobs
+		machine_secondary_count = @[ alderson_auto_jobs * 2 / 3 ]
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer_swaps
+		script = jobs/inline_evolved_farmer_secondary
 		regular_count = @[ alderson_auto_jobs * 1 / 3 ]
 		hive_count = @[ alderson_auto_jobs_hive * 1 / 3 ]
+		machine_count = @[ alderson_auto_jobs * 1 / 3 ]
 		mult = 1
 		display = with_desc
 		trigger = ""

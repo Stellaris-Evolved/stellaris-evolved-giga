@@ -36,6 +36,12 @@ district_giga_elysium_housing = {
 	}
 
 	inline_script = {
+		script = districts/type/inline_evolved_housing_generic
+		scale = 1
+		trigger = ""
+	}
+
+	inline_script = {
 		script = jobs/inline_evolved_politician
 		trigger = "
 			owner = {
@@ -86,10 +92,10 @@ district_giga_elysium_housing = {
 		mult = 1
 		display = with_desc
 		trigger = "
-		exists = owner
-		owner = { 
-			is_gestalt = yes
-		}
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
 		"
 	}
 }

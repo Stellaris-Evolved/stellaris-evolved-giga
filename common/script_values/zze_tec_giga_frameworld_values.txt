@@ -11,7 +11,7 @@ giga_frameworld_outpost_energy_jobs = {
 	# normal planet districts
 	complex_trigger_modifier = {
 		trigger = check_modifier_value
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			modifier = district_generator_max
 		}
@@ -27,7 +27,7 @@ giga_frameworld_outpost_energy_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_ring_2 } }
 		mode = add
 		mult = 2
@@ -35,7 +35,7 @@ giga_frameworld_outpost_energy_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_elysium_infrastructure_1 } }
 		mode = add
 		mult = 1
@@ -51,7 +51,7 @@ giga_frameworld_outpost_minerals_jobs = {
 	# normal planet districts
 	complex_trigger_modifier = {
 		trigger = check_modifier_value
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			modifier = district_mining_max
 		}
@@ -60,7 +60,7 @@ giga_frameworld_outpost_minerals_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_sinkhole } }
 		mode = add
 		mult = 1
@@ -68,7 +68,7 @@ giga_frameworld_outpost_minerals_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_mining } }
 		mode = add
 		mult = 1
@@ -82,7 +82,7 @@ giga_frameworld_outpost_minerals_jobs = {
 giga_frameworld_outpost_food_districts = {
 	complex_trigger_modifier = {
 		trigger = check_modifier_value
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			modifier = district_farming_max
 		}
@@ -91,7 +91,7 @@ giga_frameworld_outpost_food_districts = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_jungle } }
 		mode = add
 		mult = 1
@@ -99,7 +99,7 @@ giga_frameworld_outpost_food_districts = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_ecology } }
 		mode = add
 		mult = 1
@@ -107,7 +107,7 @@ giga_frameworld_outpost_food_districts = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_flora } }
 		mode = add
 		mult = 1
@@ -115,7 +115,7 @@ giga_frameworld_outpost_food_districts = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_elysium_infrastructure_3 } }
 		mode = add
 		mult = 1
@@ -143,13 +143,13 @@ giga_frameworld_outpost_alloys_jobs = {
 
 	# odd factory
 	modifier = {
-		planet = { has_deposit = d_odd_factory }
+		orbit = {has_deposit = d_odd_factory }
 		add = 2
 	}
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_volcano } }
 		mode = add
 		mult = 1
@@ -157,7 +157,7 @@ giga_frameworld_outpost_alloys_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_volcano } }
 		mode = add
 		mult = 1
@@ -165,7 +165,7 @@ giga_frameworld_outpost_alloys_jobs = {
 	
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_engineered_eco_ring_1 } }
 		mode = add
 		mult = 1
@@ -173,7 +173,7 @@ giga_frameworld_outpost_alloys_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_manufactory } }
 		mode = add
 		mult = 2
@@ -200,7 +200,7 @@ giga_frameworld_outpost_consumer_goods_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_engineered_eco_ring_1 } }
 		mode = add
 		mult = 1
@@ -208,7 +208,7 @@ giga_frameworld_outpost_consumer_goods_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_manufactory } }
 		mode = add
 		mult = 2
@@ -236,13 +236,13 @@ giga_frameworld_outpost_physics_research_jobs = {
 
 	# space-time anomaly
 	modifier = {
-		planet = { has_deposit = d_space_time_anomaly }
+		orbit = {has_deposit = d_space_time_anomaly }
 		add = 2
 	}
 
 	# portal research area
 	modifier = {
-		planet = { 
+		orbit = {
 			or = {
 				has_deposit = d_portal_research_zone 
 				has_deposit = d_portal_research_zone_gestalt
@@ -255,7 +255,7 @@ giga_frameworld_outpost_physics_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_glacier } }
 		mode = add
 		mult = 1
@@ -263,7 +263,7 @@ giga_frameworld_outpost_physics_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_flora } }
 		mode = add
 		mult = 1
@@ -288,14 +288,14 @@ giga_frameworld_outpost_society_research_jobs = {
 
 	# radiotrophic preserve
 	modifier = {
-		planet = { has_deposit = d_radiotrophic_preserve }
+		orbit = {has_deposit = d_radiotrophic_preserve }
 		add = 1
 	}
 
 	# evolved
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_wildlife_blocker } }
 		mode = add
 		mult = 1
@@ -303,7 +303,7 @@ giga_frameworld_outpost_society_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_kelp } }
 		mode = add
 		mult = 1
@@ -311,7 +311,7 @@ giga_frameworld_outpost_society_research_jobs = {
 	
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_life } }
 		mode = add
 		mult = 2
@@ -336,14 +336,14 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	# flat number on relic worlds, for the spire
 	modifier = {
-		planet = { is_planet_class = pc_relic }
+		orbit = {is_planet_class = pc_relic }
 		add = 8
 	}
 
 	# evolved
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_terraformed_ring } }
 		mode = add
 		mult = 4
@@ -351,7 +351,7 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_synthetic_volcano } }
 		mode = add
 		mult = 1
@@ -359,7 +359,7 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_engineered_eco_ring_3 } }
 		mode = add
 		mult = 1
@@ -367,7 +367,7 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
 		mode = add
 		mult = 1
@@ -375,7 +375,7 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_elysium_infrastructure_2 } }
 		mode = add
 		mult = 1
@@ -383,7 +383,7 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = gpm_d_floating_islands } }
 		mode = add
 		mult = 1
@@ -391,7 +391,7 @@ giga_frameworld_outpost_engineering_research_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = gpm_d_ruined_arcology } }
 		mode = add
 		mult = 1
@@ -425,7 +425,7 @@ giga_frameworld_outpost_unity_jobs = {
 
 	# radiotrophic preserve
 	modifier = {
-		planet = { has_deposit = d_radiotrophic_preserve }
+		orbit = {has_deposit = d_radiotrophic_preserve }
 		add = 3
 	}
 
@@ -433,7 +433,7 @@ giga_frameworld_outpost_unity_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_sanctified_eco_grounds } }
 		mode = add
 		mult = 1
@@ -441,7 +441,7 @@ giga_frameworld_outpost_unity_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_other } }
 		mode = add
 		mult = 1
@@ -449,7 +449,7 @@ giga_frameworld_outpost_unity_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_sanctified_eco_grounds_ring } }
 		mode = add
 		mult = 2
@@ -457,7 +457,7 @@ giga_frameworld_outpost_unity_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_preserved_eco_ring } }
 		mode = add
 		mult = 2
@@ -481,7 +481,7 @@ giga_frameworld_outpost_exotic_gases_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_swamp } }
 		mode = add
 		mult = 1
@@ -489,7 +489,7 @@ giga_frameworld_outpost_exotic_gases_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
 		mode = add
 		mult = 1
@@ -510,7 +510,7 @@ giga_frameworld_outpost_volatile_motes_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_basin } }
 		mode = add
 		mult = 1
@@ -518,7 +518,7 @@ giga_frameworld_outpost_volatile_motes_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
 		mode = add
 		mult = 1
@@ -540,7 +540,7 @@ giga_frameworld_outpost_rare_crystals_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_eco_mountains_range } }
 		mode = add
 		mult = 1
@@ -548,7 +548,7 @@ giga_frameworld_outpost_rare_crystals_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = { limit = { is_deposit_type = d_tec_manufactory_arcology } }
 		mode = add
 		mult = 1
@@ -565,7 +565,7 @@ giga_frameworld_outpost_sr_zro_jobs = {
 	base = 0
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = d_tec_psionic_ascension_zone_1  }
 		}
@@ -589,7 +589,7 @@ giga_frameworld_outpost_minor_artifacts_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = gpm_d_precursor_planetary_shield  }
 		}
@@ -599,7 +599,7 @@ giga_frameworld_outpost_minor_artifacts_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = gpm_d_precursor_capital_complex  }
 		}
@@ -609,7 +609,7 @@ giga_frameworld_outpost_minor_artifacts_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = gpm_d_precursor_ruins_3   }
 		}
@@ -619,7 +619,7 @@ giga_frameworld_outpost_minor_artifacts_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = gpm_d_precursor_ruins_4    }
 		}
@@ -629,7 +629,7 @@ giga_frameworld_outpost_minor_artifacts_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = gpm_d_precursor_ruins_6    }
 		}
@@ -639,7 +639,7 @@ giga_frameworld_outpost_minor_artifacts_jobs = {
 
 	complex_trigger_modifier = {
 		trigger = count_deposit
-		trigger_scope = planet
+		trigger_scope = orbit
 		parameters = {
 			limit = { is_deposit_type = gpm_d_precursor_ruins_7     }
 		}

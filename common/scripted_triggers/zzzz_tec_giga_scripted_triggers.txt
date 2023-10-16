@@ -47,3 +47,24 @@ tec_giga_has_overall_machine_assembly = {
 	}
 	]
 }
+
+# should this empire care about ranger related stuff
+giga_is_environmentalist = {
+	tec_is_terraformer_environmentalist_empire = yes
+}
+
+tec_has_scrap_miner_giga_patch = {
+	OR = {
+		uses_district_set = giga_planetary_computer
+	}
+}
+
+tec_has_matter_miner_giga_patch = {
+	OR = {
+		uses_district_set = virtual_ring
+		uses_district_set = virtual_ring_industry
+		uses_district_set = giga_equatorial_shipyard
+		uses_district_set = giga_gas_giant_habitat
+		uses_district_set = giga_habitat
+	}
+}

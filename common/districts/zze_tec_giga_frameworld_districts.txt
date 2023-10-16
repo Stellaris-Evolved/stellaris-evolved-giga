@@ -935,16 +935,20 @@ district_giga_frameworld_penrose = {
 	inline_script = {
 		script = jobs/inline_evolved_technician
 		regular_count = 6
+		regular_secondary_count = 3
 		hive_count = 9
+		hive_secondary_count = 6
 		machine_count = 6
-		machine_aquatic_count = 3
+		machine_secondary_count = 3
 		mult = 1
 		display = no_desc
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician_swaps
+		script = jobs/inline_evolved_technician_secondary
+		regular_count = 3
+		hive_count = 3
 		machine_count = 3
 		mult = 1
 		display = no_desc
@@ -1036,19 +1040,21 @@ district_giga_frameworld_decompressor = {
 	inline_script = {
 		script = jobs/inline_evolved_miner
 		regular_count = 6
-		regular_aquatic_count = 3
+		regular_secondary_count = 3
 		hive_count = 9
-		hive_aquatic_count = 6
+		hive_secondary_count = 6
 		machine_count = 6
+		machine_secondary_count = 3
 		mult = 1
 		display = no_desc
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner_swaps
+		script = jobs/inline_evolved_miner_secondary
 		regular_count = 3
 		hive_count = 3
+		machine_count = 3
 		mult = 1
 		display = no_desc
 		trigger = ""
@@ -1114,7 +1120,7 @@ district_giga_frameworld_administrative = {
 		exists = from
 		from = {
 			is_regular_empire = yes
-			giga_country_uses_priests = no
+			tec_country_uses_priests_and_temples = no
 			has_technology = "tech_colonial_bureaucracy"
 		}
 		uses_district_set = giga_frameworld
@@ -1123,7 +1129,7 @@ district_giga_frameworld_administrative = {
 		exists = owner
 		owner = {
 			is_regular_empire = yes
-			giga_country_uses_priests = no
+			tec_country_uses_priests_and_temples = no
 			has_technology = "tech_colonial_bureaucracy"
 		}
 		uses_district_set = giga_frameworld
@@ -1134,7 +1140,7 @@ district_giga_frameworld_administrative = {
 	show_tech_unlock_if = {
 		giga_has_frameworld_origin = yes
 		is_gestalt = no
-		giga_country_uses_priests = no
+		tec_country_uses_priests_and_temples = no
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -1167,6 +1173,12 @@ district_giga_frameworld_administrative = {
 		display = with_desc
 		trigger = ""
 	}
+
+	inline_script = {
+		script = buildings/effects/type/inline_evolved_bureaucratic
+		tier = 1
+		type = regular
+	}
 }
 
 ###############################################################################################################
@@ -1179,7 +1191,7 @@ district_giga_frameworld_temple = {
 		exists = from
 		from = {
 			is_regular_empire = yes
-			giga_country_uses_priests = yes
+			tec_country_uses_priests_and_temples = yes
 		}
 		uses_district_set = giga_frameworld
 	}
@@ -1187,7 +1199,7 @@ district_giga_frameworld_temple = {
 		exists = owner
 		owner = {
 			is_regular_empire = yes
-			giga_country_uses_priests = yes
+			tec_country_uses_priests_and_temples = yes
 			has_technology = "tech_holographic_rituals"
 		}
 		uses_district_set = giga_frameworld
@@ -1198,7 +1210,7 @@ district_giga_frameworld_temple = {
 	show_tech_unlock_if = {
 		giga_has_frameworld_origin = yes
 		is_gestalt = no
-		giga_country_uses_priests = yes
+		tec_country_uses_priests_and_temples = yes
 	}
 	conversion_ratio = 1
 	convert_to = {
@@ -1257,6 +1269,11 @@ district_giga_frameworld_temple = {
 			}
 		"
 	}
+
+	inline_script = {
+		script = buildings/effects/type/inline_evolved_temple
+		tier = 1
+	}
 }
 
 ###############################################################################################################
@@ -1310,11 +1327,11 @@ district_giga_frameworld_synapse = {
 		display = with_desc
 		trigger = ""
 	}
-	inline_script = buildings/effects/inline_evolved_synaptic_extensions
-	inline_script = buildings/effects/inline_evolved_synaptic_reinforcement
+
 	inline_script = {
-		script = buildings/effects/inline_evolved_gestalt_introspective
+		script = buildings/effects/type/inline_evolved_bureaucratic
 		tier = 1
+		type = hive
 	}
 	
 }
@@ -1391,9 +1408,11 @@ district_giga_frameworld_simulation = {
 		display = with_desc
 		trigger = ""
 	}
+
 	inline_script = {
-		script = buildings/effects/inline_evolved_gestalt_introspective
+		script = buildings/effects/type/inline_evolved_bureaucratic
 		tier = 1
+		type = machine
 	}
 	
 }
@@ -1488,6 +1507,12 @@ district_giga_frameworld_sanctuary = {
 		}
 		ai_unobtainium = 1000
 	}
+
+	inline_script = {
+		script = buildings/effects/type/inline_evolved_bureaucratic
+		tier = 1
+		type = machine
+	}
 }
 
 ###############################################################################################################
@@ -1571,6 +1596,12 @@ district_giga_frameworld_sanctuary_advanced = {
 		}
 		ai_unobtainium = 1000
 	}
+
+	inline_script = {
+		script = buildings/effects/type/inline_evolved_bureaucratic
+		tier = 2
+		type = machine
+	}
 }
 
 ###############################################################################################################
@@ -1631,22 +1662,11 @@ district_giga_frameworld_science = {
 		trigger = ""
 	}
 
-	# Modifiers
-		inline_script = {
-			script = buildings/effects/inline_evolved_gestalt_extrospective
-			tier = 1
-		}
-
-		inline_script = {
-			script = buildings/effects/inline_evolved_scientific_belief
-			tier = 1
-		}
-
-		inline_script = {
-			script = buildings/effects/inline_evolved_corporate_researchbureau
-			tier = 1
-		}
-	# /
+	inline_script = {
+		script = buildings/effects/type/inline_evolved_research_lab
+		tier = 1
+		type = all
+	}
 
 	ai_resource_production = {
 		ai_unobtainium = 1000
@@ -2253,6 +2273,13 @@ district_giga_frameworld_fortress = {
 		mult = 1
 		display = with_desc
 		trigger = ""
+	}
+
+
+	inline_script = {
+		script = buildings/effects/type/inline_evolved_fortress
+		tier = 1
+		type = all
 	}
 	
 	triggered_desc = {

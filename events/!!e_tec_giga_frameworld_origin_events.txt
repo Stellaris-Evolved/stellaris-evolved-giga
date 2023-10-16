@@ -93,103 +93,186 @@ country_event = {
 
 		##### END DOCS
 
+		# start outpost situation
+		start_situation = {
+			type = giga_situation_frameworld_outposts
+			target = capital_scope
+		}
+
 		# set up AI variables
 		set_variable = {
 			which = frameworld_ai_outpost_candidate_count
 			value = 0
 		}
 
+		#event_target:giga_global_situation_country = {
+		#	start_situation = {
+		#		type = giga_situation_frameworld_planet_effects
+		#		target = prev.capital_scope
+		#	}
+		#}
+
 		# associate this country with a specific frame
 		set_country_flag = giga_frameworld@capital_scope
 
-		capital_scope = {
-			# associate the frameworld with the country too
-			set_planet_flag = giga_frameworld@root
-
-			# fix the entity
-			giga_frameworld_update_entity_with_fallback = {
-				WHO = root
+		if = {
+			limit = {
+				exists = capital_scope
 			}
-			
-			# spawn defensive stations
-			giga_frameworld_spawn_starting_defensive_stations = { WHO = root }
-			
-			# clear normal planet stuff we can't use
-			clear_deposits = yes
-			#remove_all_districts = yes # this wrecks our lab due to not enough building slots
-			
-			# strip extra resources from the black hole, we want to make sure it's clean
-			solar_system.star = {
+			capital_scope = {
+				# associate the frameworld with the country too
+				set_planet_flag = giga_frameworld@root
+
+				# clear the conquered modifier which apparently gets executed BEFORE the start event
+				remove_modifier = frameworld_conquered
+
+				# fix the entity
+				giga_frameworld_update_entity_with_fallback = {
+					WHO = root
+				}
+
+				# spawn defensive stations
+				giga_frameworld_spawn_starting_defensive_stations = { WHO = root }
+
+				# clear normal planet stuff we can't use
 				clear_deposits = yes
-			}
-			
-			# make sure the variables are set up for expansion decisions
-			giga_frameworld_init_variables = yes
+				#remove_all_districts = yes # this wrecks our lab due to not enough building slots
 
-			# set other AI variables
-			set_variable = {
-				which = frameworld_ai_artisan_modifier
-				value = 0
-			}
-			
-			##### set up deposits
-			
-			add_deposit = d_frameworld_core
-			
-			# max mining districts
-			add_deposit = d_frameworld_remnants
+				# strip extra resources from the black hole, we want to make sure it's clean
+				solar_system.star = {
+					clear_deposits = yes
+				}
 
-			# job upkeep adjustment
-			add_deposit = d_giga_job_upkeep
-			
-			##### replace districts
-			remove_all_districts = yes
-			while = {
-				count = value:tec_start_city_district_count
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_giga_frameworld_city
-				}
-			}
-	
-			# 4 - 6 jobs - EVOLVED NOTE - farming and swaps
-			while = {
-				count = value:tec_start_farming_district_count
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_giga_frameworld_farming
-				}
-			}
-	
-			# 4 jobs - EVOLVED NOTE - mining and swaps 
-			while = {
-				count = value:tec_start_mining_district_count
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_giga_frameworld_mining
-				}
-			}
-	
-			# 2 jobs - EVOLVED NOTE - generator and swaps 
-			while = {
-				count = value:tec_start_generator_district_count
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_giga_frameworld_generator
-				}
-			}
-	
-			# 4 jobs - EVOLVED NOTE - industrial and swaps 
-			while = {
-				count = value:tec_start_industrial_district_count
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_giga_frameworld_industrial
-				}
-			}
-			
-			#####
-			
-			# get rid of any bad districts or buildings which can't be supported
-			validate_and_repair_planet_buildings_and_districts = yes
+				# make sure the variables are set up for expansion decisions
+				giga_frameworld_init_variables = yes
 
-			# set the maintenance mod on
-			giga_frameworld_apply_expanded_maintenance_modifier = yes
+				# set other AI variables
+				set_variable = {
+					which = frameworld_ai_artisan_modifier
+					value = 0
+				}
+
+				##### set up deposits
+
+				# an appropriate core
+				if = {
+					limit = { root = { is_regular_empire = yes }	}
+					add_deposit = d_frameworld_admin
+				}
+				else_if = {
+					limit = { root = { is_hive_empire = yes }	}
+					add_deposit = d_frameworld_hive
+				}
+				else_if = {
+					limit = { root = { is_machine_empire = yes }	}
+					add_deposit = d_frameworld_core
+				}
+
+
+				# max mining districts
+				add_deposit = d_frameworld_remnants
+
+				# environmentalist nature preserve
+				if = {
+					limit = {
+						root = { giga_is_environmentalist = yes }
+					}
+					remove_building = building_ranger_lodge
+					add_deposit = d_frameworld_nature_preserve
+				}
+
+				# job upkeep adjustment
+				add_deposit = d_giga_job_upkeep
+
+				##### replace districts
+				add_modifier = {
+					modifier = frameworld_building_wreck_fix
+					days = 3
+				}
+
+				remove_all_districts = yes
+				while = {
+					count = value:tec_start_city_district_count
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_giga_frameworld_city
+					}
+				}
+
+				# 4 - 6 jobs - EVOLVED NOTE - farming and swaps
+				while = {
+					count = value:tec_start_farming_district_count
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_giga_frameworld_farming
+					}
+				}
+
+				# 4 jobs - EVOLVED NOTE - mining and swaps
+				while = {
+					count = value:tec_start_mining_district_count
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_giga_frameworld_mining
+					}
+				}
+
+				# 2 jobs - EVOLVED NOTE - generator and swaps
+				while = {
+					count = value:tec_start_generator_district_count
+					add_district_and_planet_size_if_needed_effect = {
+						district = district_giga_frameworld_generator
+					}
+				}
+
+				# 4 jobs - EVOLVED NOTE - industrial and swaps
+				while = {
+					count = value:tec_start_industrial_district_count
+					if = {
+						# alternate factory-foundry for normal empires
+						limit = {
+							owner = { is_gestalt = no }
+						}
+						if = {
+							limit = { not = { has_planet_flag = foundry_next } }
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_giga_frameworld_factory
+							}
+							set_planet_flag = foundry_next
+						}
+						else = {
+							add_district_and_planet_size_if_needed_effect = {
+								district = district_giga_frameworld_foundry
+							}
+							remove_planet_flag = foundry_next
+						}
+					}
+					else = {
+						# all foundry for gestalts, servitor can rely on their starting sanctuary
+						add_district_and_planet_size_if_needed_effect = {
+							district = district_giga_frameworld_foundry
+						}
+					}
+				}
+
+				#####
+				remove_modifier = frameworld_building_wreck_fix
+
+				# get rid of any bad districts or buildings which can't be supported
+				validate_and_repair_planet_buildings_and_districts = yes
+
+				# fix unemployed pops from the initial district shuffle
+				every_owned_pop = {
+					limit = {
+						is_unemployed = yes
+					}
+					clear_pop_category = yes
+				}
+				check_planet_employment = yes
+
+				# set the maintenance mod on
+				giga_frameworld_apply_expanded_maintenance_modifier = yes
+
+				# set up extra growth mechanics
+				giga_extra_growth_setup = yes
+			}
 		}
 	}
 }

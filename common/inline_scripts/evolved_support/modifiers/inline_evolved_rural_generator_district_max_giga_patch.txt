@@ -1,0 +1,13 @@
+triggered_planet_modifier = {
+    potential = {
+        exists = owner
+
+        $trigger$
+
+        giga_uses_generator_district = yes
+    }
+    modifier = {
+        district_giga_planet_generator_max = $value$
+    }
+    mult = $mult$
+}

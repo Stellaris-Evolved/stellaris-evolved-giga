@@ -1,0 +1,6 @@
+
+triggered_planet_modifier = {
+    modifier = {
+        planet_cultivators_produces_mult = 0.15
+    }
+}

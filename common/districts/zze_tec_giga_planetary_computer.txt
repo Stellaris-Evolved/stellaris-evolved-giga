@@ -45,16 +45,14 @@ district_giga_pcc_admin = {
 	show_on_uncolonized = {
 		uses_district_set = giga_planetary_computer
 		from = {
-			is_spiritualist = no
-			has_make_spiritualist_perk = no
+			tec_country_uses_priests_and_temples = no
 		}
 	}
 	potential = {
 		uses_district_set = giga_planetary_computer
 		exists = owner
 		owner = {
-			is_spiritualist = no
-			has_make_spiritualist_perk = no
+			tec_country_uses_priests_and_temples = no
 		}
 	}
 	resources = {

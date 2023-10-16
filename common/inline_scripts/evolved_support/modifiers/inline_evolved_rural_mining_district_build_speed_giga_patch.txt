@@ -1,0 +1,43 @@
+triggered_planet_modifier = {
+    potential = {
+        exists = owner
+
+        $trigger$
+
+        giga_uses_mining_district = yes
+    }
+    modifier = {
+        planet_district_giga_planet_mining_max_build_speed_mult = $value$
+    }
+    mult = $mult$
+}
+
+triggered_planet_modifier = {
+    potential = {
+        exists = owner
+
+        $trigger$
+
+        uses_district_set = giga_frameworld
+        not = { has_planet_flag = frameworld_decompressor }
+    }
+    modifier = {
+        planet_district_giga_frameworld_mining_build_speed_mult = $value$
+    }
+    mult = $mult$
+}
+
+triggered_planet_modifier = {
+    potential = {
+        exists = owner
+
+        $trigger$
+
+        uses_district_set = giga_frameworld
+        has_planet_flag = frameworld_decompressor
+    }
+    modifier = {
+        planet_district_giga_frameworld_decompressor_build_speed_mult = $value$
+    }
+    mult = $mult$
+}
