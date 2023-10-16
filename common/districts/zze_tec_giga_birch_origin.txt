@@ -28,12 +28,13 @@ district_giga_origin_birch_lab = {
 	resources = {
 		category = planet_districts
 
-		cost = {
-			minerals = 400
-		}
-
-		upkeep = {
-			energy = 3
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = 400
+			upkeep = 3
 		}
 
 		# expedition 2

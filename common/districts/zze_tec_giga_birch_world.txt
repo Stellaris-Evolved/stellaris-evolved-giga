@@ -41,11 +41,17 @@ district_giga_birch_structure = {
 
 	resources = {
 		category = planet_districts
-		cost = { 
-			minerals = @giga_birch_insula_cost 
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_insula_cost
+			upkeep = @giga_birch_insula_maintenance
+		}
+		cost = {
 			alloys = @giga_birch_insula_cost 
 		}
-		upkeep = { energy = @giga_birch_insula_maintenance }
 	}
 
 	planet_modifier = {
@@ -132,11 +138,17 @@ district_giga_birch_orykta = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_insula_cost
+			upkeep = @giga_birch_insula_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_insula_cost
 			alloys = @giga_birch_insula_cost 
 		}
-		upkeep = { energy = @giga_birch_insula_maintenance }
 	}
 
 	planet_modifier = {
@@ -261,12 +273,18 @@ district_giga_birch_orykta_energy = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			alloys = @giga_birch_sector_alt_cost
 		}
 		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
 			alloys = @giga_birch_sector_alt_maintenance
 		}
 	}
@@ -340,12 +358,18 @@ district_giga_birch_orykta_minerals = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			alloys = @giga_birch_sector_alt_cost
 		}
 		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
 			alloys = @giga_birch_sector_alt_maintenance
 		}
 	}
@@ -397,11 +421,154 @@ district_giga_birch_orykta_minerals = {
 
 ##############################################################################################################################
 
-# district_giga_birch_orykta_dark_matter
+district_giga_birch_orykta_dark_matter = {
+	base_buildtime = @giga_birch_sector_time
+	is_capped_by_modifier = yes
+
+	show_on_uncolonized = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_orykta
+		exists = from
+		from = { has_technology = tech_mine_dark_matter }
+	}
+
+	potential = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_orykta
+		exists = owner
+		owner = { has_technology = tech_mine_dark_matter }
+	}
+
+	allow = {
+		giga_birch_district_allow = { category = orykta }
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
+		cost = {
+			volatile_motes = @giga_birch_sector_sr_cost
+		}
+		upkeep = {
+			volatile_motes = @giga_birch_sector_sr_maintenance
+		}
+	}
+
+	planet_modifier = {
+		giga_birch_district_orykta_tag = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_gestalt = no } }
+
+		job_giga_dark_matter_weaver_add = @sector_jobs
+		job_giga_birch_orykta_worker_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = { exists = owner owner = { is_gestalt = no } }
+		text = job_giga_dark_matter_weaver_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_gestalt = yes } }
+
+		job_giga_dark_matter_weaver_drone_add = @sector_jobs
+		job_giga_birch_orykta_worker_drone_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = { exists = owner owner = { is_gestalt = yes } }
+		text = job_giga_dark_matter_weaver_drone_effect_desc
+	}
+
+	on_queued 	= { giga_birch_district_queued   = { category = orykta type = orykta_dark_matter } }
+	on_unqueued = { giga_birch_district_unqueued = { category = orykta type = orykta_dark_matter } }
+	on_built 	= { giga_birch_district_built 	 = { category = orykta type = orykta_dark_matter } }
+	on_destroy 	= { giga_birch_district_destroy  = { category = orykta type = orykta_dark_matter } }
+}
+
 
 ##############################################################################################################################
 
-# district_giga_birch_orykta_negative_mass
+district_giga_birch_orykta_negative_mass = {
+	base_buildtime = @giga_birch_sector_time
+	is_capped_by_modifier = yes
+
+	show_on_uncolonized = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_orykta
+		not = { has_global_flag = ehof_disabled }
+		exists = from
+		from = { has_technology = tech_nm_utilization_1 }
+	}
+
+	potential = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_orykta
+		not = { has_global_flag = ehof_disabled }
+		exists = owner
+		owner = { has_technology = tech_nm_utilization_1 }
+	}
+
+	allow = {
+		giga_birch_district_allow = { category = orykta }
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
+		cost = {
+			alloys = @giga_birch_sector_alt_cost
+		}
+		upkeep = {
+			alloys = @giga_birch_sector_alt_maintenance
+		}
+	}
+
+	planet_modifier = {
+		giga_birch_district_orykta_tag = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_gestalt = no } }
+
+		job_ehof_energy_converter_add = @sector_jobs
+		job_giga_birch_orykta_worker_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = { exists = owner owner = { is_gestalt = no } }
+		text = job_ehof_energy_converter_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_gestalt = yes } }
+
+		job_ehof_energy_converter_drone_add = @sector_jobs
+		job_giga_birch_orykta_worker_drone_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = { exists = owner owner = { is_gestalt = yes } }
+		text = job_ehof_energy_converter_drone_effect_desc
+	}
+
+	on_queued 	= { giga_birch_district_queued   = { category = orykta type = orykta_negative_mass } }
+	on_unqueued = { giga_birch_district_unqueued = { category = orykta type = orykta_negative_mass } }
+	on_built 	= { giga_birch_district_built 	 = { category = orykta type = orykta_negative_mass } }
+	on_destroy 	= { giga_birch_district_destroy  = { category = orykta type = orykta_negative_mass } }
+}
 
 ##############################################################################################################################
 ##############################################################################################################################
@@ -427,11 +594,17 @@ district_giga_birch_ktisma = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_insula_cost
+			upkeep = @giga_birch_insula_cost
+		}
 		cost = {
-			minerals = @giga_birch_insula_cost
 			alloys = @giga_birch_insula_cost 
 		}
-		upkeep = { energy = @giga_birch_insula_maintenance }
 	}
 
 	planet_modifier = {
@@ -558,12 +731,18 @@ district_giga_birch_ktisma_foundry = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			volatile_motes = @giga_birch_sector_sr_cost
 		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
+		upkeep = {
 			volatile_motes = @giga_birch_sector_sr_maintenance
 		}
 	}
@@ -636,12 +815,18 @@ district_giga_birch_ktisma_factory = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			rare_crystals = @giga_birch_sector_sr_cost
 		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
+		upkeep = {
 			rare_crystals = @giga_birch_sector_sr_maintenance
 		}
 	}
@@ -686,11 +871,196 @@ district_giga_birch_ktisma_factory = {
 
 ##############################################################################################################################
 
-# district_giga_birch_ktisma_supertensiles
+district_giga_birch_ktisma_supertensiles = {
+	base_buildtime = @giga_birch_sector_time
+	is_capped_by_modifier = yes
+
+	show_on_uncolonized = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_ktisma
+		has_global_flag = @giga_amb_flag
+		exists = from
+		from = { has_technology = giga_tech_amb_supertensiles }
+	}
+
+	potential = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_ktisma
+		has_global_flag = @giga_amb_flag
+		exists = owner
+		owner = { has_technology = giga_tech_amb_supertensiles }
+	}
+
+	allow = {
+		giga_birch_district_allow = { category = ktisma }
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
+		cost = {
+			alloys = @giga_birch_sector_alt_cost
+		}
+		upkeep = {
+			alloys = @giga_birch_sector_alt_maintenance
+		}
+	}
+
+	planet_modifier = {
+		giga_birch_district_ktisma_tag = 1
+	}
+
+	# non-gestalt
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		job_giga_megaengineer_add = @sector_jobs
+		job_giga_birch_ktisma_worker_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = job_giga_megaengineer_effect_desc
+	}
+
+	# gestalt
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		job_giga_megaengineer_drone_add = @sector_jobs
+		job_giga_birch_ktisma_worker_drone_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_giga_megaengineer_drone_effect_desc
+	}
+
+	on_queued 	= { giga_birch_district_queued   = { category = ktisma type = ktisma_supertensiles } }
+	on_unqueued = { giga_birch_district_unqueued = { category = ktisma type = ktisma_supertensiles } }
+	on_built 	= { giga_birch_district_built 	 = { category = ktisma type = ktisma_supertensiles } }
+	on_destroy 	= { giga_birch_district_destroy  = { category = ktisma type = ktisma_supertensiles } }
+}
 
 ##############################################################################################################################
 
-# district_giga_birch_ktisma_sentient_metal
+district_giga_birch_ktisma_sentient_metal = {
+	base_buildtime = @giga_birch_sector_time
+	is_capped_by_modifier = yes
+
+	show_on_uncolonized = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_ktisma
+		not = { has_global_flag = ehof_disabled }
+		exists = from
+		from = { has_technology = tech_ehof_sentient_tier_1 }
+	}
+
+	potential = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_ktisma
+		not = { has_global_flag = ehof_disabled }
+		exists = owner
+		owner = { has_technology = tech_ehof_sentient_tier_1 }
+	}
+
+	allow = {
+		giga_birch_district_allow = { category = ktisma }
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
+		cost = {
+			alloys = @giga_birch_sector_alt_cost
+		}
+		upkeep = {
+			alloys = @giga_birch_sector_alt_maintenance
+		}
+	}
+
+	planet_modifier = {
+		giga_birch_district_ktisma_tag = 1
+	}
+
+	# non-gestalt
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		job_ehof_cultivator_add = @sector_jobs
+		job_giga_birch_ktisma_worker_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = job_ehof_cultivator_effect_desc
+	}
+
+	# gestalt
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		job_ehof_cultivation_drone_add = @sector_jobs
+		job_giga_birch_ktisma_worker_drone_add = @sector_workers
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = job_ehof_cultivation_drone_effect_desc
+	}
+
+	on_queued 	= { giga_birch_district_queued   = { category = ktisma type = ktisma_sentient_metal } }
+	on_unqueued = { giga_birch_district_unqueued = { category = ktisma type = ktisma_sentient_metal } }
+	on_built 	= { giga_birch_district_built 	 = { category = ktisma type = ktisma_sentient_metal } }
+	on_destroy 	= { giga_birch_district_destroy  = { category = ktisma type = ktisma_sentient_metal } }
+}
+
 
 ##############################################################################################################################
 
@@ -714,12 +1084,18 @@ district_giga_birch_ktisma_refinery = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			alloys = @giga_birch_sector_alt_cost
 		}
 		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
 			alloys = @giga_birch_sector_alt_maintenance
 		}
 	}
@@ -823,12 +1199,16 @@ district_giga_birch_physma = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_birch_insula_cost
-			alloys = @giga_birch_insula_cost 
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_insula_cost
+			upkeep = @giga_birch_insula_maintenance
 		}
-		upkeep = {
-			energy = @giga_birch_insula_maintenance
+		cost = {
+			alloys = @giga_birch_insula_cost 
 		}
 	}
 
@@ -966,12 +1346,18 @@ district_giga_birch_physma_farm = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			alloys = @giga_birch_sector_alt_cost
 		}
 		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
 			alloys = @giga_birch_sector_alt_maintenance
 		}
 	}
@@ -1050,12 +1436,18 @@ district_giga_birch_physma_laboratory = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			exotic_gases = @giga_birch_sector_sr_cost
 		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
+		upkeep = {
 			exotic_gases = @giga_birch_sector_sr_maintenance
 		}
 	}
@@ -1130,12 +1522,18 @@ district_giga_birch_physma_trade = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			rare_crystals = @giga_birch_sector_sr_cost
 		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
+		upkeep = {
 			rare_crystals = @giga_birch_sector_sr_maintenance
 		}
 	}
@@ -1263,12 +1661,18 @@ district_giga_birch_physma_bureaucratic = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			rare_crystals = @giga_birch_sector_sr_cost
 		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
+		upkeep = {
 			rare_crystals = @giga_birch_sector_sr_maintenance
 		}
 	}
@@ -1335,12 +1739,18 @@ district_giga_birch_physma_temple = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
 		cost = {
-			minerals = @giga_birch_sector_cost
 			rare_crystals = @giga_birch_sector_sr_cost
 		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
+		upkeep = {
 			rare_crystals = @giga_birch_sector_sr_maintenance
 		}
 	}
@@ -1435,8 +1845,13 @@ district_giga_birch_physma_relay = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_birch_sector_cost
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
 		}
 		cost = {
 			trigger = {
@@ -1452,7 +1867,6 @@ district_giga_birch_physma_relay = {
 			}
 			exotic_gases = @giga_birch_sector_sr_cost
 		}
-		upkeep = { energy = @giga_birch_sector_maintenance }
 		upkeep = {
 			trigger = {
 				exists = owner
@@ -1504,11 +1918,79 @@ district_giga_birch_physma_relay = {
 
 ##############################################################################################################################
 
-# district_giga_birch_physma_sanctuary 
+district_giga_birch_physma_sanctuary = {
+	base_buildtime = @giga_birch_sector_time
+	is_capped_by_modifier = yes
+	icon = district_giga_birch_physma_unity
+
+	show_on_uncolonized = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_physma
+		exists = from
+		from = {
+			is_gestalt = yes
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	potential = {
+		uses_district_set = giga_birch
+		has_district = district_giga_birch_physma
+		exists = owner
+		owner = {
+			is_gestalt = yes
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	allow = {
+		giga_birch_district_allow = { category = physma }
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_birch_physma_bureaucratic
+		district_giga_birch_physma_temple
+		district_giga_birch_physma_relay
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_birch_sector_cost
+			upkeep = @giga_birch_sector_maintenance
+		}
+		cost = {
+			exotic_gases = @giga_birch_sector_sr_cost
+		}
+		upkeep = {
+			exotic_gases = @giga_birch_sector_sr_maintenance
+		}
+	}
+
+	planet_modifier = {
+		giga_birch_district_physma_tag = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = { always = yes }
+		job_bio_trophy_add = 30
+		job_artisan_drone_add = 2
+		job_giga_birch_physma_worker_drone_add = @sector_workers
+	}
+	triggered_desc = { text = job_bio_trophy_effect_desc }
+	triggered_desc = { text = job_artisan_drone_effect_desc }
+
+	on_queued 	= { giga_birch_district_queued   = { category = physma type = physma_sanctuary } }
+	on_unqueued = { giga_birch_district_unqueued = { category = physma type = physma_sanctuary } }
+	on_built 	= { giga_birch_district_built 	 = { category = physma type = physma_sanctuary } }
+	on_destroy 	= { giga_birch_district_destroy  = { category = physma type = physma_sanctuary } }
+}
 
 ##############################################################################################################################
 ##############################################################################################################################
 ##############################################################################################################################
-
-# defunct swaps
-# district_giga_birch_extraction 

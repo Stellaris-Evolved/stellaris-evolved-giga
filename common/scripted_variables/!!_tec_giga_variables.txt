@@ -1,0 +1,6 @@
+
+@b4_machine_production_minerals_cost = 500
+@b4_machine_production_alloys_cost = 300
+
+@b5_machine_production_minerals_cost = 1000
+@b5_machine_production_alloys_cost = 500

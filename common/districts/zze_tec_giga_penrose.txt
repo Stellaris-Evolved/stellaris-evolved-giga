@@ -93,12 +93,18 @@ district_penrose_science = {
 	}
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			exotic_gases = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			exotic_gases = @giga_rw_maintenance_sr
 		}
 	}

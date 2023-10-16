@@ -32,8 +32,14 @@ district_virtual_city = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = { minerals = @giga_rw_cost }
-		upkeep = { energy = @giga_rw_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 	}
 
 	# Modifiers
@@ -118,8 +124,14 @@ district_virtual_hive = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = { minerals = @giga_rw_cost }
-		upkeep = { energy = @giga_rw_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 	}
 
 	
@@ -198,8 +210,14 @@ district_virtual_nexus = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = { minerals = @giga_rw_cost }
-		upkeep = { energy = @giga_rw_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 	}
 
 	# Modifiers
@@ -269,12 +287,18 @@ district_virtual_science = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			exotic_gases = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			exotic_gases = @giga_rw_maintenance_sr
 		}
 	}
@@ -348,12 +372,18 @@ district_virtual_leisure = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			rare_crystals = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			rare_crystals = @giga_rw_maintenance_sr
 		}
 	}
@@ -454,12 +484,18 @@ district_virtual_maintenance = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			rare_crystals = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			rare_crystals = @giga_rw_maintenance_sr
 		}
 	}
@@ -548,12 +584,18 @@ district_virtual_administrative = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			rare_crystals = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			rare_crystals = @giga_rw_maintenance_sr
 		}
 	}
@@ -636,12 +678,18 @@ district_virtual_religious = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			rare_crystals = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			rare_crystals = @giga_rw_maintenance_sr
 		}
 	}
@@ -767,12 +815,18 @@ district_virtual_relay = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			rare_crystals = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			rare_crystals = @giga_rw_maintenance_sr
 		}
 	}
@@ -809,17 +863,384 @@ district_virtual_relay = {
 ### District Five (Ethics) #######
 ##################################
 
-# district_virtual_amalgamation
+district_virtual_amalgamation = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
 
-# district_virtual_livestock 
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			giga_vr_amalgamation_trigger = yes
+		}
+	}
 
-# district_virtual_hell
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			giga_vr_amalgamation_trigger = yes
+		}
+	}
 
-# district_virtual_diplomatic 
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_hell
+		district_virtual_diplomatic
+		district_virtual_diplomatic_hive
+		district_virtual_diplomatic_machine
+		district_virtual_training
+		district_virtual_training_gestalt
+	}
 
-# district_virtual_diplomatic_hive
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @[ 2 * giga_rw_maintenance]
+		}
+	}
 
-# district_virtual_diplomatic_machine
+	planet_modifier = {
+		planet_housing_add = 5
+		job_giga_virtual_organic_battery_add = 20
+	}
+
+	triggered_desc = { text = job_giga_virtual_organic_battery_effect_desc }
+}
+
+district_virtual_livestock = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			giga_vr_livestock_trigger = yes
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			giga_vr_livestock_trigger = yes
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_amalgamation
+		district_virtual_hell
+		district_virtual_diplomatic
+		district_virtual_diplomatic_hive
+		district_virtual_diplomatic_machine
+		district_virtual_training
+		district_virtual_training_gestalt
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @[ 2 * giga_rw_maintenance]
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 5
+		job_giga_virtual_livestock_add = 20
+	}
+
+	triggered_desc = { text = job_giga_virtual_livestock_effect_desc }
+
+	triggered_desc = { trigger = { exists = owner owner = { is_pacifist = yes } } 		 text = job_giga_virtual_livestock_effect_desc_pacifist }
+	triggered_desc = { trigger = { exists = owner owner = { is_militarist = yes } } 	 text = job_giga_virtual_livestock_effect_desc_militarist }
+	triggered_desc = { trigger = { exists = owner owner = { is_authoritarian = yes } } 	 text = job_giga_virtual_livestock_effect_desc_authoritarian }
+	triggered_desc = { trigger = { exists = owner owner = { is_egalitarian = yes } } 	 text = job_giga_virtual_livestock_effect_desc_egalitarian }
+	triggered_desc = { trigger = { exists = owner owner = { is_spiritualist = yes } } 	 text = job_giga_virtual_livestock_effect_desc_spiritualist }
+	triggered_desc = { trigger = { exists = owner owner = { is_materialist = yes } } 	 text = job_giga_virtual_livestock_effect_desc_materialist }
+
+	triggered_desc = { trigger = { exists = owner owner = { is_elitist = yes } } 		 text = job_giga_virtual_livestock_effect_desc_elitist }
+	triggered_desc = { trigger = { exists = owner owner = { is_pluralist = yes } } 		 text = job_giga_virtual_livestock_effect_desc_pluralist }
+	triggered_desc = { trigger = { exists = owner owner = { is_ecocentrist = yes } } 	 text = job_giga_virtual_livestock_effect_desc_ecocentrist }
+	triggered_desc = { trigger = { exists = owner owner = { is_anthropocentric = yes } } text = job_giga_virtual_livestock_effect_desc_anthropocentric }
+	triggered_desc = { trigger = { exists = owner owner = { is_competitive = yes } } 	 text = job_giga_virtual_livestock_effect_desc_competitive }
+	triggered_desc = { trigger = { exists = owner owner = { is_cooperative = yes } } 	 text = job_giga_virtual_livestock_effect_desc_cooperative }
+}
+
+district_virtual_hell = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			or = {
+				giga_vr_hell_trigger = yes
+				has_valid_civic = civic_dystopian_society
+			}
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			or = {
+				giga_vr_hell_trigger = yes
+				has_valid_civic = civic_dystopian_society
+			}
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_amalgamation
+		district_virtual_diplomatic
+		district_virtual_diplomatic_hive
+		district_virtual_diplomatic_machine
+		district_virtual_training
+		district_virtual_training_gestalt
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
+		cost = {
+			volatile_motes = @giga_rw_cost_sr
+		}
+		upkeep = {
+			volatile_motes = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		job_giga_virtual_hell_inmate_add = 10
+	}
+
+	triggered_desc = { text = job_giga_virtual_hell_inmate_effect_desc }
+
+	triggered_desc = { trigger = { exists = owner owner = { is_militarist = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_militarist }
+	triggered_desc = { trigger = { exists = owner owner = { is_authoritarian = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_authoritarian }
+	triggered_desc = { trigger = { exists = owner owner = { is_egalitarian = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_egalitarian }
+	triggered_desc = { trigger = { exists = owner owner = { is_spiritualist = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_spiritualist }
+	triggered_desc = { trigger = { exists = owner owner = { is_materialist = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_materialist }
+	triggered_desc = { trigger = { exists = owner owner = { is_xenophobe = yes } } 	 	 text = job_giga_virtual_hell_inmate_effect_desc_xenophobe }
+	triggered_desc = { trigger = { exists = owner owner = { is_xenophile = yes } } 	 	 text = job_giga_virtual_hell_inmate_effect_desc_xenophile }
+
+	triggered_desc = { trigger = { exists = owner owner = { is_elitist = yes } } 		 text = job_giga_virtual_hell_inmate_effect_desc_elitist }
+	triggered_desc = { trigger = { exists = owner owner = { is_pluralist = yes } } 		 text = job_giga_virtual_hell_inmate_effect_desc_pluralist }
+	triggered_desc = { trigger = { exists = owner owner = { is_ecocentrist = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_ecocentrist }
+	triggered_desc = { trigger = { exists = owner owner = { is_anthropocentric = yes } } text = job_giga_virtual_hell_inmate_effect_desc_anthropocentric }
+	triggered_desc = { trigger = { exists = owner owner = { is_competitive = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_competitive }
+	triggered_desc = { trigger = { exists = owner owner = { is_cooperative = yes } } 	 text = job_giga_virtual_hell_inmate_effect_desc_cooperative }
+}
+
+district_virtual_diplomatic = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			is_gestalt = no
+			giga_vr_diplomatic_trigger = yes
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			is_gestalt = no
+			giga_vr_diplomatic_trigger = yes
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_hell
+		district_virtual_amalgamation
+		district_virtual_diplomatic_hive
+		district_virtual_diplomatic_machine
+		district_virtual_training
+		district_virtual_training_gestalt
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
+		cost = {
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		job_giga_virtual_diplomat_add = 10
+		planet_giga_virtual_diplomats_energy_upkeep_add = 1
+	}
+
+	triggered_desc = { text = job_giga_virtual_diplomat_effect_desc }
+
+	triggered_desc = { trigger = { exists = owner owner = { is_militarist = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_militarist }
+	triggered_desc = { trigger = { exists = owner owner = { is_pacifist = yes } } 	 	 text = job_giga_virtual_diplomat_effect_desc_pacifist }
+	triggered_desc = { trigger = { exists = owner owner = { is_authoritarian = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_authoritarian }
+	triggered_desc = { trigger = { exists = owner owner = { is_egalitarian = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_egalitarian }
+	triggered_desc = { trigger = { exists = owner owner = { is_spiritualist = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_spiritualist }
+	triggered_desc = { trigger = { exists = owner owner = { is_materialist = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_materialist }
+	triggered_desc = { trigger = { exists = owner owner = { is_xenophobe = yes } } 	 	 text = job_giga_virtual_diplomat_effect_desc_xenophobe }
+	triggered_desc = { trigger = { exists = owner owner = { is_xenophile = yes } } 	 	 text = job_giga_virtual_diplomat_effect_desc_xenophile }
+
+	triggered_desc = { trigger = { exists = owner owner = { is_elitist = yes } } 		 text = job_giga_virtual_diplomat_effect_desc_elitist }
+	triggered_desc = { trigger = { exists = owner owner = { is_pluralist = yes } } 		 text = job_giga_virtual_diplomat_effect_desc_pluralist }
+	triggered_desc = { trigger = { exists = owner owner = { is_ecocentrist = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_ecocentrist }
+	triggered_desc = { trigger = { exists = owner owner = { is_anthropocentric = yes } } text = job_giga_virtual_diplomat_effect_desc_anthropocentric }
+	triggered_desc = { trigger = { exists = owner owner = { is_competitive = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_competitive }
+	triggered_desc = { trigger = { exists = owner owner = { is_cooperative = yes } } 	 text = job_giga_virtual_diplomat_effect_desc_cooperative }
+}
+
+district_virtual_diplomatic_hive = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_virtual_diplomatic
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			is_hive_empire = yes
+			giga_vr_diplomatic_trigger = yes
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			is_hive_empire = yes
+			giga_vr_diplomatic_trigger = yes
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_hell
+		district_virtual_amalgamation
+		district_virtual_diplomatic
+		district_virtual_diplomatic_machine
+		district_virtual_training
+		district_virtual_training_gestalt
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
+		cost = {
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		job_giga_virtual_diplomat_drone_add = 10
+		planet_giga_virtual_diplomats_energy_upkeep_add = 1
+	}
+
+	triggered_desc = { text = job_giga_virtual_diplomat_drone_effect_desc }
+}
+
+district_virtual_diplomatic_machine = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+	icon = district_virtual_diplomatic
+
+	show_on_uncolonized = {
+		uses_district_set = virtual_ring
+		from = {
+			is_machine_empire = yes
+			giga_vr_diplomatic_trigger = yes
+		}
+	}
+
+	potential = {
+		uses_district_set = virtual_ring
+		owner = {
+			is_machine_empire = yes
+			giga_vr_diplomatic_trigger = yes
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_livestock
+		district_virtual_hell
+		district_virtual_amalgamation
+		district_virtual_diplomatic
+		district_virtual_diplomatic_hive
+		district_virtual_training
+		district_virtual_training_gestalt
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
+		cost = {
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		job_giga_virtual_diplomat_machine_add = 10
+		planet_giga_virtual_diplomats_energy_upkeep_add = 1
+	}
+
+	triggered_desc = { text = job_giga_virtual_diplomat_machine_effect_desc }
+}
 
 district_virtual_training = {
 	base_buildtime = @giga_rw_district_buildtime
@@ -854,12 +1275,18 @@ district_virtual_training = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			exotic_gases = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			exotic_gases = @giga_rw_maintenance_sr
 		}
 	}
@@ -1158,12 +1585,18 @@ district_virtual_training_gestalt = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			exotic_gases = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			exotic_gases = @giga_rw_maintenance_sr
 		}
 	}
@@ -1239,12 +1672,18 @@ district_virtual_alloys = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			volatile_motes = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			volatile_motes = @giga_rw_maintenance_sr
 		}
 	}
@@ -1301,12 +1740,18 @@ district_virtual_generator = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			rare_crystals = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			rare_crystals = @giga_rw_maintenance_sr
 		}
 	}
@@ -1357,12 +1802,18 @@ district_virtual_mining = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		cost = {
-			minerals = @giga_rw_cost
 			volatile_motes = @giga_rw_cost_sr
 		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			volatile_motes = @giga_rw_maintenance_sr
 		}
 	}
@@ -1400,7 +1851,61 @@ district_virtual_mining = {
 ##################################
 ### Consumer Goods ###############
 ##################################
-# district_virtual_consumer 
+district_virtual_consumer = {
+	base_buildtime = @giga_rw_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		always = no
+		uses_district_set = virtual_ring
+		has_planet_flag = giga_virtual_industry
+	}
+
+	potential = {
+		always = no
+		uses_district_set = virtual_ring
+		has_planet_flag = giga_virtual_industry
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_virtual_city
+		district_virtual_hive
+		district_virtual_nexus
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
+		cost = {
+			rare_crystals = @giga_rw_cost_sr
+		}
+		upkeep = {
+			rare_crystals = @giga_rw_maintenance_sr
+		}
+	}
+
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_artisans_consumer_goods_produces_add = 1
+		planet_artisans_energy_upkeep_add = 0.5
+	}
+
+	inline_script = {
+		script = jobs/inline_evolved_artisan
+		count = 10
+		mult = 1
+		display = with_desc
+		trigger = ""
+	}
+}
 
 ##################################
 ### Shipyard #####################
@@ -1430,9 +1935,15 @@ district_virtual_shipyard = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_rw_cost }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_rw_cost
+			upkeep = @giga_rw_maintenance
+		}
 		upkeep = {
-			energy = @giga_rw_maintenance
 			alloys = @giga_rw_maintenance
 			exotic_gases = @giga_rw_maintenance_sr
 			volatile_motes = @giga_rw_maintenance_sr
@@ -1461,4 +1972,4 @@ district_virtual_shipyard = {
 ##################################
 ### Commercial ###################
 ##################################
-# district_virtual_commercial 
+# district_virtual_commercial

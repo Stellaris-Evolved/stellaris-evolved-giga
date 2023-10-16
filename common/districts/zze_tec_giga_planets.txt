@@ -17,8 +17,14 @@ district_giga_planet_geothermal = {
 
 	resources = {
 		category = planet_districts_generator
-		cost = { minerals = @giga_planet_cost }
-		upkeep = { energy = @giga_planet_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_cost
+			upkeep = @giga_planet_maintenance
+		}
 	}
 
 	# base stats
@@ -58,8 +64,14 @@ district_giga_planet_alloys = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_planet_urban_cost }
-		upkeep = { energy = @giga_planet_urban_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_urban_cost
+			upkeep = @giga_planet_urban_maintenance
+		}
 	}
 
 	# base stats
@@ -123,8 +135,14 @@ district_giga_planet_admin = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_planet_cost }
-		upkeep = { energy = @giga_planet_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_cost
+			upkeep = @giga_planet_maintenance
+		}
 	}
 
 	conversion_ratio = 1
@@ -187,8 +205,14 @@ district_giga_planet_admin_religious = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_planet_cost }
-		upkeep = { energy = @giga_planet_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_cost
+			upkeep = @giga_planet_maintenance
+		}
 	}
 
 	conversion_ratio = 1
@@ -253,8 +277,14 @@ district_giga_planet_sanctuary = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_planet_cost }
-		upkeep = { energy = @giga_planet_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_cost
+			upkeep = @giga_planet_maintenance
+		}
 	}
 
 	conversion_ratio = 1

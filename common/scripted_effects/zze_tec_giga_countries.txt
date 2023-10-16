@@ -48,9 +48,9 @@ create_solakia = {
 					}
 				}
 				create_leader = {
-					class = ruler
+					class = governor
 					species = event_target:solakians
-					name = "Dofus Teknik Makina"
+					name = "Dofus Tequenik Machina"
 					gender = male
 					effect = {
 						save_event_target_as = solakia_ruler
@@ -176,7 +176,7 @@ create_laurandar = {
 		civics = {
 			civic = civic_warrior_culture
 			civic = civic_cutthroat_politics
-            civic = civic_tec_military_council
+            civic = civic_tec_regular_military_council
 		}
 		flag = {
 			icon={
@@ -197,7 +197,7 @@ create_laurandar = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = governor
 				species = event_target:bribblish_ezics
 				name = "Aaron N. Bleu"
 				gender = male
@@ -309,8 +309,8 @@ create_kronk = {
 		name = "Kronk Realms"
 		authority = auth_oligarchic
 		ethos = {
-			ethic = ethic_fanatic_authoritarian
-			ethic = ethic_militarist
+			ethic = ethic_authoritarian
+			ethic = ethic_fanatic_militarist
 			ethic = ethic_xenophile
             ethic = ethic_elitist
 		}
@@ -335,7 +335,7 @@ create_kronk = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = governor
 				species = event_target:crockronks
 				gender = male
 				name = "Wolfgang"
@@ -440,7 +440,7 @@ create_katzen_socialist = {
 		civics = {
 			civic = civic_shared_burden
 			civic = civic_citizen_service
-            civic = civic_tec_syndical
+            civic = civic_tec_regular_syndical
 		}
 		flag = {
 			icon={
@@ -461,7 +461,7 @@ create_katzen_socialist = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = governor
 				species = event_target:flusion_katzens
 				name = "Meowkhail Katlinin"
 				gender = male
@@ -570,7 +570,7 @@ create_katzen_republic = {
 		civics = {
 			civic = civic_free_haven
 			civic = civic_beacon_of_liberty
-            civic = civic_tec_diplomats
+            civic = civic_tec_regular_political_virtue
 		}
 		flag = {
 			icon={
@@ -591,7 +591,7 @@ create_katzen_republic = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = governor
 				species = event_target:flusion_katzens
 				name = "Kibbles"
 				gender = male
@@ -699,9 +699,9 @@ create_katzen_realm = {
 		}
 		origin = origin_katzen_civil_war
 		civics = {
-			civic = civic_environmentalist
 			civic = civic_agrarian_idyll
-            civic = civic_tec_eco_keepers
+            civic = civic_tec_regular_eco_keepers
+			civic = civic_tec_regular_land_of_plenty
 		}
 		flag = {
 			icon={
@@ -722,7 +722,7 @@ create_katzen_realm = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = general
 				species = event_target:flusion_katzens
 				name = "Sergeant T-T"
 				gender = female
@@ -831,7 +831,7 @@ create_katzen_junta = {
 		civics = {
 			civic = civic_nationalistic_zeal
 			civic = civic_corvee_system
-            civic = civic_tec_caste_system
+            civic = civic_tec_regular_war_lords
 		}
 		flag = {
 			icon={
@@ -852,7 +852,7 @@ create_katzen_junta = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = admiral
 				species = event_target:flusion_katzens
 				name = "Elwin"
 				gender = female
@@ -963,7 +963,7 @@ create_katzen_douclaw = {
 		civics = {
 			civic = civic_distinguished_admiralty
 			civic = civic_free_haven
-            civic = civic_tec_war_engineers
+            civic = civic_tec_regular_war_engineers
 		}
 		flag = {
 			icon={
@@ -984,7 +984,7 @@ create_katzen_douclaw = {
 		type = default
 		effect = {
 			create_leader = {
-				class = ruler
+				class = admiral
 				species = event_target:douclaw_portrait
 				name = "Douclaw MacCathur"
 				skill = 6
@@ -1096,7 +1096,7 @@ create_katzen_loris = {
 		civics = {
 			civic = civic_warrior_culture
 			civic = civic_aristocratic_elite
-            civic = civic_tec_immutable_hierarchy
+            civic = civic_dystopian_society
 		}
 		flag = {
 			icon={
@@ -1140,7 +1140,7 @@ create_katzen_loris = {
 				}
 			}
 			create_leader = {
-				class = ruler
+				class = governor
 				species = event_target:loris_portrait
 				name = "Loris Von Kattensbach"
 				skill = 4
@@ -1156,7 +1156,7 @@ create_katzen_loris = {
 					save_global_event_target_as = flusion_loris
 					if = {
 						limit = { has_global_flag = giga_loris_is_now_soulbot }
-						add_trait = leader_trait_ruler_synthetic
+						add_trait = leader_trait_synthetic
 					}
 				}
 			}
@@ -1256,7 +1256,7 @@ create_katzen_dietrich = {
 		civics = {
 			civic = civic_nationalistic_zeal
 			civic = civic_slaver_guilds
-            civic = civic_tec_caste_system
+            civic = civic_police_state
 		}
 		flag = {
 			icon={
@@ -1304,7 +1304,7 @@ create_katzen_dietrich = {
 				}
 			}
 			create_leader = {
-				class = ruler
+				class = admiral
 				species = event_target:dietrich_portrait
 				name = "Dietrich Videafurr"
 				skill = 6
@@ -1414,7 +1414,7 @@ create_ezic_revolt = {
 		}
 		civics = {
 			civic = civic_environmentalist
-			civic = civic_tec_spiritual_seekers
+			civic = civic_tec_regular_spiritual_seekers
 			civic = civic_feudal_realm
 		}
 		flag = {
@@ -1556,308 +1556,6 @@ create_ezic_revolt = {
 			volatile_motes = 5000
 			rare_crystals = 5000
 			influence = 250
-		}
-	}
-}
-
-#HKE holy katzen empire refederates
-country_event = { #HKE REFEDERATES
-	id = giga_hke.0026
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		any_federation = { has_federation_type = hke_federation }
-	}
-
-	immediate = {
-		event_target:giga_hke_leader = {
-			ruler = {
-				exile_leader_as = hkeruler
-			}
-			leave_alliance = {
-				override_requirements = yes
-			}
-			capital_scope = {
-				create_country = {
-					name = "Holy Katzen Empire"
-					species = event_target:giga_hke_leader.species
-					type = default
-					civics = {
-						civic = civic_distinguished_admiralty
-						civic = civic_warrior_culture
-						civic = civic_spirit_of_the_kaiser
-					}
-					name_list = "katzens"
-					flag = {
-						icon={
-							category="human"
-							file="flag_human_2.dds"
-						}
-						background={
-							category="backgrounds"
-							file="stripe.dds"
-						}
-						colors={
-							"grey"
-							"grey"
-							"null"
-							"null"
-						}
-					}
-					authority = auth_imperial
-					ethos = {
-						ethic = ethic_materialist
-						ethic = ethic_fanatic_militarist
-						ethic = ethic_fanatic_authoritarian
-					}
-					origin = origin_hke
-					effect = {
-						set_leader = hkeruler
-						set_graphical_culture = reptilian_01
-						ruler = { save_global_event_target_as = hkekaiser }
-						add_resource = {
-							alloys = 500000
-							food = 100000
-							minerals = 100000
-							energy = 100000
-							consumer_goods = 100000
-							unity = 1000000
-						}
-						apply_katzen_difficulty = yes
-						every_galaxy_planet = { set_surveyed = { surveyed = yes surveyor = root } }
-						add_modifier = { modifier = "hke_buffs" days = -1 }
-						add_modifier = { modifier = "hke_centra_3" days = -1 }
-						save_global_event_target_as = hke_federated_country
-						establish_communications_no_message = root
-						add_opinion_modifier = { who = root modifier = opinion_giga_galactic_threat }
-						set_country_flag = hke_federated
-						copy_techs_from = { target = event_target:giga_hke_leader }
-					}
-				}
-				set_owner = event_target:hke_federated_country
-				set_capital = yes
-				save_global_event_target_as = hke_capital
-				owner = {
-					create_leader = {
-						class = admiral
-						species = event_target:flusion_katzens
-						name = "Dietrich Videafurr"
-						skill = 10
-						traits = {
-							trait = katzen_trait_elite
-							trait = katzen_trait_blitzkrieg
-							trait = katzen_trait_nukelad
-						}
-						effect = {
-							save_event_target_as = holy_katzen_admiral
-						}
-					}
-				}
-				create_fleet = { #Spawn a new task force
-					name = "Helligekatzarmada Einer"
-					settings = {
-						spawn_debris = no
-						can_upgrade = no
-						uses_naval_capacity = no
-					}
-					effect = {
-						set_owner = event_target:hke_federated_country
-						create_ship = {
-							name = "Kaiser Alpha"
-							design = "Kaiser Moon"
-							prefix = no
-						}
-						while = {
-							count = 20
-							create_ship = {
-								name = random
-								design = "Neu-Clermeowth"
-								prefix = no
-							}
-						}
-						while = {
-							count = 45
-							create_ship = {
-								name = random
-								design = "Douclaw"
-								prefix = no
-							}
-						}
-						while = {
-							count = 100
-							create_ship = {
-								name = random
-								design = "Katzchen"
-								prefix = no
-							}
-						}
-						assign_leader = event_target:holy_katzen_admiral
-						set_fleet_flag = katzen_reserve_fleet
-						set_fleet_flag = katzen_cruiser_fleet
-						set_location = {
-							target = event_target:hke_capital
-							distance = 10
-							angle = random
-						}
-					}
-				}
-				owner = {
-					create_leader = {
-						class = admiral
-						species = event_target:flusion_katzens
-						name = "Meorwin"
-						skill = 10
-						traits = {
-							trait = katzen_trait_elite
-							trait = katzen_trait_blitzkrieg
-							trait = katzen_trait_nukelad
-						}
-						effect = {
-							save_event_target_as = holy_katzen_admiral
-						}
-					}
-				}
-				create_fleet = { #Spawn a new task force
-					name = "Helligekatzarmada Zwei"
-					settings = {
-						spawn_debris = no
-						can_upgrade = no
-						uses_naval_capacity = no
-					}
-					effect = {
-						set_owner = event_target:hke_federated_country
-						create_ship = {
-							name = "Kaiser Beta"
-							design = "Kaiser Moon"
-							prefix = no
-						}
-						while = {
-							count = 20
-							create_ship = {
-								name = random
-								design = "Neu-Clermeowth"
-								prefix = no
-							}
-						}
-						while = {
-							count = 45
-							create_ship = {
-								name = random
-								design = "Douclaw"
-								prefix = no
-							}
-						}
-						while = {
-							count = 100
-							create_ship = {
-								name = random
-								design = "Katzchen"
-								prefix = no
-							}
-						}
-						assign_leader = event_target:holy_katzen_admiral
-						set_fleet_flag = katzen_reserve_fleet
-						set_fleet_flag = katzen_cruiser_fleet
-						set_location = {
-							target = event_target:hke_capital
-							distance = 20
-							angle = random
-						}
-					}
-				}
-			}
-		}
-		every_country = {
-			establish_communications_no_message = event_target:hke_federated_country
-		}
-		every_country = {
-			establish_contact = {
-				who = event_target:hke_federated_country
-				location = event_target:hke_capital.solar_system
-			}
-		}
-		event_target:giga_hke_leader = {
-			every_owned_fleet = {	set_owner = event_target:hke_federated_country }
-			every_owned_leader = {	set_owner = event_target:hke_federated_country }
-			every_owned_army = {	set_owner = event_target:hke_federated_country }
-			every_owned_planet = {
-				set_owner = event_target:hke_federated_country
-				set_controller = event_target:hke_federated_country
-			}
-		}
-		every_country = {
-			limit = {
-				federation = { has_federation_type = hke_federation }
-				has_country_flag = is_in_hke
-				has_country_flag = katzen_splinter_state
-			}
-			leave_alliance = {
-				override_requirements = yes
-			}
-			random_list = {
-				90 = {
-					every_owned_fleet = {	set_owner = event_target:hke_federated_country }
-					every_owned_leader = {	set_owner = event_target:hke_federated_country }
-					every_owned_army = {	set_owner = event_target:hke_federated_country }
-					every_owned_planet = {
-						set_owner = event_target:hke_federated_country
-						set_controller = event_target:hke_federated_country
-					}
-				}
-				10 = {
-					set_country_flag = refused_hke_federalization
-				}
-			}
-		}
-		event_target:hke_country = {
-			destroy_country = yes
-		}
-		event_target:hke_federated_country = {
-			add_opinion_modifier = {
-				who = event_target:flusion_conqueror
-				modifier = opinion_ended_kaiser
-			}
-			country_event = { id = giga_hke.0028 days = 360 } #CHANGE TO SMTH ELSE
-			every_planet_within_border = {
-				limit = {
-					is_colony = yes
-					owner = { is_country = event_target:hke_federated_country }
-				}
-				katzen_clear_capitals = yes
-				add_building = building_giga_katzen_capital
-			}
-			every_system_within_border = {
-				every_neighbor_system = {
-					limit = {
-						NOR = {
-							exists = starbase
-							exists = owner
-							any_system_planet = {
-								is_colony = yes
-								owner = {
-									NOT = { is_country_type = primitive }
-								}
-							}
-							any_fleet_in_system = { #no hostiles
-								owner = {
-									OR = {
-										is_at_war_with = event_target:hke_federated_country
-										is_hostile = event_target:hke_federated_country
-									}
-								}
-							}
-						}
-					}
-					create_starbase = { #Make a starbase
-						size = starbase_outpost
-						owner = event_target:hke_federated_country
-					}
-				}
-			}
-		}
-		every_country = {
-			country_event = { id = giga_hke.0027 days = 1 }
 		}
 	}
 }

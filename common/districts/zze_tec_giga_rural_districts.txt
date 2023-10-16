@@ -51,11 +51,13 @@ district_giga_planet_generator = {
 
 	resources = {
 		category = planet_districts_generator
-		cost = {
-			minerals = @base_cost
-		}
-		upkeep = {
-			energy = 1
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @base_cost
+			upkeep = 1
 		}
 	}
 
@@ -111,11 +113,13 @@ district_giga_planet_mining = {
 
 	resources = {
 		category = planet_districts_mining
-		cost = {
-			minerals = @base_cost
-		}
-		upkeep = {
-			energy = 1
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @base_cost
+			upkeep = 1
 		}
 	}
 
@@ -182,11 +186,13 @@ district_giga_planet_farming = {
 
 	resources = {
 		category = planet_districts_farming
-		cost = {
-			minerals = @base_cost
-		}
-		upkeep = {
-			energy = 1
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @base_cost
+			upkeep = 1
 		}
 	}
 

@@ -44,8 +44,14 @@ district_giga_alderson_city = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_alderson_cost }
-		upkeep = { energy = @giga_alderson_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 	}
 	
 	triggered_planet_modifier = {
@@ -160,8 +166,14 @@ district_giga_alderson_hive = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_alderson_cost }
-		upkeep = { energy = @giga_alderson_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 	}
 
 	inline_script = districts/effects/inline_evolved_tec_artifice_2
@@ -278,8 +290,14 @@ district_giga_alderson_nexus = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_alderson_cost }
-		upkeep = { energy = @giga_alderson_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -346,12 +364,18 @@ district_giga_alderson_commercial = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 	}
@@ -409,12 +433,18 @@ district_giga_alderson_industrial = {
 
 	resources = {
 		category = planet_districts_industrial
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
 
@@ -459,12 +489,18 @@ district_giga_alderson_consumer = {
 
 	resources = {
 		category = planet_districts_industrial
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
@@ -513,12 +549,18 @@ district_giga_alderson_alloys = {
 
 	resources = {
 		category = planet_districts_industrial
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
 		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
@@ -588,11 +630,13 @@ district_giga_alderson_refineries = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_alderson_cost
-		}
-		upkeep = {
-			energy = @giga_alderson_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
 		}
 	}
 
@@ -653,12 +697,18 @@ district_giga_alderson_generator = {
 
 	resources = {
 		category = planet_districts_rw_generator
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 		inline_script = districts/resources/inline_evolved_improved_technician_empire_upkeep
@@ -729,12 +779,18 @@ district_giga_alderson_mining = {
 
 	resources = {
 		category = planet_districts_rw_replicator
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			exotic_gases = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			exotic_gases = @giga_alderson_maintenance_sr
 		}
 		inline_script = districts/resources/inline_evolved_improved_mining_empire_upkeep
@@ -800,12 +856,18 @@ district_giga_alderson_farming = {
 
 	resources = {
 		category = planet_districts_rw_farming
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
 		# Improved Farming Empire Upkeep
@@ -870,12 +932,18 @@ district_giga_alderson_science = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			exotic_gases = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			exotic_gases = @giga_alderson_maintenance_sr
 		}
 	}
@@ -920,12 +988,18 @@ district_giga_alderson_leisure = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			exotic_gases = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			exotic_gases = @giga_alderson_maintenance_sr
 		}
 	}
@@ -967,13 +1041,19 @@ district_giga_alderson_pop_assembly = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
 			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
@@ -1014,13 +1094,19 @@ district_giga_alderson_pop_growth = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 		cost = {
-			minerals = @giga_alderson_cost
 			rare_crystals = @giga_alderson_cost_sr
 			volatile_motes = @giga_alderson_cost_sr
 		}
 		upkeep = {
-			energy = @giga_alderson_maintenance
 			rare_crystals = @giga_alderson_maintenance_sr
 			volatile_motes = @giga_alderson_maintenance_sr
 		}
@@ -1089,8 +1175,14 @@ district_giga_alderson_admin = {
 
 	resources = {
 		category = planet_districts
-		cost = { minerals = @giga_alderson_cost }
-		upkeep = { energy = @giga_alderson_maintenance }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
 	}
 
 	conversion_ratio = 1
@@ -1203,12 +1295,18 @@ district_giga_alderson_admin_spiritualist = {
 
 	resources = {
 		category = planet_districts
-		cost = { 
-			minerals = @giga_alderson_cost 
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
+		cost = {
 			rare_crystals = @giga_alderson_cost_sr
 		}
-		upkeep = { 
-			energy = @giga_alderson_maintenance 
+		upkeep = {
 			rare_crystals = @giga_alderson_maintenance_sr
 		}
 	}
@@ -1318,12 +1416,18 @@ district_giga_alderson_sanctuary = {
 
 	resources = {
 		category = planet_districts
-		cost = { 
-			minerals = @giga_alderson_cost 
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_alderson_cost
+			upkeep = @giga_alderson_maintenance
+		}
+		cost = {
 			exotic_gases = @giga_alderson_cost_sr
 		}
-		upkeep = { 
-			energy = @giga_alderson_maintenance 
+		upkeep = {
 			exotic_gases = @giga_alderson_maintenance_sr
 		}
 	}

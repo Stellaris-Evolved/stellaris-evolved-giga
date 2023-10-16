@@ -23,11 +23,13 @@ district_giga_elysium_housing = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @elysium_cost
-		}
-		upkeep = {
-			energy = @elysium_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @elysium_cost
+			upkeep = @elysium_maintenance
 		}
 	}
 
@@ -120,11 +122,13 @@ district_giga_elysium_control = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @elysium_cost
-		}
-		upkeep = {
-			energy = @elysium_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @elysium_cost
+			upkeep = @elysium_maintenance
 		}
 	}
 
@@ -213,11 +217,13 @@ district_giga_elysium_admin = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @elysium_cost
-		}
-		upkeep = {
-			energy = @elysium_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @elysium_cost
+			upkeep = @elysium_maintenance
 		}
 	}
 
@@ -285,11 +291,13 @@ district_giga_elysium_science = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @elysium_cost
-		}
-		upkeep = {
-			energy = @elysium_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @elysium_cost
+			upkeep = @elysium_maintenance
 		}
 	}
 
@@ -345,11 +353,13 @@ district_giga_elysium_entertainment = {
 
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @elysium_cost
-		}
-		upkeep = {
-			energy = @elysium_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @elysium_cost
+			upkeep = @elysium_maintenance
 		}
 	}
 

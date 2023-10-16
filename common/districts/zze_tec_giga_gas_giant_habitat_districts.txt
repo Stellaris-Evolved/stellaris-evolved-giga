@@ -42,9 +42,13 @@ district_giga_gas_giant_habitat_city = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = { minerals = @giga_gas_giant_habitat_cost }
-		upkeep = {
-			energy = @giga_gas_giant_habitat_upkeep_energy_medium # you need immutable upkeep for triggered upkeeps to apply properly
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_medium
 		}
 	}
 
@@ -123,9 +127,13 @@ district_giga_gas_giant_habitat_hive = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = { minerals = @giga_gas_giant_habitat_cost }
-		upkeep = {
-			energy = @giga_gas_giant_habitat_upkeep_energy_medium # you need immutable upkeep for triggered upkeeps to apply properly
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_medium
 		}
 	}
 
@@ -200,9 +208,13 @@ district_giga_gas_giant_habitat_nexus = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = { minerals = @giga_gas_giant_habitat_cost }
-		upkeep = {
-			energy = @giga_gas_giant_habitat_upkeep_energy_medium # you need immutable upkeep for triggered upkeeps to apply properly
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_medium
 		}
 	}
 
@@ -263,11 +275,13 @@ district_giga_gas_giant_habitat_industrial = {
 
 	resources = {
 		category = planet_districts_hab_industrial
-		cost = {
-			minerals = @giga_gas_giant_habitat_cost
-		}
-		upkeep = {
-			energy = @giga_gas_giant_habitat_upkeep_energy_medium
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_medium
 		}
 		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
 		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
@@ -324,8 +338,14 @@ district_giga_gas_giant_habitat_wind = {
 
 	resources = {
 		category = planet_districts_hab_energy
-		cost = { minerals = @giga_gas_giant_habitat_cost }
-		upkeep = { energy = @giga_gas_giant_habitat_upkeep_energy_medium }
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_medium
+		}
 	}
 
 	inline_script = districts/type/inline_evolved_rural_generator
@@ -350,11 +370,15 @@ district_giga_gas_giant_habitat_science = {
 
 	resources = {
 		category = planet_districts_hab_research
-		cost = {
-			minerals = @giga_gas_giant_habitat_cost
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_medium
 		}
 		upkeep = {
-			energy = @giga_gas_giant_habitat_upkeep_energy_medium
 			exotic_gases = @giga_gas_giant_habitat_upkeep_sr
 		}
 	}
@@ -372,4 +396,69 @@ district_giga_gas_giant_habitat_science = {
 ##################################
 ### Exotic Gases #################
 ##################################
-# district_giga_gas_giant_habitat_exotic
+district_giga_gas_giant_habitat_exotic = {
+	base_buildtime = @giga_gas_giant_habitat_district_buildtime
+	is_capped_by_modifier = yes
+
+	show_on_uncolonized = {
+		uses_district_set = giga_gas_giant_habitat
+	}
+
+	potential = {
+		uses_district_set = giga_gas_giant_habitat
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_giga_gas_giant_habitat_city
+		district_giga_gas_giant_habitat_hive
+		district_giga_gas_giant_habitat_nexus
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_gas_giant_habitat_cost
+			upkeep = @giga_gas_giant_habitat_upkeep_energy_heavy
+		}
+	}
+
+	# base stats
+	triggered_planet_modifier = {
+		modifier = { planet_housing_add = 3 }
+	}
+	# jobs
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = { job_giga_gas_harvester_add = 3 }
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = { job_giga_gas_harvesting_drone_add = 3 }
+	}
+	# descriptions
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = "job_giga_gas_harvester_effect_desc"
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = "job_giga_gas_harvesting_drone_effect_desc"
+	}
+}

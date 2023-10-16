@@ -99,6 +99,7 @@ tec_giga_frameworld_outpost_modded = {
 			}
 		]
 		[[giga_sr_amb_megaconstruction]]
+		[[sr_iodizium]]
 	}
 
 	giga_frameworld_outpost_planet_jobs_city_world_unspecialized = {
@@ -130,6 +131,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 	# ecumenopolis
@@ -161,6 +163,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_city_world_research = {
@@ -191,6 +194,7 @@ tec_giga_frameworld_outpost_modded = {
 		
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_city_world_admin = {
@@ -221,6 +225,7 @@ tec_giga_frameworld_outpost_modded = {
 		
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 
@@ -257,6 +262,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts]]
 		[[giga_sr_amb_megaconstruction]]
+		[[sr_iodizium]]
 
 		multiply = 2.0
 	}
@@ -291,6 +297,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_ringworld_habitable_science = {
@@ -321,6 +328,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_ringworld_habitable_industry = {
@@ -352,6 +360,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 	}
 
 # interstellar ring
@@ -381,6 +390,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
@@ -415,6 +425,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_unspecced_ringworld|USE|pc_ringworld_habitable_menial|
 		add = value:tec_giga_frameworld_outpost_trigger_jobs|RESOURCE|$RESOURCE$|SCALE|$SCALE$|TRIGGER|tec_is_science_ringworld|USE|pc_ringworld_habitable_science|
@@ -454,6 +465,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts]]
 		[[giga_sr_amb_megaconstruction]]
+		[[sr_iodizium]]
 	}
 
 	giga_frameworld_outpost_planet_jobs_pc_tec_elysium_menial = {
@@ -486,6 +498,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 
 		multiply = 1.5
 	}
@@ -518,6 +531,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 
 		multiply = 1.5
 	}
@@ -550,6 +564,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 
 		multiply = 1.5
 	}
@@ -585,6 +600,7 @@ tec_giga_frameworld_outpost_modded = {
 
 		[[minor_artifacts] 		weight = 0 ]
 		[[giga_sr_amb_megaconstruction] weight = 0 ]
+		[[sr_iodizium] 			weight = 0 ]
 
 		mult = 0.5
 	}
@@ -663,4 +679,5 @@ giga_frameworld_outpost_planet_jobs_tec_ecoworld = {
 
 	[[minor_artifacts] 		weight = 0 ]
 	[[giga_sr_amb_megaconstruction] weight = 0 ]
+	[[sr_iodizium] 			weight = 0 ]
 }

@@ -1,0 +1,18 @@
+# - Microcomp for guillis planet modifiers, in order to not clutter my error log
+
+# PD
+
+gpm_d_precursor_ruins_6 = {
+	is_for_colonizable = yes
+	icon = "d_station_reactor"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+}
+gpm_d_precursor_capital_complex = {
+	is_for_colonizable = yes
+	icon = "d_station_reactor"
+	category = deposit_cat_rare
+
+	potential = { always = no }
+}

@@ -67,11 +67,13 @@ district_giga_frameworld_city = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @city_cost
-		}
-		upkeep = {
-			energy = @city_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @city_cost
+			upkeep = @city_upkeep
 		}
 	}
 	planet_modifier = {
@@ -146,11 +148,13 @@ district_giga_frameworld_city_advanced = {
 	}
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @advanced_cost
-		}
-		upkeep = {
-			energy = @advanced_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
 		}
 	}
 	planet_modifier = {
@@ -221,11 +225,13 @@ district_giga_frameworld_hive = {
 	}
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @city_cost
-		}
-		upkeep = {
-			energy = @city_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @city_cost
+			upkeep = @city_upkeep
 		}
 	}
 	planet_modifier = {
@@ -293,11 +299,13 @@ district_giga_frameworld_hive_advanced = {
 	}
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @advanced_cost
-		}
-		upkeep = {
-			energy = @advanced_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
 		}
 	}
 	planet_modifier = {
@@ -385,11 +393,13 @@ district_giga_frameworld_nexus = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @city_cost
-		}
-		upkeep = {
-			energy = @city_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @city_cost
+			upkeep = @city_upkeep
 		}
 	}
 	planet_modifier = {
@@ -476,11 +486,13 @@ district_giga_frameworld_nexus_advanced = {
 	}
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @advanced_cost
-		}
-		upkeep = {
-			energy = @advanced_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
 		}
 	}
 	planet_modifier = {
@@ -553,11 +565,13 @@ district_giga_frameworld_foundry = {
 	inline_script = districts/convert_to/inline_evolved_industrial_districts
 	resources = {
 		category = planet_districts_industrial
-		cost = {
-			minerals = @city_cost
-		}
-		upkeep = {
-			energy = @city_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @city_cost
+			upkeep = @city_upkeep
 		}
 		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
 		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
@@ -626,12 +640,18 @@ district_giga_frameworld_foundry_advanced = {
 
 	resources = {
 		category = planet_districts_industrial
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			volatile_motes = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			volatile_motes = @advanced_rare_upkeep
 		}
 
@@ -727,11 +747,13 @@ district_giga_frameworld_factory = {
 
 	resources = {
 		category = planet_districts_industrial
-		cost = {
-			minerals = @city_cost
-		}
-		upkeep = {
-			energy = @city_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @city_cost
+			upkeep = @city_upkeep
 		}
 
 		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
@@ -810,12 +832,18 @@ district_giga_frameworld_factory_advanced = {
 
 	resources = {
 		category = planet_districts_industrial
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 
@@ -886,11 +914,13 @@ district_giga_frameworld_generator = {
 
 	resources = {
 		category = planet_districts_generator
-		cost = {
-			minerals = @base_cost
-		}
-		upkeep = {
-			energy = @base_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @base_cost
+			upkeep = @base_upkeep
 		}
 	}
 	inline_script = districts/type/inline_evolved_rural_generator
@@ -921,12 +951,18 @@ district_giga_frameworld_penrose = {
 	}
 	resources = {
 		category = planet_districts_generator
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @mega_cost
+			upkeep = @mega_upkeep
+		}
 		cost = {
-			minerals = @mega_cost
 			alloys = @mega_alloy_cost
 		}
 		upkeep = {
-			energy = @mega_upkeep
 			alloys = @mega_alloy_upkeep
 		}
 	}
@@ -991,11 +1027,13 @@ district_giga_frameworld_mining = {
 	inline_script = districts/convert_to/inline_evolved_mining_districts
 	resources = {
 		category = planet_districts_mining
-		cost = {
-			minerals = @base_cost
-		}
-		upkeep = {
-			energy = @base_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @base_cost
+			upkeep = @base_upkeep
 		}
 	}
 
@@ -1024,12 +1062,18 @@ district_giga_frameworld_decompressor = {
 	}
 	resources = {
 		category = planet_districts_mining
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @mega_cost
+			upkeep = @mega_upkeep
+		}
 		cost = {
-			minerals = @mega_cost
 			alloys = @mega_alloy_cost
 		}
 		upkeep = {
-			energy = @mega_upkeep
 			alloys = @mega_alloy_upkeep
 		}
 
@@ -1095,11 +1139,13 @@ district_giga_frameworld_farming = {
 	}
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @base_cost
-		}
-		upkeep = {
-			energy = @base_upkeep
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @base_cost
+			upkeep = @base_upkeep
 		}
 	}
 
@@ -1151,12 +1197,18 @@ district_giga_frameworld_administrative = {
 	}
 	resources = {
 		category = planet_districts_hab_research
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 	}
@@ -1221,12 +1273,18 @@ district_giga_frameworld_temple = {
 	}
 	resources = {
 		category = planet_districts_hab_research
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 	}
@@ -1307,12 +1365,18 @@ district_giga_frameworld_synapse = {
 	}
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			exotic_gases = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			exotic_gases = @advanced_rare_upkeep
 		}
 		inline_script = buildings/resources/inline_evolved_synaptic_reinforcement_upkeep
@@ -1389,12 +1453,18 @@ district_giga_frameworld_simulation = {
 	}
 	resources = {
 		category = planet_districts_hab_research
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 	}
@@ -1461,12 +1531,18 @@ district_giga_frameworld_sanctuary = {
 	}
 	resources = {
 		category = planet_districts_hab_research
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			exotic_gases = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			exotic_gases = @advanced_rare_upkeep
 		}
 	}
@@ -1552,12 +1628,18 @@ district_giga_frameworld_sanctuary_advanced = {
 	}
 	resources = {
 		category = planet_districts_hab_research
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_double_cost
+			upkeep = @advanced_double_upkeep
+		}
 		cost = {
-			minerals = @advanced_double_cost
 			exotic_gases = @advanced_double_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_double_upkeep
 			exotic_gases = @advanced_double_rare_upkeep
 		}
 	}
@@ -1641,12 +1723,18 @@ district_giga_frameworld_science = {
 	}
 	resources = {
 		category = planet_districts_hab_research
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			exotic_gases = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			exotic_gases = @advanced_rare_upkeep
 		}
 	}
@@ -1704,12 +1792,18 @@ district_giga_frameworld_anticrime = {
 	}
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			volatile_motes = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			volatile_motes = @advanced_rare_upkeep
 		}
 	}
@@ -1776,12 +1870,18 @@ district_giga_frameworld_amenities = {
 	}
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 	}
@@ -1842,12 +1942,18 @@ district_giga_frameworld_amenities_dystopian = {
 
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 	}
@@ -1927,12 +2033,18 @@ district_giga_frameworld_amenities_gestalt = {
 	}
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			rare_crystals = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			rare_crystals = @advanced_rare_upkeep
 		}
 	}
@@ -2029,10 +2141,13 @@ district_giga_frameworld_refinery = {
 	}
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @advanced_cost
-		}
-		upkeep = {
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = 0
 		}
 		upkeep = {
 			trigger = {
@@ -2240,12 +2355,18 @@ district_giga_frameworld_fortress = {
 			}
 			unity = 3
 		}
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
 		cost = {
-			minerals = @advanced_cost
 			volatile_motes = @advanced_rare_cost
 		}
 		upkeep = {
-			energy = @advanced_upkeep
 			volatile_motes = @advanced_rare_upkeep
 		}
 	}

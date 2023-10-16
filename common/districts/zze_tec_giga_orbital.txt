@@ -35,21 +35,13 @@ district_giga_orbital_farming = {
 
 	resources = {
 		category = planet_districts_farming
-		cost = {
-			minerals = @giga_planet_cost
-		}
-		cost = {
-			trigger = {
-				AND = {
-					exists = owner
-					owner = { is_anglers_empire = yes }
-					planet = { has_modifier = flooded_habitat }
-				}
-			}
-			minerals = -50
-		}
-		upkeep = {
-			energy = @giga_planet_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_cost
+			upkeep = @giga_planet_maintenance
 		}
 	}
 
@@ -61,13 +53,149 @@ district_giga_orbital_farming = {
 # Special Sanctuary (bigger than standard sanctuary, matches building)
 ###############################################################################################################
 
-# district_giga_orbital_sanctuary 
+district_giga_orbital_sanctuary = {
+	base_buildtime = @giga_planet_urban_district_buildtime
+	icon = district_arcology_organic_housing
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = giga_orbital
+		from = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	potential = {
+		uses_district_set = giga_orbital
+		exists = owner
+		owner = {
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_urban_cost
+			upkeep = @giga_planet_urban_maintenance
+		}
+	}
+
+	conversion_ratio = 1
+	convert_to = {
+		district_giga_planet_admin
+		district_giga_planet_admin_religious
+		district_giga_planet_sanctuary
+	}
+
+	planet_modifier = {
+		job_bio_trophy_add = 10
+		job_artisan_drone_add = 1
+		planet_carry_cap_add = 10
+	}
+
+	# Bug Branch
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_bugged_rooftop_farmers = yes
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				is_bugged_rooftop_farmers = yes
+			}
+		}
+		text = job_farmer_effect_desc
+	}
+	# Bug Branch
+
+	triggered_desc = {
+		text = job_bio_trophy_effect_desc
+	}
+	triggered_desc = {
+		text = job_artisan_drone_effect_desc
+	}
+}
 
 ###############################################################################################################
 # Nature Preserve
 ###############################################################################################################
 
-# district_giga_orbital_preserve 
+district_giga_orbital_preserve = {
+	base_buildtime = @giga_planet_district_buildtime
+	is_capped_by_modifier = no
+
+	show_on_uncolonized = {
+		uses_district_set = giga_orbital
+		exists = from
+		from = {
+			NOT = { has_valid_civic = civic_dystopian_society }
+		}
+	}
+
+	potential = {
+		uses_district_set = giga_orbital
+		exists = owner
+		owner = {
+			NOT = { has_valid_civic = civic_dystopian_society }
+		}
+	}
+
+	resources = {
+		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_cost
+			upkeep = 0
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		job_giga_preserver_add = 1
+	}
+	triggered_desc = {
+		trigger = {	exists = owner owner = { is_gestalt = no } }
+		text = job_giga_preserver_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		job_giga_preserver_drone_add = 1
+	}
+	triggered_desc = {
+		trigger = {	exists = owner owner = { is_gestalt = yes } }
+		text = job_giga_preserver_drone_effect_desc
+	}
+}
 
 ###############################################################################################################
 # Transit Hub
@@ -87,11 +215,13 @@ district_giga_orbital_logistics = {
 	
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_planet_urban_cost
-		}
-		upkeep = {
-			energy = 5
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_urban_cost
+			upkeep = 5
 		}
 		upkeep = {
 			trigger = {
@@ -172,4 +302,4 @@ district_giga_orbital_logistics = {
 ##################################
 ### Deprecated Elysium Culture ###
 ##################################
-# district_giga_planet_leisure 
+# district_giga_planet_leisure

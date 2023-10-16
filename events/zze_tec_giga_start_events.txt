@@ -1,0 +1,163 @@
+namespace = tec_giga
+
+country_event = {
+    id = tec_giga.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        OR = {
+            has_origin = origin_penrose_ring
+            has_origin = origin_squareworld
+            has_origin = origin_interstellar_ring
+        }
+    }
+
+    immediate = {
+        capital_scope = {
+            clear_deposits = yes
+
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_rw_industrial
+            }
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_tec_rw_replicator
+            }
+            add_deposit = d_segment_rubble_3
+            add_deposit = d_segment_rubble_3
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_rw_generator
+            }
+            add_deposit = d_segment_rubble_2
+            add_deposit = d_segment_rubble_2
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_rw_farming
+            }
+            add_deposit = d_segment_rubble_1
+            add_deposit = d_segment_rubble_1
+
+            add_deposit = d_arcane_generator
+            # RP DEPOSITS
+            add_deposit = d_tec_rw_minor_structural_damage
+            add_deposit = d_tec_rw_major_structural_damage
+
+            add_deposit = d_decrepit_tunnels_1
+            add_deposit = d_decrepit_tunnels_2
+            # add_deposit = d_decrepit_tunnels_3 # Commented cause causes districts to disappear
+
+            if = {	# lithoids
+                limit = {
+                    owner = {
+                        is_lithoid_empire = yes
+                        NOT = {
+                            has_civic = civic_hive_devouring_swarm
+                        }
+                    }
+                }
+                while = {
+                    count = 4
+                    add_deposit = d_hibernating_lithoids
+                }
+            }
+
+            if = {
+                limit = {
+                    owner = {
+                        is_lithoid_empire = yes
+                        has_civic = civic_hive_devouring_swarm
+                    }
+                }
+                while = {
+                    count = 2
+                    add_deposit = d_hibernating_lithoids
+                }
+            }
+
+            if = {	# Lithoids get double the mining districts
+                limit = {
+                    owner = {
+                        is_lithoid_empire = yes
+                        any_owned_species = {
+                            NOR = {
+                                is_archetype = BIOLOGICAL
+                            }
+                        }
+                        is_catalytic_empire = no
+                    }
+                }
+                remove_district = district_rw_farming
+                remove_deposit = d_segment_rubble_1
+                remove_deposit = d_segment_rubble_1
+
+                add_district_and_planet_size_if_needed_effect = {
+                    district = district_tec_rw_replicator
+                }
+                add_deposit = d_segment_rubble_3
+                add_deposit = d_segment_rubble_3
+            }
+
+            # city - will swap
+            add_district_and_planet_size_if_needed_effect = {
+                district = district_rw_city
+            }
+
+            # Replace capital building for machine empires
+            if = {
+                limit = {
+                    owner = {
+                        is_machine_empire = yes
+                    }
+                }
+
+                if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                NOR = {
+                                    has_valid_civic = civic_machine_servitor
+                                    has_valid_civic = civic_machine_assimilator
+                                    has_valid_civic = civic_tec_machine_promethean
+                                }
+
+                                any_owned_species = {
+                                    has_trait = trait_lithoid
+                                }
+                            }
+                        }
+                    }
+                    if = {
+                        limit = {
+                            owner = {
+                                is_catalytic_empire = no
+                            }
+                        }
+                        remove_district = district_rw_farming
+                        remove_deposit = d_segment_rubble_1
+                        remove_deposit = d_segment_rubble_1
+
+                        add_district_and_planet_size_if_needed_effect = {
+                            district = district_rw_generator
+                        }
+                        add_deposit = d_segment_rubble_2
+                        add_deposit = d_segment_rubble_2
+                    }
+
+                }
+            }
+            validate_and_repair_planet_buildings_and_districts = yes
+            solar_system = {
+                every_system_planet = {
+                    limit = {
+                        is_ringworld = yes
+                        is_colonizable = yes
+                        is_colony = no
+                    }
+                    shattered_ring_blocker_effect = yes
+                    # RP DEPOSITS
+                    add_deposit = d_tec_rw_minor_structural_damage
+                    add_deposit = d_tec_rw_major_structural_damage
+                }
+            }
+        }
+    }
+}

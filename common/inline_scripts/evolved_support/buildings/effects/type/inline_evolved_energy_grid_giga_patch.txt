@@ -13,6 +13,27 @@ inline_script = {
 
 		inline_script = {	# Syndical
 			script = buildings/effects/inline_evolved_labour_hero_civics_jobs
+			LABOUR_HERO_COUNT = 2
+			MENIAL_JOB = technician
+			MENIAL_COUNT = 3
+			MENIAL_MULT = planet.value:tec_capital_tier_generic_scaling|CACHED|yes|
+			MENIAL_DESC = no_desc
+		}
+	"
+}
+
+inline_script = {
+	script = inline_evolved_conditional
+	value = $tier$
+	equal = 5
+	code = "
+		inline_script = {
+			script = buildings/effects/inline_evolved_quantum
+			max = 4
+		}
+
+		inline_script = {	# Syndical
+			script = buildings/effects/inline_evolved_labour_hero_civics_jobs
 			LABOUR_HERO_COUNT = 3
 			MENIAL_JOB = technician
 			MENIAL_COUNT = 3

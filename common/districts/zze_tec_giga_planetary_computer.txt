@@ -13,12 +13,18 @@ district_giga_pcc_science = {
 	}
 	resources = {
 		category = planet_districts
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_science_cost
+			upkeep = @giga_planet_science_maintenance
+		}
 		cost = {
-			minerals = @giga_planet_science_cost
 			alloys = @giga_planet_sr
 		}
 		upkeep = {
-			energy = @giga_planet_science_maintenance
 			alloys = @giga_planet_science_alloys
 		}
 	}
@@ -57,11 +63,13 @@ district_giga_pcc_admin = {
 	}
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_planet_science_cost
-		}
-		upkeep = {
-			energy = @giga_planet_science_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_science_cost
+			upkeep = @giga_planet_science_maintenance
 		}
 	}
 	conversion_ratio = 1
@@ -120,11 +128,13 @@ district_giga_pcc_admin_religious = {
 	}
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_planet_science_cost
-		}
-		upkeep = {
-			energy = @giga_planet_science_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_planet_science_cost
+			upkeep = @giga_planet_science_maintenance
 		}
 	}
 	conversion_ratio = 1

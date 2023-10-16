@@ -24,11 +24,13 @@ district_giga_hab_city = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @giga_hab_cost
-		}
-		upkeep = {
-			energy = @giga_hab_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_hab_cost
+			upkeep = @giga_hab_maintenance
 		}
 	}
 	# Modifiers
@@ -94,11 +96,13 @@ district_giga_hab_hive = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @giga_hab_cost
-		}
-		upkeep = {
-			energy = @giga_hab_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_hab_cost
+			upkeep = @giga_hab_maintenance
 		}
 	}
 	# Modifiers
@@ -159,11 +163,13 @@ district_giga_hab_nexus = {
 
 	resources = {
 		category = planet_districts_cities
-		cost = {
-			minerals = @giga_hab_cost
-		}
-		upkeep = {
-			energy = @giga_hab_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_hab_cost
+			upkeep = @giga_hab_maintenance
 		}
 	}
 	# Modifiers
@@ -218,11 +224,13 @@ district_giga_hab_science = {
 	}
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_hab_cost
-		}
-		upkeep = {
-			energy = @giga_hab_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_hab_cost
+			upkeep = @giga_hab_maintenance
 		}
 	}
 	conversion_ratio = 1
@@ -275,11 +283,13 @@ district_giga_hab_scavenger = {
 	}
 	resources = {
 		category = planet_districts
-		cost = {
-			minerals = @giga_hab_cost
-		}
-		upkeep = {
-			energy = @giga_hab_maintenance
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @giga_hab_cost
+			upkeep = @giga_hab_maintenance
 		}
 	}
 	conversion_ratio = 1
