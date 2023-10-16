@@ -154,6 +154,17 @@ country_event = {
                         is_colony = no
                     }
                     shattered_ring_blocker_effect = yes
+                    if = {
+                        limit = {
+                            has_planet_class = pc_interstellar_ringworld_habitable
+                        }
+                        remove_deposit = d_malfunctioning_reactor
+
+                        while = {
+                            limit = { NOT = { free_district_slots >= 0 } }
+                            remove_deposit = d_decrepit_tunnels_2
+                        }
+                    }
                     # RP DEPOSITS
                     add_deposit = d_tec_rw_minor_structural_damage
                     add_deposit = d_tec_rw_major_structural_damage
