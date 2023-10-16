@@ -156,7 +156,7 @@ country_event = {
                     shattered_ring_blocker_effect = yes
                     if = {
                         limit = {
-                            has_planet_class = pc_interstellar_ringworld_habitable
+                            is_planet_class = pc_interstellar_habitat
                         }
                         remove_deposit = d_malfunctioning_reactor
 
