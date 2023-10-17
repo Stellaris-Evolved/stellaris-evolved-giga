@@ -171,6 +171,9 @@ frame_maintenance_drone = {
 		is_sapient = yes
 	}
 
+	possible_precalc = can_fill_drone_job
+
+
 	resources = {
 		category = planet_maintenancedrones
 		# main upkeep resource
@@ -191,21 +194,6 @@ frame_maintenance_drone = {
 			energy = 0.5
 
 			multiplier = planet.value:giga_job_scaling_plus_base
-		}
-	}
-
-	possible_precalc = can_fill_drone_job
-
-	possible = {
-		exists = owner
-		owner = {
-			is_machine_empire = yes
-			has_origin = origin_frameworld
-		}
-
-		exists = planet
-		planet = {
-			is_planet_class = pc_giga_frameworld
 		}
 	}
 
