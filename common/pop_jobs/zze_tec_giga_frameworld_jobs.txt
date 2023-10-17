@@ -214,6 +214,61 @@ frame_maintenance_drone = {
 		planet_jobs_productive_produces_mult = 0.0025
 	}
 
+	# machine assembly
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			planet = {
+				not = { has_modifier = frameworld_crucible }
+			}
+		}
+		planet_pop_assembly_add = -0.125
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			planet = {
+				free_housing < 0
+				not = { has_modifier = frameworld_crucible }
+			}
+		}
+		planet_pop_assembly_add = -0.125
+	}
+
+	# machine crucible
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			planet = {
+				has_modifier = frameworld_crucible
+			}
+		}
+		giga_pop_growth_speed_extra_add = -0.125
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+			}
+			planet = {
+				free_housing < 0
+				has_modifier = frameworld_crucible
+			}
+		}
+		giga_pop_growth_speed_extra_add = -0.125
+	}
+
+
 	# robot assembly
 	triggered_planet_modifier = {
 		potential = {
@@ -252,6 +307,29 @@ frame_maintenance_drone = {
 		planet_pop_assembly_organic_add = -0.125
 	}
 
+	# hives
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		planet_pop_assembly_organic_add = -0.125
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+			}
+			planet = {
+				free_housing < 0
+			}
+		}
+		planet_pop_assembly_organic_add = -0.125
+	}
+
 	inline_script = jobs/effects/type/inline_evolved_maintenance_drone_effect
 
 	weight = {
@@ -261,9 +339,7 @@ frame_maintenance_drone = {
 			factor = -10000
 
 			planet = {
-				not = {
-					has_modifier = frameworld_expanded_maintenance_protocol
-				}
+				giga_frameworld_has_expanded_maintenance_modifier = no
 			}
 		}
 	}

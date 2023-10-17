@@ -272,6 +272,7 @@ country_event = {
 
 				# set up extra growth mechanics
 				giga_extra_growth_setup = yes
+				tec_cache_planet_scope_triggers = yes
 			}
 		}
 	}
