@@ -1017,7 +1017,7 @@ district_giga_frameworld_mining = {
 		tech_mechanized_mining
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 	}
 	
 	conversion_ratio = 0.25
@@ -1154,6 +1154,124 @@ district_giga_frameworld_farming = {
 
 ###############################################################################################################
 ###############################################################################################################
+#          TRADE
+###############################################################################################################
+###############################################################################################################
+
+district_giga_frameworld_trade = {
+	base_buildtime = @advanced_time
+	icon = district_hab_commercial
+	is_capped_by_modifier = no
+
+
+	show_tech_unlock_if = {
+		giga_has_frameworld_origin = yes
+		tec_uses_trade_value = yes
+	}
+
+	show_on_uncolonized = {
+		exists = from
+		from = {
+			tec_uses_trade_value = yes
+			has_technology = "tech_interstellar_economics"
+		}
+		uses_district_set = giga_frameworld
+	}
+
+	potential = {
+		exists = owner
+		owner = {
+			tec_uses_trade_value = yes
+			has_technology = "tech_interstellar_economics"
+		}
+		uses_district_set = giga_frameworld
+	}
+
+	prerequisites = {
+		tech_interstellar_economics
+	}
+
+	conversion_ratio = 1
+
+	inline_script = districts/convert_to/inline_evolved_trade_districts
+	inline_script = districts/convert_to/inline_evolved_generator_districts
+
+	resources = {
+		category = planet_districts_hab_trade
+		inline_script = {
+			script = districts/resources/inline_evolved_district_resource_cost
+			upkeep_trigger = "
+				always = yes
+			"
+			cost = @advanced_cost
+			upkeep = @advanced_upkeep
+		}
+		cost = {
+			rare_crystals = @advanced_rare_cost
+		}
+		upkeep = {
+			rare_crystals = @advanced_rare_upkeep
+		}
+	}
+
+
+	planet_modifier = {
+		planet_housing_add = 6
+	}
+
+	inline_script = {
+		script = districts/type/inline_evolved_trade
+		trader_scale = 1
+		trader_trigger = ""
+	}
+
+	# Jobs
+		# Regular
+			inline_script = {
+				script = jobs/inline_evolved_clerk
+				count = 5
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+
+			inline_script = {
+				script = jobs/inline_evolved_trader
+				count = 1
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+		# /
+		# Gestalt
+			inline_script = {
+				script = jobs/inline_evolved_maintenance_drone
+				count = 3
+				mult = 1
+				display = with_desc
+				trigger = ""
+			}
+
+			inline_script = {
+				script = jobs/inline_evolved_job
+				job = tec_trade_drone
+				count = 3
+				mult = 1
+				display = with_desc
+				trigger = "
+					exists = owner
+					owner = {
+						tec_is_trade_gestalt = yes
+					}
+				"
+			}
+		# /
+	# /
+}
+
+
+###############################################################################################################
+###############################################################################################################
 #          UNITY
 ###############################################################################################################
 ###############################################################################################################
@@ -1185,7 +1303,7 @@ district_giga_frameworld_administrative = {
 	}
 	show_tech_unlock_if = {
 		giga_has_frameworld_origin = yes
-		is_gestalt = no
+		is_regular_empire = yes
 		tec_country_uses_priests_and_temples = no
 	}
 	conversion_ratio = 1
@@ -1231,6 +1349,10 @@ district_giga_frameworld_administrative = {
 		tier = 1
 		type = regular
 	}
+	# setting correct categroy again
+	resources = {
+		category = planet_districts
+	}
 }
 
 ###############################################################################################################
@@ -1261,7 +1383,7 @@ district_giga_frameworld_temple = {
 	}
 	show_tech_unlock_if = {
 		giga_has_frameworld_origin = yes
-		is_gestalt = no
+		is_regular_empire = yes
 		tec_country_uses_priests_and_temples = yes
 	}
 	conversion_ratio = 1
@@ -1332,6 +1454,10 @@ district_giga_frameworld_temple = {
 		script = buildings/effects/type/inline_evolved_temple
 		tier = 1
 	}
+	# setting correct categroy again
+	resources = {
+		category = planet_districts
+	}
 }
 
 ###############################################################################################################
@@ -1356,6 +1482,18 @@ district_giga_frameworld_synapse = {
 		}
 		uses_district_set = giga_frameworld
 	}
+
+	prerequisites = {
+		tech_hive_cluster
+	}
+
+
+	show_tech_unlock_if = {
+		giga_has_frameworld_origin = yes
+		is_hive_empire = yes
+	}
+
+
 	conversion_ratio = 1
 	convert_to = {
 		district_giga_frameworld_simulation
@@ -1397,7 +1535,11 @@ district_giga_frameworld_synapse = {
 		tier = 1
 		type = hive
 	}
-	
+
+	# setting correct categroy again
+	resources = {
+		category = planet_districts
+	}
 }
 
 ###############################################################################################################
@@ -1434,7 +1576,8 @@ district_giga_frameworld_simulation = {
 		tech_colonial_bureaucracy
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
+		is_machine_empire = yes
 		not = {
 			has_valid_civic = civic_machine_servitor
 		}
@@ -1484,7 +1627,11 @@ district_giga_frameworld_simulation = {
 		tier = 1
 		type = machine
 	}
-	
+
+	# setting correct categroy again
+	resources = {
+		category = planet_districts
+	}
 }
 
 ###############################################################################################################
@@ -1518,7 +1665,7 @@ district_giga_frameworld_sanctuary = {
 		tech_paradise_dome
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 		has_valid_civic = civic_machine_servitor
 	}
 	conversion_ratio = 0.5
@@ -1570,11 +1717,6 @@ district_giga_frameworld_sanctuary = {
 		display = with_desc
 		trigger = ""
 	}
-	
-	inline_script = {
-		script = buildings/effects/inline_evolved_gestalt_introspective
-		tier = 1
-	}
 
 	ai_resource_production = {
 		trigger = {
@@ -1588,6 +1730,10 @@ district_giga_frameworld_sanctuary = {
 		script = buildings/effects/type/inline_evolved_bureaucratic
 		tier = 1
 		type = machine
+	}
+	# setting correct categroy again
+	resources = {
+		category = planet_districts
 	}
 }
 
@@ -1715,7 +1861,7 @@ district_giga_frameworld_science = {
 		tech_basic_science_lab_2
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 	}
 	conversion_ratio = 2
 	convert_to = {
@@ -1788,7 +1934,7 @@ district_giga_frameworld_anticrime = {
 		tech_colonial_centralization
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 	}
 	resources = {
 		category = planet_districts
@@ -1866,7 +2012,7 @@ district_giga_frameworld_amenities = {
 		district_giga_frameworld_amenities_gestalt
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 	}
 	resources = {
 		category = planet_districts
@@ -2029,7 +2175,7 @@ district_giga_frameworld_amenities_gestalt = {
 		district_giga_frameworld_amenities_dm
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 	}
 	resources = {
 		category = planet_districts
@@ -2342,7 +2488,7 @@ district_giga_frameworld_fortress = {
 		tech_global_defense_grid
 	}
 	show_tech_unlock_if = {
-		has_origin = origin_frameworld
+		giga_has_frameworld_origin = yes
 	}
 	resources = {
 		category = planet_districts
