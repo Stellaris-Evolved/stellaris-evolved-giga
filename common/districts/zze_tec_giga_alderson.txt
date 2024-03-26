@@ -684,8 +684,8 @@ district_giga_alderson_generator = {
 
 	potential = {
 		uses_district_set = giga_alderson_gaia
-		exists = from
-		from = {
+		exists = owner
+		owner = {
 			tec_uses_trade_value = no
 		}
 	}
@@ -977,8 +977,8 @@ district_giga_alderson_leisure = {
 
 	potential = {
 		uses_district_set = giga_alderson_ecu
-		exists = from
-		from = { 
+		exists = owner
+		owner = { 
 			is_gestalt = no
 		}
 	}
@@ -1029,8 +1029,8 @@ district_giga_alderson_pop_assembly = {
 	}
 
 	potential = {
-		exists = from
-		from = { is_machine_empire = yes }
+		exists = owner
+		owner = { is_machine_empire = yes }
 		uses_district_set = giga_alderson_machine
 	}
 
@@ -1082,8 +1082,8 @@ district_giga_alderson_pop_growth = {
 	}
 
 	potential = {
-		exists = from
-		from = { is_hive_empire = yes }
+		exists = owner
+		owner = { is_hive_empire = yes }
 		uses_district_set = giga_alderson_hive
 	}
 
@@ -1126,8 +1126,7 @@ district_giga_alderson_pop_growth = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
-		job = cloner
+		script = jobs/inline_evolved_cloner
 		count = 5
 		mult = 1
 		display = with_desc
