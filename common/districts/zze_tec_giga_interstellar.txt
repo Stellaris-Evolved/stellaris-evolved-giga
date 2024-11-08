@@ -8,50 +8,50 @@
 ### Housing ######################
 ##################################
 district_interstellar_city = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 }
 
 district_interstellar_hive = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 }
 
 district_interstellar_nexus = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 }
 
 ##################################
 ### Energy #######################
 ##################################
 district_interstellar_generator = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_rw_generator_district_swaps
-	inline_script = districts/convert_to/inline_evolved_generator_districts
-	inline_script = districts/convert_to/inline_evolved_industrial_districts
+	inline_script = districts/convert_to/tec_rw_generator_district_swaps
+	inline_script = districts/convert_to/tec_generator_districts
+	inline_script = districts/convert_to/tec_industrial_districts
 }
 
 ##################################
 ### Commercial ###################
 ##################################
 district_interstellar_commercial = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_trade_districts
-	inline_script = districts/convert_to/inline_evolved_generator_districts
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_trade_districts
+	inline_script = districts/convert_to/tec_generator_districts
+	inline_script = districts/convert_to/tec_housing_districts
 }
 
 ##################################
@@ -76,7 +76,7 @@ district_interstellar_science = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -104,10 +104,10 @@ district_interstellar_science = {
 			planet_housing_add = 10
 		}
 	}
-	inline_script = districts/effects/inline_evolved_tec_ringworld_damaged_section
+	inline_script = districts/effects/tec_ringworld_damaged_section
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher
 		count = 10
 		mult = 1
@@ -120,7 +120,7 @@ district_interstellar_science = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher_drone
 		count = 10
 		mult = 1
@@ -134,7 +134,7 @@ district_interstellar_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher
 		count = -2
 		mult = 1
@@ -148,7 +148,7 @@ district_interstellar_science = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher_drone
 		count = -2
 		mult = 1
@@ -163,7 +163,7 @@ district_interstellar_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher
 		count = -2
 		mult = 1
@@ -177,7 +177,7 @@ district_interstellar_science = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher_drone
 		count = -2
 		mult = 1
@@ -207,10 +207,10 @@ district_interstellar_science = {
 ### Industrial ###################
 ##################################
 district_interstellar_industrial = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_industrial_districts
+	inline_script = districts/convert_to/tec_industrial_districts
 }
 
 ##################################
@@ -241,7 +241,7 @@ district_interstellar_alloys = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -269,7 +269,7 @@ district_interstellar_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger
 		count = 10
 		mult = 1
@@ -282,7 +282,7 @@ district_interstellar_alloys = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger_drone
 		count = 10
 		mult = 1
@@ -296,7 +296,7 @@ district_interstellar_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger
 		count = -2
 		mult = 1
@@ -310,7 +310,7 @@ district_interstellar_alloys = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger_drone
 		count = -2
 		mult = 1
@@ -325,7 +325,7 @@ district_interstellar_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger
 		count = -2
 		mult = 1
@@ -339,7 +339,7 @@ district_interstellar_alloys = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger_drone
 		count = -2
 		mult = 1

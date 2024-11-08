@@ -25,7 +25,7 @@ district_maginot_world_barracks = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -44,7 +44,7 @@ district_maginot_world_barracks = {
 	# base jobs 
 
 	inline_script = {
-		script = jobs/inline_evolved_trader
+		script = jobs/tec_trader
 		count = @maginot_merchant_jobs_add
 		mult = 1
 		display = with_desc
@@ -52,7 +52,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_entertainer
+		script = jobs/tec_entertainer
 		count = @maginot_entertainer_filler_jobs_add
 		mult = 1
 		display = with_desc
@@ -60,7 +60,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = @maginot_entertainer_filler_jobs_add
 		mult = 1
 		display = with_desc
@@ -68,7 +68,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = maginot_military_police
 		count = @maginot_barracks_police_jobs_add
 		mult = 1
@@ -82,7 +82,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = @maginot_entertainer_filler_jobs_add
 		mult = 1
 		display = with_desc
@@ -90,7 +90,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = @maginot_entertainer_filler_jobs_add
 		mult = 1
 		display = with_desc
@@ -99,7 +99,7 @@ district_maginot_world_barracks = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = @maginot_entertainer_filler_jobs_add
 		mult = 1
 		display = with_desc
@@ -107,7 +107,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		count = @maginot_barracks_police_jobs_add
 		mult = 1
 		display = with_desc
@@ -117,12 +117,12 @@ district_maginot_world_barracks = {
 
 	# extra jobs from tradition/tech
 	inline_script = {
-		script = districts/effects/inline_evolved_tech_housing_2_gestalt
+		script = districts/effects/tec_tech_housing_2_gestalt
 		count = 1
 		trigger = ""
 	}
 	# Civics
-		inline_script = districts/effects/inline_evolved_tec_machine_menial
+		inline_script = districts/effects/tec_machine_menial
 	# /
 
 	# planet housing and additions
@@ -133,7 +133,7 @@ district_maginot_world_barracks = {
 	}
 
 	inline_script = {
-		script = districts/inline_evolved_habitation_housing_modifiers
+		script = districts/tec_habitation_housing_modifiers
 		count =  @maginot_district_housing_buffs
 		trigger = ""
 	}
@@ -180,7 +180,7 @@ district_maginot_ringworld_barracks = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -199,7 +199,7 @@ district_maginot_ringworld_barracks = {
 	# base jobs 
 
 	inline_script = {
-		script = jobs/inline_evolved_trader
+		script = jobs/tec_trader
 		count = @maginot_merchant_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -207,7 +207,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_entertainer
+		script = jobs/tec_entertainer
 		count = @maginot_entertainer_filler_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -215,7 +215,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = @maginot_entertainer_filler_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -223,7 +223,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = maginot_military_police
 		count = @maginot_barracks_police_jobs_add_ringworld
 		mult = 1
@@ -237,7 +237,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = @maginot_entertainer_filler_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -245,7 +245,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = @maginot_entertainer_filler_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -254,7 +254,7 @@ district_maginot_ringworld_barracks = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = @maginot_entertainer_filler_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -262,7 +262,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		count = @maginot_barracks_police_jobs_add_ringworld
 		mult = 1
 		display = with_desc
@@ -271,12 +271,12 @@ district_maginot_ringworld_barracks = {
 
 	# extra jobs from tradition/tech
 	inline_script = {
-		script = districts/effects/inline_evolved_tech_housing_2_gestalt
+		script = districts/effects/tec_tech_housing_2_gestalt
 		count = 1
 		trigger = ""
 	}
 	# Civics
-		inline_script = districts/effects/inline_evolved_tec_machine_menial
+		inline_script = districts/effects/tec_machine_menial
 	# /
 
 	# planet housing and additions
@@ -287,7 +287,7 @@ district_maginot_ringworld_barracks = {
 	}
 
 	inline_script = {
-		script = districts/inline_evolved_habitation_housing_modifiers
+		script = districts/tec_habitation_housing_modifiers
 		count =  @maginot_district_housing_buffs
 		trigger = ""
 	}
@@ -325,7 +325,7 @@ district_maginot_ringworld_shield_generators = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -420,7 +420,7 @@ district_maginot_ringworld_planetary_cannons = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -513,7 +513,7 @@ district_maginot_ringworld_bunkers = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"

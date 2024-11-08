@@ -96,8 +96,8 @@ maginot_central_command = {
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_soldier_effect
-	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
+	inline_script = jobs/effects/type/tec_soldier_effect
+	inline_script = jobs/effects/tec_civic_tec_regular_social_prosperity
 	
 	resources = {
 		category = planet_soldiers
@@ -193,7 +193,7 @@ maginot_central_command_gestalt = {
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
+	inline_script = jobs/effects/type/tec_warrior_drone_effect
 
 	resources = {
 		category = planet_soldiers
@@ -236,7 +236,7 @@ maginot_shield_generator_operator = {
 		complex_specialist_job_check_trigger = yes
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_soldier_effect
+	inline_script = jobs/effects/type/tec_soldier_effect
 
 	pop_modifier = {
 		pop_defense_armies_add = @maginot_defence_army_add
@@ -280,7 +280,7 @@ maginot_shield_generator_operator_gestalt = {
 	}
 	possible_precalc = can_fill_drone_job
 
-	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
+	inline_script = jobs/effects/type/tec_warrior_drone_effect
 
 	pop_modifier = {
 		pop_defense_armies_add = @maginot_defence_army_add
@@ -323,7 +323,7 @@ maginot_planetary_cannon_operator = {
 		complex_specialist_job_check_trigger = yes
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_soldier_effect
+	inline_script = jobs/effects/type/tec_soldier_effect
 
 	pop_modifier = {
 		pop_defense_armies_add = @maginot_defence_army_add
@@ -367,7 +367,7 @@ maginot_planetary_cannon_operator_gestalt = {
 		NOT = { tec_has_stapled_trait ={ cached = yes } }
 		drone_individual_pop_check_trigger = no	#prevents free individuals
 	}
-	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
+	inline_script = jobs/effects/type/tec_warrior_drone_effect
 
 	pop_modifier = {
 		pop_defense_armies_add = @maginot_defence_army_add
@@ -415,7 +415,7 @@ maginot_bunker_officer = {
 	}
 
 
-	inline_script = jobs/effects/type/inline_evolved_soldier_effect
+	inline_script = jobs/effects/type/tec_soldier_effect
 
 
 	pop_modifier = {
@@ -466,7 +466,7 @@ maginot_bunker_officer_gestalt = {
 
 
 
-	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
+	inline_script = jobs/effects/type/tec_warrior_drone_effect
 
 
 	pop_modifier = {
@@ -511,7 +511,7 @@ maginot_military_police = {
 		produces = {
 			unity = 1
 		}
-		inline_script = jobs/resources/inline_evolved_anticrime_campaign_upkeep
+		inline_script = jobs/resources/tec_anticrime_campaign_upkeep
 	}
 
 	pop_modifier = {
@@ -523,8 +523,8 @@ maginot_military_police = {
 		planet_stability_add = @maginot_specialist_stability
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_soldier_effect
-	inline_script = jobs/effects/type/inline_evolved_enforcer_effect
+	inline_script = jobs/effects/type/tec_soldier_effect
+	inline_script = jobs/effects/type/tec_enforcer_effect
 
 	weight = {
 		weight = value:giga_specialist_weight|JOB|maginot_military_police|RESOURCE|unity|INDENTURED|0.8|STICKY|10|

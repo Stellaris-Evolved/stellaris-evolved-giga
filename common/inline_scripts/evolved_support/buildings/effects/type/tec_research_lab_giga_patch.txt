@@ -1,0 +1,33 @@
+inline_script = {
+    script = tec_conditional
+    value = $tier$
+    equal = 4
+    code = "
+		resources = {
+			category = planet_buildings
+			inline_script = buildings/resources/tec_extradimensional_experimentation_upkeep
+		}
+
+		inline_script = {
+			script = buildings/effects/tec_extradimensional_experimentation
+			count = 2
+		}
+	"
+}
+
+inline_script = {
+    script = tec_conditional
+    value = $tier$
+    equal = 5
+    code = "
+		resources = {
+			category = planet_buildings
+			inline_script = buildings/resources/tec_extradimensional_experimentation_upkeep
+		}
+
+		inline_script = {
+			script = buildings/effects/tec_extradimensional_experimentation
+			count = 3
+		}
+	"
+}

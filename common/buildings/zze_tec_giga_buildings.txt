@@ -39,7 +39,7 @@ building_giga_habitat_zro_harvester = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 	}
@@ -72,21 +72,22 @@ building_giga_iodizium_plant = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_exotic_resource_cost
+			script = buildings/resources/tec_exotic_resource_cost
 			exotic = sr_iodizium
 		}
-		produces = { energy = 35 }
+		produces = { energy = 20 }
 	}
 	
 	triggered_planet_modifier = {
 		potential = { always = yes }
 		multiplier = value:scripted_modifier_mult|MODIFIER|giga_planet_job_size|
-		planet_technician_energy_produces_add = 2
-		planet_technician_sr_iodizium_upkeep_add = 0.01
+		planet_technician_energy_produces_add = 1
+		planet_technician_minerals_upkeep_add = 0.5
+		planet_technician_sr_iodizium_upkeep_add = 0.025
 	}
 
 	triggered_planet_modifier = {
@@ -100,7 +101,7 @@ building_giga_iodizium_plant = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			check_variable_arithmetic = {
 				which = value:generator_combined_value
@@ -135,32 +136,50 @@ building_giga_iodizium_research = {
 	triggered_planet_modifier = {
 		potential = { always = yes }
 		multiplier = value:scripted_modifier_mult|MODIFIER|giga_planet_job_size|
-		planet_researchers_physics_research_produces_add = 1
-		planet_researchers_society_research_produces_add = 1
-		planet_researchers_engineering_research_produces_add = 1
+		planet_researchers_physics_research_produces_add = 0.5
+		planet_researchers_society_research_produces_add = 0.5
+		planet_researchers_engineering_research_produces_add = 0.5
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_gestalt = no } }
+		multiplier = value:scripted_modifier_mult|MODIFIER|giga_planet_job_size|
+		planet_researchers_consumer_goods_upkeep_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_hive_empire = yes } }
+		multiplier = value:scripted_modifier_mult|MODIFIER|giga_planet_job_size|
+		planet_researchers_minerals_upkeep_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = { exists = owner owner = { is_machine_empire = yes } }
+		multiplier = value:scripted_modifier_mult|MODIFIER|giga_planet_job_size|
+		planet_researchers_energy_upkeep_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = { always = yes }
+		multiplier = value:scripted_modifier_mult|MODIFIER|giga_planet_job_size|
 		planet_researchers_sr_iodizium_upkeep_add = 0.025
 	}
 	
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 
 		inline_script = {
-			script = buildings/resources/inline_evolved_exotic_resource_cost
+			script = buildings/resources/tec_exotic_resource_cost
 			exotic = sr_iodizium
-		}
-		produces = {
-			physics_research = 25
-			society_research = 25
-			engineering_research = 25
 		}
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -206,7 +225,7 @@ building_giga_iodizium_mines = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1_half
 		}
 	}
@@ -240,7 +259,7 @@ building_giga_shroud_capacitor = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		cost = {
@@ -254,7 +273,7 @@ building_giga_shroud_capacitor = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				has_research_designation = yes
@@ -291,13 +310,13 @@ building_giga_matter_synthesizer = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 5
 		regular_secondary_count = 5
 		hive_count = 5
@@ -342,13 +361,13 @@ building_giga_interstellar_hydroponic_farm = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = 6
 		regular_secondary_count = 6
 		hive_count = 7
@@ -361,7 +380,7 @@ building_giga_interstellar_hydroponic_farm = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_hydroponics_farm
+		script = buildings/effects/type/tec_hydroponics_farm
 		tier = 2
 	}
 }
@@ -403,7 +422,7 @@ building_ehof_sm_forge_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 	}
@@ -448,13 +467,13 @@ building_ehof_sm_forge_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -480,13 +499,13 @@ building_giga_gas_giant_habitation_module = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = 5
 		regular_secondary_count = 5
 		hive_count = 6
@@ -508,7 +527,7 @@ building_giga_gas_giant_habitation_module = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 3
 		regular_secondary_count = 3
 		hive_count = 5
@@ -521,7 +540,7 @@ building_giga_gas_giant_habitation_module = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 2
 		regular_secondary_count = 2
 		hive_count = 2
@@ -534,7 +553,7 @@ building_giga_gas_giant_habitation_module = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 4
 		regular_secondary_count = 4
 		hive_count = 6
@@ -549,7 +568,7 @@ building_giga_gas_giant_habitation_module = {
 	}
 	
 	inline_script = {
-		script = modifiers/inline_evolved_amenities
+		script = modifiers/tec_amenities
 		count = 10
 		trigger = ""
 	}
@@ -564,14 +583,14 @@ building_solar_farm = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 		produces = { energy = 10 }
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 8
 		regular_secondary_count = 8
 		hive_count = 8
@@ -584,7 +603,7 @@ building_solar_farm = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_tec_energrid
+		script = buildings/effects/type/tec_energrid
 		tier = 2
 	}
 }
@@ -597,13 +616,13 @@ building_giga_pcc_scrap_pile = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 2
 		mult = 1
 		display = with_desc
@@ -612,7 +631,7 @@ building_giga_pcc_scrap_pile = {
 
 	
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 6
 		regular_secondary_count = 6
 		hive_count = 6
@@ -625,7 +644,7 @@ building_giga_pcc_scrap_pile = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_tec_stripmine
+		script = buildings/effects/type/tec_stripmine
 		tier = 2
 	}
 
@@ -639,7 +658,7 @@ building_giga_equatorial_factory = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 		upkeep = {
@@ -656,7 +675,7 @@ building_giga_equatorial_factory = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger = ""
 		count = 4
 		mult = 1
@@ -694,7 +713,7 @@ building_defense_nexus_construction = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		cost = {
@@ -706,14 +725,14 @@ building_defense_nexus_construction = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_soldier
+		script = jobs/tec_soldier
 		trigger = ""
 		count = 2
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_warrior_drone
+		script = jobs/tec_warrior_drone
 		trigger = ""
 		count = 2
 		mult = 1
@@ -721,7 +740,7 @@ building_defense_nexus_construction = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_fortress
+		script = buildings/effects/type/tec_fortress
 		tier = 1
 		type = all
 	}
@@ -770,7 +789,7 @@ building_defense_nexus_capacity = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		cost = {
@@ -782,7 +801,7 @@ building_defense_nexus_capacity = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job_tec_naval_add
+		script = jobs/tec_job_tec_naval_add
 		trigger = ""
 		count = 2
 		mult = 1
@@ -790,7 +809,7 @@ building_defense_nexus_capacity = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_naval_academy
+		script = buildings/effects/type/tec_naval_academy
 		tier = 1
 		type = all
 	}
@@ -840,18 +859,18 @@ building_giga_research_lab_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 3
 			rare = exotic_gases
 		}
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 8
 		count_half = 4
 		mult = 1
@@ -860,7 +879,7 @@ building_giga_research_lab_1 = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_research_lab
+		script = buildings/effects/type/tec_research_lab
 		tier = 4
 		type = all
 	}
@@ -870,7 +889,7 @@ building_giga_research_lab_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -902,11 +921,11 @@ building_giga_research_lab_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 4
 			rare = exotic_gases
 		}
@@ -914,7 +933,7 @@ building_giga_research_lab_2 = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 10
 		count_half = 5
 		mult = 1
@@ -923,7 +942,7 @@ building_giga_research_lab_2 = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_research_lab
+		script = buildings/effects/type/tec_research_lab
 		tier = 5
 		type = all
 	}
@@ -933,7 +952,7 @@ building_giga_research_lab_2 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -977,11 +996,11 @@ building_giga_institute_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 3
 			rare = exotic_gases
 		}
@@ -992,7 +1011,7 @@ building_giga_institute_1 = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_head_researcher
+		script = jobs/tec_head_researcher
 		count = 2
 		mult = 1
 		display = with_desc
@@ -1004,7 +1023,7 @@ building_giga_institute_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -1016,7 +1035,7 @@ building_giga_institute_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -1029,7 +1048,7 @@ building_giga_institute_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -1079,16 +1098,16 @@ building_giga_institute_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 4
 			rare = exotic_gases
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_exotic_resource_cost
+			script = buildings/resources/tec_exotic_resource_cost
 			exotic = ehof_sr_negative_mass
 		}
 	}
@@ -1098,7 +1117,7 @@ building_giga_institute_2 = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_head_researcher
+		script = jobs/tec_head_researcher
 		count = 3
 		mult = 1
 		display = with_desc
@@ -1111,7 +1130,7 @@ building_giga_institute_2 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -1161,11 +1180,11 @@ building_giga_supercomputer_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 3
 			rare = exotic_gases
 		}
@@ -1176,7 +1195,7 @@ building_giga_supercomputer_1 = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 2
 		count_half = 1
 		mult = 1
@@ -1190,7 +1209,7 @@ building_giga_supercomputer_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -1202,7 +1221,7 @@ building_giga_supercomputer_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -1215,7 +1234,7 @@ building_giga_supercomputer_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			OR = {
 				check_variable_arithmetic = {
@@ -1269,16 +1288,16 @@ building_giga_supercomputer_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 4
 			rare = exotic_gases
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_exotic_resource_cost
+			script = buildings/resources/tec_exotic_resource_cost
 			exotic = ehof_sr_negative_mass
 		}
 	}
@@ -1288,7 +1307,7 @@ building_giga_supercomputer_2 = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 3
 		count_half = 1
 		mult = 1
@@ -1301,7 +1320,7 @@ building_giga_supercomputer_2 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -1335,11 +1354,11 @@ building_giga_energy_nexus_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 3
 			rare = exotic_gases
 		}
@@ -1352,7 +1371,7 @@ building_giga_energy_nexus_1 = {
 	}
 
 	inline_script = {
-		script = modifiers/inline_evolved_technician_efficiency
+		script = modifiers/tec_technician_efficiency
 		count = 2
 		mult = 1
 		trigger = ""
@@ -1367,7 +1386,7 @@ building_giga_energy_nexus_1 = {
 	}
 
 	inline_script = {
-		script = modifiers/inline_evolved_technician_efficiency
+		script = modifiers/tec_technician_efficiency
 		count = 2
 		mult = modifier:giga_planet_job_size
 		trigger = ""
@@ -1387,7 +1406,7 @@ building_giga_energy_nexus_1 = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 3
 		regular_secondary_count = 3
 		hive_count = 3
@@ -1400,12 +1419,12 @@ building_giga_energy_nexus_1 = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_energy_grid
+		script = buildings/effects/type/tec_energy_grid
 		tier = 3
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			check_variable_arithmetic = {
 				which = value:generator_combined_value
@@ -1415,7 +1434,7 @@ building_giga_energy_nexus_1 = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = "
 			check_variable_arithmetic = {
 				which = value:generator_combined_value
@@ -1456,11 +1475,11 @@ building_giga_energy_nexus_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 4
 			rare = exotic_gases
 		}
@@ -1468,7 +1487,7 @@ building_giga_energy_nexus_2 = {
 
 
 	inline_script = {
-		script = modifiers/inline_evolved_technician_efficiency
+		script = modifiers/tec_technician_efficiency
 		count = 3
 		mult = 1
 		trigger = ""
@@ -1483,7 +1502,7 @@ building_giga_energy_nexus_2 = {
 	}
 
 	inline_script = {
-		script = modifiers/inline_evolved_technician_efficiency
+		script = modifiers/tec_technician_efficiency
 		count = 3
 		mult = modifier:giga_planet_job_size
 		trigger = ""
@@ -1504,7 +1523,7 @@ building_giga_energy_nexus_2 = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 4
 		regular_secondary_count = 4
 		hive_count = 4
@@ -1517,12 +1536,12 @@ building_giga_energy_nexus_2 = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_energy_grid
+		script = buildings/effects/type/tec_energy_grid
 		tier = 4
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -1560,22 +1579,22 @@ building_giga_energy_nexus_3 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 4
 			rare = exotic_gases
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_exotic_resource_cost
+			script = buildings/resources/tec_exotic_resource_cost
 			exotic = ehof_sr_negative_mass
 		}
 	}
 
 	inline_script = {
-		script = modifiers/inline_evolved_technician_efficiency
+		script = modifiers/tec_technician_efficiency
 		count = 4
 		mult = 1
 		trigger = ""
@@ -1590,7 +1609,7 @@ building_giga_energy_nexus_3 = {
 	}
 
 	inline_script = {
-		script = modifiers/inline_evolved_technician_efficiency
+		script = modifiers/tec_technician_efficiency
 		count = 4
 		mult = modifier:giga_planet_job_size
 		trigger = ""
@@ -1606,7 +1625,7 @@ building_giga_energy_nexus_3 = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 5
 		regular_secondary_count = 5
 		hive_count = 5
@@ -1619,12 +1638,12 @@ building_giga_energy_nexus_3 = {
 	}
 
 	inline_script = {
-		script = buildings/effects/type/inline_evolved_energy_grid
+		script = buildings/effects/type/tec_energy_grid
 		tier = 5
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -1652,12 +1671,12 @@ building_giga_planetary_shield_generator_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 2
 			rare = exotic_gases
 		}
@@ -1675,7 +1694,7 @@ building_giga_planetary_shield_generator_1 = {
 		"tech_giga_planetary_shield_generator_1"
 	}
 
-	inline_script = buildings/effects/inline_evolved_tec_secured_domain
+	inline_script = buildings/effects/tec_secured_domain
 }
 
 # Negative Mass Protector
@@ -1697,17 +1716,17 @@ building_giga_planetary_shield_generator_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 2
 			rare = exotic_gases
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_exotic_resource_cost
+			script = buildings/resources/tec_exotic_resource_cost
 			exotic = ehof_sr_negative_mass
 		}
 	}
@@ -1720,7 +1739,7 @@ building_giga_planetary_shield_generator_2 = {
 		"tech_giga_planetary_shield_generator_2"
 	}
 
-	inline_script = buildings/effects/inline_evolved_tec_secured_domain
+	inline_script = buildings/effects/tec_secured_domain
 }
 
 # Prototype Energy Anti-Transmuter
@@ -1763,12 +1782,12 @@ building_negative_mass_factory_1 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 2
 			rare = exotic_gases
 		}
@@ -1812,12 +1831,12 @@ building_negative_mass_factory_2 = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 3
 			rare = exotic_gases
 		}

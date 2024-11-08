@@ -29,7 +29,7 @@ district_giga_origin_birch_lab = {
 		category = planet_districts
 
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -104,7 +104,7 @@ district_giga_origin_birch_lab = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher
+		script = jobs/tec_researcher
 		count = 2
 		mult = 1
 		display = with_desc
@@ -112,7 +112,7 @@ district_giga_origin_birch_lab = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_archaeoengineers
+		script = jobs/tec_archaeoengineers
 		count = 1
 		mult = 1
 		display = with_desc
@@ -122,7 +122,7 @@ district_giga_origin_birch_lab = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher
+		script = jobs/tec_researcher
 		count = -1
 		mult = 1
 		display = no_desc

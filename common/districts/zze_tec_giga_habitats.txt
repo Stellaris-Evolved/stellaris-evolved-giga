@@ -20,12 +20,12 @@ district_giga_hab_city = {
 		uses_district_set = giga_habitat
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -41,12 +41,12 @@ district_giga_hab_city = {
 		# /
 		# Effect Types
 			inline_script = {
-				script = districts/type/inline_evolved_housing_generic
+				script = districts/type/tec_housing_generic
 				scale = 1
 				trigger = ""
 			}
 			inline_script = {
-				script = districts/type/inline_evolved_housing_city
+				script = districts/type/tec_housing_city
 				scale = 1
 				trigger = ""
 			}
@@ -55,7 +55,7 @@ district_giga_hab_city = {
 	# Jobs
 		# Base
 			inline_script = {
-				script = jobs/inline_evolved_clerk
+				script = jobs/tec_clerk
 				count = 2
 				mult = 1
 				display = with_desc
@@ -66,7 +66,7 @@ district_giga_hab_city = {
 		# /
 	# /
 	inline_script = {
-		script = districts/inline_evolved_aibait_housing
+		script = districts/tec_aibait_housing
 		has_building_slots = "
 			always = no
 		"
@@ -92,12 +92,12 @@ district_giga_hab_hive = {
 		uses_district_set = giga_habitat
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -112,19 +112,19 @@ district_giga_hab_hive = {
 			}
 		# /
 		inline_script = {
-			script = districts/type/inline_evolved_housing_generic
+			script = districts/type/tec_housing_generic
 			scale = 1
 			trigger = ""
 		}
 		inline_script = {
-			script = districts/type/inline_evolved_housing_hive
+			script = districts/type/tec_housing_hive
 			scale = 1
 			trigger = ""
 		}
 	# /
 	# Jobs
 		inline_script = {
-			script = jobs/inline_evolved_maintenance_drone
+			script = jobs/tec_maintenance_drone
 			count = 2
 			mult = 1
 			display = with_desc
@@ -132,7 +132,7 @@ district_giga_hab_hive = {
 		}
 	# /
 	inline_script = {
-		script = districts/inline_evolved_aibait_housing
+		script = districts/tec_aibait_housing
 		has_building_slots = "
 			always = no
 		"
@@ -159,12 +159,12 @@ district_giga_hab_nexus = {
 	}
 	conversion_ratio = 1
 
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -179,12 +179,12 @@ district_giga_hab_nexus = {
 			}
 			# Effect Types
 				inline_script = {
-					script = districts/type/inline_evolved_housing_generic
+					script = districts/type/tec_housing_generic
 					scale = 1
 					trigger = ""
 				}
 				inline_script = {
-					script = districts/type/inline_evolved_housing_nexus
+					script = districts/type/tec_housing_nexus
 					scale = 1
 					trigger = ""
 				}
@@ -193,7 +193,7 @@ district_giga_hab_nexus = {
 	# /
 	# Jobs
 		inline_script = {
-			script = jobs/inline_evolved_maintenance_drone
+			script = jobs/tec_maintenance_drone
 			count = 2
 			mult = 1
 			display = with_desc
@@ -201,7 +201,7 @@ district_giga_hab_nexus = {
 		}
 	# /
 	inline_script = {
-		script = districts/inline_evolved_aibait_housing
+		script = districts/tec_aibait_housing
 		has_building_slots = "
 			always = no
 		"
@@ -225,7 +225,7 @@ district_giga_hab_science = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -234,7 +234,7 @@ district_giga_hab_science = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	triggered_planet_modifier = {
 		modifier = {
@@ -243,7 +243,7 @@ district_giga_hab_science = {
 	}
 	### Interstellar Habitat
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher
 		count = 4
 		mult = 1
@@ -256,7 +256,7 @@ district_giga_hab_science = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_researcher_drone
 		count = 4
 		mult = 1
@@ -284,7 +284,7 @@ district_giga_hab_scavenger = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -293,7 +293,7 @@ district_giga_hab_scavenger = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 	triggered_planet_modifier = {
 		modifier = {
 			planet_housing_add = 2
@@ -301,7 +301,7 @@ district_giga_hab_scavenger = {
 	}
 	### Interstellar Habitat
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger
 		count = 2
 		mult = 1
@@ -314,7 +314,7 @@ district_giga_hab_scavenger = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_interstellar_scavenger_drone
 		count = 2
 		mult = 1

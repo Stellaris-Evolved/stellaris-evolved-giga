@@ -18,7 +18,7 @@ district_giga_planet_geothermal = {
 	resources = {
 		category = planet_districts_generator
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -34,7 +34,7 @@ district_giga_planet_geothermal = {
 		}
 	}
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 2
 		regular_secondary_count = 2
 		hive_count = 2
@@ -65,7 +65,7 @@ district_giga_planet_alloys = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -80,7 +80,7 @@ district_giga_planet_alloys = {
 	# job
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 3
 		mult = 1
 		display = with_desc
@@ -88,7 +88,7 @@ district_giga_planet_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = -1
 		mult = value:district_giga_planet_alloys_artisan_replacement
 		display = no_desc
@@ -96,7 +96,7 @@ district_giga_planet_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/tec_artisan
 		count = 1
 		mult = value:district_giga_planet_alloys_artisan_replacement
 		display = with_desc
@@ -136,7 +136,7 @@ district_giga_planet_admin = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -159,14 +159,14 @@ district_giga_planet_admin = {
 	planet_modifier = { planet_housing_add = 2 }
 	
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/tec_bureaucrat
 		count = 2
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = 2
 		mult = 1
 		display = with_desc
@@ -174,7 +174,7 @@ district_giga_planet_admin = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = 2
 		mult = 1
 		display = with_desc
@@ -206,7 +206,7 @@ district_giga_planet_admin_religious = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -229,7 +229,7 @@ district_giga_planet_admin_religious = {
 	planet_modifier = { planet_housing_add = 2 }
 
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = 2
 		count_half = 1
 		megacorp_count = 1
@@ -239,7 +239,7 @@ district_giga_planet_admin_religious = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = mortal_initiate
 		count = 1
 		mult = 1
@@ -278,7 +278,7 @@ district_giga_planet_sanctuary = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -300,7 +300,7 @@ district_giga_planet_sanctuary = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bio_trophy
 		count = 5
 		mult = 1
@@ -308,7 +308,7 @@ district_giga_planet_sanctuary = {
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = 1
 		trigger = ""

@@ -25,14 +25,14 @@ district_rw_quberine = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_rw_generator_district_swaps
-	inline_script = districts/convert_to/inline_evolved_research_districts
-	inline_script = districts/convert_to/inline_evolved_industrial_districts
+	inline_script = districts/convert_to/tec_rw_generator_district_swaps
+	inline_script = districts/convert_to/tec_research_districts
+	inline_script = districts/convert_to/tec_industrial_districts
 
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -79,10 +79,10 @@ district_rw_quberine = {
 			planet_housing_add = 10
 		}
 	}
-	inline_script = districts/effects/inline_evolved_tec_ringworld_damaged_section
+	inline_script = districts/effects/tec_ringworld_damaged_section
 	
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 10
 		count_half = 5
 		mult = 1
@@ -90,7 +90,7 @@ district_rw_quberine = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = -2
 		count_half = -1
 		mult = 1
@@ -101,7 +101,7 @@ district_rw_quberine = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = -2
 		count_half = -1
 		mult = 1

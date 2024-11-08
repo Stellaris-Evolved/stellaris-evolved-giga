@@ -42,7 +42,7 @@ building_giga_elysium_host_jobs = {
 
 	# clerks
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|clerk|
 		display = per_pop
@@ -51,7 +51,7 @@ building_giga_elysium_host_jobs = {
 
 	# farmers / anglers+divers
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = 1
 		regular_secondary_count = 0.5
 		hive_count = 0
@@ -66,7 +66,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer_secondary
+		script = jobs/tec_farmer_secondary
 		regular_count = 0.5
 		hive_count = 0
 		machine_count = 0
@@ -78,7 +78,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 0.5
 		regular_secondary_count = 0.25
 		hive_count = 0
@@ -93,7 +93,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 0.5
 		regular_secondary_count = 0.5
 		hive_count = 0
@@ -109,7 +109,7 @@ building_giga_elysium_host_jobs = {
 
 	# miners / clerks+scrap miners
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 1
 		regular_secondary_count = 0.5
 		hive_count = 0
@@ -123,7 +123,7 @@ building_giga_elysium_host_jobs = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_miner_secondary
+		script = jobs/tec_miner_secondary
 		regular_count = 0.5
 		hive_count = 0
 		machine_count = 0
@@ -135,7 +135,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 0.5
 		mult = value:giga_elysium_regular_job_mult|JOB|miner|
 		display = per_pop
@@ -144,7 +144,7 @@ building_giga_elysium_host_jobs = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = scrap_miner
 		count = 0.5
 		mult = value:giga_elysium_regular_job_mult|JOB|miner|
@@ -156,7 +156,7 @@ building_giga_elysium_host_jobs = {
 
 	# technicians
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 1
 		regular_secondary_count = 0.5
 		hive_count = 0
@@ -170,7 +170,7 @@ building_giga_elysium_host_jobs = {
 
 	# soldiers
 	inline_script = {
-		script = jobs/inline_evolved_soldier
+		script = jobs/tec_soldier
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|soldier|
 		display = per_pop
@@ -180,7 +180,7 @@ building_giga_elysium_host_jobs = {
 
 	# artisans / artificers
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/tec_artisan
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|artisan|
 		display = per_pop
@@ -189,7 +189,7 @@ building_giga_elysium_host_jobs = {
 
 	# metallurgists / catalytic technicians
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|metallurgist|
 		display = per_pop
@@ -198,7 +198,7 @@ building_giga_elysium_host_jobs = {
 
 	# bureaucrats / priests / death priests / managers
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = 1
 		count_half = 0.5
 		megacorp_count = 0.5
@@ -210,7 +210,7 @@ building_giga_elysium_host_jobs = {
 
 	# Researchers
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 1
 		count_half = 0.5
 		mult = value:giga_elysium_regular_job_mult|JOB|researcher|
@@ -220,7 +220,7 @@ building_giga_elysium_host_jobs = {
 
 	# Chemists
 	inline_script = {
-		script = jobs/inline_evolved_chemist
+		script = jobs/tec_chemist
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|chemist|
 		display = per_pop
@@ -233,7 +233,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|chemist|
 		display = per_pop
@@ -247,7 +247,7 @@ building_giga_elysium_host_jobs = {
 
 	# Translucers
 	inline_script = {
-		script = jobs/inline_evolved_translucer
+		script = jobs/tec_translucer
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|translucer|
 		display = per_pop
@@ -260,7 +260,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|translucer|
 		display = per_pop
@@ -274,7 +274,7 @@ building_giga_elysium_host_jobs = {
 
 	# Gas refiners
 	inline_script = {
-		script = jobs/inline_evolved_gas_refiner
+		script = jobs/tec_gas_refiner
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|gas_refiner|
 		display = per_pop
@@ -287,7 +287,7 @@ building_giga_elysium_host_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 1
 		mult = value:giga_elysium_regular_job_mult|JOB|gas_refiner|
 		display = per_pop
@@ -350,7 +350,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Maintenance Drones
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|clerk|
 		display = per_pop
@@ -359,7 +359,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Agri-Drones
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 1
@@ -374,7 +374,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer_secondary
+		script = jobs/tec_farmer_secondary
 		regular_count = 0
 		hive_count = 0.33
 		machine_count = 0
@@ -386,7 +386,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0.5
@@ -401,7 +401,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0.5
@@ -417,7 +417,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Mining Drones
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 1
@@ -431,7 +431,7 @@ building_giga_elysium_host_hive_jobs = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_miner_secondary
+		script = jobs/tec_miner_secondary
 		regular_count = 0
 		hive_count = 0.33
 		machine_count = 0
@@ -443,7 +443,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 0.5
 		mult = value:giga_elysium_hive_job_mult|JOB|miner|
 		display = per_pop
@@ -452,7 +452,7 @@ building_giga_elysium_host_hive_jobs = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = scrap_miner
 		count = 0.5
 		mult = value:giga_elysium_hive_job_mult|JOB|miner|
@@ -464,7 +464,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Tech Drones
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 1
@@ -478,7 +478,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Warrior Drones
 	inline_script = {
-		script = jobs/inline_evolved_warrior_drone
+		script = jobs/tec_warrior_drone
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|soldier|
 		display = per_pop
@@ -487,7 +487,7 @@ building_giga_elysium_host_hive_jobs = {
 	
 	# Artisan Drones, for whatever reason?
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/tec_artisan
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|artisan|
 		display = per_pop
@@ -496,7 +496,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Foundry Drones / catalytic drones
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|metallurgist|
 		display = per_pop
@@ -505,7 +505,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Synapse Drones
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|bureaucrat|
 		display = per_pop
@@ -514,7 +514,7 @@ building_giga_elysium_host_hive_jobs = {
 	
 	# Brain Drones
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 1
 		count_half = 0.5
 		mult = value:giga_elysium_hive_job_mult|JOB|researcher|
@@ -524,7 +524,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Chemists
 	inline_script = {
-		script = jobs/inline_evolved_chemist
+		script = jobs/tec_chemist
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|chemist|
 		display = per_pop
@@ -537,7 +537,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|chemist|
 		display = per_pop
@@ -551,7 +551,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Translucers
 	inline_script = {
-		script = jobs/inline_evolved_translucer
+		script = jobs/tec_translucer
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|translucer|
 		display = per_pop
@@ -564,7 +564,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|translucer|
 		display = per_pop
@@ -578,7 +578,7 @@ building_giga_elysium_host_hive_jobs = {
 
 	# Gas refiners
 	inline_script = {
-		script = jobs/inline_evolved_gas_refiner
+		script = jobs/tec_gas_refiner
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|gas_refiner|
 		display = per_pop
@@ -591,7 +591,7 @@ building_giga_elysium_host_hive_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_hive_job_mult|JOB|gas_refiner|
 		display = per_pop
@@ -647,7 +647,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Maintenance Drones
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|clerk|
 		display = per_pop
@@ -656,7 +656,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Agri-Drones
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0
@@ -671,7 +671,7 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0
@@ -686,7 +686,7 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0
@@ -702,7 +702,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Mining Drones
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0
@@ -716,7 +716,7 @@ building_giga_elysium_host_machine_jobs = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 0.5
 		mult = value:giga_elysium_machine_job_mult|JOB|miner|
 		display = per_pop
@@ -725,7 +725,7 @@ building_giga_elysium_host_machine_jobs = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = scrap_miner
 		count = 0.5
 		mult = value:giga_elysium_machine_job_mult|JOB|miner|
@@ -738,7 +738,7 @@ building_giga_elysium_host_machine_jobs = {
 	# Tech Drones
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 0
 		regular_secondary_count = 0
 		hive_count = 0
@@ -751,7 +751,7 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician_secondary
+		script = jobs/tec_technician_secondary
 		regular_count = 0
 		hive_count = 0
 		machine_count = 0.5
@@ -762,7 +762,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Warrior Drones
 	inline_script = {
-		script = jobs/inline_evolved_warrior_drone
+		script = jobs/tec_warrior_drone
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|soldier|
 		display = per_pop
@@ -771,7 +771,7 @@ building_giga_elysium_host_machine_jobs = {
 	
 	# Artisan Drones, for whatever reason?
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/tec_artisan
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|artisan|
 		display = per_pop
@@ -780,7 +780,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Foundry Drones / catalytic drones
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|metallurgist|
 		display = per_pop
@@ -789,7 +789,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Coordinators
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|bureaucrat|
 		display = per_pop
@@ -798,7 +798,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Calculators
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 1
 		count_half = 0.5
 		mult = value:giga_elysium_machine_job_mult|JOB|researcher|
@@ -808,7 +808,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Chemists
 	inline_script = {
-		script = jobs/inline_evolved_chemist
+		script = jobs/tec_chemist
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|chemist|
 		display = per_pop
@@ -821,7 +821,7 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|chemist|
 		display = per_pop
@@ -835,7 +835,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Translucers
 	inline_script = {
-		script = jobs/inline_evolved_translucer
+		script = jobs/tec_translucer
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|translucer|
 		display = per_pop
@@ -848,7 +848,7 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|translucer|
 		display = per_pop
@@ -862,7 +862,7 @@ building_giga_elysium_host_machine_jobs = {
 
 	# Gas refiners
 	inline_script = {
-		script = jobs/inline_evolved_gas_refiner
+		script = jobs/tec_gas_refiner
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|gas_refiner|
 		display = per_pop
@@ -875,7 +875,7 @@ building_giga_elysium_host_machine_jobs = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = value:giga_elysium_machine_job_mult|JOB|gas_refiner|
 		display = per_pop
@@ -1340,7 +1340,7 @@ building_giga_elysium_host_booster = {
 	# deposit general
 
 	inline_script = {
-		script = jobs/inline_evolved_gas_extractor
+		script = jobs/tec_gas_extractor
 		count = 1
 		mult = modifier:building_gas_extractors_max
 		display = with_desc
@@ -1363,7 +1363,7 @@ building_giga_elysium_host_booster = {
 
 	
 	inline_script = {
-		script = jobs/inline_evolved_crystal_miner
+		script = jobs/tec_crystal_miner
 		count = 1
 		mult = modifier:building_crystal_mines_max
 		display = with_desc
@@ -1386,7 +1386,7 @@ building_giga_elysium_host_booster = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_mote_harvester
+		script = jobs/tec_mote_harvester
 		count = 1
 		mult = modifier:building_mote_harvesters_max
 		display = with_desc

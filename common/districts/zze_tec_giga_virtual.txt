@@ -28,12 +28,12 @@ district_virtual_city = {
 		}
 	}
 
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -51,12 +51,12 @@ district_virtual_city = {
 		# /
 		# Effect Types
 			inline_script = {
-				script = districts/type/inline_evolved_housing_generic
+				script = districts/type/tec_housing_generic
 				scale = 5
 				trigger = ""
 			}
 			inline_script = {
-				script = districts/type/inline_evolved_housing_city
+				script = districts/type/tec_housing_city
 				scale = 5
 				trigger = ""
 			}
@@ -68,14 +68,14 @@ district_virtual_city = {
 	# Jobs
 		# Base
 			inline_script = {
-				script = jobs/inline_evolved_clerk
+				script = jobs/tec_clerk
 				count = 3
 				mult = 1
 				display = with_desc
 				trigger = ""
 			}
 			inline_script = {
-				script = jobs/inline_evolved_enforcer
+				script = jobs/tec_enforcer
 				count = 2
 				mult = 1
 				display = with_desc
@@ -86,7 +86,7 @@ district_virtual_city = {
 		# /
 	# /
 	inline_script = {
-		script = districts/inline_evolved_aibait_housing
+		script = districts/tec_aibait_housing
 		has_building_slots = "
 			always = no
 		"
@@ -120,12 +120,12 @@ district_virtual_hive = {
 	}
 
 
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -143,12 +143,12 @@ district_virtual_hive = {
 		# /
 		# Effect Types
 			inline_script = {
-				script = districts/type/inline_evolved_housing_generic
+				script = districts/type/tec_housing_generic
 				scale = 5
 				trigger = ""
 			}
 			inline_script = {
-				script = districts/type/inline_evolved_housing_hive
+				script = districts/type/tec_housing_hive
 				scale = 5
 				trigger = ""
 			}
@@ -156,7 +156,7 @@ district_virtual_hive = {
 	# /
 	# Jobs
 		inline_script = {
-			script = jobs/inline_evolved_maintenance_drone
+			script = jobs/tec_maintenance_drone
 			count = 15
 			mult = 1
 			display = with_desc
@@ -164,7 +164,7 @@ district_virtual_hive = {
 		}
 
 		inline_script = {
-			script = jobs/inline_evolved_synapse
+			script = jobs/tec_synapse
 			count = 2
 			mult = 1
 			display = with_desc
@@ -172,7 +172,7 @@ district_virtual_hive = {
 		}
 	# /
 	inline_script = {
-		script = districts/inline_evolved_aibait_housing
+		script = districts/tec_aibait_housing
 		has_building_slots = "
 			always = no
 		"
@@ -206,12 +206,12 @@ district_virtual_nexus = {
 		}
 	}
 
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -227,12 +227,12 @@ district_virtual_nexus = {
 			}
 			# Effect Types
 				inline_script = {
-					script = districts/type/inline_evolved_housing_generic
+					script = districts/type/tec_housing_generic
 					scale = 5
 					trigger = ""
 				}
 				inline_script = {
-					script = districts/type/inline_evolved_housing_nexus
+					script = districts/type/tec_housing_nexus
 					scale = 5
 					trigger = ""
 				}
@@ -241,14 +241,14 @@ district_virtual_nexus = {
 	# /
 	# Jobs
 		inline_script = {
-			script = jobs/inline_evolved_maintenance_drone
+			script = jobs/tec_maintenance_drone
 			count = 10
 			mult = 1
 			display = with_desc
 			trigger = ""
 		}
 		inline_script = {
-			script = jobs/inline_evolved_technician
+			script = jobs/tec_technician
 			regular_count = 2
 			regular_secondary_count = 2
 			hive_count = 2
@@ -261,7 +261,7 @@ district_virtual_nexus = {
 		}
 	# /
 	inline_script = {
-		script = districts/inline_evolved_aibait_housing
+		script = districts/tec_aibait_housing
 		has_building_slots = "
 			always = no
 		"
@@ -288,7 +288,7 @@ district_virtual_science = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -309,7 +309,7 @@ district_virtual_science = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 10
 		count_half = 5
 		mult = 1
@@ -373,7 +373,7 @@ district_virtual_leisure = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -393,7 +393,7 @@ district_virtual_leisure = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_media_coordinator
 		count = 5
 		mult = 1
@@ -405,7 +405,7 @@ district_virtual_leisure = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_entertainer
+		script = jobs/tec_entertainer
 		count = 5
 		mult = 1
 		display = with_desc
@@ -414,7 +414,7 @@ district_virtual_leisure = {
 
 	# servitors
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_media_coordinator_drone
 		count = 1
 		mult = 1
@@ -426,7 +426,7 @@ district_virtual_leisure = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = tec_spareparts_drone
 		count = 2
 		mult = 1
@@ -435,7 +435,7 @@ district_virtual_leisure = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 3
 		mult = 1
 		display = with_desc
@@ -485,7 +485,7 @@ district_virtual_maintenance = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -507,7 +507,7 @@ district_virtual_maintenance = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		count = 2
 		mult = 1
 		display = with_desc
@@ -516,7 +516,7 @@ district_virtual_maintenance = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = tec_spareparts_drone
 		count = 2
 		mult = 1
@@ -525,7 +525,7 @@ district_virtual_maintenance = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 4
 		mult = 1
 		display = with_desc
@@ -533,7 +533,7 @@ district_virtual_maintenance = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 2
 		regular_secondary_count = 2
 		hive_count = 2
@@ -585,7 +585,7 @@ district_virtual_administrative = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -605,7 +605,7 @@ district_virtual_administrative = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/tec_bureaucrat
 		count = 10
 		mult = 1
 		display = with_desc
@@ -679,7 +679,7 @@ district_virtual_religious = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -699,7 +699,7 @@ district_virtual_religious = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = 10
 		count_half = 5
 		megacorp_count = 5
@@ -709,7 +709,7 @@ district_virtual_religious = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = -3
 		count_half = -2
 		megacorp_count = -2
@@ -721,7 +721,7 @@ district_virtual_religious = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = mortal_initiate
 		count = 3
 		mult = 1
@@ -816,7 +816,7 @@ district_virtual_relay = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -836,7 +836,7 @@ district_virtual_relay = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = 10
 		mult = 1
 		display = with_desc
@@ -844,7 +844,7 @@ district_virtual_relay = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = 10
 		mult = 1
 		display = with_desc
@@ -895,7 +895,7 @@ district_virtual_amalgamation = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -944,7 +944,7 @@ district_virtual_livestock = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1013,7 +1013,7 @@ district_virtual_hell = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1084,7 +1084,7 @@ district_virtual_diplomatic = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1159,7 +1159,7 @@ district_virtual_diplomatic_hive = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1218,7 +1218,7 @@ district_virtual_diplomatic_machine = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1276,7 +1276,7 @@ district_virtual_training = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1297,7 +1297,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 5
 		mult = 1
 		display = with_desc
@@ -1327,7 +1327,7 @@ district_virtual_training = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -2
 		mult = 1
 		display = no_desc
@@ -1339,7 +1339,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_soldier
+		script = jobs/tec_soldier
 		count = 2
 		mult = 1
 		display = with_desc
@@ -1351,7 +1351,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -2
 		mult = 1
 		display = no_desc
@@ -1366,7 +1366,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_soldier
+		script = jobs/tec_soldier
 		count = 2
 		mult = 1
 		display = no_desc
@@ -1383,7 +1383,7 @@ district_virtual_training = {
 
 	# government
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -1
 		mult = 1
 		display = no_desc
@@ -1395,7 +1395,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/tec_bureaucrat
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1407,7 +1407,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -2
 		mult = 1
 		display = no_desc
@@ -1422,7 +1422,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/tec_bureaucrat
 		count = 2
 		mult = 1
 		display = no_desc
@@ -1438,7 +1438,7 @@ district_virtual_training = {
 
 	# science
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -1
 		mult = 1
 		display = no_desc
@@ -1450,7 +1450,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_head_researcher
+		script = jobs/tec_head_researcher
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1462,7 +1462,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -2
 		mult = 1
 		display = no_desc
@@ -1477,7 +1477,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_head_researcher
+		script = jobs/tec_head_researcher
 		count = 2
 		mult = 1
 		display = no_desc
@@ -1494,7 +1494,7 @@ district_virtual_training = {
 	# leaders
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -1
 		mult = 1
 		display = no_desc
@@ -1506,7 +1506,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1518,7 +1518,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = -2
 		mult = 1
 		display = no_desc
@@ -1533,7 +1533,7 @@ district_virtual_training = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		count = 2
 		mult = 1
 		display = no_desc
@@ -1586,7 +1586,7 @@ district_virtual_training_gestalt = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1606,7 +1606,7 @@ district_virtual_training_gestalt = {
 		job_giga_virtual_training_coordination_drone_add = 5
 	}
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1614,7 +1614,7 @@ district_virtual_training_gestalt = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_warrior_drone
+		script = jobs/tec_warrior_drone
 		count = 4
 		mult = 1
 		display = with_desc
@@ -1673,7 +1673,7 @@ district_virtual_alloys = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1700,7 +1700,7 @@ district_virtual_alloys = {
 	triggered_planet_modifier = { potential = { exists = owner owner = { is_gestalt = no is_crafter_empire = yes } }	modifier = { job_artificer_add = 2 } }
 
 	inline_script = {
-		script = districts/inline_evolved_industrial_split_jobs
+		script = districts/tec_industrial_split_jobs
 		count = 2
 		mult = 1
 		trigger = ""
@@ -1708,7 +1708,7 @@ district_virtual_alloys = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 1
 		mult = 1
 		trigger = ""
@@ -1741,7 +1741,7 @@ district_virtual_generator = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1761,7 +1761,7 @@ district_virtual_generator = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 5
 		regular_secondary_count = 5
 		hive_count = 5
@@ -1803,7 +1803,7 @@ district_virtual_mining = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1823,7 +1823,7 @@ district_virtual_mining = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 5
 		regular_secondary_count = 5
 		hive_count = 5
@@ -1877,7 +1877,7 @@ district_virtual_consumer = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1899,7 +1899,7 @@ district_virtual_consumer = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/tec_artisan
 		count = 10
 		mult = 1
 		display = with_desc
@@ -1936,7 +1936,7 @@ district_virtual_shipyard = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1956,7 +1956,7 @@ district_virtual_shipyard = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 10
 		mult = 1
 		display = with_desc

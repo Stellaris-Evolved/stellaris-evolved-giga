@@ -36,7 +36,7 @@ district_giga_orbital_farming = {
 	resources = {
 		category = planet_districts_farming
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -45,7 +45,13 @@ district_giga_orbital_farming = {
 		}
 	}
 
-	inline_script = districts/type/inline_evolved_rural_farming
+	inline_script = {
+		script = districts/type/tec_rural_farming
+		default_job = farmer
+		default_job_secondary = no
+		jobs_base = 2
+		housing_base = 2
+	}
 
 }
 
@@ -76,7 +82,7 @@ district_giga_orbital_sanctuary = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -159,7 +165,7 @@ district_giga_orbital_preserve = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -216,7 +222,7 @@ district_giga_orbital_logistics = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -262,7 +268,7 @@ district_giga_orbital_logistics = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -270,7 +276,7 @@ district_giga_orbital_logistics = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 1
 		mult = 1
 		display = with_desc
@@ -278,7 +284,7 @@ district_giga_orbital_logistics = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		count = 1
 		mult = 1
 		display = with_desc
@@ -286,7 +292,7 @@ district_giga_orbital_logistics = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		count = 1
 		mult = 1
 		display = with_desc

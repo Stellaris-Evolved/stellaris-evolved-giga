@@ -42,7 +42,7 @@ district_giga_birch_structure = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -73,7 +73,7 @@ district_giga_birch_structure = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		trigger= ""
 		count = 0.04
 		mult = 1
@@ -98,7 +98,7 @@ district_giga_birch_structure = {
 		job_giga_birch_structure_manager_drone_per_pop = 0.01
 	}
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		trigger= ""
 		count = 0.06
 		mult = 1
@@ -139,7 +139,7 @@ district_giga_birch_orykta = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -171,7 +171,7 @@ district_giga_birch_orykta = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		trigger= ""
 		count = 2
 		mult = 1
@@ -192,7 +192,7 @@ district_giga_birch_orykta = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		trigger= ""
 		count = 10
 		mult = 1
@@ -210,14 +210,14 @@ district_giga_birch_orykta = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		trigger= ""
 		count = 2
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		trigger= ""
 		count = 2
 		mult = 1
@@ -231,7 +231,7 @@ district_giga_birch_orykta = {
 		job_giga_birch_orykta_worker_drone_add = 70
 	}
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger= ""
 		count = 10
 		mult = 1
@@ -274,7 +274,7 @@ district_giga_birch_orykta_energy = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -307,7 +307,7 @@ district_giga_birch_orykta_energy = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = @sector_jobs
 		regular_secondary_count = @[ sector_jobs - 2 ]
 		hive_count = @sector_jobs
@@ -320,7 +320,7 @@ district_giga_birch_orykta_energy = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician_secondary
+		script = jobs/tec_technician_secondary
 		regular_count = 2
 		hive_count = 2
 		machine_count = 2
@@ -359,7 +359,7 @@ district_giga_birch_orykta_minerals = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -392,7 +392,7 @@ district_giga_birch_orykta_minerals = {
 
 
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = @sector_jobs
 		regular_secondary_count = @[ sector_jobs - 2 ]
 		hive_count = @sector_jobs
@@ -404,7 +404,7 @@ district_giga_birch_orykta_minerals = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_miner_secondary
+		script = jobs/tec_miner_secondary
 		regular_count = 2
 		hive_count = 2
 		machine_count = 2
@@ -446,7 +446,7 @@ district_giga_birch_orykta_dark_matter = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -523,7 +523,7 @@ district_giga_birch_orykta_negative_mass = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -595,12 +595,12 @@ district_giga_birch_ktisma = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
 			cost = @giga_birch_insula_cost
-			upkeep = @giga_birch_insula_cost
+			upkeep = @giga_birch_insula_maintenance
 		}
 		cost = {
 			alloys = @giga_birch_insula_cost 
@@ -627,7 +627,7 @@ district_giga_birch_ktisma = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		trigger= ""
 		count = 2
 		mult = 1
@@ -647,7 +647,7 @@ district_giga_birch_ktisma = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		trigger= ""
 		count = 10
 		mult = 1
@@ -669,14 +669,14 @@ district_giga_birch_ktisma = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		trigger= ""
 		count = 2
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		trigger= ""
 		count = 2
 		mult = 1
@@ -696,7 +696,7 @@ district_giga_birch_ktisma = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger= ""
 		count = 10
 		mult = 1
@@ -732,7 +732,7 @@ district_giga_birch_ktisma_foundry = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -772,7 +772,7 @@ district_giga_birch_ktisma_foundry = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		trigger= ""
 		count = @sector_jobs
 		mult = 1
@@ -816,7 +816,7 @@ district_giga_birch_ktisma_factory = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -856,7 +856,7 @@ district_giga_birch_ktisma_factory = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_artisan
+		script = jobs/tec_artisan
 		trigger= ""
 		count = @sector_jobs
 		mult = 1
@@ -898,7 +898,7 @@ district_giga_birch_ktisma_supertensiles = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -994,7 +994,7 @@ district_giga_birch_ktisma_sentient_metal = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1085,7 +1085,7 @@ district_giga_birch_ktisma_refinery = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1125,21 +1125,21 @@ district_giga_birch_ktisma_refinery = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_chemist
+		script = jobs/tec_chemist
 		count = 2
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_gas_refiner
+		script = jobs/tec_gas_refiner
 		count = 2
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_translucer
+		script = jobs/tec_translucer
 		count = 2
 		mult = 1
 		display = with_desc
@@ -1147,7 +1147,7 @@ district_giga_birch_ktisma_refinery = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		trigger= ""
 		count = 1
 		mult = 1
@@ -1155,14 +1155,14 @@ district_giga_birch_ktisma_refinery = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		trigger= ""
 		count = 1
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		trigger= ""
 		count = 1
 		mult = 1
@@ -1200,7 +1200,7 @@ district_giga_birch_physma = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1248,7 +1248,7 @@ district_giga_birch_physma = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		trigger= ""
 		count = 2
 		mult = 1
@@ -1267,7 +1267,7 @@ district_giga_birch_physma = {
 		text = job_giga_birch_physma_worker_effect_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		trigger= ""
 		count = 10
 		mult = 1
@@ -1285,14 +1285,14 @@ district_giga_birch_physma = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		trigger= ""
 		count = 2
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		trigger= ""
 		count = 2
 		mult = 1
@@ -1311,7 +1311,7 @@ district_giga_birch_physma = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger= ""
 		count = 10
 		mult = 1
@@ -1347,7 +1347,7 @@ district_giga_birch_physma_farm = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1386,7 +1386,7 @@ district_giga_birch_physma_farm = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = @sector_jobs
 		regular_secondary_count = @[ sector_jobs - 2]
 		hive_count = @sector_jobs
@@ -1398,7 +1398,7 @@ district_giga_birch_physma_farm = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_farmer_secondary
+		script = jobs/tec_farmer_secondary
 		regular_count = 2
 		hive_count = 2
 		machine_count = 2
@@ -1437,7 +1437,7 @@ district_giga_birch_physma_laboratory = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1478,7 +1478,7 @@ district_giga_birch_physma_laboratory = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		trigger= ""
 		count = @sector_jobs
 		count_half = 4
@@ -1523,7 +1523,7 @@ district_giga_birch_physma_trade = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1565,7 +1565,7 @@ district_giga_birch_physma_trade = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_merchant
+		script = jobs/tec_merchant
 		trigger= " 
 			exists = owner
 			owner = {
@@ -1577,20 +1577,20 @@ district_giga_birch_physma_trade = {
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		trigger= ""
 		count = 3
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = districts/effects/inline_evolved_mercantile_commercial_enterprise
+		script = districts/effects/tec_mercantile_commercial_enterprise
 		trigger = ""
 		count = 1
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = tec_trade_drone
 		trigger= " 
 			exists = owner
@@ -1603,14 +1603,14 @@ district_giga_birch_physma_trade = {
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger= ""
 		count = 3
 		mult = 1
 		display = with_desc
 	}
 	inline_script = {
-		script = districts/effects/inline_evolved_tec_mercantile_commercial_enterprise_gestalt
+		script = districts/effects/tec_mercantile_commercial_enterprise_gestalt
 		trigger = ""
 		count = 1
 	}
@@ -1662,7 +1662,7 @@ district_giga_birch_physma_bureaucratic = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1686,7 +1686,7 @@ district_giga_birch_physma_bureaucratic = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bureaucrat
+		script = jobs/tec_bureaucrat
 		count = @sector_jobs
 		mult = 1
 		display = with_desc
@@ -1740,7 +1740,7 @@ district_giga_birch_physma_temple = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1764,7 +1764,7 @@ district_giga_birch_physma_temple = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = @sector_jobs
 		count_half = 3
 		megacorp_count = 4
@@ -1774,7 +1774,7 @@ district_giga_birch_physma_temple = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = -2
 		count_half = -1
 		megacorp_count = -1
@@ -1786,7 +1786,7 @@ district_giga_birch_physma_temple = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = mortal_initiate
 		count = 2
 		mult = 1
@@ -1846,7 +1846,7 @@ district_giga_birch_physma_relay = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -1893,7 +1893,7 @@ district_giga_birch_physma_relay = {
 	
 	# Hive
 		inline_script = {
-			script = jobs/inline_evolved_synapse
+			script = jobs/tec_synapse
 			count = @sector_jobs
 			mult = 1
 			display = with_desc
@@ -1902,7 +1902,7 @@ district_giga_birch_physma_relay = {
 	# /
 	# Machine
 		inline_script = {
-			script = jobs/inline_evolved_coordinator
+			script = jobs/tec_coordinator
 			count = @sector_jobs
 			mult = 1
 			display = with_desc
@@ -1957,7 +1957,7 @@ district_giga_birch_physma_sanctuary = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"

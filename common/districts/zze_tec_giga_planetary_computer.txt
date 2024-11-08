@@ -14,7 +14,7 @@ district_giga_pcc_science = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -33,7 +33,7 @@ district_giga_pcc_science = {
 		planet_housing_add = 5
 	}
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 5
 		count_half = 2
 		mult = 1
@@ -64,7 +64,7 @@ district_giga_pcc_admin = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -81,7 +81,7 @@ district_giga_pcc_admin = {
 	# Jobs
 		# Regular
 			inline_script = {
-				script = jobs/inline_evolved_bureaucrat
+				script = jobs/tec_bureaucrat
 				count = 5
 				mult = 1
 				display = with_desc
@@ -90,7 +90,7 @@ district_giga_pcc_admin = {
 		# /
 		# Gestalt 
 			inline_script = {
-				script = jobs/inline_evolved_synapse
+				script = jobs/tec_synapse
 				count = 5
 				mult = 1
 				display = with_desc
@@ -98,7 +98,7 @@ district_giga_pcc_admin = {
 			}
 
 			inline_script = {
-				script = jobs/inline_evolved_coordinator
+				script = jobs/tec_coordinator
 				count = 5
 				mult = 1
 				display = with_desc
@@ -129,7 +129,7 @@ district_giga_pcc_admin_religious = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -146,7 +146,7 @@ district_giga_pcc_admin_religious = {
 		planet_housing_add = 5
 	}
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = 5
 		count_half = 2
 		megacorp_count = 3
@@ -157,7 +157,7 @@ district_giga_pcc_admin_religious = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = -2
 		count_half = -1
 		megacorp_count = -1
@@ -169,7 +169,7 @@ district_giga_pcc_admin_religious = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = mortal_initiate
 		count = 2
 		mult = 1

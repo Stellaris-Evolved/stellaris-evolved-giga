@@ -2,15 +2,15 @@
 # AFAIK have to copy the designations just for the gas giant habitat so your origin is accounted for
 # Capital Planet
 col_giga_gas_giant_habitat_capital = {
-	inline_script = colony_types/inline_evolved_disabled
+	inline_script = colony_types/tec_disabled
 }
 
 col_giga_gas_giant_habitat_capital_hive = {
-	inline_script = colony_types/inline_evolved_disabled
+	inline_script = colony_types/tec_disabled
 }
 
 col_giga_gas_giant_habitat_capital_machine = {
-	inline_script = colony_types/inline_evolved_disabled
+	inline_script = colony_types/tec_disabled
 }
 
 # Habitat
@@ -43,8 +43,8 @@ col_giga_gas_giant_habitat_energy = {
 	}
 
 	# Evolved
-		inline_script = colony_types/effects/inline_evolved_tec_land_of_plenty_generator
-		inline_script = colony_types/effects/inline_evolved_tec_planets_t2a_generator
+		inline_script = colony_types/effects/tec_land_of_plenty_generator
+		inline_script = colony_types/effects/tec_planets_t2a_generator
 	# /
 	weight_modifier = {
 		base = 200

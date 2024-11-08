@@ -1,18 +1,18 @@
-# buildings/effects/type/inline_evolved_energy_grid_giga_patch
+# buildings/effects/type/tec_energy_grid_giga_patch
 
 
 inline_script = {
-	script = inline_evolved_conditional
+	script = tec_conditional
 	value = $tier$
 	equal = 4
 	code = "
 		inline_script = {
-			script = buildings/effects/inline_evolved_quantum
+			script = buildings/effects/tec_quantum
 			max = 4
 		}
 
 		inline_script = {	# Syndical
-			script = buildings/effects/inline_evolved_labour_hero_civics_jobs
+			script = buildings/effects/tec_labour_hero_civics_jobs
 			LABOUR_HERO_COUNT = 2
 			MENIAL_JOB = technician
 			MENIAL_COUNT = 3
@@ -23,17 +23,17 @@ inline_script = {
 }
 
 inline_script = {
-	script = inline_evolved_conditional
+	script = tec_conditional
 	value = $tier$
 	equal = 5
 	code = "
 		inline_script = {
-			script = buildings/effects/inline_evolved_quantum
+			script = buildings/effects/tec_quantum
 			max = 4
 		}
 
 		inline_script = {	# Syndical
-			script = buildings/effects/inline_evolved_labour_hero_civics_jobs
+			script = buildings/effects/tec_labour_hero_civics_jobs
 			LABOUR_HERO_COUNT = 3
 			MENIAL_JOB = technician
 			MENIAL_COUNT = 3

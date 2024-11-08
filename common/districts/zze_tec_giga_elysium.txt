@@ -24,7 +24,7 @@ district_giga_elysium_housing = {
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -38,13 +38,13 @@ district_giga_elysium_housing = {
 	}
 
 	inline_script = {
-		script = districts/type/inline_evolved_housing_generic
+		script = districts/type/tec_housing_generic
 		scale = 1
 		trigger = ""
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_politician
+		script = jobs/tec_politician
 		trigger = "
 			owner = {
 				tec_has_ruler_civic = no
@@ -58,7 +58,7 @@ district_giga_elysium_housing = {
 	
 	# Politician Swaps
 		inline_script = {
-			script = jobs/inline_evolved_politician_civic_swaps
+			script = jobs/tec_politician_civic_swaps
 			trigger = ""
 			display = with_desc
 			count = 1
@@ -68,7 +68,7 @@ district_giga_elysium_housing = {
 
 	# Megacorp Ruler Civics
 		inline_script = {
-			script = jobs/inline_evolved_executive_civic_swaps
+			script = jobs/tec_executive_civic_swaps
 			trigger = ""
 			display = with_desc
 			count = 1
@@ -80,7 +80,7 @@ district_giga_elysium_housing = {
 	# Gestalts
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger = ""
 		count = 1
 		mult = 1
@@ -88,7 +88,7 @@ district_giga_elysium_housing = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = tec_spareparts_drone
 		count = 1
 		mult = 1
@@ -123,7 +123,7 @@ district_giga_elysium_control = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -137,7 +137,7 @@ district_giga_elysium_control = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			exists = owner
 			owner = { is_gestalt = no }
@@ -149,7 +149,7 @@ district_giga_elysium_control = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			exists = owner
 			owner = { 
@@ -164,7 +164,7 @@ district_giga_elysium_control = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		trigger = "
 			owner = { 
 				tec_has_psi_corps = no
@@ -176,7 +176,7 @@ district_giga_elysium_control = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			exists = owner
 			owner = { is_gestalt = yes }
@@ -188,7 +188,7 @@ district_giga_elysium_control = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		trigger = ""
 		count = 1
 		mult = 1
@@ -218,7 +218,7 @@ district_giga_elysium_admin = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -235,7 +235,7 @@ district_giga_elysium_admin = {
 	# Normal Empire
 
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = 3
 		count_half = 1
 		megacorp_count = 2
@@ -249,7 +249,7 @@ district_giga_elysium_admin = {
 	# Hives
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = 3
 		mult = 1
 		display = with_desc
@@ -260,7 +260,7 @@ district_giga_elysium_admin = {
 	# Machines (servitors can't build these, so all machines)
 
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = 3
 		mult = 1
 		display = with_desc
@@ -292,7 +292,7 @@ district_giga_elysium_science = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -306,7 +306,7 @@ district_giga_elysium_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher
+		script = jobs/tec_researcher
 		count = 3
 		mult = 1
 		display = with_desc
@@ -354,7 +354,7 @@ district_giga_elysium_entertainment = {
 	resources = {
 		category = planet_districts
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -368,7 +368,7 @@ district_giga_elysium_entertainment = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = giga_media_coordinator
 		count = 1
 		mult = 1
@@ -380,7 +380,7 @@ district_giga_elysium_entertainment = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_entertainer
+		script = jobs/tec_entertainer
 		count = 2
 		mult = 1
 		display = with_desc

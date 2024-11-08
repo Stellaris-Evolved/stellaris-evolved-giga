@@ -318,7 +318,7 @@ frame_maintenance_drone = {
 		planet_pop_assembly_organic_add = -0.125
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_maintenance_drone_effect
+	inline_script = jobs/effects/type/tec_maintenance_drone_effect
 
 	weight = {
 		weight = @special_job_weight
@@ -370,7 +370,7 @@ frame_maintenance_overseer = {
 		planet_jobs_simple_drone_produces_mult = 0.01
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_maintenance_drone_effect
+	inline_script = jobs/effects/type/tec_maintenance_drone_effect
 
 	weight = {
 		weight = value:giga_complex_drone_no_resource_weight|JOB|frame_maintenance_overseer|AMENITIES|yes|
@@ -418,7 +418,7 @@ frameworld_defender = {
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_naval_mult|
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_soldier_effect
+	inline_script = jobs/effects/type/tec_soldier_effect
 
 	weight = {
 		weight = value:giga_worker_weight|JOB|frameworld_defender|RESOURCE|unity|
@@ -468,7 +468,7 @@ frameworld_defender_drone = {
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_naval_mult|
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_warrior_drone_effect
+	inline_script = jobs/effects/type/tec_warrior_drone_effect
 
 	weight = {
 		weight = value:giga_menial_drone_weight|JOB|frameworld_defender_drone|RESOURCE|unity|

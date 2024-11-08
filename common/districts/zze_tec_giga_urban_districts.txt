@@ -1,22 +1,22 @@
 # named to load before vanilla urban districts so that they appear before the industrial district
 
 district_giga_planet_city = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 }
 
 district_giga_planet_hive = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 }
 
 district_giga_planet_nexus = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 }

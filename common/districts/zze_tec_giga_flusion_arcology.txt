@@ -21,12 +21,12 @@ district_flusion_city = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_housing_districts
+	inline_script = districts/convert_to/tec_housing_districts
 
 	resources = {
 		category = planet_districts_cities
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -39,45 +39,45 @@ district_flusion_city = {
 		planet_orbital_bombardment_damage = -0.05
 	}
 	inline_script = {
-		script = modifiers/inline_evolved_amenities
+		script = modifiers/tec_amenities
 		count = 28
 		trigger = ""
 	}
 	inline_script = {
-		script = districts/type/inline_evolved_housing_generic
+		script = districts/type/tec_housing_generic
 		scale = 3
 		trigger = ""
 	}
 	inline_script = {
-		script = districts/type/inline_evolved_housing_arcology
+		script = districts/type/tec_housing_arcology
 		scale = 3
 		trigger = ""
 	}
 
 	# Jobs
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		count = 4
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_soldier
+		script = jobs/tec_soldier
 		count = 1
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		count = 4
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_warrior_drone
+		script = jobs/tec_warrior_drone
 		count = 1
 		mult = 1
 		display = with_desc
@@ -109,27 +109,27 @@ district_flusion_heavy_industry = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_industrial_districts
+	inline_script = districts/convert_to/tec_industrial_districts
 
 	resources = {
 		category = planet_districts_industrial
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
 			cost = 720
 			upkeep = 4
 		}
-		inline_script = districts/resources/inline_evolved_industrial_maintenance_upkeep
-		inline_script = districts/resources/inline_evolved_tec_unleashed_industrialization_resources
+		inline_script = districts/resources/tec_industrial_maintenance_upkeep
+		inline_script = districts/resources/tec_unleashed_industrialization_resources
 	}
 	planet_modifier = {
 		pop_environment_tolerance = -0.025
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_foundry
+		script = jobs/tec_foundry
 		count = 4
 		mult = 1
 		trigger = ""
@@ -137,7 +137,7 @@ district_flusion_heavy_industry = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_technician
+		script = jobs/tec_technician
 		regular_count = 4
 		regular_secondary_count = 4
 		hive_count = 4
@@ -149,7 +149,7 @@ district_flusion_heavy_industry = {
 		display = with_desc
 	}
 
-	inline_script = districts/effects/inline_evolved_industrial_maintenance
+	inline_script = districts/effects/tec_industrial_maintenance
 }
 
 #Science + Rare resources
@@ -174,12 +174,12 @@ district_flusion_science = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_mining_districts
+	inline_script = districts/convert_to/tec_mining_districts
 
 	resources = {
 		category = planet_districts_industrial
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -189,7 +189,7 @@ district_flusion_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = 7
 		count_half = 3
 		mult = 1
@@ -198,7 +198,7 @@ district_flusion_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_researcher_split
+		script = jobs/tec_researcher_split
 		count = -1
 		count_half = 0
 		mult = 1
@@ -209,7 +209,7 @@ district_flusion_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_head_researcher
+		script = jobs/tec_head_researcher
 		count = 1
 		mult = 1
 		trigger = "
@@ -220,7 +220,7 @@ district_flusion_science = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_chemist
+		script = jobs/tec_chemist
 		count = 1
 		mult = 1
 		trigger = ""
@@ -251,12 +251,12 @@ district_flusion_mining = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_mining_districts
+	inline_script = districts/convert_to/tec_mining_districts
 
 	resources = {
 		category = planet_districts_industrial
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -269,7 +269,7 @@ district_flusion_mining = {
 		pop_environment_tolerance = -0.025
 	}
 	inline_script = {
-		script = jobs/inline_evolved_miner
+		script = jobs/tec_miner
 		regular_count = 6
 		regular_secondary_count = 6
 		hive_count = 6
@@ -281,14 +281,14 @@ district_flusion_mining = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_crystal_miner
+		script = jobs/tec_crystal_miner
 		count = 1
 		mult = 1
 		trigger = ""
 		display = with_desc
 	}
 	inline_script = {
-		script = jobs/inline_evolved_gas_extractor
+		script = jobs/tec_gas_extractor
 		count = 1
 		mult = 1
 		trigger = ""
@@ -319,11 +319,11 @@ district_flusion_farming = {
 		}
 	}
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_farming_districts
+	inline_script = districts/convert_to/tec_farming_districts
 	resources = {
 		category = planet_districts_industrial
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -335,7 +335,7 @@ district_flusion_farming = {
 		pop_environment_tolerance = 0.075
 	}
 	inline_script = {
-		script = jobs/inline_evolved_farmer
+		script = jobs/tec_farmer
 		regular_count = 6
 		regular_secondary_count = 4
 		hive_count = 6
@@ -348,7 +348,7 @@ district_flusion_farming = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_farmer_secondary
+		script = jobs/tec_farmer_secondary
 		regular_count = 2
 		hive_count = 2
 		machine_count = 2
@@ -357,7 +357,7 @@ district_flusion_farming = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_admin_split
+		script = jobs/tec_admin_split
 		count = 2
 		count_half = 1
 		megacorp_count = 1
@@ -367,14 +367,14 @@ district_flusion_farming = {
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		count = 2
 		mult = 1
 		display = with_desc
 		trigger = ""
 	}
 	inline_script = {
-		script = jobs/inline_evolved_coordinator
+		script = jobs/tec_coordinator
 		count = 2
 		mult = 1
 		display = with_desc
@@ -387,7 +387,7 @@ district_flusion_farming = {
 		"
 	}
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bio_trophy
 		count = 5
 		mult = 1

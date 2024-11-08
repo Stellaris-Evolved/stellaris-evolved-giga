@@ -5,7 +5,7 @@ building_giga_megaworkshop = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 2
 		}
 	}
@@ -42,7 +42,7 @@ building_giga_megaworkshop = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_giga_megaengineer
+		script = jobs/tec_giga_megaengineer
 		count = 2
 		mult = 1
 		trigger = ""
@@ -65,7 +65,7 @@ building_giga_megaworkshop_hub = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 	}
@@ -108,7 +108,7 @@ building_giga_megaworkshop_hub = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_giga_megaengineer_overseer
+		script = jobs/tec_giga_megaengineer_overseer
 		count = 2
 		mult = 1
 		trigger = ""
@@ -135,7 +135,7 @@ building_giga_supertensiles_mines = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 4
 		}
 		upkeep = {
@@ -165,7 +165,7 @@ building_giga_supertensiles_mines = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_giga_supertensiles_extractor
+		script = jobs/tec_giga_supertensiles_extractor
 		count = 1
 		mult = modifier:building_giga_supertensiles_mines_max
 		trigger = ""
@@ -182,7 +182,7 @@ building_giga_supertensiles_mines = {
 	}
 
 	inline_script = {
-		script = buildings/inline_evolved_aibait
+		script = buildings/tec_aibait
 		trigger = ""
 	}
 }
@@ -229,16 +229,16 @@ building_giga_living_metal_infusion_plant = {
 	resources = {
 		category = planet_buildings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 3
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_rare_resource_cost
+			script = buildings/resources/tec_rare_resource_cost
 			tier = 2
 			rare = sr_living_metal
 		}
 		inline_script = {
-			script = buildings/resources/inline_evolved_ring_production_cost
+			script = buildings/resources/tec_ring_production_cost
 			rare = sr_living_metal
 			type = menial
 		}
@@ -279,7 +279,7 @@ building_giga_living_metal_infusion_plant = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_giga_megaengineer
+		script = jobs/tec_giga_megaengineer
 		count = 1
 		mult = 1
 		trigger = ""
@@ -327,13 +327,13 @@ holding_giga_megaworkshop = {
 	resources = {
 		category = planet_holdings
 		inline_script = {
-			script = buildings/resources/inline_evolved_resource_cost
+			script = buildings/resources/tec_resource_cost
 			tier = 1
 		}
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_giga_megaengineer_overseer
+		script = jobs/tec_giga_megaengineer_overseer
 		count = 1
 		mult = 1
 		trigger = ""

@@ -46,13 +46,13 @@ district_giga_planet_generator = {
 	}
 
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_generator_districts
-	inline_script = districts/convert_to/inline_evolved_trade_districts
+	inline_script = districts/convert_to/tec_generator_districts
+	inline_script = districts/convert_to/tec_trade_districts
 
 	resources = {
 		category = planet_districts_generator
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -61,7 +61,13 @@ district_giga_planet_generator = {
 		}
 	}
 
-	inline_script = districts/type/inline_evolved_rural_generator
+	inline_script = {
+		script = districts/type/tec_rural_generator
+		default_job = technician
+		default_job_secondary = no
+		jobs_base = 2
+		housing_base = 2
+	}
 }
 
 ###########################################################################################################################################
@@ -109,12 +115,12 @@ district_giga_planet_mining = {
 	}
 
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_mining_districts
+	inline_script = districts/convert_to/tec_mining_districts
 
 	resources = {
 		category = planet_districts_mining
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -123,17 +129,23 @@ district_giga_planet_mining = {
 		}
 	}
 
-	inline_script = districts/type/inline_evolved_rural_mining
+	inline_script = {
+		script = districts/type/tec_rural_mining
+		default_job = miner
+		default_job_secondary = no
+		jobs_base = 2
+		housing_base = 2
+	}
 }
 
 ###########################################################################################################################################
 
 # Redirect to evolved uncapped
 district_giga_planet_mining_uncapped = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_mining_districts
+	inline_script = districts/convert_to/tec_mining_districts
 }
 
 ###########################################################################################################################################
@@ -182,12 +194,12 @@ district_giga_planet_farming = {
 	}
 
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_farming_districts
+	inline_script = districts/convert_to/tec_farming_districts
 
 	resources = {
 		category = planet_districts_farming
 		inline_script = {
-			script = districts/resources/inline_evolved_district_resource_cost
+			script = districts/resources/tec_district_resource_cost
 			upkeep_trigger = "
 				always = yes
 			"
@@ -196,15 +208,21 @@ district_giga_planet_farming = {
 		}
 	}
 
-	inline_script = districts/type/inline_evolved_rural_farming
+	inline_script = {
+		script = districts/type/tec_rural_farming
+		default_job = farmer
+		default_job_secondary = no
+		jobs_base = 2
+		housing_base = 2
+	}
 }
 
 ###########################################################################################################################################
 
 # Redirect to evolved uncapped
 district_giga_planet_farming_uncapped = {
-	inline_script = districts/inline_evolved_disabled
+	inline_script = districts/tec_disabled
 	is_capped_by_modifier = no
 	conversion_ratio = 1
-	inline_script = districts/convert_to/inline_evolved_farming_districts
+	inline_script = districts/convert_to/tec_farming_districts
 }

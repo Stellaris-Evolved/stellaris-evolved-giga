@@ -14,7 +14,7 @@ giga_interstellar_researcher = {
 		upkeep = { consumer_goods = 3 }
 
 		inline_script = {
-			script = jobs/resources/inline_evolved_science_requisition_resources
+			script = jobs/resources/tec_science_requisition_resources
 			consumer_goods = 1
 			energy = 0
 			mult = 1
@@ -24,13 +24,13 @@ giga_interstellar_researcher = {
 	overlord_resources = {
 		category = planet_requisitioned_research
 		inline_script = {
-			script = jobs/resources/inline_evolved_science_requisition_overlord_resources
+			script = jobs/resources/tec_science_requisition_overlord_resources
 			research = 2
 			mult = 1
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_researcher_effect
+	inline_script = jobs/effects/type/tec_researcher_effect
 
 
 	weight = {
@@ -58,11 +58,11 @@ giga_interstellar_researcher_drone = {
 		produces = { society_research = 3 }
 		produces = { engineering_research = 5 }
 		inline_script = {
-			script = jobs/resources/inline_evolved_researcher_gestalt_upkeep
+			script = jobs/resources/tec_researcher_gestalt_upkeep
 			mult = 1
 		}
 		inline_script = {
-			script = jobs/resources/inline_evolved_science_requisition_resources
+			script = jobs/resources/tec_science_requisition_resources
 			consumer_goods = 0
 			energy = 3
 			mult = 1
@@ -72,14 +72,14 @@ giga_interstellar_researcher_drone = {
 	overlord_resources = {
 		category = planet_requisitioned_research
 		inline_script = {
-			script = jobs/resources/inline_evolved_science_requisition_overlord_resources
+			script = jobs/resources/tec_science_requisition_overlord_resources
 			research = 2
 			mult = 1
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_brain_drone_effect
-	inline_script = jobs/effects/type/inline_evolved_calculator_effect
+	inline_script = jobs/effects/type/tec_brain_drone_effect
+	inline_script = jobs/effects/type/tec_calculator_effect
 
 	weight = {
 		weight = value:giga_researcher_drone_weight|JOB|giga_interstellar_researcher_drone|
@@ -106,7 +106,7 @@ giga_interstellar_scavenger = {
 		}
 		upkeep = { consumer_goods = 2 }
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_resources
+			script = jobs/resources/tec_material_miner_requisition_resources
 			minerals = @requisitorium_minerals_reduction
 			mult = 1
 		}
@@ -115,14 +115,14 @@ giga_interstellar_scavenger = {
 	overlord_resources = {
 		category = planet_requisitioned_minerals
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_overlord_resources
+			script = jobs/resources/tec_material_miner_requisition_overlord_resources
 			minerals = @requisitorium_minerals_overlord
 			mult = 1
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_researcher_effect
-	inline_script = jobs/effects/type/inline_evolved_miner_effect
+	inline_script = jobs/effects/type/tec_researcher_effect
+	inline_script = jobs/effects/type/tec_miner_effect
 
 	weight = {
 		weight = value:giga_specialist_weight|JOB|giga_interstellar_scavenger|RESOURCE|minerals|WEIGHT|0.4|RESOURCE2|engineering_research|WEIGHT2|0.6|INDENTURED|1.2|
@@ -153,11 +153,11 @@ giga_interstellar_scavenger_drone = {
 			multiplier = modifier:planet_miners_minerals_produces_add
 		}
 		inline_script = {
-			script = jobs/resources/inline_evolved_researcher_gestalt_upkeep
+			script = jobs/resources/tec_researcher_gestalt_upkeep
 			mult = 1
 		}
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_resources
+			script = jobs/resources/tec_material_miner_requisition_resources
 			minerals = @requisitorium_minerals_reduction
 			mult = 1
 		}
@@ -166,15 +166,15 @@ giga_interstellar_scavenger_drone = {
 	overlord_resources = {
 		category = planet_requisitioned_research
 		inline_script = {
-			script = jobs/resources/inline_evolved_science_requisition_overlord_resources
+			script = jobs/resources/tec_science_requisition_overlord_resources
 			research = 2
 			mult = 1
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_mining_drone_effect
-	inline_script = jobs/effects/type/inline_evolved_brain_drone_effect
-	inline_script = jobs/effects/type/inline_evolved_calculator_effect
+	inline_script = jobs/effects/type/tec_mining_drone_effect
+	inline_script = jobs/effects/type/tec_brain_drone_effect
+	inline_script = jobs/effects/type/tec_calculator_effect
 
 	weight = {
 		weight = value:giga_complex_drone_weight|JOB|giga_interstellar_scavenger_drone|RESOURCE|minerals|WEIGHT|0.4|RESOURCE2|engineering_research|WEIGHT2|0.6|
@@ -444,7 +444,7 @@ matter_synthesizer = {
 		}
 
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_resources
+			script = jobs/resources/tec_material_miner_requisition_resources
 			minerals = @requisitorium_minerals_reduction
 			mult = 1
 		}
@@ -453,13 +453,13 @@ matter_synthesizer = {
 	overlord_resources = {
 		category = planet_requisitioned_minerals
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_overlord_resources
+			script = jobs/resources/tec_material_miner_requisition_overlord_resources
 			minerals = @requisitorium_minerals_overlord
 			mult = 1
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_miner_effect
+	inline_script = jobs/effects/type/tec_miner_effect
 
 	weight = {
 		weight = value:giga_worker_weight|JOB|matter_synthesizer|RESOURCE|minerals|
@@ -482,7 +482,7 @@ matter_synthesizer_drone = {
 			energy = 2
 		}
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_resources
+			script = jobs/resources/tec_material_miner_requisition_resources
 			minerals = @requisitorium_minerals_reduction
 			mult = 1
 		}
@@ -491,13 +491,13 @@ matter_synthesizer_drone = {
 	overlord_resources = {
 		category = planet_requisitioned_minerals
 		inline_script = {
-			script = jobs/resources/inline_evolved_material_miner_requisition_overlord_resources
+			script = jobs/resources/tec_material_miner_requisition_overlord_resources
 			minerals = @requisitorium_minerals_overlord
 			mult = 1
 		}
 	}
 
-	inline_script = jobs/effects/type/inline_evolved_mining_drone_effect
+	inline_script = jobs/effects/type/tec_mining_drone_effect
 
 	weight = {
 		weight = value:giga_menial_drone_weight|JOB|matter_synthesizer_drone|RESOURCE|minerals|
@@ -589,7 +589,10 @@ giga_iodizium_miner = {
 	resources = {
 		category = planet_sr_miners
 		produces = {
-			sr_iodizium = 2
+			sr_iodizium = 1
+		}
+		upkeep = {
+			consumer_goods = 2
 		}
 	}
 
@@ -619,10 +622,10 @@ giga_iodizium_mining_drone = {
 	resources = {
 		category = planet_sr_miners
 		produces = {
-			sr_iodizium = 2
+			sr_iodizium = 1
 		}
 		upkeep = {
-			energy = 1
+			energy = 4
 		}
 	}
 
@@ -667,8 +670,8 @@ giga_elysium_controller = {
 		giga_elysium_host_jobs_produces_mult = 0.05
 	}
 
-	inline_script = jobs/effects/inline_evolved_civic_tec_regular_social_prosperity
-	inline_script = jobs/effects/type/inline_evolved_administrator_effect
+	inline_script = jobs/effects/tec_civic_tec_regular_social_prosperity
+	inline_script = jobs/effects/type/tec_administrator_effect
 	
 	weight = {
 		weight = value:giga_ruler_no_resource_weight|JOB|giga_elysium_controller|

@@ -41,7 +41,7 @@ building_giga_elysium_host_capital = {
 			energy = 2
 		}
 
-		inline_script = capitals/resources/inline_evolved_synth_assembly_upkeep
+		inline_script = capitals/resources/tec_synth_assembly_upkeep
 	}
 
 	######################################################
@@ -55,7 +55,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 2
 		mult = 1
 		display = with_desc
@@ -63,7 +63,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -71,7 +71,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		count = 1
 		mult = 1
 		display = no_desc
@@ -83,7 +83,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = telepath
 		count = 1
 		mult = 1
@@ -96,11 +96,11 @@ building_giga_elysium_host_capital = {
 	}
 
 	# Modifiers
-		inline_script = buildings/effects/inline_evolved_imperious_architecture
+		inline_script = buildings/effects/tec_imperious_architecture
 
 		# Synth finish
 			inline_script = {
-				script = modifiers/inline_evolved_assembly_robotic
+				script = modifiers/tec_assembly_robotic
 				mult = 2
 				trigger = "
 					owner = { has_active_tradition = tr_synthetics_finish }
@@ -110,19 +110,19 @@ building_giga_elysium_host_capital = {
 
 		# Versatility housing
 			inline_script = {
-				script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+				script = capitals/effects/tec_tr_versatility_spatial_optimization
 				tier = 2
 			}
 		# /
 
 		# Outreach t3
-			inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+			inline_script = capitals/effects/tec_tr_tec_outreach_3
 		# /
 	# / 
 
 	# Other extra add / 1 per tier - 1
 		inline_script = {
-			script = jobs/capital/inline_evolved_add_job_civic_regular
+			script = jobs/capital/tec_add_job_civic_regular
 			trigger = ""
 			display = with_desc
 			count = @tec_capital_add_normal_jobs_t2
@@ -131,7 +131,7 @@ building_giga_elysium_host_capital = {
 	# /
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_fed_culture_workers_1
+		script = capitals/effects/tec_fed_culture_workers_1
 		tier = 2
 	}
 	
@@ -139,7 +139,7 @@ building_giga_elysium_host_capital = {
 	# Necrophage
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = 1
@@ -155,7 +155,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = 1
@@ -172,7 +172,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = 1
@@ -192,7 +192,7 @@ building_giga_elysium_host_capital = {
 	# Assembly
 
 	inline_script = {
-		script = jobs/inline_evolved_roboticist
+		script = jobs/tec_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -222,7 +222,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_roboticist
+		script = jobs/tec_master_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -239,12 +239,12 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = buildings/effects/inline_evolved_corporate_robocorp
+		script = buildings/effects/tec_corporate_robocorp
 		tier = 1
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bioengineer
+		script = jobs/tec_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -274,7 +274,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_bioengineer
+		script = jobs/tec_master_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -291,7 +291,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_cloner
+		script = jobs/tec_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -324,7 +324,7 @@ building_giga_elysium_host_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_cloner
+		script = jobs/tec_master_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -342,7 +342,7 @@ building_giga_elysium_host_capital = {
 	# Mortal Initiates
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = mortal_initiate
 		count = 1
 		mult = giga_elysium_admin
@@ -360,7 +360,7 @@ building_giga_elysium_host_capital = {
 	# Permanent Employment
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = reassigner
 		count = 1
 		mult = 1
@@ -377,7 +377,7 @@ building_giga_elysium_host_capital = {
 	# Toxic Spas
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bath_attendant
 		count = 2
 		mult = 1
@@ -416,7 +416,7 @@ building_giga_elysium_host_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_productivity
+		script = capitals/effects/tec_productivity
 		tier = 2
 	}
 
@@ -511,7 +511,7 @@ building_giga_elysium_host_major_capital = {
 			energy = 4
 		}
 
-		inline_script = capitals/resources/inline_evolved_synth_assembly_upkeep
+		inline_script = capitals/resources/tec_synth_assembly_upkeep
 	}
 
 	######################################################
@@ -525,7 +525,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_clerk
+		script = jobs/tec_clerk
 		count = 4
 		mult = 1
 		display = with_desc
@@ -533,7 +533,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		count = 2
 		mult = 1
 		display = with_desc
@@ -541,7 +541,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_enforcer
+		script = jobs/tec_enforcer
 		count = 2
 		mult = 1
 		display = no_desc
@@ -553,7 +553,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = telepath
 		count = 2
 		mult = 1
@@ -566,11 +566,11 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	# Modifiers
-		inline_script = buildings/effects/inline_evolved_imperious_architecture
+		inline_script = buildings/effects/tec_imperious_architecture
 
 		# Synth finish
 			inline_script = {
-				script = modifiers/inline_evolved_assembly_robotic
+				script = modifiers/tec_assembly_robotic
 				mult = 2
 				trigger = "
 					owner = { has_active_tradition = tr_synthetics_finish }
@@ -580,18 +580,18 @@ building_giga_elysium_host_major_capital = {
 
 	# Versatility housing
 		inline_script = {
-			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			script = capitals/effects/tec_tr_versatility_spatial_optimization
 			tier = 3
 		}
 	# /
 
 	# Outreach t3
-		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+		inline_script = capitals/effects/tec_tr_tec_outreach_3
 	# /
 
 	# Other extra add / 1 per tier - 1
 		inline_script = {
-			script = jobs/capital/inline_evolved_add_job_civic_regular
+			script = jobs/capital/tec_add_job_civic_regular
 			trigger = ""
 			display = with_desc
 			count = @tec_capital_add_normal_jobs_t3
@@ -600,7 +600,7 @@ building_giga_elysium_host_major_capital = {
 	# /
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_fed_culture_workers_1
+		script = capitals/effects/tec_fed_culture_workers_1
 		tier = 3
 	}
 
@@ -608,7 +608,7 @@ building_giga_elysium_host_major_capital = {
 	# Necrophage
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = value:giga_elysium_necrophytes
@@ -627,7 +627,7 @@ building_giga_elysium_host_major_capital = {
 	# Assembly
 
 	inline_script = {
-		script = jobs/inline_evolved_roboticist
+		script = jobs/tec_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -658,7 +658,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_roboticist
+		script = jobs/tec_master_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -675,12 +675,12 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = buildings/effects/inline_evolved_corporate_robocorp
+		script = buildings/effects/tec_corporate_robocorp
 		tier = 1
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bioengineer
+		script = jobs/tec_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -711,7 +711,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_bioengineer
+		script = jobs/tec_master_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -728,7 +728,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_cloner
+		script = jobs/tec_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -762,7 +762,7 @@ building_giga_elysium_host_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_cloner
+		script = jobs/tec_master_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -821,7 +821,7 @@ building_giga_elysium_host_major_capital = {
 	# Mortal Initiates
 	
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = mortal_initiate
 		count = 1
 		mult = giga_elysium_admin
@@ -839,7 +839,7 @@ building_giga_elysium_host_major_capital = {
 	# Permanent Employment
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = reassigner
 		count = 1
 		mult = 1
@@ -856,7 +856,7 @@ building_giga_elysium_host_major_capital = {
 	# Toxic Spas
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bath_attendant
 		count = 2
 		mult = 1
@@ -895,7 +895,7 @@ building_giga_elysium_host_major_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_productivity
+		script = capitals/effects/tec_productivity
 		tier = 3
 	}
 
@@ -976,7 +976,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		trigger = ""
 		count = 2
 		mult = 1
@@ -986,7 +986,7 @@ building_giga_elysium_host_hive_capital = {
 	# Maintainance
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger = "
 			owner = {
 				tec_has_maintenance_drone_swap_civic_hive = no
@@ -998,7 +998,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_civic_hive_swaps
+		script = jobs/tec_maintenance_civic_hive_swaps
 		trigger= ""
 		count = 1
 		mult = 1
@@ -1007,7 +1007,7 @@ building_giga_elysium_host_hive_capital = {
 	# Synapse 
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		trigger = "
 			owner = {
 				tec_has_ruler_civic_hive = no
@@ -1019,7 +1019,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			exists = owner
 			owner = { 
@@ -1033,7 +1033,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse_civic_swaps
+		script = jobs/tec_synapse_civic_swaps
 		trigger= ""
 		count = 1
 		mult = 1
@@ -1042,7 +1042,7 @@ building_giga_elysium_host_hive_capital = {
 
 	# Job per tier
 		inline_script = {
-			script = jobs/inline_evolved_add_job_civic_hive
+			script = jobs/tec_add_job_civic_hive
 			trigger= ""
 			count = @tec_capital_add_normal_jobs_t2
 			mult = 1
@@ -1053,13 +1053,13 @@ building_giga_elysium_host_hive_capital = {
 	# Modifiers
 		# Versatility housing
 			inline_script = {
-				script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+				script = capitals/effects/tec_tr_versatility_spatial_optimization
 				tier = 2
 			}
 		# /
 
 		# Outreach t3
-			inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+			inline_script = capitals/effects/tec_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -1067,7 +1067,7 @@ building_giga_elysium_host_hive_capital = {
 	# Spawning
 	
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = offspring_drone
 		trigger = "
 			exists = owner
@@ -1085,7 +1085,7 @@ building_giga_elysium_host_hive_capital = {
 	# Assembly
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = spawning_drone
 		count = 1
 		mult = 1
@@ -1107,7 +1107,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_roboticist
+		script = jobs/tec_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1138,7 +1138,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_roboticist
+		script = jobs/tec_master_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1155,7 +1155,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bioengineer
+		script = jobs/tec_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1186,7 +1186,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_bioengineer
+		script = jobs/tec_master_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1203,7 +1203,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_cloner
+		script = jobs/tec_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1237,7 +1237,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_cloner
+		script = jobs/tec_master_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1255,7 +1255,7 @@ building_giga_elysium_host_hive_capital = {
 	# Necrophage
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = 1
@@ -1271,7 +1271,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = 1
@@ -1288,7 +1288,7 @@ building_giga_elysium_host_hive_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = 1
@@ -1309,7 +1309,7 @@ building_giga_elysium_host_hive_capital = {
 	# Toxic Spas
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bath_attendant_hive
 		count = 2
 		mult = 1
@@ -1348,7 +1348,7 @@ building_giga_elysium_host_hive_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_productivity
+		script = capitals/effects/tec_productivity
 		tier = 2
 	}
 
@@ -1450,7 +1450,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		trigger = ""
 		count = 4
 		mult = 1
@@ -1460,7 +1460,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Maintainance
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger = "
 			owner = {
 				tec_has_maintenance_drone_swap_civic_hive = no
@@ -1472,7 +1472,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_civic_hive_swaps
+		script = jobs/tec_maintenance_civic_hive_swaps
 		trigger= ""
 		count = 2
 		mult = 1
@@ -1482,7 +1482,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Synapse 
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse
+		script = jobs/tec_synapse
 		trigger = "
 			owner = {
 				tec_has_ruler_civic_hive = no
@@ -1494,7 +1494,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			exists = owner
 			owner = { 
@@ -1508,7 +1508,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_synapse_civic_swaps
+		script = jobs/tec_synapse_civic_swaps
 		trigger= ""
 		count = 2
 		mult = 1
@@ -1517,7 +1517,7 @@ building_giga_elysium_host_hive_major_capital = {
 
 	# Job per tier
 		inline_script = {
-			script = jobs/inline_evolved_add_job_civic_hive
+			script = jobs/tec_add_job_civic_hive
 			trigger= ""
 			count = @tec_capital_add_normal_jobs_t3
 			mult = 1
@@ -1528,13 +1528,13 @@ building_giga_elysium_host_hive_major_capital = {
 	# Modifiers
 		# Versatility housing
 		inline_script = {
-			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			script = capitals/effects/tec_tr_versatility_spatial_optimization
 			tier = 3
 		}
 		# /
 
 		# Outreach t3
-		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+		inline_script = capitals/effects/tec_tr_tec_outreach_3
 		# /
 	# / 
 
@@ -1542,7 +1542,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Spawning
 	
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = offspring_drone
 		trigger = "
 			exists = owner
@@ -1560,7 +1560,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Assembly
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = spawning_drone
 		count = 1
 		mult = 1
@@ -1582,7 +1582,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_roboticist
+		script = jobs/tec_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1613,7 +1613,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_roboticist
+		script = jobs/tec_master_roboticist
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1630,7 +1630,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_bioengineer
+		script = jobs/tec_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1661,7 +1661,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_bioengineer
+		script = jobs/tec_master_bioengineer
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1678,7 +1678,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_cloner
+		script = jobs/tec_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1712,7 +1712,7 @@ building_giga_elysium_host_hive_major_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_master_cloner
+		script = jobs/tec_master_cloner
 		count = 1
 		mult = 1
 		display = with_desc
@@ -1730,7 +1730,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Necrophage
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = necro_apprentice
 		count = 1
 		mult = value:giga_elysium_necrophytes
@@ -1749,7 +1749,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Toxic Spas
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bath_attendant_hive
 		count = 2
 		mult = 1
@@ -1788,7 +1788,7 @@ building_giga_elysium_host_hive_major_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_productivity
+		script = capitals/effects/tec_productivity
 		tier = 3
 	}
 
@@ -1868,12 +1868,12 @@ building_giga_elysium_host_machine_capital = {
 	}
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_machine_assembly	
+		script = capitals/effects/tec_machine_assembly	
 		tier = 2
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		trigger = ""
 		count = 2
 		mult = 1
@@ -1882,7 +1882,7 @@ building_giga_elysium_host_machine_capital = {
 
 	# maintenance 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger = "
 			owner = {
 				tec_has_maintenance_drone_swap_civic_machine = no
@@ -1894,7 +1894,7 @@ building_giga_elysium_host_machine_capital = {
 	}
 
 	# inline_script = {
-	# 	script = jobs/inline_evolved_maintenance_civic_machine_swaps
+	# 	script = jobs/tec_maintenance_civic_machine_swaps
 	# 	trigger= ""
 	# 	count = 1
 	# 	mult = 1
@@ -1904,19 +1904,19 @@ building_giga_elysium_host_machine_capital = {
 	# Modifiers
 		# Versatility housing
 		inline_script = {
-			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			script = capitals/effects/tec_tr_versatility_spatial_optimization
 			tier = 2
 		}
 		# /
 
 		# Outreach t3
-		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+		inline_script = capitals/effects/tec_tr_tec_outreach_3
 		# /
 	# / 
 
 	# Job per tier
 		inline_script = {
-			script = jobs/capital/inline_evolved_add_job_civic_machine
+			script = jobs/capital/tec_add_job_civic_machine
 			trigger = ""
 			count = @tec_capital_add_normal_jobs_t2
 			mult = 1
@@ -1928,7 +1928,7 @@ building_giga_elysium_host_machine_capital = {
 	# Crucible world
 
 	inline_script = { # Crucible Drones
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			has_designation = col_crucible
 		"
@@ -1942,7 +1942,7 @@ building_giga_elysium_host_machine_capital = {
 	# Assembly
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = ""
 		job = replicator
 		count = 1
@@ -1951,7 +1951,7 @@ building_giga_elysium_host_machine_capital = {
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			not = { has_designation = col_crucible }
 			exists = owner
@@ -1970,7 +1970,7 @@ building_giga_elysium_host_machine_capital = {
 	# Synth finisher
 
 	inline_script = {
-		script = modifiers/inline_evolved_assembly_robotic
+		script = modifiers/tec_assembly_robotic
 		mult = 1
 		trigger = "
 			owner = { has_active_tradition = tr_synthetics_finish_machine }
@@ -1981,7 +1981,7 @@ building_giga_elysium_host_machine_capital = {
 	# Toxic Spas
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bath_attendant_machine
 		count = 2
 		mult = 1
@@ -2020,7 +2020,7 @@ building_giga_elysium_host_machine_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_productivity
+		script = capitals/effects/tec_productivity
 		tier = 2
 	}
 
@@ -2100,12 +2100,12 @@ building_giga_elysium_host_machine_major_capital = {
 	}
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_machine_assembly	
+		script = capitals/effects/tec_machine_assembly	
 		tier = 3
 	}
 
 	inline_script = {
-		script = jobs/inline_evolved_patrol_drone
+		script = jobs/tec_patrol_drone
 		trigger = ""
 		count = 4
 		mult = 1
@@ -2114,7 +2114,7 @@ building_giga_elysium_host_machine_major_capital = {
 
 	# maintenance 
 	inline_script = {
-		script = jobs/inline_evolved_maintenance_drone
+		script = jobs/tec_maintenance_drone
 		trigger = "
 			owner = {
 				tec_has_maintenance_drone_swap_civic_machine = no
@@ -2126,7 +2126,7 @@ building_giga_elysium_host_machine_major_capital = {
 	}
 
 	# inline_script = {
-	# 	script = jobs/inline_evolved_maintenance_civic_machine_swaps
+	# 	script = jobs/tec_maintenance_civic_machine_swaps
 	# 	trigger= ""
 	# 	count = 2
 	# 	mult = 1
@@ -2136,19 +2136,19 @@ building_giga_elysium_host_machine_major_capital = {
 	# Modifiers
 		# Versatility housing
 		inline_script = {
-			script = capitals/effects/inline_evolved_tr_versatility_spatial_optimization
+			script = capitals/effects/tec_tr_versatility_spatial_optimization
 			tier = 3
 		}
 		# /
 
 		# Outreach t3
-		inline_script = capitals/effects/inline_evolved_tr_tec_outreach_3
+		inline_script = capitals/effects/tec_tr_tec_outreach_3
 		# /
 	# / 
 
 	# Job per tier
 		inline_script = {
-			script = jobs/capital/inline_evolved_add_job_civic_machine
+			script = jobs/capital/tec_add_job_civic_machine
 			trigger= ""
 			count = @tec_capital_add_normal_jobs_t3
 			mult = 1
@@ -2160,7 +2160,7 @@ building_giga_elysium_host_machine_major_capital = {
 	# Crucible world
 
 	inline_script = { # Crucible Drones
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			has_designation = col_crucible
 		"
@@ -2174,7 +2174,7 @@ building_giga_elysium_host_machine_major_capital = {
 	# Assembly
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = ""
 		job = replicator
 		count = 1
@@ -2183,7 +2183,7 @@ building_giga_elysium_host_machine_major_capital = {
 	}
 	
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		trigger = "
 			not = { has_designation = col_crucible }
 			exists = owner
@@ -2201,7 +2201,7 @@ building_giga_elysium_host_machine_major_capital = {
 	# Synth finisher
 
 	inline_script = {
-		script = modifiers/inline_evolved_assembly_robotic
+		script = modifiers/tec_assembly_robotic
 		mult = 1
 		trigger = "
 			owner = { has_active_tradition = tr_synthetics_finish_machine }
@@ -2212,7 +2212,7 @@ building_giga_elysium_host_machine_major_capital = {
 	# Toxic Spas
 
 	inline_script = {
-		script = jobs/inline_evolved_job
+		script = jobs/tec_job
 		job = bath_attendant_machine
 		count = 2
 		mult = 1
@@ -2251,7 +2251,7 @@ building_giga_elysium_host_machine_major_capital = {
 	# Productivity
 
 	inline_script = {
-		script = capitals/effects/inline_evolved_productivity
+		script = capitals/effects/tec_productivity
 		tier = 3
 	}
 }
